@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{74132896-5C20-40BE-B7D2-4CE93B2FBC7F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ES.Shared.Services.Tests</RootNamespace>
+    <AssemblyName>ES.Shared.Services.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\References\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SS.Framework.AopInterceptor">
+      <HintPath>..\References\SS.Framework.AopInterceptor.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.1.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication\AuthenticationTest.cs" />
+    <Compile Include="Configuration\BaseTest.cs" />
+    <Compile Include="Configuration\ControllerFactory.cs" />
+    <Compile Include="Configuration\IInterfaceFactory.cs" />
+    <Compile Include="Configuration\InterfaceFactoryConfig.cs" />
+    <Compile Include="Registration\RegistrationTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ES.ExceptionAttributes\ES.ExceptionAttributes.csproj">
+      <Project>{e7292b1d-8369-41c9-941f-590fbdaaa6f3}</Project>
+      <Name>ES.ExceptionAttributes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ES.Services.BusinessLogic.Interface\ES.Services.BusinessLogic.Interface.csproj">
+      <Project>{9d3c5d64-d74b-4ffe-ad2c-98843071db8a}</Project>
+      <Name>ES.Services.BusinessLogic.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ES.Services.BusinessLogic\ES.Services.BusinessLogic.csproj">
+      <Project>{b1a94832-3a79-41aa-b449-678bdad5467c}</Project>
+      <Name>ES.Services.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ES.Services.DataAccess.Interface\ES.Services.DataAccess.Interface.csproj">
+      <Project>{a01ecce5-08da-418b-9adf-55793301d449}</Project>
+      <Name>ES.Services.DataAccess.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ES.Services.DataAccess.Model\ES.Services.DataAccess.Model.csproj">
+      <Project>{6d40e88b-2c44-4353-b58e-d6106d70dbee}</Project>
+      <Name>ES.Services.DataAccess.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ES.Services.DataAccess\ES.Services.DataAccess.csproj">
+      <Project>{be16377e-ed28-4d47-a388-983c2470f78c}</Project>
+      <Name>ES.Services.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ES.Services.DataTransferObjects\ES.Services.DataTransferObjects.csproj">
+      <Project>{da74d5cb-9e4d-4af0-8871-b8dca7409db7}</Project>
+      <Name>ES.Services.DataTransferObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ES.Services.ReportLogic.Interface\ES.Services.ReportLogic.Interface.csproj">
+      <Project>{43e57826-56cf-4f9d-a2b9-d8c4393832aa}</Project>
+      <Name>ES.Services.ReportLogic.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ES.Services.ReportLogic\ES.Services.ReportLogic.csproj">
+      <Project>{75c75e1e-5bb3-48ea-a4ca-6777cd820154}</Project>
+      <Name>ES.Services.ReportLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ES.Shared.Services\ES.Services.Communication.csproj">
+      <Project>{4E861CB6-B72E-4B64-99A8-0FAEB13BBEA6}</Project>
+      <Name>ES.Services.Communication</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
