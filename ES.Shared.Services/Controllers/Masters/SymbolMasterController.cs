@@ -18,7 +18,7 @@ namespace ES.Shared.Services.Controllers.Masters
         // GET api/<controller>/5
         public string Get(int id)
         {
-            return "value1";
+            return "value21";
         }
 
         // POST api/<controller>
