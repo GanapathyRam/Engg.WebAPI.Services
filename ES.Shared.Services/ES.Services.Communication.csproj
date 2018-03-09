@@ -25,6 +25,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -155,6 +156,7 @@
     <Compile Include="Controllers\Masters\OperationMasterController.cs" />
     <Compile Include="Controllers\Masters\ParameterMasterController.cs" />
     <Compile Include="Controllers\Masters\PartMasterController.cs" />
+    <Compile Include="Controllers\Masters\SymbolMasterController.cs" />
     <Compile Include="Controllers\Masters\ToolsMasterController.cs" />
     <Compile Include="Controllers\Masters\VendorMasterController.cs" />
     <Compile Include="Controllers\Registration\RegistrationController.cs" />
