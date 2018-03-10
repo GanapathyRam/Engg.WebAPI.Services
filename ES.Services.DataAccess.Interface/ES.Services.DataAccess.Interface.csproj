@@ -53,6 +53,7 @@
     <Compile Include="Masters\IOperationMasterRepository.cs" />
     <Compile Include="Masters\IParameterMasterRepository.cs" />
     <Compile Include="Masters\IPartMasterRepository.cs" />
+    <Compile Include="Masters\ISymbolMasterRepository.cs" />
     <Compile Include="Masters\IToolsMasterRepository.cs" />
     <Compile Include="Masters\IVendorMasterRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

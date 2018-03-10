@@ -133,6 +133,17 @@ namespace ES.Shared.Services
                 x.For<IBusinessParameterMaster>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
             });
 
+            
+                 ObjectFactory.Configure(x =>
+                 {
+                     x.For<IReportSymbolMaster>().Use<ReportSymbolMaster>();
+                    // x.For<IBusinessSymbolMaster>().Use<BusinessSymbolMaster>();
+                     x.For<ISymbolMasterRepository>().Use<SymbolMasterRepository>();
+                     var proxyGenerator = new ProxyGenerator();
+                     var transactionInterceptor = new TransactionInterceptor();
+                     x.For<IBusinessSymbolMaster>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
+                 });
+
             ObjectFactory.Configure(x =>
             {
                 x.For<IReportPartMaster>().Use<ReportPartMaster>();

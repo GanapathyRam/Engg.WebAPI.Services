@@ -61,6 +61,7 @@
     <Compile Include="Masters\ReportParameterMaster.cs" />
     <Compile Include="Masters\ReportJigsMaster.cs" />
     <Compile Include="Masters\ReportPartMaster.cs" />
+    <Compile Include="Masters\ReportSymbolMaster.cs" />
     <Compile Include="Masters\ReportToolsMaster.cs" />
     <Compile Include="Masters\ReportOperationMaster.cs" />
     <Compile Include="Masters\ReportMaterialMaster.cs" />

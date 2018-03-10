@@ -50,6 +50,7 @@
     <Compile Include="Masters\IBusinessMaterialMaster.cs" />
     <Compile Include="Masters\IBusinessOperationMaster.cs" />
     <Compile Include="Masters\IBusinessPartMaster.cs" />
+    <Compile Include="Masters\IBusinessSymbolMaster.cs" />
     <Compile Include="Masters\IBusinessToolsMaster.cs" />
     <Compile Include="Masters\IBusinessVendorMaster.cs" />
     <Compile Include="Masters\IBusinessParameterMaster.cs" />

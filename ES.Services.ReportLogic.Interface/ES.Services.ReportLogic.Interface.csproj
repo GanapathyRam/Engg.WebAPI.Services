@@ -53,6 +53,7 @@
     <Compile Include="Masters\IReportOperationMaster.cs" />
     <Compile Include="Masters\IReportParameterMaster.cs" />
     <Compile Include="Masters\IReportPartMaster.cs" />
+    <Compile Include="Masters\IReportSymbolMaster.cs" />
     <Compile Include="Masters\IReportToolsMaster.cs" />
     <Compile Include="Masters\IReportVendorMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

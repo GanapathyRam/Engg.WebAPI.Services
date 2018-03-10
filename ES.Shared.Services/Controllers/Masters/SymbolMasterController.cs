@@ -1,39 +1,68 @@
-﻿using System;
+﻿using ES.Services.BusinessLogic.Interface.Masters;
+using ES.Services.DataTransferObjects.Request.Masters;
+using ES.Services.DataTransferObjects.Response;
+using ES.Services.DataTransferObjects.Response.Masters;
+using ES.Services.ReportLogic.Interface.Masters;
+using SS.Framework.Exceptions;
+using StructureMap;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+
 namespace ES.Shared.Services.Controllers.Masters
 {
-    public class SymbolMasterController : ApiController
+    public class SymbolMasterController : ApiController, IReportSymbolMaster
     {
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+        private readonly IReportSymbolMaster rSymbolMasterProvider;
+        public SymbolMasterController()
         {
-            return new string[] { "value1", "value2" };
+           // this.bParameterMasterProvider = ObjectFactory.GetInstance<IBusinessParameterMaster>();
+            this.rSymbolMasterProvider = ObjectFactory.GetInstance<IReportSymbolMaster>();
+        }
+        [HttpPost]
+        public GetSymbolMasterResponseDto GetSymbolMaster()
+        {
+            GetSymbolMasterResponseDto getSymbolMasterResponseDto;
+            try
+            {
+                getSymbolMasterResponseDto = rSymbolMasterProvider.GetSymbolMaster();
+                getSymbolMasterResponseDto.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                getSymbolMasterResponseDto = new GetSymbolMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                getSymbolMasterResponseDto = new GetSymbolMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return getSymbolMasterResponseDto;
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        [HttpPost]
+        public AddSymbolMasterResponseDto AddSymbolMaster()
         {
-            return "value21";
+            AddSymbolMasterResponseDto addSymbolMasterResponseDto;
+
+
+            return addSymbolMasterResponseDto;
         }
 
-        // POST api/<controller>
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
-        }
     }
 }

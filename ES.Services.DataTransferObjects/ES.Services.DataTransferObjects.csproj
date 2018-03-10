@@ -62,6 +62,7 @@
     <Compile Include="Request\Masters\AddOperationMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddParameterMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddPartMasterRequestDto.cs" />
+    <Compile Include="Request\Masters\AddSymbolMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddToolsMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddVendorMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetCategoryMasterRequestDto.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Request\Masters\GetMaterialMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetOperationMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetParameterMasterRequestDto.cs" />
+    <Compile Include="Request\Masters\GetSymbolMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetToolsMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetVendorMasterListRequestDto.cs" />
     <Compile Include="Request\Masters\GetVendorMasterRequestDto.cs" />
@@ -115,6 +117,8 @@
     <Compile Include="Response\Despatch\GetWOMasterForDcResponseDto.cs" />
     <Compile Include="Response\Despatch\GetWOMasterForDcResponseList.cs" />
     <Compile Include="Response\Despatch\AddInvoiceResponseDto.cs" />
+    <Compile Include="Response\Masters\AddSymbolMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\GetSymbolMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddCompanyMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddJigsMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddMachineMasterResponseDto.cs" />
@@ -147,6 +151,7 @@
     <Compile Include="Response\Masters\OperationMaster.cs" />
     <Compile Include="Response\Masters\ParameterMaster.cs" />
     <Compile Include="Response\Masters\PartMaster.cs" />
+    <Compile Include="Response\Masters\SymbolMaster.cs" />
     <Compile Include="Response\Masters\ToolsMaster.cs" />
     <Compile Include="Response\Masters\UpdateInstrumentMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateJigsMasterResponseDto.cs" />

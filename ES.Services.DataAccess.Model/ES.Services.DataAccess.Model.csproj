@@ -62,6 +62,7 @@
     <Compile Include="CommandModel\Masters\AddOperationMasterCM.cs" />
     <Compile Include="CommandModel\Masters\AddParameterMasterCM.cs" />
     <Compile Include="CommandModel\Masters\AddPartMasterCM.cs" />
+    <Compile Include="CommandModel\Masters\AddSymbolMasterCM.cs" />
     <Compile Include="CommandModel\Masters\AddToolsMasterCM.cs" />
     <Compile Include="CommandModel\Masters\AddVendorMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetCategoryMasterCM.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="CommandModel\Masters\GetOperationMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetParameterMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetPartMasterCM.cs" />
+    <Compile Include="CommandModel\Masters\GetSymbolMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetToolsMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetVendorMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetVendorMasterListCM.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="QueryModel\Masters\AddOperationMasterQM.cs" />
     <Compile Include="QueryModel\Masters\AddParameterMasterQM.cs" />
     <Compile Include="QueryModel\Masters\AddPartMasterQM.cs" />
+    <Compile Include="QueryModel\Masters\AddSymbolMasterQM.cs" />
     <Compile Include="QueryModel\Masters\AddToolsMasterQM.cs" />
     <Compile Include="QueryModel\Masters\AddVendorMasterQM.cs" />
     <Compile Include="QueryModel\Masters\CategoryMasterModel.cs" />
@@ -130,6 +133,7 @@
     <Compile Include="QueryModel\Masters\GetOperationMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetParameterMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetPartMasterQM.cs" />
+    <Compile Include="QueryModel\Masters\GetSymbolMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetToolsMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetVendorMasterListQM.cs" />
     <Compile Include="QueryModel\Masters\GetVendorMasterQM.cs" />
@@ -141,6 +145,7 @@
     <Compile Include="QueryModel\Masters\OperationMasterModel.cs" />
     <Compile Include="QueryModel\Masters\ParameterMasterModel.cs" />
     <Compile Include="QueryModel\Masters\PartMasterModel.cs" />
+    <Compile Include="QueryModel\Masters\SymbolMasterModel.cs" />
     <Compile Include="QueryModel\Masters\ToolsMasterModel.cs" />
     <Compile Include="QueryModel\Masters\UpdateInstrumentMasterQM.cs" />
     <Compile Include="QueryModel\Masters\UpdateJigsMasterQM.cs" />
