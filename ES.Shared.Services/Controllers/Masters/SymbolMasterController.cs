@@ -68,8 +68,8 @@ namespace ES.Shared.Services.Controllers.Masters
 
 
 
-            updateSymbolMasterRequestDto.Symbol= addSymbolMasterRequestDto.Symbol = context.Params["Symbol"];
-
+             addSymbolMasterRequestDto.Symbol = context.Params["Symbol"];
+            updateSymbolMasterRequestDto.Symbol = context.Params["Symbol"];
             if (Convert.ToByte(context.Params["isExistingImage"]) == 0) { 
             foreach (string file in context.Files)
             {
@@ -77,9 +77,11 @@ namespace ES.Shared.Services.Controllers.Masters
                 if (fileContent != null && fileContent.ContentLength > 0)
                 {
                     var inputStream = fileContent.InputStream;
-                     updateSymbolMasterRequestDto.Name= addSymbolMasterRequestDto.Name = fileContent.FileName;
-                        updateSymbolMasterRequestDto.ContentType= addSymbolMasterRequestDto.ContentType = fileContent.ContentType;
-                    using (var reader = new System.IO.BinaryReader(inputStream))
+                      addSymbolMasterRequestDto.Name = fileContent.FileName;
+                        updateSymbolMasterRequestDto.Name = fileContent.FileName;
+                         addSymbolMasterRequestDto.ContentType = fileContent.ContentType;
+                        updateSymbolMasterRequestDto.ContentType = fileContent.ContentType;
+                        using (var reader = new System.IO.BinaryReader(inputStream))
                     {
                             updateSymbolMasterRequestDto.Data= addSymbolMasterRequestDto.Data  = reader.ReadBytes(fileContent.ContentLength);
                     }
