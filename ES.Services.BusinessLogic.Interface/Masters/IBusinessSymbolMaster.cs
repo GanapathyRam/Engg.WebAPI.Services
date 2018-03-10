@@ -1,4 +1,5 @@
-﻿using ES.Services.DataTransferObjects.Response.Masters;
+﻿using ES.Services.DataTransferObjects.Request.Masters;
+using ES.Services.DataTransferObjects.Response.Masters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace ES.Services.BusinessLogic.Interface.Masters
 {
    public interface IBusinessSymbolMaster
     {
-        AddSymbolMasterResponseDto AddParameterMaster(AddSymbolMasterResponseDto addSymbolMasterResponseDto);
+        AddSymbolMasterResponseDto AddSymbolMaster(AddSymbolMasterRequestDto addSymbolMasterRequestDto);
+        UpdateSymbolMasterResponseDto UpdateSymbolMaster(UpdateSymbolMasterRequestDto updateSymbolMasterRequestDto);
     }
 }

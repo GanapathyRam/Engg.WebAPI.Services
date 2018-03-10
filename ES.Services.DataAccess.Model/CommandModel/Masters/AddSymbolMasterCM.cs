@@ -15,5 +15,9 @@ namespace ES.Services.DataAccess.Model.CommandModel.Masters
         public string ContentType { get; set; }
 
         public byte[] Data { get; set; }
+
+        public Guid CreatedBy { get; set; }
+
+        public DateTime CreatedDateTime { get; set; }
     }
 }

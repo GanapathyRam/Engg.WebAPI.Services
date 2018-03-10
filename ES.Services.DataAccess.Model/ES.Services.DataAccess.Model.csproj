@@ -93,6 +93,7 @@
     <Compile Include="CommandModel\Sales\UpdateWorkOrderCM.cs" />
     <Compile Include="CommandModel\Sales\WorkOrderCM.cs" />
     <Compile Include="CommandModel\Sales\WorkOrderDetailsCM.cs" />
+    <Compile Include="CommandModel\Masters\UpdateSymbolMasterCM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryModel\Authentication\CustomUserInformationQueryModel.cs" />
     <Compile Include="QueryModel\Despatch\DcTypeModel.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="QueryModel\Masters\UpdateOperationMasterQM.cs" />
     <Compile Include="QueryModel\Masters\UpdateParameterMasterQM.cs" />
     <Compile Include="QueryModel\Masters\UpdatePartMasterQM.cs" />
+    <Compile Include="QueryModel\Masters\UpdateSymbolMasterQM.cs" />
     <Compile Include="QueryModel\Masters\UpdateToolsMasterQM.cs" />
     <Compile Include="QueryModel\Masters\UpdateVendorMasterQM.cs" />
     <Compile Include="QueryModel\Masters\VendorMasterList.cs" />

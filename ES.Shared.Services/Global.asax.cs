@@ -137,7 +137,7 @@ namespace ES.Shared.Services
                  ObjectFactory.Configure(x =>
                  {
                      x.For<IReportSymbolMaster>().Use<ReportSymbolMaster>();
-                    // x.For<IBusinessSymbolMaster>().Use<BusinessSymbolMaster>();
+                     x.For<IBusinessSymbolMaster>().Use<BusinessSymbolMaster>();
                      x.For<ISymbolMasterRepository>().Use<SymbolMasterRepository>();
                      var proxyGenerator = new ProxyGenerator();
                      var transactionInterceptor = new TransactionInterceptor();

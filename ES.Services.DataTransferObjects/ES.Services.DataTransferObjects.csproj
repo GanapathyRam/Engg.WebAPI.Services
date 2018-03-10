@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -96,6 +97,7 @@
     <Compile Include="Request\Sales\UpdateWorkOrderRequestDto.cs" />
     <Compile Include="Request\Sales\WorkOrderTypeRequestDto.cs" />
     <Compile Include="Request\Sales\WorkOrderRequestDto.cs" />
+    <Compile Include="Request\Masters\UpdateSymbolMasterRequestDto.cs" />
     <Compile Include="Response\Authentication\AuthenticationResponseDto.cs" />
     <Compile Include="Response\BaseResponse.cs" />
     <Compile Include="Response\Despatch\DcTypeList.cs" />
@@ -160,6 +162,7 @@
     <Compile Include="Response\Masters\UpdateOperationMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateParameterMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdatePartMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\UpdateSymbolMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateToolsMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateVendorMasterResponseDto.cs" />
     <Compile Include="Response\Masters\VendorMaster.cs" />

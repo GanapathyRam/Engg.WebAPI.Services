@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace ES.Services.DataTransferObjects.Response.Masters
 {
-   public class AddSymbolMasterResponseDto : BaseResponse
+    public class UpdateSymbolMasterResponseDto : BaseResponse
     {
-        public int RecordCount { get; set; }
     }
 }

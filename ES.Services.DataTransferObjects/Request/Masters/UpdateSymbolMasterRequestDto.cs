@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace ES.Services.DataTransferObjects.Request.Masters
 {
-   public class AddSymbolMasterRequestDto
+  public class UpdateSymbolMasterRequestDto
     {
+        public decimal SymbolCode { get; set; }
         public string Symbol { get; set; }
 
         public string Name { get; set; }
@@ -17,8 +17,10 @@ namespace ES.Services.DataTransferObjects.Request.Masters
 
         public byte[] Data { get; set; }
 
-        public Guid CreatedBy { get; set; }
+        public Int16 isExistingImage { get; set; }
 
-        public DateTime CreatedDateTime { get; set; }
+        public Guid UpdatedBy { get; set; }
+
+        public DateTime UpdatedDateTime { get; set; }
     }
 }

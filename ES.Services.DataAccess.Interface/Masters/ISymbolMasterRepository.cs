@@ -11,6 +11,7 @@ namespace ES.Services.DataAccess.Interface.Masters
     public interface ISymbolMasterRepository
     {
         AddSymbolMasterQM AddSymbolMaster(AddSymbolMasterCM addSymbolMasterCM);
+        UpdateSymbolMasterQM UpdateSymbolMaster(UpdateSymbolMasterCM updateSymbolMasterCM);
         GetSymbolMasterQM GetSymbolMaster();
     }
 }

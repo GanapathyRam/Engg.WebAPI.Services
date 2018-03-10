@@ -25,5 +25,32 @@ namespace ES.Services.DataAccess.Repositories.Masters
 
             return model;
         }
+
+       
+        public AddSymbolMasterQM AddSymbolMaster(AddSymbolMasterCM addSymbolMasterCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new SymbolMasterInsertCommand { Connection = connection };
+                command.Execute(addSymbolMasterCM);
+            }
+
+            return new AddSymbolMasterQM();
+        }
+
+        public UpdateSymbolMasterQM UpdateSymbolMaster(UpdateSymbolMasterCM updateSymbolMasterCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new SymbolMasterUpdateCommand { Connection = connection };
+                command.Execute(updateSymbolMasterCM);
+            }
+
+            return new UpdateSymbolMasterQM();
+        }
     }
 }

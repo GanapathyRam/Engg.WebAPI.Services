@@ -93,6 +93,7 @@
     <Compile Include="Commands\Masters\PartMasterUpdateCommand.cs" />
     <Compile Include="Commands\Masters\SymbolMasterInsertCommand.cs" />
     <Compile Include="Commands\Masters\SymbolMasterSelectCommand.cs" />
+    <Compile Include="Commands\Masters\SymbolMasterUpdateCommand.cs" />
     <Compile Include="Commands\Masters\ToolsMasterInsertCommand.cs" />
     <Compile Include="Commands\Masters\ToolsMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\ToolsMasterUpdateCommand.cs" />
