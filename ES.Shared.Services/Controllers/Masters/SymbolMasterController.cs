@@ -19,10 +19,10 @@ namespace ES.Shared.Services.Controllers.Masters
     {
         private readonly IBusinessSymbolMaster bSymbolMasterProvider;
         private readonly IReportSymbolMaster rSymbolMasterProvider;
-      
+
         public SymbolMasterController()
         {
-             this.bSymbolMasterProvider = ObjectFactory.GetInstance<IBusinessSymbolMaster>();
+            this.bSymbolMasterProvider = ObjectFactory.GetInstance<IBusinessSymbolMaster>();
             this.rSymbolMasterProvider = ObjectFactory.GetInstance<IReportSymbolMaster>();
         }
         [HttpPost]
@@ -60,43 +60,42 @@ namespace ES.Shared.Services.Controllers.Masters
         [HttpPost]
         public HttpResponseMessage AddOrUpdateSymbolMasterFormData()
         {
-           
-            HttpRequestMessage re = Request;
-            var context = System.Web.HttpContext.Current.Request;
             AddSymbolMasterRequestDto addSymbolMasterRequestDto = new AddSymbolMasterRequestDto();
             UpdateSymbolMasterRequestDto updateSymbolMasterRequestDto = new UpdateSymbolMasterRequestDto();
 
-
-
-             addSymbolMasterRequestDto.Symbol = context.Params["Symbol"];
+            HttpRequestMessage re = Request;
+            var context = System.Web.HttpContext.Current.Request;
+            addSymbolMasterRequestDto.Symbol = context.Params["Symbol"];
             updateSymbolMasterRequestDto.Symbol = context.Params["Symbol"];
-            if (Convert.ToByte(context.Params["isExistingImage"]) == 0) { 
-            foreach (string file in context.Files)
+
+            if (Convert.ToByte(context.Params["isExistingImage"]) == 0)
             {
-                var fileContent = context.Files[file];
-                if (fileContent != null && fileContent.ContentLength > 0)
+                foreach (string file in context.Files)
                 {
-                    var inputStream = fileContent.InputStream;
-                      addSymbolMasterRequestDto.Name = fileContent.FileName;
+                    var fileContent = context.Files[file];
+                    if (fileContent != null && fileContent.ContentLength > 0)
+                    {
+                        var inputStream = fileContent.InputStream;
+                        addSymbolMasterRequestDto.Name = fileContent.FileName;
                         updateSymbolMasterRequestDto.Name = fileContent.FileName;
-                         addSymbolMasterRequestDto.ContentType = fileContent.ContentType;
+                        addSymbolMasterRequestDto.ContentType = fileContent.ContentType;
                         updateSymbolMasterRequestDto.ContentType = fileContent.ContentType;
                         using (var reader = new System.IO.BinaryReader(inputStream))
-                    {
-                            updateSymbolMasterRequestDto.Data= addSymbolMasterRequestDto.Data  = reader.ReadBytes(fileContent.ContentLength);
+                        {
+                            updateSymbolMasterRequestDto.Data = addSymbolMasterRequestDto.Data = reader.ReadBytes(fileContent.ContentLength);
+                        }
                     }
                 }
             }
-            }
-            if (context.Params["SymbolCode"] !="null")
+            if (context.Params["SymbolCode"] != "null")
             {
                 updateSymbolMasterRequestDto.isExistingImage = Convert.ToInt16(context.Params["isExistingImage"]);
                 updateSymbolMasterRequestDto.SymbolCode = Convert.ToDecimal(context.Params["SymbolCode"]);
                 var responseUpdate = this.UpdateSymbolMaster(updateSymbolMasterRequestDto);
                 return Request.CreateResponse(responseUpdate);
             }
-            var response= this.AddSymbolMaster(addSymbolMasterRequestDto);
-            return Request.CreateResponse(response); 
+            var response = this.AddSymbolMaster(addSymbolMasterRequestDto);
+            return Request.CreateResponse(response);
         }
 
         public AddSymbolMasterResponseDto AddSymbolMaster(AddSymbolMasterRequestDto addSymbolMasterRequestDto)

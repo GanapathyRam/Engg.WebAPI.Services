@@ -159,6 +159,8 @@
     <Compile Include="Controllers\Masters\SymbolMasterController.cs" />
     <Compile Include="Controllers\Masters\ToolsMasterController.cs" />
     <Compile Include="Controllers\Masters\VendorMasterController.cs" />
+    <Compile Include="Controllers\Production\JobTravelCardController.cs" />
+    <Compile Include="Controllers\Production\ProcessCardController.cs" />
     <Compile Include="Controllers\Registration\RegistrationController.cs" />
     <Compile Include="Controllers\Sales\WorkOrderController.cs" />
     <Compile Include="Global.asax.cs">
@@ -240,7 +242,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50646</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50646/</IISUrl>
+          <IISUrl>http://localhost:50647/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

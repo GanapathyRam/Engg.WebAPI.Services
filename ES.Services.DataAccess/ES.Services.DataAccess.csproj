@@ -103,6 +103,7 @@
     <Compile Include="Commands\Masters\VendorMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\MaterialMasterUpdateCommand.cs" />
     <Compile Include="Commands\Masters\VendorMasterUpdateCommand.cs" />
+    <Compile Include="Commands\Production\ProcessCardInsertCommand.cs" />
     <Compile Include="Commands\Registration\UserRegistrationInsertCommand.cs" />
     <Compile Include="Commands\Despatch\GetDcTypeSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderMasterDeleteCommand.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Repositories\Masters\CategoryMasterRepository.cs" />
     <Compile Include="Repositories\Masters\MaterialMasterRepository.cs" />
     <Compile Include="Repositories\Masters\VendorMasterRepository.cs" />
+    <Compile Include="Repositories\Production\ProcessCardRepository.cs" />
     <Compile Include="Repositories\Registration\RegistrationRepository.cs" />
     <Compile Include="Repositories\Despatch\DeliveryChallanRepository.cs" />
     <Compile Include="Repositories\Sales\WorkOrderRepository.cs" />

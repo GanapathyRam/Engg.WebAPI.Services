@@ -87,6 +87,7 @@
     <Compile Include="CommandModel\Masters\UpdatePartMasterCM.cs" />
     <Compile Include="CommandModel\Masters\UpdateToolsMasterCM.cs" />
     <Compile Include="CommandModel\Masters\UpdateVendorMasterCM.cs" />
+    <Compile Include="CommandModel\Production\AddProcessCardCM.cs" />
     <Compile Include="CommandModel\Registration\UserInfoCommandModel.cs" />
     <Compile Include="CommandModel\Sales\DeleteWorkOrderCM.cs" />
     <Compile Include="CommandModel\Sales\GetWorkOrderDetailsStatusCM.cs" />
@@ -168,7 +169,9 @@
     <Compile Include="QueryModel\Sales\WorkOrderQM.cs" />
     <Compile Include="QueryModel\Sales\WorkOrderTypeModel.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="QueryModel\Production\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

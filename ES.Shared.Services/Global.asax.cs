@@ -2,19 +2,23 @@
 using ES.Services.BusinessLogic.Despatch;
 using ES.Services.BusinessLogic.Interface.Despatch;
 using ES.Services.BusinessLogic.Interface.Masters;
+using ES.Services.BusinessLogic.Interface.Production;
 using ES.Services.BusinessLogic.Interface.Registration;
 using ES.Services.BusinessLogic.Interface.Sales;
 using ES.Services.BusinessLogic.Masters;
+using ES.Services.BusinessLogic.Production;
 using ES.Services.BusinessLogic.Registration;
 using ES.Services.BusinessLogic.Sales;
 using ES.Services.DataAccess.Interface.Authentication;
 using ES.Services.DataAccess.Interface.Despatch;
 using ES.Services.DataAccess.Interface.Masters;
+using ES.Services.DataAccess.Interface.Production;
 using ES.Services.DataAccess.Interface.Registration;
 using ES.Services.DataAccess.Interface.Sales;
 using ES.Services.DataAccess.Repositories.Authentication;
 using ES.Services.DataAccess.Repositories.Despatch;
 using ES.Services.DataAccess.Repositories.Masters;
+using ES.Services.DataAccess.Repositories.Production;
 using ES.Services.DataAccess.Repositories.Registration;
 using ES.Services.DataAccess.Repositories.Sales;
 using ES.Services.ReportLogic.Authentication;
@@ -22,8 +26,10 @@ using ES.Services.ReportLogic.Despatch;
 using ES.Services.ReportLogic.Interface.Authentication;
 using ES.Services.ReportLogic.Interface.Despatch;
 using ES.Services.ReportLogic.Interface.Masters;
+using ES.Services.ReportLogic.Interface.Production;
 using ES.Services.ReportLogic.Interface.Sales;
 using ES.Services.ReportLogic.Masters;
+using ES.Services.ReportLogic.Production;
 using ES.Services.ReportLogic.Sales;
 using SS.Framework.AopInterceptor;
 using StructureMap;
@@ -211,6 +217,18 @@ namespace ES.Shared.Services
                 x.For<IBusinessInvoice>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
             });
 
+            #endregion
+
+            #region Prodution
+            ObjectFactory.Configure(x =>
+            {
+                x.For<IReportProcessCard>().Use<ReportProcessCard>();
+                x.For<IBusinessProcessCard>().Use<BusinessProcessCard>();
+                x.For<IProcessCardRepository>().Use<ProcessCardRepository>();
+                var proxyGenerator = new ProxyGenerator();
+                var transactionInterceptor = new TransactionInterceptor();
+                x.For<IReportProcessCard>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
+            });
             #endregion
         }
     }
