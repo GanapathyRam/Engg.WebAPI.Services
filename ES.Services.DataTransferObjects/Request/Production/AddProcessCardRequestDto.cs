@@ -8,7 +8,21 @@ namespace ES.Services.DataTransferObjects.Request.Production
 {
     public class AddProcessCardRequestDto
     {
-        public IList<ProcessCardMaster> ListProcessCardMaster { get; set; }
+        //public IList<ProcessCardMaster> ListProcessCardMaster { get; set; }
+
+        public decimal PartCode { get; set; }
+
+        public decimal SequenceNumber { get; set; }
+
+        public string MachineCode { get; set; }
+
+        public string JigCode { get; set; }
+
+        public string SettingTime { get; set; }
+
+        public string RunningTime { get; set; }
+
+        public bool IsNew { get; set; }
 
         public IList<ProcessCardDetails> ListProcessCardDetails { get; set; }
     }
@@ -34,7 +48,7 @@ namespace ES.Services.DataTransferObjects.Request.Production
     {
         public decimal PartCode { get; set; }
 
-        //public decimal SequenceNumber { get; set; }
+        public decimal SequenceNumber { get; set; }
 
         public decimal SerialNo { get; set; }
 

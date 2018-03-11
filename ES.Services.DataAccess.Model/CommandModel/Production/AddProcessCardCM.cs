@@ -8,7 +8,19 @@ namespace ES.Services.DataAccess.Model.CommandModel.Production
 {
     public class AddProcessCardCM
     {
-        public IList<ProcessCardMasterCmModel> ListProcessCardMaster { get; set; }
+        //public IList<ProcessCardMasterCmModel> ListProcessCardMaster { get; set; }
+
+        public decimal PartCode { get; set; }
+
+        public decimal SequenceNumber { get; set; }
+
+        public string MachineCode { get; set; }
+
+        public string JigCode { get; set; }
+
+        public string SettingTime { get; set; }
+
+        public string RunningTime { get; set; }
 
         public IList<ProcessCardDetailsCmModel> ListProcessCardDetails { get; set; }
     }
@@ -17,7 +29,7 @@ namespace ES.Services.DataAccess.Model.CommandModel.Production
     {
         public decimal PartCode { get; set; }
 
-        //public decimal SequenceNumber { get; set; }
+        public decimal SequenceNumber { get; set; }
 
         public string MachineCode { get; set; }
 
@@ -33,7 +45,7 @@ namespace ES.Services.DataAccess.Model.CommandModel.Production
     {
         public decimal PartCode { get; set; }
 
-        //public decimal SequenceNumber { get; set; }
+        public decimal SequenceNumber { get; set; }
 
         public decimal SerialNo { get; set; }
 

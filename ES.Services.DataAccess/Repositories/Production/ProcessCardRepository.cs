@@ -19,7 +19,8 @@ namespace ES.Services.DataAccess.Repositories.Production
                 connection.Open();
 
                 var command = new ProcessCardInsertCommand { Connection = connection };
-                command.Execute(addProcessCardCM.ListProcessCardMaster.ToDataTableWithNull(), addProcessCardCM.ListProcessCardDetails.ToDataTableWithNull(), addProcessCardCM);
+                command.Execute(addProcessCardCM.PartCode,addProcessCardCM.SequenceNumber, addProcessCardCM.MachineCode, addProcessCardCM.JigCode,
+                    addProcessCardCM.SettingTime, addProcessCardCM.RunningTime, addProcessCardCM.ListProcessCardDetails.ToDataTableWithNull(), addProcessCardCM);
             }
         }
     }
