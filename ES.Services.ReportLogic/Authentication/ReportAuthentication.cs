@@ -28,14 +28,25 @@ namespace ES.Services.ReportLogic.Authentication
             ValidateAuthenticationRequest(authenticationRequestDto);
 
             var userName = authenticationRequestDto.UserName.Trim().ToLower();
-            var password = authenticationRequestDto.UserPassword.ToLower();
+            var password = authenticationRequestDto.UserPassword;
 
             var userInformation = authenticationRepository.GetUserInformation(new CustomUserInformationCommandModel { UserName = userName, Password = password});
 
-            if(password != userInformation.UserPassword)
+            if (userInformation.LoginName != null)
+            {
+                var hashCode = userInformation.PasswordSalt;
+                //Password Hasing Process Call Helper Class Method    
+                var encodingPasswordString = Helper.EncodePassword(password, hashCode);
+                if(userInformation.UserPassword != encodingPasswordString)
+                {
+                    return new AuthenticationResponseDto { ErrorMessage = "Invalid credentials" };
+                }
+            }
+            else
             {
                 return new AuthenticationResponseDto { ErrorMessage = "Invalid credentials" };
             }
+
             //var byteActualPassword = Convert.FromBase64String(userInformation.UserPassword);
             //var isValidatedPassword = ValidateRecord(
             //                                   ComputeHashedValue(password, userInformation.PasswordSalt),
@@ -84,11 +95,12 @@ namespace ES.Services.ReportLogic.Authentication
         {
             var authenticationResponseDto = new AuthenticationResponseDto
             {
-                UserGuid = userInformation.UserGuid,
-                UserFirstName = userInformation.UserFirstName,
-                UserLastName = userInformation.UserLastName,
-                UserName = userInformation.UserName,
-                UserType = userInformation.UserType
+                UserId = userInformation.UserId,
+                FirstName = userInformation.FirstName,
+                LastName = userInformation.LastName,
+                LoginName = userInformation.LoginName,
+                Email = userInformation.Email,
+                PhoneNumber = userInformation.PhoneNumber,
             };
 
             return authenticationResponseDto;
@@ -117,11 +129,6 @@ namespace ES.Services.ReportLogic.Authentication
             if (userInformation == null)
             {
                 throw new SSException(ExceptionCodes.InvalidAuthentication, ExceptionMessages.InvalidAuthentication);
-            }
-
-            if (!userInformation.IsActive)
-            {
-                throw new SSException(ExceptionCodes.InActiveUser, ExceptionMessages.InActiveUser);
             }
         }
     }

@@ -28,14 +28,14 @@ namespace ES.Services.DataAccess.Commands.Authentication
                 {
                     userInformationQueryModel = new CustomUserInformationQueryModel
                     {
-                        UserGuid = Guid.Parse(reader["UserGUID"].ToString()),
+                        UserId = Guid.Parse(reader["UserId"].ToString()),
                         UserPassword = reader["UserPassword"].ToString(),
-                        //PasswordSalt = reader["PasswordSalt"].ToString(),
-                        UserFirstName = reader["FirstName"].ToString(),
-                        UserLastName = reader["LastName"].ToString(),
-                        UserName = reader["UserName"].ToString(),
-                        IsActive = (bool)reader["IsActive"],
-                        UserType = (short)reader["UserType"],
+                        PasswordSalt = reader["PasswordSalt"].ToString(),
+                        FirstName = reader["FirstName"].ToString(),
+                        LastName = reader["LastName"].ToString(),
+                        LoginName = reader["LoginName"].ToString(),
+                        Email = reader["Email"].ToString(),
+                        PhoneNumber = reader["PhoneNumber"].ToString(),
                     };
                 }
                 else {

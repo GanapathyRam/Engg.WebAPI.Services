@@ -1,5 +1,7 @@
 ﻿using Castle.DynamicProxy;
+using ES.Services.BusinessLogic.Authentication;
 using ES.Services.BusinessLogic.Despatch;
+using ES.Services.BusinessLogic.Interface.Authentication;
 using ES.Services.BusinessLogic.Interface.Despatch;
 using ES.Services.BusinessLogic.Interface.Masters;
 using ES.Services.BusinessLogic.Interface.Production;
@@ -46,10 +48,11 @@ namespace ES.Shared.Services
             ObjectFactory.Configure(x =>
             {
                 x.For<IReportAuthentication>().Use<ReportAuthentication>();
+                x.For<IBusinessAuthentication>().Use<BusinessAuthentication>();
                 x.For<IAuthenticationRepository>().Use<AuthenticationRepository>();
                 var proxyGenerator = new ProxyGenerator();
                 var transactionInterceptor = new TransactionInterceptor();
-                x.For<IReportAuthentication>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
+                x.For<IBusinessAuthentication>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
             });
 
             ObjectFactory.Configure(x =>

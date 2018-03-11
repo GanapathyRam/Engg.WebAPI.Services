@@ -1,4 +1,5 @@
-﻿using ES.Services.DataTransferObjects.Request.Authentication;
+﻿using ES.Services.BusinessLogic.Interface.Authentication;
+using ES.Services.DataTransferObjects.Request.Authentication;
 using ES.Services.DataTransferObjects.Response.Authentication;
 using ES.Services.ReportLogic.Interface.Authentication;
 using SS.Framework.Exceptions;
@@ -9,13 +10,15 @@ using System.Web.Http;
 
 namespace ES.Shared.Services.Controllers.Authentication
 {
-    public class AuthenticationController : ApiController, IReportAuthentication
+    public class AuthenticationController : ApiController, IReportAuthentication, IBusinessAuthentication
     {
         private readonly IReportAuthentication reportAuthentication;
+        private readonly IBusinessAuthentication businessAuthentication;
 
         public AuthenticationController()
         {
-            reportAuthentication = ObjectFactory.GetInstance<IReportAuthentication>();
+            this.reportAuthentication = ObjectFactory.GetInstance<IReportAuthentication>();
+            this.businessAuthentication = ObjectFactory.GetInstance<IBusinessAuthentication>();
         }
 
         [HttpPost]
@@ -26,7 +29,7 @@ namespace ES.Shared.Services.Controllers.Authentication
             try
             {
                 authenticationResponseDto = reportAuthentication.Authenticate(authenticationRequestDto);
-                if (string.IsNullOrEmpty(authenticationResponseDto.UserName))
+                if (string.IsNullOrEmpty(authenticationResponseDto.LoginName))
                 {
                     authenticationResponseDto.ServiceResponseStatus = 0;
                 }
@@ -54,6 +57,40 @@ namespace ES.Shared.Services.Controllers.Authentication
             }
 
             return authenticationResponseDto;
+        }
+
+        [HttpPost]
+        public RegistrationResponseDto RegisterUser(RegistrationRequestDto registrationRequestDto)
+        {
+            RegistrationResponseDto registrationResponseDto;
+
+            try
+            {
+                registrationResponseDto = businessAuthentication.RegisterUser(registrationRequestDto);
+                registrationResponseDto.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                registrationResponseDto = new RegistrationResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                registrationResponseDto = new RegistrationResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+
+            return registrationResponseDto;
         }
     }
 }

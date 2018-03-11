@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\Authentication\AuthenticationRequestDto.cs" />
+    <Compile Include="Request\Authentication\RegistrationRequestDto.cs" />
     <Compile Include="Request\Despatch\AddInvoiceRequestDto.cs" />
     <Compile Include="Request\Despatch\DeleteDcRequestDto.cs" />
     <Compile Include="Request\Despatch\DeleteInvoiceRequestDto.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Request\Sales\WorkOrderRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateSymbolMasterRequestDto.cs" />
     <Compile Include="Response\Authentication\AuthenticationResponseDto.cs" />
+    <Compile Include="Response\Authentication\RegistrationResponseDto.cs" />
     <Compile Include="Response\BaseResponse.cs" />
     <Compile Include="Response\Despatch\DcTypeList.cs" />
     <Compile Include="Response\Despatch\DeleteDcResponseDto.cs" />

@@ -21,5 +21,18 @@ namespace ES.Services.DataAccess.Repositories.Authentication
 
             return userInformationQueryModel;
         }
+
+        public RegistrationQM UserRegistration(RegistrationCM registrationCM)
+        {
+            RegistrationQM registrationQM;
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var registrationInsertCommand = new RegistrationInsertCommand { Connection = connection };
+                registrationQM = registrationInsertCommand.Execute(registrationCM);
+            }
+            return registrationQM;
+        }
     }
 }

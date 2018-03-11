@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\BusinessAuthentication.cs" />
     <Compile Include="CommonMessages.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="Despatch\BusinessDeliveryChallan.cs" />
@@ -94,9 +95,7 @@
       <Name>ES.Services.ReportLogic.Interface</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Authentication\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
