@@ -14,6 +14,8 @@ namespace ES.Services.DataAccess.Model.QueryModel.Authentication
 
         public string LastName { get; set; }
 
+        public string FullName { get; set; }
+
         public string LoginName { get; set; }
 
         public string Email { get; set; }

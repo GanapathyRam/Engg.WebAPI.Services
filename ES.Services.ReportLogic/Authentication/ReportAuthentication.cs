@@ -26,8 +26,9 @@ namespace ES.Services.ReportLogic.Authentication
         public AuthenticationResponseDto Authenticate(AuthenticationRequestDto authenticationRequestDto)
         {
             ValidateAuthenticationRequest(authenticationRequestDto);
+            AuthenticationResponseDto auth;
 
-            var userName = authenticationRequestDto.UserName.Trim().ToLower();
+                var userName = authenticationRequestDto.UserName.Trim().ToLower();
             var password = authenticationRequestDto.UserPassword;
 
             var userInformation = authenticationRepository.GetUserInformation(new CustomUserInformationCommandModel { UserName = userName, Password = password});
@@ -46,13 +47,15 @@ namespace ES.Services.ReportLogic.Authentication
             {
                 return new AuthenticationResponseDto { ErrorMessage = "Invalid credentials" };
             }
-
+            var responseSend= GetAuthenticationResponse(userInformation);
+            responseSend.Token = Helper.GenerateToken(userInformation);
+            responseSend.TokenExpiry = Helper.TokenExpirationMins;
             //var byteActualPassword = Convert.FromBase64String(userInformation.UserPassword);
             //var isValidatedPassword = ValidateRecord(
             //                                   ComputeHashedValue(password, userInformation.PasswordSalt),
             //                                   byteActualPassword);
 
-            return GetAuthenticationResponse(userInformation);
+            return responseSend;
         }
 
         private byte[] ComputeHashedValue(string inputRecord, string storedSalt)

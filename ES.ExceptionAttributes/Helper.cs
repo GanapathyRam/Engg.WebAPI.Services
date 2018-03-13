@@ -1,6 +1,11 @@
-﻿using System;
+﻿using ES.Services.DataAccess.Model.QueryModel.Authentication;
+using ES.Services.DataTransferObjects.Response.Authentication;
+using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +14,8 @@ namespace ES.ExceptionAttributes
 {
    public static class Helper
     {
+        private static string Secret = System.Configuration.ConfigurationManager.AppSettings.Get("Token");
+        public static int TokenExpirationMins = System.Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings.Get("TokenExpirationMinutes"));
         public static string GeneratePassword(int length) //length of salt    
         {
             const string allowedChars = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789";
@@ -45,6 +52,35 @@ namespace ES.ExceptionAttributes
             //Convert encoded bytes back to a 'readable' string    
             return BitConverter.ToString(encodedBytes);
         }
-      
+        public static string GenerateToken(CustomUserInformationQueryModel usr)
+        {
+            var symmetricKey = Convert.FromBase64String(Secret);
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            var now = DateTime.UtcNow;
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new[]
+                        {
+                            new Claim(ClaimTypes.Name, usr.LoginName),
+                            new Claim(ClaimTypes.GivenName, usr.FullName),
+                            //new Claim(ClaimTypes.Role,usr.CRMRoleNames.First()),
+                            new Claim(ClaimTypes.SerialNumber, usr.UserId.ToString()),
+                            new Claim(ClaimTypes.Upn,"ERPSYSTEM")
+                            
+                        }),
+
+                Expires = now.AddMinutes(Convert.ToInt32(TokenExpirationMins)),
+
+                SigningCredentials = new Microsoft.IdentityModel.Tokens.SigningCredentials(new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(symmetricKey), Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            var stoken = tokenHandler.CreateToken(tokenDescriptor);
+            var token = tokenHandler.WriteToken(stoken);
+
+            return token;
+        }
+
+
     }
 }
