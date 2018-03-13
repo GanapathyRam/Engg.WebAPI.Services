@@ -2,6 +2,7 @@
 using ES.Services.DataTransferObjects.Request.Masters;
 using ES.Services.DataTransferObjects.Response.Masters;
 using ES.Services.ReportLogic.Interface.Masters;
+using ES.Shared.Services.Filters;
 using SS.Framework.Exceptions;
 using StructureMap;
 using System;
@@ -13,6 +14,7 @@ using System.Web.Http;
 
 namespace ES.Shared.Services.Controllers.Masters
 {
+    [JwtAuthenticationAttribute]
     public class JigsMasterController : ApiController, IBusinessJigsMaster, IReportJigsMaster
     {
         private readonly IBusinessJigsMaster bJigsMasterProvider;

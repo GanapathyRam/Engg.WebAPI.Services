@@ -182,6 +182,10 @@
     <Compile Include="Controllers\Production\ProcessCardController.cs" />
     <Compile Include="Controllers\Registration\RegistrationController.cs" />
     <Compile Include="Controllers\Sales\WorkOrderController.cs" />
+    <Compile Include="Filters\AddChallengeOnUnauthorizedResult.cs" />
+    <Compile Include="Filters\AuthenticationFailureResult.cs" />
+    <Compile Include="Filters\HttpAuthenticationChallengeContextExtensions.cs" />
+    <Compile Include="Filters\JwtAuthenticationAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -213,6 +217,10 @@
     <Folder Include="Views\VendorMaster\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ES.ExceptionAttributes\ES.ExceptionAttributes.csproj">
+      <Project>{E7292B1D-8369-41C9-941F-590FBDAAA6F3}</Project>
+      <Name>ES.ExceptionAttributes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ES.Services.BusinessLogic.Interface\ES.Services.BusinessLogic.Interface.csproj">
       <Project>{9d3c5d64-d74b-4ffe-ad2c-98843071db8a}</Project>
       <Name>ES.Services.BusinessLogic.Interface</Name>

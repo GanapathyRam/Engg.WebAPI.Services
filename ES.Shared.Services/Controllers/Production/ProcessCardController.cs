@@ -2,6 +2,7 @@
 using ES.Services.DataTransferObjects.Request.Production;
 using ES.Services.DataTransferObjects.Response.Production;
 using ES.Services.ReportLogic.Interface.Production;
+using ES.Shared.Services.Filters;
 using SS.Framework.Exceptions;
 using StructureMap;
 using System;
@@ -13,6 +14,7 @@ using System.Web.Http;
 
 namespace ES.Shared.Services.Controllers.Production
 {
+    [JwtAuthenticationAttribute]
     public class ProcessCardController : ApiController, IBusinessProcessCard, IReportProcessCard
     {
         public readonly IBusinessProcessCard bProcessCardProvider;

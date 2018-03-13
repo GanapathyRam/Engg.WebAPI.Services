@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ES.ExceptionAttributes
 {
-   public static class Helper
+    public static class Helper
     {
         private static string Secret = System.Configuration.ConfigurationManager.AppSettings.Get("Token");
         public static int TokenExpirationMins = System.Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings.Get("TokenExpirationMinutes"));
@@ -67,7 +67,7 @@ namespace ES.ExceptionAttributes
                             //new Claim(ClaimTypes.Role,usr.CRMRoleNames.First()),
                             new Claim(ClaimTypes.SerialNumber, usr.UserId.ToString()),
                             new Claim(ClaimTypes.Upn,"ERPSYSTEM")
-                            
+
                         }),
 
                 Expires = now.AddMinutes(Convert.ToInt32(TokenExpirationMins)),
@@ -81,6 +81,41 @@ namespace ES.ExceptionAttributes
             return token;
         }
 
+        public static ClaimsPrincipal GetPrincipal(string token)
+        {
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var jwtToken = tokenHandler.ReadToken(token) as JwtSecurityToken;
+
+                if (jwtToken == null)
+                    return null;
+
+                var symmetricKey = Convert.FromBase64String(Secret);
+
+                var validationParameters = new TokenValidationParameters()
+                {
+                    RequireExpirationTime = true,
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    IssuerSigningKey = new SymmetricSecurityKey(symmetricKey),
+                    //RoleClaimType = System.Security.Claims.ClaimTypes.Role
+                };
+
+                SecurityToken securityToken;
+                var principal = tokenHandler.ValidateToken(token, validationParameters, out securityToken);
+
+                return principal;
+            }
+            catch (SecurityTokenExpiredException secEx)
+            {
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
 
     }
 }

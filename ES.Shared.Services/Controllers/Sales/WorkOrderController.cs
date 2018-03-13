@@ -3,6 +3,7 @@ using ES.Services.DataTransferObjects.Request.Sales;
 using ES.Services.DataTransferObjects.Response.Masters;
 using ES.Services.DataTransferObjects.Response.Sales;
 using ES.Services.ReportLogic.Interface.Sales;
+using ES.Shared.Services.Filters;
 using SS.Framework.Exceptions;
 using StructureMap;
 using System;
@@ -14,7 +15,7 @@ using System.Web.Http;
 
 namespace ES.Shared.Services.Controllers.Sales
 {
-
+    [JwtAuthenticationAttribute]
     public class WorkOrderController : ApiController, IReportWorkOrder, IBusinessWorkOrder
     {
         private readonly IReportWorkOrder rWorkOrderProvider;

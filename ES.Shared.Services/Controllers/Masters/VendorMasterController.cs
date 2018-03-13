@@ -10,9 +10,11 @@ using ES.Services.DataTransferObjects.Response.Masters;
 using SS.Framework.Exceptions;
 using StructureMap;
 using ES.Services.ReportLogic.Interface.Masters;
+using ES.Shared.Services.Filters;
 
 namespace ES.Shared.Services.Controllers.Masters
 {
+    [JwtAuthenticationAttribute]
     public class VendorMasterController : ApiController, IBusinessVendorMaster, IReportVendorMaster
     {
         private readonly IBusinessVendorMaster bVendorMasterProvider;

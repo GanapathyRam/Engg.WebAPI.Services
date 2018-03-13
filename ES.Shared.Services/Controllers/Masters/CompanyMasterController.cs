@@ -9,9 +9,11 @@ using System.Net.Http;
 using System.Web.Http;
 using ES.Services.BusinessLogic.Interface.Masters;
 using StructureMap;
+using ES.Shared.Services.Filters;
 
 namespace ES.Shared.Services.Controllers.Masters
 {
+    [JwtAuthenticationAttribute]
     public class CompanyMasterController : ApiController, IBusinessCompanyMaster
     {
         private readonly IBusinessCompanyMaster companyMasterProvider;

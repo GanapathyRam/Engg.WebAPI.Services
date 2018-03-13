@@ -10,9 +10,11 @@ using System.Web.Http;
 using ES.Services.DataTransferObjects.Request.Masters;
 using ES.Services.DataTransferObjects.Response.Masters;
 using SS.Framework.Exceptions;
+using ES.Shared.Services.Filters;
 
 namespace ES.Shared.Services.Controllers.Masters
 {
+    [JwtAuthenticationAttribute]
     public class MaterialMasterController : ApiController, IBusinessMaterialMaster, IReportMaterialMaster
     {
         private readonly IBusinessMaterialMaster bMaterialMasterProvider;

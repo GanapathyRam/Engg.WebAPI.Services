@@ -2,6 +2,7 @@
 using ES.Services.DataTransferObjects.Request.Despatch;
 using ES.Services.DataTransferObjects.Response.Despatch;
 using ES.Services.ReportLogic.Interface.Despatch;
+using ES.Shared.Services.Filters;
 using SS.Framework.Exceptions;
 using StructureMap;
 using System;
@@ -9,6 +10,7 @@ using System.Web.Http;
 
 namespace ES.Shared.Services.Controllers.Despatch
 {
+    [JwtAuthenticationAttribute]
     public class DeliveryChallanController : ApiController, IReportDeliveryChallan, IBusinessDeliveryChallan
     {
         private readonly IReportDeliveryChallan rDeliveryChallanProvider;
