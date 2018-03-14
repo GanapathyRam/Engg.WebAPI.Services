@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace ES.Services.DataTransferObjects.Response.Sales
 {
+    public class GetWorkOrderResponseDto : BaseResponse
+    {
+        public List<GetWorkOrderResponse> GetWorkOrderResponse { get; set; }
+    }
+
     public class GetWorkOrderResponse
     {
         public string WorkOrderType { get; set; }
@@ -16,11 +21,6 @@ namespace ES.Services.DataTransferObjects.Response.Sales
         public string VendorName { get; set; }
 
         public List<GetWorkOrderMasterDetailsResponse> getWorkOrderMasterDetailsResponse { get; set; }
-    }
-
-    public class GetWorkOrderResponseDto : BaseResponse
-    {
-        public List<GetWorkOrderResponse> GetWorkOrderResponse { get; set; }
     }
 
     public class GetWorkOrderMasterDetailsResponse

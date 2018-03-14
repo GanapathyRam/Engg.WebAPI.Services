@@ -34,7 +34,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -172,6 +174,7 @@
     <Compile Include="Response\Masters\VendorMaster.cs" />
     <Compile Include="Response\Masters\VendorMasterListForDropDown.cs" />
     <Compile Include="Response\Production\AddProcessCardResponseDto.cs" />
+    <Compile Include="Response\Production\GetProcessCardResponseDto.cs" />
     <Compile Include="Response\Production\GetSequenceNumberResponseDto.cs" />
     <Compile Include="Response\Registration\RegisterUserResponseDto.cs" />
     <Compile Include="Response\Sales\DeleteWorkOrderResponseDto.cs" />
@@ -182,7 +185,6 @@
     <Compile Include="Response\Sales\WorkOrderResponseDto.cs" />
     <Compile Include="Response\Sales\WorkOrderTypeList.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

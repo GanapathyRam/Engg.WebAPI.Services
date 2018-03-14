@@ -89,5 +89,37 @@ namespace ES.Shared.Services.Controllers.Production
 
             return response;
         }
+
+        [HttpPost]
+        public GetProcessCardResponseDto GetProcessCard()
+        {
+            GetProcessCardResponseDto response = new GetProcessCardResponseDto();
+            try
+            {
+                response = rProcessCardProvider.GetProcessCard();
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetProcessCardResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetProcessCardResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
     }
 }

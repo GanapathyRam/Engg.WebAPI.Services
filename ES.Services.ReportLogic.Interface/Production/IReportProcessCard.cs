@@ -11,5 +11,7 @@ namespace ES.Services.ReportLogic.Interface.Production
     public interface IReportProcessCard
     {
         GetSequenceNumberResponseDto GetSequenceNumber(GetSequenceNumberRequestDto getSequenceNumberRequestDto);
+
+        GetProcessCardResponseDto GetProcessCard();
     }
 }

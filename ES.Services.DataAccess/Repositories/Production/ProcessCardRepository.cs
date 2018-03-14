@@ -38,5 +38,19 @@ namespace ES.Services.DataAccess.Repositories.Production
 
             return model;
         }
+
+        public GetProcessCardQM GetProcessCard()
+        {
+            GetProcessCardQM model = new GetProcessCardQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetProcessCardSelectCommand { Connection = connection };
+                model = command.Execute();
+            }
+
+            return model;
+        }
     }
 }

@@ -35,6 +35,85 @@ namespace ES.Services.ReportLogic.Production
             return response;
         }
 
+        public GetProcessCardResponseDto GetProcessCard()
+        {
+            var response = new GetProcessCardResponseDto()
+            {
+                GetProcessCardMasterResponse = new List<ProcessCardMasterResponse>()
+            };
+            var processCardMasterResponse = new ProcessCardMasterResponse();
+
+            var model = processCardRepository.GetProcessCard();
+
+            if (model != null)
+            {
+                processCardMasterResponse = GetProcessCardMapper((List<GetProcessCardQMModel>)model.GetProcessCardDetailsQMModel, processCardMasterResponse);
+            }
+
+            foreach (var processCardDetails in processCardMasterResponse.GetProcessCardDetailsResponse)
+            {
+                var getsingle = new ProcessCardMasterResponse
+                {
+                    GetProcessCardDetailsResponse = new List<ProcessCardDetailsResponse>()
+                };
+
+                var processCardDetailsItems = new ProcessCardDetailsResponse();
+                processCardDetailsItems.PartCode = processCardDetails.PartCode;
+                processCardDetailsItems.SequenceNumber = processCardDetails.SequenceNumber;
+                processCardDetailsItems.SerialNo = processCardDetails.SerialNo;
+                processCardDetailsItems.Description = processCardDetailsItems.Description;
+                processCardDetailsItems.DimensionMax = processCardDetails.DimensionMax;
+                processCardDetailsItems.DimensionMin = processCardDetails.DimensionMin;
+                processCardDetailsItems.ParameterCode = processCardDetails.ParameterCode;
+                processCardDetailsItems.InstrumentCode = processCardDetails.InstrumentCode;
+                processCardDetailsItems.ToolCode = processCardDetails.ToolCode;
+                processCardDetailsItems.DRFlag = processCardDetails.DRFlag;
+                processCardDetailsItems.Symbol = processCardDetailsItems.Symbol;
+                processCardDetailsItems.Datum = processCardDetailsItems.Datum;
+                processCardDetailsItems.DatumDimension = processCardDetails.DatumDimension;
+                processCardDetailsItems.BooleanNumber = processCardDetailsItems.BooleanNumber;
+
+                if (response.GetProcessCardMasterResponse.Count > 0)
+                {
+                    var isExist = response.GetProcessCardMasterResponse.Any(sequenceNumber => sequenceNumber.SequenceNumber == processCardDetails.SequenceNumber);
+                    if (isExist)
+                    {
+                        var index = response.GetProcessCardMasterResponse.FindIndex(a => a.SequenceNumber == processCardDetails.SequenceNumber);
+
+                        response.GetProcessCardMasterResponse[index].GetProcessCardDetailsResponse.Add(processCardDetailsItems);
+                    }
+                    else
+                    {
+                        getsingle.PartCode = processCardDetails.PartCode;
+                        getsingle.SequenceNumber = processCardDetails.SequenceNumber;
+                        getsingle.MachineCode = processCardDetails.MachineCode;
+                        getsingle.JigCode = processCardDetails.JigCode;
+                        getsingle.RunningTime = processCardDetails.RunningTime;
+                        getsingle.SettingTime = processCardDetails.SettingTime;
+
+                        getsingle.GetProcessCardDetailsResponse.Add(processCardDetailsItems);
+
+                        response.GetProcessCardMasterResponse.Add(getsingle);
+                    }
+                }
+                else
+                {
+                    getsingle.PartCode = processCardDetails.PartCode;
+                    getsingle.SequenceNumber = processCardDetails.SequenceNumber;
+                    getsingle.MachineCode = processCardDetails.MachineCode;
+                    getsingle.JigCode = processCardDetails.JigCode;
+                    getsingle.RunningTime = processCardDetails.RunningTime;
+                    getsingle.SettingTime = processCardDetails.SettingTime;
+
+                    getsingle.GetProcessCardDetailsResponse.Add(processCardDetailsItems);
+
+                    response.GetProcessCardMasterResponse.Add(getsingle);
+                }
+            }
+
+            return response;
+        }
+
 
         #region Mapper Method
         private static GetSequenceNumberResponseDto GetSequnceNumberMapper(List<GetSequenceNumberModel> list, GetSequenceNumberResponseDto getSequenceNumberResponseDto)
@@ -44,6 +123,15 @@ namespace ES.Services.ReportLogic.Production
                 Mapper.Map<List<GetSequenceNumberModel>, List<GetSequenceNumberResponseModel>>(list);
 
             return getSequenceNumberResponseDto;
+        }
+
+        private static ProcessCardMasterResponse GetProcessCardMapper(List<GetProcessCardQMModel> list, ProcessCardMasterResponse getProcessCardMasterResponse)
+        {
+            Mapper.CreateMap<GetProcessCardQMModel, ProcessCardDetailsResponse>();
+            getProcessCardMasterResponse.GetProcessCardDetailsResponse =
+                Mapper.Map<List<GetProcessCardQMModel>, List<ProcessCardDetailsResponse>>(list);
+
+            return getProcessCardMasterResponse;
         }
 
         #endregion

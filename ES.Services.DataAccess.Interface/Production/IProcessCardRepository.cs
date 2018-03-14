@@ -13,5 +13,7 @@ namespace ES.Services.DataAccess.Interface.Production
         void AddProcessCard(AddProcessCardCM addProcessCardCM);
 
         GetSequenceNumberQM GetSequenceNumber(decimal PartCode);
+
+        GetProcessCardQM GetProcessCard();
     }
 }

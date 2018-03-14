@@ -163,6 +163,7 @@
     <Compile Include="QueryModel\Masters\UpdateVendorMasterQM.cs" />
     <Compile Include="QueryModel\Masters\VendorMasterList.cs" />
     <Compile Include="QueryModel\Masters\VendorMasterModel.cs" />
+    <Compile Include="QueryModel\Production\GetProcessCardQM.cs" />
     <Compile Include="QueryModel\Production\GetSequenceNumberModel.cs" />
     <Compile Include="QueryModel\Production\GetSequenceNumberQM.cs" />
     <Compile Include="QueryModel\Registration\UserInfoQueryModel.cs" />
