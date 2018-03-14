@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ES.Services.DataTransferObjects.Response.Production
+{
+    public class GetSequenceNumberResponseDto : BaseResponse
+    {
+        public IEnumerable<GetSequenceNumberResponseModel> SequenceNumberList { get; set; }
+    }
+
+    public class GetSequenceNumberResponseModel
+    {
+        public decimal SequenceNumber { get; set; }
+    }
+}

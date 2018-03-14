@@ -105,6 +105,7 @@
     <Compile Include="Commands\Masters\MaterialMasterUpdateCommand.cs" />
     <Compile Include="Commands\Masters\VendorMasterUpdateCommand.cs" />
     <Compile Include="Commands\Production\ProcessCardInsertCommand.cs" />
+    <Compile Include="Commands\Production\GetSequenceNumberSelectCommand.cs" />
     <Compile Include="Commands\Registration\UserRegistrationInsertCommand.cs" />
     <Compile Include="Commands\Despatch\GetDcTypeSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderMasterDeleteCommand.cs" />

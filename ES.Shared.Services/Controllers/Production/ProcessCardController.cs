@@ -57,5 +57,37 @@ namespace ES.Shared.Services.Controllers.Production
 
             return response;
         }
+
+        [HttpPost]
+        public GetSequenceNumberResponseDto GetSequenceNumber(GetSequenceNumberRequestDto getSequenceNumberRequestDto)
+        {
+            GetSequenceNumberResponseDto response = new GetSequenceNumberResponseDto();
+            try
+            {
+                response = rProcessCardProvider.GetSequenceNumber(getSequenceNumberRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetSequenceNumberResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetSequenceNumberResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
     }
 }

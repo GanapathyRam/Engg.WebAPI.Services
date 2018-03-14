@@ -163,6 +163,8 @@
     <Compile Include="QueryModel\Masters\UpdateVendorMasterQM.cs" />
     <Compile Include="QueryModel\Masters\VendorMasterList.cs" />
     <Compile Include="QueryModel\Masters\VendorMasterModel.cs" />
+    <Compile Include="QueryModel\Production\GetSequenceNumberModel.cs" />
+    <Compile Include="QueryModel\Production\GetSequenceNumberQM.cs" />
     <Compile Include="QueryModel\Registration\UserInfoQueryModel.cs" />
     <Compile Include="QueryModel\Sales\GetWorkOrderDetailsStatusQM.cs" />
     <Compile Include="QueryModel\Sales\GetWorkOrderModel.cs" />
@@ -171,9 +173,7 @@
     <Compile Include="QueryModel\Sales\WorkOrderQM.cs" />
     <Compile Include="QueryModel\Sales\WorkOrderTypeModel.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="QueryModel\Production\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
