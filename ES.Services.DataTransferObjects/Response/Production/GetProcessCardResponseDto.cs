@@ -13,13 +13,23 @@ namespace ES.Services.DataTransferObjects.Response.Production
 
     public class ProcessCardMasterResponse
     {
+        public Int64 VendorCode { get; set; }
+
+        public string VendorName { get; set; }
+
         public decimal PartCode { get; set; }
+
+        public string PartDescription { get; set; }
 
         public decimal SequenceNumber { get; set; }
 
         public string MachineCode { get; set; }
 
         public string JigCode { get; set; }
+
+        public string MachineDescription { get; set; }
+
+        public string JigDescription { get; set; }
 
         public decimal SettingTime { get; set; }
 
@@ -30,7 +40,13 @@ namespace ES.Services.DataTransferObjects.Response.Production
 
     public class ProcessCardDetailsResponse
     {
+        public Int64 VendorCode { get; set; }
+
+        public string VendorName { get; set; }
+
         public decimal PartCode { get; set; }
+
+        public string PartDescription { get; set; }
 
         public decimal SequenceNumber { get; set; }
 
@@ -44,9 +60,15 @@ namespace ES.Services.DataTransferObjects.Response.Production
 
         public string ParameterCode { get; set; }
 
+        public string ParameterDescription { get; set; }
+
         public string InstrumentCode { get; set; }
 
+        public string InstrumentName { get; set; }
+
         public string ToolCode { get; set; }
+
+        public string ToolDescription { get; set; }
 
         public bool DRFlag { get; set; }
 
@@ -61,6 +83,10 @@ namespace ES.Services.DataTransferObjects.Response.Production
         public string MachineCode { get; set; }
 
         public string JigCode { get; set; }
+
+        public string MachineDescription { get; set; }
+
+        public string JigDescription { get; set; }
 
         public decimal SettingTime { get; set; }
 

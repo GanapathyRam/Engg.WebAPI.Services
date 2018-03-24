@@ -61,50 +61,61 @@ namespace ES.Services.ReportLogic.Production
                 processCardDetailsItems.PartCode = processCardDetails.PartCode;
                 processCardDetailsItems.SequenceNumber = processCardDetails.SequenceNumber;
                 processCardDetailsItems.SerialNo = processCardDetails.SerialNo;
-                processCardDetailsItems.Description = processCardDetailsItems.Description;
+                processCardDetailsItems.Description = processCardDetails.Description;
                 processCardDetailsItems.DimensionMax = processCardDetails.DimensionMax;
                 processCardDetailsItems.DimensionMin = processCardDetails.DimensionMin;
                 processCardDetailsItems.ParameterCode = processCardDetails.ParameterCode;
+                processCardDetailsItems.ParameterDescription = processCardDetails.ParameterDescription;
                 processCardDetailsItems.InstrumentCode = processCardDetails.InstrumentCode;
+                processCardDetailsItems.InstrumentName = processCardDetails.InstrumentName;
                 processCardDetailsItems.ToolCode = processCardDetails.ToolCode;
+                processCardDetailsItems.ToolDescription = processCardDetails.ToolDescription;
                 processCardDetailsItems.DRFlag = processCardDetails.DRFlag;
-                processCardDetailsItems.Symbol = processCardDetailsItems.Symbol;
-                processCardDetailsItems.Datum = processCardDetailsItems.Datum;
+                processCardDetailsItems.Symbol = processCardDetails.Symbol;
+                processCardDetailsItems.Datum = processCardDetails.Datum;
                 processCardDetailsItems.DatumDimension = processCardDetails.DatumDimension;
-                processCardDetailsItems.BooleanNumber = processCardDetailsItems.BooleanNumber;
-
+                processCardDetailsItems.BooleanNumber = processCardDetails.BooleanNumber;
+                
                 if (response.GetProcessCardMasterResponse.Count > 0)
                 {
-                    var isExist = response.GetProcessCardMasterResponse.Any(sequenceNumber => sequenceNumber.SequenceNumber == processCardDetails.SequenceNumber);
+                    var isExist = response.GetProcessCardMasterResponse.Any(sequenceNumber => sequenceNumber.SequenceNumber == processCardDetails.SequenceNumber && sequenceNumber.PartCode == processCardDetails.PartCode);
                     if (isExist)
                     {
-                        var index = response.GetProcessCardMasterResponse.FindIndex(a => a.SequenceNumber == processCardDetails.SequenceNumber);
+                        var index = response.GetProcessCardMasterResponse.FindIndex(a => a.SequenceNumber == processCardDetails.SequenceNumber && a.PartCode == processCardDetails.PartCode);
 
                         response.GetProcessCardMasterResponse[index].GetProcessCardDetailsResponse.Add(processCardDetailsItems);
                     }
                     else
                     {
                         getsingle.PartCode = processCardDetails.PartCode;
+                        getsingle.PartDescription = processCardDetails.PartDescription;
                         getsingle.SequenceNumber = processCardDetails.SequenceNumber;
                         getsingle.MachineCode = processCardDetails.MachineCode;
                         getsingle.JigCode = processCardDetails.JigCode;
                         getsingle.RunningTime = processCardDetails.RunningTime;
                         getsingle.SettingTime = processCardDetails.SettingTime;
-
+                        getsingle.MachineDescription = processCardDetails.MachineDescription;
+                        getsingle.JigDescription = processCardDetails.JigDescription;
+                        getsingle.VendorCode = processCardDetails.VendorCode;
+                        getsingle.VendorName = processCardDetails.VendorName;
                         getsingle.GetProcessCardDetailsResponse.Add(processCardDetailsItems);
-
+  
                         response.GetProcessCardMasterResponse.Add(getsingle);
                     }
                 }
                 else
                 {
                     getsingle.PartCode = processCardDetails.PartCode;
+                    getsingle.PartDescription = processCardDetails.PartDescription;
                     getsingle.SequenceNumber = processCardDetails.SequenceNumber;
                     getsingle.MachineCode = processCardDetails.MachineCode;
                     getsingle.JigCode = processCardDetails.JigCode;
+                    getsingle.MachineDescription = processCardDetails.MachineDescription;
+                    getsingle.JigDescription = processCardDetails.JigDescription;
                     getsingle.RunningTime = processCardDetails.RunningTime;
                     getsingle.SettingTime = processCardDetails.SettingTime;
-
+                    getsingle.VendorCode = processCardDetails.VendorCode;
+                    getsingle.VendorName = processCardDetails.VendorName;
                     getsingle.GetProcessCardDetailsResponse.Add(processCardDetailsItems);
 
                     response.GetProcessCardMasterResponse.Add(getsingle);
