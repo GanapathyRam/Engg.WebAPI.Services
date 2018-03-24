@@ -75,6 +75,7 @@ namespace ES.Services.ReportLogic.Production
                 processCardDetailsItems.Datum = processCardDetails.Datum;
                 processCardDetailsItems.DatumDimension = processCardDetails.DatumDimension;
                 processCardDetailsItems.BooleanNumber = processCardDetails.BooleanNumber;
+                processCardDetailsItems.isNew = false;
                 
                 if (response.GetProcessCardMasterResponse.Count > 0)
                 {

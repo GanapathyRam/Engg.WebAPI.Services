@@ -92,5 +92,6 @@ namespace ES.Services.DataTransferObjects.Response.Production
 
         public decimal RunningTime { get; set; }
 
+        public bool isNew { get; set; }
     }
 }
