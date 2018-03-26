@@ -99,8 +99,9 @@ namespace ES.Services.ReportLogic.Production
                         getsingle.JigDescription = processCardDetails.JigDescription;
                         getsingle.VendorCode = processCardDetails.VendorCode;
                         getsingle.VendorName = processCardDetails.VendorName;
+                        getsingle.MaxSerial = processCardDetails.MaxSerial;
                         getsingle.GetProcessCardDetailsResponse.Add(processCardDetailsItems);
-  
+                       
                         response.GetProcessCardMasterResponse.Add(getsingle);
                     }
                 }
@@ -117,6 +118,7 @@ namespace ES.Services.ReportLogic.Production
                     getsingle.SettingTime = processCardDetails.SettingTime;
                     getsingle.VendorCode = processCardDetails.VendorCode;
                     getsingle.VendorName = processCardDetails.VendorName;
+                    getsingle.MaxSerial = processCardDetails.MaxSerial;
                     getsingle.GetProcessCardDetailsResponse.Add(processCardDetailsItems);
 
                     response.GetProcessCardMasterResponse.Add(getsingle);

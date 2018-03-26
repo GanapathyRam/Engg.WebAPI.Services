@@ -86,5 +86,7 @@ namespace ES.Services.DataAccess.Model.QueryModel.Production
         public string MachineDescription { get; set; }
 
         public string JigDescription { get; set; }
+
+        public decimal MaxSerial { get; set; }
     }
 }

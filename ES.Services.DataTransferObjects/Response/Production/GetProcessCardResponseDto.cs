@@ -35,6 +35,8 @@ namespace ES.Services.DataTransferObjects.Response.Production
 
         public decimal RunningTime { get; set; }
 
+        public decimal MaxSerial { get; set; }
+
         public List<ProcessCardDetailsResponse> GetProcessCardDetailsResponse;
     }
 
@@ -91,6 +93,8 @@ namespace ES.Services.DataTransferObjects.Response.Production
         public decimal SettingTime { get; set; }
 
         public decimal RunningTime { get; set; }
+
+        public decimal MaxSerial { get; set; }
 
         public bool isNew { get; set; }
     }
