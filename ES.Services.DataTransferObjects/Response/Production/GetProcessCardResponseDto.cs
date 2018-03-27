@@ -37,6 +37,8 @@ namespace ES.Services.DataTransferObjects.Response.Production
 
         public decimal MaxSerial { get; set; }
 
+        public bool IsNew { get; set; }
+
         public List<ProcessCardDetailsResponse> GetProcessCardDetailsResponse;
     }
 
@@ -96,6 +98,6 @@ namespace ES.Services.DataTransferObjects.Response.Production
 
         public decimal MaxSerial { get; set; }
 
-        public bool isNew { get; set; }
+        public bool IsNew { get; set; }
     }
 }

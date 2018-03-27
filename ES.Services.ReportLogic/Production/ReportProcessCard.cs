@@ -75,7 +75,7 @@ namespace ES.Services.ReportLogic.Production
                 processCardDetailsItems.Datum = processCardDetails.Datum;
                 processCardDetailsItems.DatumDimension = processCardDetails.DatumDimension;
                 processCardDetailsItems.BooleanNumber = processCardDetails.BooleanNumber;
-                processCardDetailsItems.isNew = false;
+                processCardDetailsItems.IsNew = false;
                 
                 if (response.GetProcessCardMasterResponse.Count > 0)
                 {
@@ -100,6 +100,7 @@ namespace ES.Services.ReportLogic.Production
                         getsingle.VendorCode = processCardDetails.VendorCode;
                         getsingle.VendorName = processCardDetails.VendorName;
                         getsingle.MaxSerial = processCardDetails.MaxSerial;
+                        getsingle.IsNew = false;
                         getsingle.GetProcessCardDetailsResponse.Add(processCardDetailsItems);
                        
                         response.GetProcessCardMasterResponse.Add(getsingle);
@@ -119,6 +120,7 @@ namespace ES.Services.ReportLogic.Production
                     getsingle.VendorCode = processCardDetails.VendorCode;
                     getsingle.VendorName = processCardDetails.VendorName;
                     getsingle.MaxSerial = processCardDetails.MaxSerial;
+                    getsingle.IsNew = false;
                     getsingle.GetProcessCardDetailsResponse.Add(processCardDetailsItems);
 
                     response.GetProcessCardMasterResponse.Add(getsingle);
