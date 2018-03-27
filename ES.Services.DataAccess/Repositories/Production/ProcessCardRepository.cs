@@ -52,5 +52,17 @@ namespace ES.Services.DataAccess.Repositories.Production
 
             return model;
         }
+
+        public void UpdateProcessCard(AddProcessCardCM addProcessCardCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new ProcessCardUpdateCommand { Connection = connection };
+                command.Execute(addProcessCardCM.PartCode, addProcessCardCM.SequenceNumber, addProcessCardCM.MachineCode, addProcessCardCM.JigCode,
+                    addProcessCardCM.SettingTime, addProcessCardCM.RunningTime, addProcessCardCM.ListProcessCardDetails.ToDataTableWithNull(), addProcessCardCM);
+            }
+        }
     }
 }

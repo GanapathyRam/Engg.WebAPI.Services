@@ -25,12 +25,17 @@ namespace ES.Services.BusinessLogic.Production
         {
             AddProcessCardResponseDto response = new AddProcessCardResponseDto();
             AddProcessCardCM addProcessCardCM = new AddProcessCardCM();
+            UpdateProcessCardCM updateProcessCardCM = new UpdateProcessCardCM();
 
-            var addProcessCardMasterCmModel = new List<ProcessCardMasterCmModel>();
             var addProcessCardDetailsCmModel = new List<ProcessCardDetailsCmModel>();
+            var updateProcessCardDetailsCmModelList = new List<UpdateProcessCardDetailsCmModel>();
+
 
             var processCardMasterCmModel = new ProcessCardMasterCmModel();
             var processCardDetailsCmModel = new ProcessCardDetailsCmModel();
+
+            var updateProcessCardMasterCmModel = new UpdateProcessCardMasterCmModel();
+            var updateProcessCardDetailsCmModel = new UpdateProcessCardDetailsCmModel();
 
             processCardMasterCmModel = new ProcessCardMasterCmModel
             {
@@ -46,40 +51,84 @@ namespace ES.Services.BusinessLogic.Production
 
             foreach (var processCardDetails in addProcessCardRequestDto.ListProcessCardDetails)
             {
-                processCardDetailsCmModel = new ProcessCardDetailsCmModel
+                if (processCardDetails.IsNew)
                 {
-                    PartCode = processCardDetails.PartCode,
-                    SequenceNumber = processCardDetails.SequenceNumber,
-                    SerialNo = processCardDetails.SerialNo,
-                    Description = processCardDetails.Description,
-                    DimensionMax = processCardDetails.DimensionMax,
-                    DimensionMin = processCardDetails.DimensionMin,
-                    ParameterCode = processCardDetails.ParameterCode,
-                    InstrumentCode = processCardDetails.InstrumentCode,
-                    ToolCode = processCardDetails.ToolCode,
-                    DRFlag = processCardDetails.DRFlag,
-                    Symbol = processCardDetails.Symbol,
-                    Datum = processCardDetails.Datum,
-                    DatumDimension = processCardDetails.DatumDimension,
-                    BooleanNumber = processCardDetails.BooleanNumber
-                };
+                    processCardDetailsCmModel = new ProcessCardDetailsCmModel
+                    {
+                        PartCode = processCardDetails.PartCode,
+                        SequenceNumber = processCardDetails.SequenceNumber,
+                        SerialNo = processCardDetails.SerialNo,
+                        Description = processCardDetails.Description,
+                        DimensionMax = processCardDetails.DimensionMax,
+                        DimensionMin = processCardDetails.DimensionMin,
+                        ParameterCode = processCardDetails.ParameterCode,
+                        InstrumentCode = processCardDetails.InstrumentCode,
+                        ToolCode = processCardDetails.ToolCode,
+                        DRFlag = processCardDetails.DRFlag,
+                        Symbol = processCardDetails.Symbol,
+                        Datum = processCardDetails.Datum,
+                        DatumDimension = processCardDetails.DatumDimension,
+                        BooleanNumber = processCardDetails.BooleanNumber
+                    };
 
-                addProcessCardDetailsCmModel.Add(processCardDetailsCmModel);
+                    addProcessCardDetailsCmModel.Add(processCardDetailsCmModel);
+                }
+                else
+                {
+                    updateProcessCardDetailsCmModel = new UpdateProcessCardDetailsCmModel
+                    {
+                        PartCode = processCardDetails.PartCode,
+                        SequenceNumber = processCardDetails.SequenceNumber,
+                        SerialNo = processCardDetails.SerialNo,
+                        Description = processCardDetails.Description,
+                        DimensionMax = processCardDetails.DimensionMax,
+                        DimensionMin = processCardDetails.DimensionMin,
+                        ParameterCode = processCardDetails.ParameterCode,
+                        InstrumentCode = processCardDetails.InstrumentCode,
+                        ToolCode = processCardDetails.ToolCode,
+                        DRFlag = processCardDetails.DRFlag,
+                        Symbol = processCardDetails.Symbol,
+                        Datum = processCardDetails.Datum,
+                        DatumDimension = processCardDetails.DatumDimension,
+                        BooleanNumber = processCardDetails.BooleanNumber
+                    };
+
+                    updateProcessCardDetailsCmModelList.Add(updateProcessCardDetailsCmModel);
+                }
             }
 
-            addProcessCardCM = new AddProcessCardCM()
+            if (addProcessCardRequestDto.IsNew)
             {
-                //ListProcessCardMaster = addProcessCardMasterCmModel,
-                PartCode = processCardMasterCmModel.PartCode,
-                SequenceNumber = processCardMasterCmModel.SequenceNumber,
-                MachineCode = processCardMasterCmModel.MachineCode,
-                JigCode = processCardMasterCmModel.JigCode,
-                SettingTime = processCardMasterCmModel.SettingTime,
-                RunningTime = processCardMasterCmModel.RunningTime,
-                ListProcessCardDetails = addProcessCardDetailsCmModel
-            };
+                addProcessCardCM = new AddProcessCardCM()
+                {
+                    //ListProcessCardMaster = addProcessCardMasterCmModel,
+                    PartCode = processCardMasterCmModel.PartCode,
+                    SequenceNumber = processCardMasterCmModel.SequenceNumber,
+                    MachineCode = processCardMasterCmModel.MachineCode,
+                    JigCode = processCardMasterCmModel.JigCode,
+                    SettingTime = processCardMasterCmModel.SettingTime,
+                    RunningTime = processCardMasterCmModel.RunningTime,
+                    ListProcessCardDetails = addProcessCardDetailsCmModel
+                };
 
-            processCardRepository.AddProcessCard(addProcessCardCM);
+                processCardRepository.AddProcessCard(addProcessCardCM);
+            }
+            else
+            {
+                updateProcessCardCM = new UpdateProcessCardCM()
+                {
+                    //ListProcessCardMaster = addProcessCardMasterCmModel,
+                    PartCode = processCardMasterCmModel.PartCode,
+                    SequenceNumber = processCardMasterCmModel.SequenceNumber,
+                    MachineCode = processCardMasterCmModel.MachineCode,
+                    JigCode = processCardMasterCmModel.JigCode,
+                    SettingTime = processCardMasterCmModel.SettingTime,
+                    RunningTime = processCardMasterCmModel.RunningTime,
+                    ListUpdateProcessCardDetails = updateProcessCardDetailsCmModelList
+                };
+
+                processCardRepository.UpdateProcessCard(addProcessCardCM);
+            }
 
             return response;
         }

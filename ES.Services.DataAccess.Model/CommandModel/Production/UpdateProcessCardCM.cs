@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ES.Services.DataTransferObjects.Request.Production
+namespace ES.Services.DataAccess.Model.CommandModel.Production
 {
-    public class AddProcessCardRequestDto
+    public class UpdateProcessCardCM
     {
-        //public IList<ProcessCardMaster> ListProcessCardMaster { get; set; }
-
         public decimal PartCode { get; set; }
 
         public decimal SequenceNumber { get; set; }
@@ -22,16 +20,14 @@ namespace ES.Services.DataTransferObjects.Request.Production
 
         public string RunningTime { get; set; }
 
-        public bool IsNew { get; set; }
-
-        public IList<ProcessCardDetails> ListProcessCardDetails { get; set; }
+        public IList<UpdateProcessCardDetailsCmModel> ListUpdateProcessCardDetails { get; set; }
     }
 
-    public class ProcessCardMaster
+    public class UpdateProcessCardMasterCmModel
     {
         public decimal PartCode { get; set; }
 
-        //public decimal SequenceNumber { get; set; }
+        public decimal SequenceNumber { get; set; }
 
         public string MachineCode { get; set; }
 
@@ -41,10 +37,9 @@ namespace ES.Services.DataTransferObjects.Request.Production
 
         public string RunningTime { get; set; }
 
-        public bool IsNew { get; set; }
     }
 
-    public class ProcessCardDetails
+    public class UpdateProcessCardDetailsCmModel
     {
         public decimal PartCode { get; set; }
 
@@ -73,7 +68,5 @@ namespace ES.Services.DataTransferObjects.Request.Production
         public string DatumDimension { get; set; }
 
         public string BooleanNumber { get; set; }
-
-        public bool IsNew { get; set; }
     }
 }
