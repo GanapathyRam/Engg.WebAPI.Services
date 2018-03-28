@@ -16,7 +16,7 @@ namespace ES.Services.DataAccess.Commands.Production
                 sqlCommand.Parameters.Add(AddParameter("@PartCode", SsDbType.Decimal, ParameterDirection.Input, PartCode));
                 sqlCommand.Parameters.Add(AddParameter("@SequenceNumber", SsDbType.Decimal, ParameterDirection.Input, SequenceNumber));
                 sqlCommand.Parameters.Add(AddParameter("@SerialNo", SsDbType.Bit, ParameterDirection.Input, SerialNo));
-                sqlCommand.Parameters.Add(AddParameter("@IsDeleteFrom", SsDbType.Bit, ParameterDirection.Input, IsDeleteFrom));
+                sqlCommand.Parameters.Add(AddParameter("@IsDeleteFrom", SsDbType.Int, ParameterDirection.Input, IsDeleteFrom));
                 sqlCommand.ExecuteNonQuery();
             }
         }
