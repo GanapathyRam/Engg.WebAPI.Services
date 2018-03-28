@@ -104,6 +104,7 @@
     <Compile Include="Commands\Masters\VendorMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\MaterialMasterUpdateCommand.cs" />
     <Compile Include="Commands\Masters\VendorMasterUpdateCommand.cs" />
+    <Compile Include="Commands\Production\ProcessCardDeleteCommand.cs" />
     <Compile Include="Commands\Production\ProcessCardInsertCommand.cs" />
     <Compile Include="Commands\Production\GetSequenceNumberSelectCommand.cs" />
     <Compile Include="Commands\Production\GetProcessCardSelectCommand.cs" />

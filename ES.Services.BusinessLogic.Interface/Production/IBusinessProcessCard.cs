@@ -11,5 +11,7 @@ namespace ES.Services.BusinessLogic.Interface.Production
     public interface IBusinessProcessCard
     {
         AddProcessCardResponseDto AddProcessCard(AddProcessCardRequestDto addProcessCardRequestDto);
+
+        DeleteProcessCardResponseDto DeleteProcessCard(DeleteProcessCardRequestDto deleteProcessCardRequestDto);
     }
 }

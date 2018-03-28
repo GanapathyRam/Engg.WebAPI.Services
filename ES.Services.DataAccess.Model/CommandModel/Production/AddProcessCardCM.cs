@@ -10,6 +10,8 @@ namespace ES.Services.DataAccess.Model.CommandModel.Production
     {
         //public IList<ProcessCardMasterCmModel> ListProcessCardMaster { get; set; }
 
+        public bool IsNew { get; set; }
+
         public decimal PartCode { get; set; }
 
         public decimal SequenceNumber { get; set; }

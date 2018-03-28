@@ -121,5 +121,37 @@ namespace ES.Shared.Services.Controllers.Production
 
             return response;
         }
+
+        [HttpPost]
+        public DeleteProcessCardResponseDto DeleteProcessCard(DeleteProcessCardRequestDto deleteProcessCardRequestDto)
+        {
+            DeleteProcessCardResponseDto response = new DeleteProcessCardResponseDto();
+            try
+            {
+                response = bProcessCardProvider.DeleteProcessCard(deleteProcessCardRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new DeleteProcessCardResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new DeleteProcessCardResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
     }
 }

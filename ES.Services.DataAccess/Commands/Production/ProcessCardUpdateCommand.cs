@@ -15,7 +15,7 @@ namespace ES.Services.DataAccess.Commands.Production
     public class ProcessCardUpdateCommand : SsDbCommand
     {
         public void Execute(decimal PartCode, decimal SequenceNumber, string MachineCode, string JigCode, string SettingTime,
-            string RunningTime, DataTable dataTableForProcessCardDetails, AddProcessCardCM model)
+            string RunningTime, DataTable dataTableForProcessCardDetails, UpdateProcessCardCM model)
         {
             using (var sqlCommand = CreateCommand())
             {

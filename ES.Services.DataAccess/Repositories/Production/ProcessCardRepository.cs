@@ -20,7 +20,7 @@ namespace ES.Services.DataAccess.Repositories.Production
                 connection.Open();
 
                 var command = new ProcessCardInsertCommand { Connection = connection };
-                command.Execute(addProcessCardCM.PartCode,addProcessCardCM.SequenceNumber, addProcessCardCM.MachineCode, addProcessCardCM.JigCode,
+                command.Execute(addProcessCardCM.IsNew, addProcessCardCM.PartCode,addProcessCardCM.SequenceNumber, addProcessCardCM.MachineCode, addProcessCardCM.JigCode,
                     addProcessCardCM.SettingTime, addProcessCardCM.RunningTime, addProcessCardCM.ListProcessCardDetails.ToDataTableWithNull(), addProcessCardCM);
             }
         }
@@ -53,15 +53,26 @@ namespace ES.Services.DataAccess.Repositories.Production
             return model;
         }
 
-        public void UpdateProcessCard(AddProcessCardCM addProcessCardCM)
+        public void UpdateProcessCard(UpdateProcessCardCM updateProcessCardCM)
         {
             using (var connection = new DbConnectionProvider().CreateConnection())
             {
                 connection.Open();
 
                 var command = new ProcessCardUpdateCommand { Connection = connection };
-                command.Execute(addProcessCardCM.PartCode, addProcessCardCM.SequenceNumber, addProcessCardCM.MachineCode, addProcessCardCM.JigCode,
-                    addProcessCardCM.SettingTime, addProcessCardCM.RunningTime, addProcessCardCM.ListProcessCardDetails.ToDataTableWithNull(), addProcessCardCM);
+                command.Execute(updateProcessCardCM.PartCode, updateProcessCardCM.SequenceNumber, updateProcessCardCM.MachineCode, updateProcessCardCM.JigCode,
+                    updateProcessCardCM.SettingTime, updateProcessCardCM.RunningTime, updateProcessCardCM.ListUpdateProcessCardDetails.ToDataTableWithNull(), updateProcessCardCM);
+            }
+        }
+
+        public void DeleteProcessCard(DeleteProcessCardCM deleteProcessCardCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new ProcessCardDeleteCommand { Connection = connection };
+                command.Execute(deleteProcessCardCM.PartCode, deleteProcessCardCM.SequenceNumber, deleteProcessCardCM.SerialNo, deleteProcessCardCM.IsDeleteFrom);
             }
         }
     }
