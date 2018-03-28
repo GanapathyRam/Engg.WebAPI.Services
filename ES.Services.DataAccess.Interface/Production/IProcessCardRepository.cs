@@ -12,5 +12,7 @@ namespace ES.Services.DataAccess.Interface.Production
         GetProcessCardQM GetProcessCard();
 
         void UpdateProcessCard(UpdateProcessCardCM updateProcessCardCM);
+
+        void DeleteProcessCard(DeleteProcessCardCM deleteProcessCardCM);
     }
 }

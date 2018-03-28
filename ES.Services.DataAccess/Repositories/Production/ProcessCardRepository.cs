@@ -64,5 +64,16 @@ namespace ES.Services.DataAccess.Repositories.Production
                     updateProcessCardCM.SettingTime, updateProcessCardCM.RunningTime, updateProcessCardCM.ListUpdateProcessCardDetails.ToDataTableWithNull(), updateProcessCardCM);
             }
         }
+
+        public void DeleteProcessCard(DeleteProcessCardCM deleteProcessCardCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new ProcessCardDeleteCommand { Connection = connection };
+                command.Execute(deleteProcessCardCM.PartCode, deleteProcessCardCM.SequenceNumber, deleteProcessCardCM.SerialNo, deleteProcessCardCM.IsDeleteFrom);
+            }
+        }
     }
 }

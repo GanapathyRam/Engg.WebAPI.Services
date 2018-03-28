@@ -94,6 +94,7 @@
     <Compile Include="Request\Masters\UpdateToolsMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateVendorMasterRequestDto.cs" />
     <Compile Include="Request\Production\AddProcessCardRequestDto.cs" />
+    <Compile Include="Request\Production\DeleteProcessCardRequestDto.cs" />
     <Compile Include="Request\Production\GetSequenceNumberRequestDto.cs" />
     <Compile Include="Request\Registration\RegisterUserRequestDto.cs" />
     <Compile Include="Request\Sales\DeleteWorkOrderRequestDto.cs" />
@@ -174,6 +175,7 @@
     <Compile Include="Response\Masters\VendorMaster.cs" />
     <Compile Include="Response\Masters\VendorMasterListForDropDown.cs" />
     <Compile Include="Response\Production\AddProcessCardResponseDto.cs" />
+    <Compile Include="Response\Production\DeleteProcessCardResponseDto.cs" />
     <Compile Include="Response\Production\GetProcessCardResponseDto.cs" />
     <Compile Include="Response\Production\GetSequenceNumberResponseDto.cs" />
     <Compile Include="Response\Registration\RegisterUserResponseDto.cs" />

@@ -134,5 +134,23 @@ namespace ES.Services.BusinessLogic.Production
 
             return response;
         }
+
+        public DeleteProcessCardResponseDto DeleteProcessCard(DeleteProcessCardRequestDto deleteProcessCardRequestDto)
+        {
+            DeleteProcessCardResponseDto response = new DeleteProcessCardResponseDto();
+            DeleteProcessCardCM deleteProcessCardCM = new DeleteProcessCardCM();
+
+            deleteProcessCardCM = new DeleteProcessCardCM()
+            {
+                PartCode = deleteProcessCardRequestDto.PartCode,
+                SequenceNumber = deleteProcessCardRequestDto.SequenceNumber,
+                SerialNo = deleteProcessCardRequestDto.SerialNo,
+                IsDeleteFrom = deleteProcessCardRequestDto.IsDeleteFrom
+            };
+
+            processCardRepository.DeleteProcessCard(deleteProcessCardCM);
+
+            return response;
+        }
     }
 }
