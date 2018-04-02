@@ -39,7 +39,7 @@ namespace ES.Services.DataAccess.Repositories.Production
             return model;
         }
 
-        public GetProcessCardQM GetProcessCard()
+        public GetProcessCardQM GetProcessCard(string vendorCode)
         {
             GetProcessCardQM model = new GetProcessCardQM();
             using (var connection = new DbConnectionProvider().CreateConnection())
@@ -47,7 +47,7 @@ namespace ES.Services.DataAccess.Repositories.Production
                 connection.Open();
 
                 var command = new GetProcessCardSelectCommand { Connection = connection };
-                model = command.Execute();
+                model = command.Execute(vendorCode);
             }
 
             return model;

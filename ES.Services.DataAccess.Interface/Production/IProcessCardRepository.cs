@@ -9,7 +9,7 @@ namespace ES.Services.DataAccess.Interface.Production
 
         GetSequenceNumberQM GetSequenceNumber(decimal PartCode);
 
-        GetProcessCardQM GetProcessCard();
+        GetProcessCardQM GetProcessCard(string vendorCode);
 
         void UpdateProcessCard(UpdateProcessCardCM updateProcessCardCM);
 

@@ -35,7 +35,7 @@ namespace ES.Services.ReportLogic.Production
             return response;
         }
 
-        public GetProcessCardResponseDto GetProcessCard()
+        public GetProcessCardResponseDto GetProcessCard(string vendorCode)
         {
             var response = new GetProcessCardResponseDto()
             {
@@ -43,7 +43,7 @@ namespace ES.Services.ReportLogic.Production
             };
             var processCardMasterResponse = new ProcessCardMasterResponse();
 
-            var model = processCardRepository.GetProcessCard();
+            var model = processCardRepository.GetProcessCard(vendorCode);
 
             if (model != null)
             {

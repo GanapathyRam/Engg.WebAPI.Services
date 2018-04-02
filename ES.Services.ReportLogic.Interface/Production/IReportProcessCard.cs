@@ -12,6 +12,6 @@ namespace ES.Services.ReportLogic.Interface.Production
     {
         GetSequenceNumberResponseDto GetSequenceNumber(GetSequenceNumberRequestDto getSequenceNumberRequestDto);
 
-        GetProcessCardResponseDto GetProcessCard();
+        GetProcessCardResponseDto GetProcessCard(string vendorCode);
     }
 }

@@ -91,12 +91,12 @@ namespace ES.Shared.Services.Controllers.Production
         }
 
         [HttpPost]
-        public GetProcessCardResponseDto GetProcessCard()
+        public GetProcessCardResponseDto GetProcessCard(string vendorCode)
         {
             GetProcessCardResponseDto response = new GetProcessCardResponseDto();
             try
             {
-                response = rProcessCardProvider.GetProcessCard();
+                response = rProcessCardProvider.GetProcessCard(vendorCode);
                 response.ServiceResponseStatus = 1;
             }
             catch (SSException applicationException)
