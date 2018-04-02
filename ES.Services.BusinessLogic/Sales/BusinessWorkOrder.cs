@@ -83,7 +83,7 @@ namespace ES.Services.BusinessLogic.Sales
                 string CurrentMonth = Constant.GetMonthByAlphabet(System.DateTime.UtcNow.Month);
                 string CurrentYear = Constant.GetYearByAlphabet(System.DateTime.UtcNow.Year);
 
-                var clientSerialDigit = ClientSerialStartName + CurrentMonth + CurrentYear;
+                var clientSerialDigit = ClientSerialStartName + CurrentYear + CurrentMonth;
 
                 if (!string.IsNullOrEmpty(clientSerialNo))
                 {
