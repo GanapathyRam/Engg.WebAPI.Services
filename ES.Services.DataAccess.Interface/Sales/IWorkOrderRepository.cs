@@ -15,7 +15,7 @@ namespace ES.Services.DataAccess.Interface.Sales
 
         string GetWorkOrderNumber();
 
-        string GetWorkOrderClientSerialNo();
+        GetWorkOrderClientSerialNoQM GetWorkOrderClientSerialNo();
         GetWorkOrderQM GetWorkOrder();
 
         AddWorkOrderQM AddWorkOrder(AddWorkOrderCM workOrderCM);

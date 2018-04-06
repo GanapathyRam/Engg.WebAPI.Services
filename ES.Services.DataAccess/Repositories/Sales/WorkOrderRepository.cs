@@ -1,6 +1,7 @@
 ﻿using ES.Services.DataAccess.Commands.Sales;
 using ES.Services.DataAccess.Interface.Sales;
 using ES.Services.DataAccess.Model.CommandModel.Sales;
+using ES.Services.DataAccess.Model.QueryModel.Despatch;
 using ES.Services.DataAccess.Model.QueryModel.Sales;
 using SS.Framework.DataAccess.Extentions;
 using System;
@@ -43,10 +44,10 @@ namespace ES.Services.DataAccess.Repositories.Sales
             return workOrderNumber;
         }
 
-        public string GetWorkOrderClientSerialNo()
+        public GetWorkOrderClientSerialNoQM GetWorkOrderClientSerialNo()
         {
             //var model = new GetWorkOrderTypeQM();
-            string workOrderNumber = string.Empty;
+            GetWorkOrderClientSerialNoQM workOrderNumber;
             using (var connection = new DbConnectionProvider().CreateConnection())
             {
                 connection.Open();

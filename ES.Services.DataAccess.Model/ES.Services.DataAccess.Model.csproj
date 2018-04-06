@@ -118,6 +118,7 @@
     <Compile Include="QueryModel\Despatch\GetWoMasterAndDetailsFromCustomerCodeTypeQM.cs" />
     <Compile Include="QueryModel\Despatch\GetWOMasterForDcModel.cs" />
     <Compile Include="QueryModel\Despatch\GetWOMasterForDcQM.cs" />
+    <Compile Include="QueryModel\Sales\GetWorkOrderClientSerialNoQM.cs" />
     <Compile Include="QueryModel\Masters\AddCompanyMasterQueryModel.cs" />
     <Compile Include="QueryModel\Masters\AddInstrumentMasterQM.cs" />
     <Compile Include="QueryModel\Masters\AddJigsMasterQM.cs" />

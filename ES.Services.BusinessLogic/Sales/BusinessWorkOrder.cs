@@ -23,6 +23,7 @@ namespace ES.Services.BusinessLogic.Sales
 
         public WorkOrderResponseDto AddWorkOrder(WorkOrderRequestDto workOrderRequestDto)
         {
+            var getWorkOrderClientSerialNoQM = new GetWorkOrderClientSerialNoQM();
 
             #region Section For to save the work order master common details
             workOrderRepository.AddWorkOrderMasterCommon(workOrderRequestDto.WorkOrderType, workOrderRequestDto.WorkOrderNumber, workOrderRequestDto.WorkOrderDate, workOrderRequestDto.VendorCode);
@@ -71,7 +72,7 @@ namespace ES.Services.BusinessLogic.Sales
                 // Section to add the work order master information
                 var response = workOrderRepository.AddWorkOrder(cModel);
 
-                var clientSerialNo = workOrderRepository.GetWorkOrderClientSerialNo();
+                getWorkOrderClientSerialNoQM = workOrderRepository.GetWorkOrderClientSerialNo();
 
                 // Section to add the work order details information
                 var quantity = cModel.WorkOrderMasterListItems.FirstOrDefault().WOQuantity;
@@ -83,11 +84,15 @@ namespace ES.Services.BusinessLogic.Sales
                 string CurrentMonth = Constant.GetMonthByAlphabet(System.DateTime.UtcNow.Month);
                 string CurrentYear = Constant.GetYearByAlphabet(System.DateTime.UtcNow.Year);
 
+                string clientSerialNo = getWorkOrderClientSerialNoQM.WorkOrderClientSerialChar.ToString() + getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo.ToString();
+
                 var clientSerialDigit = ClientSerialStartName + CurrentYear + CurrentMonth;
 
                 if (!string.IsNullOrEmpty(clientSerialNo))
                 {
+                    //var existingclientSerialDigit = clientSerialNo.ToString().Substring(0, 3);
                     var existingclientSerialDigit = clientSerialNo.ToString().Substring(0, 3);
+
 
                     if (!clientSerialDigit.Equals(existingclientSerialDigit))
                     {
@@ -135,6 +140,8 @@ namespace ES.Services.BusinessLogic.Sales
 
         public UpdateWorkOrderResponseDto UpdateWorkOrder(UpdateWorkOrderRequestDto updateWorkOrderRequestDto)
         {
+            var getWorkOrderClientSerialNoQM = new GetWorkOrderClientSerialNoQM();
+
             foreach (var updateWorKOrder in updateWorkOrderRequestDto.WorkOrderMasterDetails)
             {
                 if (updateWorKOrder.IsNew)
@@ -182,7 +189,7 @@ namespace ES.Services.BusinessLogic.Sales
                     // Section to add the work order master information
                     var response = workOrderRepository.AddWorkOrder(cModel);
 
-                    var clientSerialNo = workOrderRepository.GetWorkOrderClientSerialNo();
+                    getWorkOrderClientSerialNoQM = workOrderRepository.GetWorkOrderClientSerialNo();
 
                     // Section to add the work order details information
                     var quantity = cModel.WorkOrderMasterListItems.FirstOrDefault().WOQuantity;
@@ -193,6 +200,8 @@ namespace ES.Services.BusinessLogic.Sales
                     string ClientSerialStartName = System.Configuration.ConfigurationManager.AppSettings["ClientStartName"].ToString();
                     string CurrentMonth = Constant.GetMonthByAlphabet(System.DateTime.UtcNow.Month);
                     string CurrentYear = Constant.GetYearByAlphabet(System.DateTime.UtcNow.Year);
+
+                    string clientSerialNo = getWorkOrderClientSerialNoQM.WorkOrderClientSerialChar.ToString() + getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo.ToString();
 
                     var clientSerialDigit = ClientSerialStartName + CurrentMonth + CurrentYear;
 

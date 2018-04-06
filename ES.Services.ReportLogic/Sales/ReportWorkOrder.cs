@@ -169,6 +169,7 @@ namespace ES.Services.ReportLogic.Sales
             return getWorkOrderResponseDto;
         }
 
+
         private static GetWorkOrderTypeResponseDto WorkOrderTypeMapper(List<WorkOrderTypeModel> list, GetWorkOrderTypeResponseDto getWorkOrderTypeResponseDto)
         {
             Mapper.CreateMap<WorkOrderTypeModel, WorkOrderTypeList>();

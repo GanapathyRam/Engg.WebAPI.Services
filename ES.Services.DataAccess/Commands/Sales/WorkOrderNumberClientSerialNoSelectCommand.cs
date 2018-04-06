@@ -1,4 +1,6 @@
-﻿using SS.Framework.DataAccess.Commands;
+﻿using ES.Services.DataAccess.Model.QueryModel.Despatch;
+using ES.Services.DataAccess.Model.QueryModel.Sales;
+using SS.Framework.DataAccess.Commands;
 using SS.Framework.DataAccess.Helpers;
 using System;
 using System.Collections.Generic;
@@ -11,10 +13,10 @@ namespace ES.Services.DataAccess.Commands.Sales
 {
     public class WorkOrderNumberClientSerialNoSelectCommand : SsDbCommand
     {
-        public string Execute()
+        public GetWorkOrderClientSerialNoQM Execute()
         {
             //var response = new GetWorkOrderTypeQM();
-            string WorkOrderSerialNo = string.Empty;
+            GetWorkOrderClientSerialNoQM workOrderSerialNo = new GetWorkOrderClientSerialNoQM();
             using (var sqlCommand = CreateCommand())
             {
                 sqlCommand.Connection = Connection;
@@ -25,11 +27,15 @@ namespace ES.Services.DataAccess.Commands.Sales
                 {
                     if (reader.Read())
                     {
-                        WorkOrderSerialNo = Convert.ToString(reader["SerialNo"]);
+                        workOrderSerialNo = new GetWorkOrderClientSerialNoQM()
+                        {
+                            WorkOrderClientSerialNo = Convert.ToString(reader["SerialNo"]),
+                            WorkOrderClientSerialChar = Convert.ToString(reader["SerialChar"]),
+                        };
                     }
                 }
             }
-            return WorkOrderSerialNo;
+            return workOrderSerialNo;
         }
     }
 }
