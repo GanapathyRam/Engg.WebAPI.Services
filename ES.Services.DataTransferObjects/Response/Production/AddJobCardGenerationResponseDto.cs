@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ES.Services.DataAccess.Interface.Production
+namespace ES.Services.DataTransferObjects.Response.Production
 {
-    public interface IJobCardRepository
+    public class AddJobCardGenerationResponseDto : BaseResponse
     {
     }
 }
