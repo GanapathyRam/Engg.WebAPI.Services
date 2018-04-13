@@ -48,7 +48,7 @@ namespace ES.Services.BusinessLogic.Production
                 {
                     addJobCardMasterCM = new AddJobCardMasterCM()
                     {
-                        SerialNo = "SQD1",
+                        SerialNo = request.SerialNo,
                         JobCardDate = System.DateTime.UtcNow,
                         PartCode = processCardMaster.PartCode,
                         SequenceNumber = processCardMaster.SequenceNumber,
@@ -67,7 +67,7 @@ namespace ES.Services.BusinessLogic.Production
                 {
                     addJobCardDetailsCM = new AddJobCardDetailsCM()
                     {
-                        SerialNo = "SQD1",
+                        SerialNo = request.SerialNo,
                         PartCode = processCardDetails.PartCode,
                         SequenceNumber = processCardDetails.SequenceNumber,
                         Serial = processCardDetails.Serial,

@@ -17,6 +17,6 @@ namespace ES.Services.DataTransferObjects.Request.Production
 
         public decimal SequenceNumber { get; set; }
 
-        public decimal SerialNo { get; set; }
+        public string SerialNo { get; set; }
     }
 }
