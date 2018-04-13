@@ -30,5 +30,6 @@ namespace ES.Services.DataAccess.Model.QueryModel.Production
         public string MaterialDescription { get; set; }
 
         public decimal SequenceNumber { get; set; }
+        public bool isChecked { get; set; }
     }
 }
