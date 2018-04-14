@@ -105,6 +105,7 @@
     <Compile Include="Commands\Masters\MaterialMasterUpdateCommand.cs" />
     <Compile Include="Commands\Masters\VendorMasterUpdateCommand.cs" />
     <Compile Include="Commands\Production\GetJobCardGenerationSelectCommand.cs" />
+    <Compile Include="Commands\Production\GetJobCardMaintanceSelectCommand.cs" />
     <Compile Include="Commands\Production\GetProcessCardDetailsSelectCommand.cs" />
     <Compile Include="Commands\Production\GetProcessCardMasterSelectCommand.cs" />
     <Compile Include="Commands\Production\JobCardMasterAndDetailsInsertCommand.cs" />

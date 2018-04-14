@@ -17,5 +17,7 @@ namespace ES.Services.DataAccess.Interface.Production
         GetProcessCardDetailsQM GetProcessCardDetails(decimal PartCode, decimal SequenceNumber);
 
         void AddJobCardMasterAndDetails(AddJobCardMasterAndDetailsCM addJobCardMasterAndDetailsCM);
+
+        GetJobCardMaintanceQM GetJobCardMaintane();
     }
 }

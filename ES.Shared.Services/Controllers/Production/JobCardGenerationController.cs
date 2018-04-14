@@ -88,5 +88,37 @@ namespace ES.Shared.Services.Controllers.Production
 
             return response;
         }
+
+        [HttpPost]
+        public GetJobCardMaintanceResponseDto GetJobCardMaintane()
+        {
+            GetJobCardMaintanceResponseDto response = new GetJobCardMaintanceResponseDto();
+            try
+            {
+                response = rJobCardProvider.GetJobCardMaintane();
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetJobCardMaintanceResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetJobCardMaintanceResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
     }
 }

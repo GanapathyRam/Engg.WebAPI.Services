@@ -179,6 +179,7 @@
     <Compile Include="Response\Production\AddProcessCardResponseDto.cs" />
     <Compile Include="Response\Production\DeleteProcessCardResponseDto.cs" />
     <Compile Include="Response\Production\GetJobCardGenerationResponseDto.cs" />
+    <Compile Include="Response\Production\GetJobCardMaintanceResponseDto.cs" />
     <Compile Include="Response\Production\GetProcessCardResponseDto.cs" />
     <Compile Include="Response\Production\GetSequenceNumberResponseDto.cs" />
     <Compile Include="Response\Registration\RegisterUserResponseDto.cs" />

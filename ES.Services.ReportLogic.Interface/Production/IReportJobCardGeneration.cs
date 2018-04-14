@@ -10,5 +10,7 @@ namespace ES.Services.ReportLogic.Interface.Production
     public interface IReportJobCardGeneration
     {
         GetJobCardGenerationResponseDto GetJobCardGeneration();
+
+        GetJobCardMaintanceResponseDto GetJobCardMaintane();
     }
 }

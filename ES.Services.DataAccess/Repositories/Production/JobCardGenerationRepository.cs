@@ -77,5 +77,19 @@ namespace ES.Services.DataAccess.Repositories.Production
                 command.Execute(addJobCardMasterAndDetailsCM.AddJobCardMasterCMList.ToDataTableWithNull(), addJobCardMasterAndDetailsCM.AddJobCardDetailsCMList.ToDataTableWithNull());
             }
         }
+
+        public GetJobCardMaintanceQM GetJobCardMaintane()
+        {
+            GetJobCardMaintanceQM model = new GetJobCardMaintanceQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetJobCardMaintanceSelectCommand { Connection = connection };
+                model = command.Execute();
+            }
+
+            return model;
+        }
     }
 }
