@@ -129,12 +129,12 @@ namespace ES.Services.BusinessLogic.Production
                 {
                     updateJobCardDetails = new UpdateJobCardDetails
                     {
-                        DimensionActual = details.DimensionActual,
-                        DatumDimensionActual = details.DatumDimesionActual,
-                        Serial = details.Serial,
                         SerialNo = details.SerialNo,
                         PartCode = details.PartCode,
                         SequenceNumber = details.SequenceNumber,
+                        Serial = details.Serial,
+                        DimensionActual = details.DimensionActual,
+                        DatumDimensionActual = details.DatumDimesionActual,                                            
                         UpdatedBy = new Guid("783F190B-9B66-42AC-920B-E938732C1C01"), //Later needs to be remove,
                         UpdatedDateTime = System.DateTime.UtcNow
                     };

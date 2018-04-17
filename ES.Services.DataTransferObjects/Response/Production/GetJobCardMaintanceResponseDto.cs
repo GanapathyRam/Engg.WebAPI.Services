@@ -39,7 +39,7 @@ namespace ES.Services.DataTransferObjects.Response.Production
 
         public DateTime OperationDate { get; set; }
 
-        public Int64 EmployeeCode { get; set; }
+        public string EmployeeCode { get; set; }
 
         public string Shift { get; set; }
 

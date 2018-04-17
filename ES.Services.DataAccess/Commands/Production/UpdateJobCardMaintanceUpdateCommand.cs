@@ -26,7 +26,7 @@ namespace ES.Services.DataAccess.Commands.Production
                 sqlCommand.Parameters.Add(AddParameter("@ActualRunningTime", SsDbType.Decimal, ParameterDirection.Input, updateJobCardMaintanceCM.ActualRunningTime));
                 sqlCommand.Parameters.Add(AddParameter("@OperationDate", SsDbType.DateTime, ParameterDirection.Input, updateJobCardMaintanceCM.OperationDate));
                 sqlCommand.Parameters.Add(AddParameter("@Shift", SsDbType.VarChar, ParameterDirection.Input, updateJobCardMaintanceCM.Shift));
-                sqlCommand.Parameters.Add(AddParameter("@EmployeeCode", SsDbType.BigInt, ParameterDirection.Input, updateJobCardMaintanceCM.EmployeeCode));
+                sqlCommand.Parameters.Add(AddParameter("@EmployeeCode", SsDbType.VarChar, ParameterDirection.Input, updateJobCardMaintanceCM.EmployeeCode));
                 sqlCommand.Parameters.Add(AddParameter("@UpdateJobCardDetails", SsDbType.Structured, ParameterDirection.Input, dataTableForInvoiceDetails));
                 sqlCommand.ExecuteNonQuery();
             }

@@ -22,7 +22,7 @@ namespace ES.Services.DataAccess.Model.CommandModel.Production
 
         public string Shift { get; set; }
 
-        public Int64 EmployeeCode { get; set; }
+        public string EmployeeCode { get; set; }
 
         public IEnumerable<UpdateJobCardDetails> GetUpdateJobCardDetails { get; set; }
     }
