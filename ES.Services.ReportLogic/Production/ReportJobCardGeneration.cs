@@ -76,15 +76,16 @@ namespace ES.Services.ReportLogic.Production
 
                 if (response.GetJobCardMaintanceResponseList.Count > 0)
                 {
-                    var isExist = response.GetJobCardMaintanceResponseList.Any(dcMaster => dcMaster.PartCode == dcMasterDetails.PartCode && dcMaster.SequenceNumber == dcMasterDetails.SequenceNumber);
+                    var isExist = response.GetJobCardMaintanceResponseList.Any(dcMaster => dcMaster.PartCode == dcMasterDetails.PartCode && dcMaster.SequenceNumber == dcMasterDetails.SequenceNumber && dcMaster.SerialNo == dcMasterDetails.SerialNo);
                     if (isExist)
                     {
-                        var index = response.GetJobCardMaintanceResponseList.FindIndex(a => a.PartCode == dcMasterDetails.PartCode && a.SequenceNumber == dcMasterDetails.SequenceNumber);
+                        var index = response.GetJobCardMaintanceResponseList.FindIndex(a => a.PartCode == dcMasterDetails.PartCode && a.SequenceNumber == dcMasterDetails.SequenceNumber && a.SerialNo == dcMasterDetails.SerialNo);
 
                         response.GetJobCardMaintanceResponseList[index].getJobCardMaintanceDetails.Add(getWoMasterDetailsResponse);
                     }
                     else
                     {
+                        getsingle.SerialNo = dcMasterDetails.SerialNo;
                         getsingle.PartCode = dcMasterDetails.PartCode;
                         getsingle.SequenceNumber = dcMasterDetails.SequenceNumber;
                         getsingle.MachineCode = dcMasterDetails.MachineCode;
@@ -111,6 +112,7 @@ namespace ES.Services.ReportLogic.Production
                 }
                 else
                 {
+                    getsingle.SerialNo = dcMasterDetails.SerialNo;
                     getsingle.PartCode = dcMasterDetails.PartCode;
                     getsingle.SequenceNumber = dcMasterDetails.SequenceNumber;
                     getsingle.MachineCode = dcMasterDetails.MachineCode;
