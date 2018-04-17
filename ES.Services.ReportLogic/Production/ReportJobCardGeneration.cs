@@ -50,7 +50,9 @@ namespace ES.Services.ReportLogic.Production
                     getJobCardMaintanceDetails = new List<GetJobCardMaintanceDetails>()
                 };
                 var getWoMasterDetailsResponse = new GetJobCardMaintanceDetails();
-                getWoMasterDetailsResponse.SerialNo = dcMasterDetails.Serial;
+
+                getWoMasterDetailsResponse.Serial = dcMasterDetails.Serial;
+                getWoMasterDetailsResponse.SerialNo = dcMasterDetails.SerialNo;
                 getWoMasterDetailsResponse.PartCode = dcMasterDetails.PartCode;
                 getWoMasterDetailsResponse.SequenceNumber = dcMasterDetails.SequenceNumber;
                 getWoMasterDetailsResponse.DimensionMax = dcMasterDetails.DimensionMax;
@@ -147,6 +149,5 @@ namespace ES.Services.ReportLogic.Production
         }
 
         #endregion
-
     }
 }

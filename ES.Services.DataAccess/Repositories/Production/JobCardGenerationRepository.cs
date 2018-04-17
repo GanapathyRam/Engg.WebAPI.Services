@@ -39,7 +39,7 @@ namespace ES.Services.DataAccess.Repositories.Production
             }
         }
 
-        public GetProcessCardMasterQM GetProcessCardMaster(decimal PartCode, decimal SequenceNumber)
+        public GetProcessCardMasterQM GetProcessCardMaster(decimal PartCode)
         {
             GetProcessCardMasterQM model = new GetProcessCardMasterQM();
             using (var connection = new DbConnectionProvider().CreateConnection())
@@ -47,13 +47,13 @@ namespace ES.Services.DataAccess.Repositories.Production
                 connection.Open();
 
                 var command = new GetProcessCardMasterSelectCommand { Connection = connection };
-                model = command.Execute(PartCode, SequenceNumber);
+                model = command.Execute(PartCode);
             }
 
             return model;
         }
 
-        public GetProcessCardDetailsQM GetProcessCardDetails(decimal PartCode, decimal SequenceNumber)
+        public GetProcessCardDetailsQM GetProcessCardDetails(decimal PartCode)
         {
             GetProcessCardDetailsQM model = new GetProcessCardDetailsQM();
             using (var connection = new DbConnectionProvider().CreateConnection())
@@ -61,7 +61,7 @@ namespace ES.Services.DataAccess.Repositories.Production
                 connection.Open();
 
                 var command = new GetProcessCardDetailsSelectCommand { Connection = connection };
-                model = command.Execute(PartCode, SequenceNumber);
+                model = command.Execute(PartCode);
             }
 
             return model;
@@ -90,6 +90,17 @@ namespace ES.Services.DataAccess.Repositories.Production
             }
 
             return model;
+        }
+
+        public void UpdateJobCardMaintance(UpdateJobCardMaintanceCM updateJobCardMaintanceCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new UpdateJobCardMaintanceUpdateCommand { Connection = connection };
+                command.Execute(updateJobCardMaintanceCM.GetUpdateJobCardDetails.ToDataTableWithNull(), updateJobCardMaintanceCM);
+            }
         }
     }
 }

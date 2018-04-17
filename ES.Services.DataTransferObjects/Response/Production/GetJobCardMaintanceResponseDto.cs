@@ -17,6 +17,8 @@ namespace ES.Services.DataTransferObjects.Response.Production
 
         public decimal SequenceNumber { get; set; }
 
+        public string SerialNo { get; set; }
+
         public decimal MachineCode { get; set; }
 
         public string MachineName { get; set; }
@@ -37,7 +39,7 @@ namespace ES.Services.DataTransferObjects.Response.Production
 
         public DateTime OperationDate { get; set; }
 
-        public string EmployeeCode { get; set; }
+        public Int64 EmployeeCode { get; set; }
 
         public string Shift { get; set; }
 
@@ -53,7 +55,9 @@ namespace ES.Services.DataTransferObjects.Response.Production
 
         public decimal SequenceNumber { get; set; }
 
-        public decimal SerialNo { get; set; }
+        public string SerialNo { get; set; }
+
+        public decimal Serial { get; set; }
 
         public string Description { get; set; }
 
@@ -87,6 +91,8 @@ namespace ES.Services.DataTransferObjects.Response.Production
 
         public string ToolDescription { get; set; }
 
-        //public bool IsNew { get; set; }
+        public Guid UpdatedBy { get; set; }
+
+        public DateTime UpdatedDateTime { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace ES.Services.DataAccess.Commands.Production
 {
     public class GetProcessCardMasterSelectCommand : SsDbCommand
     {
-        public GetProcessCardMasterQM Execute(decimal PartCode, decimal SequenceNumber)
+        public GetProcessCardMasterQM Execute(decimal PartCode)
         {
             var response = new GetProcessCardMasterQM();
             using (var sqlCommand = CreateCommand())
@@ -23,7 +23,7 @@ namespace ES.Services.DataAccess.Commands.Production
                 sqlCommand.CommandText = "[dbo].[uspGetProcessCardMaster]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.Add(AddParameter("@PartCode", SsDbType.Decimal, ParameterDirection.Input, PartCode));
-                sqlCommand.Parameters.Add(AddParameter("@SequenceNumber", SsDbType.Decimal, ParameterDirection.Input, SequenceNumber));
+                //sqlCommand.Parameters.Add(AddParameter("@SequenceNumber", SsDbType.Decimal, ParameterDirection.Input, SequenceNumber));
 
                 using (var reader = SsDbCommandHelper.ExecuteReader(sqlCommand))
                 {

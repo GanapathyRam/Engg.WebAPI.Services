@@ -37,11 +37,13 @@ namespace ES.Services.DataAccess.Model.QueryModel.Production
 
         public DateTime OperationDate { get; set; }
 
-        public string EmployeeCode { get; set; }
+        public Int64 EmployeeCode { get; set; }
 
         public string Shift { get; set; }
 
         public decimal Serial { get; set; }
+
+        public string SerialNo { get; set; }
 
         public string Description { get; set; }
 

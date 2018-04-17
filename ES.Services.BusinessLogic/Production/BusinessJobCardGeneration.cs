@@ -33,12 +33,12 @@ namespace ES.Services.BusinessLogic.Production
                 AddJobCardDetailsCM addJobCardDetailsCM = new AddJobCardDetailsCM();
 
                 var addJobCardMasterList = new List<AddJobCardMasterCM>();
-                var addJobCardDetailsList = new List<AddJobCardDetailsCM>();                
+                var addJobCardDetailsList = new List<AddJobCardDetailsCM>();
 
                 #region Process Card Master and Details Information
-                getProcessCardMasterQM = jobCardGenerationRepository.GetProcessCardMaster(request.PartCode, request.SequenceNumber);
+                getProcessCardMasterQM = jobCardGenerationRepository.GetProcessCardMaster(request.PartCode);
 
-                getProcessCardDetailsQM = jobCardGenerationRepository.GetProcessCardDetails(request.PartCode, request.SequenceNumber);
+                getProcessCardDetailsQM = jobCardGenerationRepository.GetProcessCardDetails(request.PartCode);
 
                 #endregion
 
@@ -59,9 +59,9 @@ namespace ES.Services.BusinessLogic.Production
                         CreatedBy = new Guid("783F190B-9B66-42AC-920B-E938732C1C01"), //Later needs to be remove
                         CreatedDateTime = System.DateTime.UtcNow
                     };
-                }
 
-                addJobCardMasterList.Add(addJobCardMasterCM);
+                    addJobCardMasterList.Add(addJobCardMasterCM);
+                }
 
                 foreach (var processCardDetails in getProcessCardDetailsQM.GetProcessCardDetailsQMModelList)
                 {
@@ -100,6 +100,58 @@ namespace ES.Services.BusinessLogic.Production
                 #endregion
 
             }
+
+            return response;
+        }
+
+        public UpdateJobCardMaintanceResponseDto UpdateJobCardMaintance(GetJobCardMaintanceResponseDto getJobCardMaintanceResponseDto)
+        {
+            UpdateJobCardMaintanceResponseDto response = new UpdateJobCardMaintanceResponseDto();
+            UpdateJobCardMaintanceCM updateJobCardMaintanceCM = new UpdateJobCardMaintanceCM();
+            GetJobCardMaintanceDetails getJobCardMaintanceDetails = new GetJobCardMaintanceDetails();
+            UpdateJobCardDetails updateJobCardDetails = new UpdateJobCardDetails();
+            var updateJobCardDetailsList = new List<UpdateJobCardDetails>();
+
+            #region Update JobCard Master
+
+            foreach (var master in getJobCardMaintanceResponseDto.GetJobCardMaintanceResponseList)
+            {
+                updateJobCardMaintanceCM.PartCode = master.PartCode;
+                updateJobCardMaintanceCM.SequenceNumber = master.SequenceNumber;
+                //updateJobCardMaintanceCM.SerialNo = master.SerialNo;
+                updateJobCardMaintanceCM.ActualRunningTime = master.ActualRunningTime;
+                updateJobCardMaintanceCM.ActualSettingTime = master.ActualSettingTime;
+                updateJobCardMaintanceCM.OperationDate = master.OperationDate;
+                updateJobCardMaintanceCM.Shift = master.Shift;
+                updateJobCardMaintanceCM.EmployeeCode = master.EmployeeCode;
+
+                foreach (var details in master.getJobCardMaintanceDetails)
+                {
+                    updateJobCardDetails = new UpdateJobCardDetails
+                    {
+                        DimensionActual = details.DimensionActual,
+                        DatumDimensionActual = details.DatumDimesionActual,
+                        Serial = details.Serial,
+                        SerialNo = details.SerialNo,
+                        PartCode = details.PartCode,
+                        SequenceNumber = details.SequenceNumber,
+                        UpdatedBy = new Guid("783F190B-9B66-42AC-920B-E938732C1C01"), //Later needs to be remove,
+                        UpdatedDateTime = System.DateTime.UtcNow
+                    };
+
+                    updateJobCardDetailsList.Add(updateJobCardDetails);
+                };
+            };
+
+            updateJobCardMaintanceCM.GetUpdateJobCardDetails = updateJobCardDetailsList;
+
+            jobCardGenerationRepository.UpdateJobCardMaintance(updateJobCardMaintanceCM);
+
+            #endregion
+
+            #region Update JobCard Details
+
+            #endregion
 
             return response;
         }

@@ -11,5 +11,7 @@ namespace ES.Services.BusinessLogic.Interface.Production
     public interface IBusinessJobCardGeneration
     {
         AddJobCardGenerationResponseDto AddJobCardGeneration(AddJobCardGenerationRequestDto addJobCardGenerationRequestDto);
+
+        UpdateJobCardMaintanceResponseDto UpdateJobCardMaintance(GetJobCardMaintanceResponseDto getJobCardMaintanceResponseDto);
     }
 }

@@ -114,6 +114,7 @@
     <Compile Include="Commands\Production\GetSequenceNumberSelectCommand.cs" />
     <Compile Include="Commands\Production\GetProcessCardSelectCommand.cs" />
     <Compile Include="Commands\Production\ProcessCardUpdateCommand.cs" />
+    <Compile Include="Commands\Production\UpdateJobCardMaintanceUpdateCommand.cs" />
     <Compile Include="Commands\Registration\UserRegistrationInsertCommand.cs" />
     <Compile Include="Commands\Despatch\GetDcTypeSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderMasterDeleteCommand.cs" />

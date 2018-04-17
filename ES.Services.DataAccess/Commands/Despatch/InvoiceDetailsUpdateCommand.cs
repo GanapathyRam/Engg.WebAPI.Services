@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ES.Services.DataAccess.Commands.Despatch
 {
-    class InvoiceDetailsUpdateCommand : SsDbCommand
+    public class InvoiceDetailsUpdateCommand : SsDbCommand
     {
         public void Execute(DataTable dataTableForInvoiceDetails, InvoiceDetailCM model)
         {

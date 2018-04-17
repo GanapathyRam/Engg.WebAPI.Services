@@ -90,6 +90,7 @@
     <Compile Include="CommandModel\Masters\UpdateVendorMasterCM.cs" />
     <Compile Include="CommandModel\Production\AddJobCardMasterAndDetailsCM.cs" />
     <Compile Include="CommandModel\Production\DeleteProcessCardCM.cs" />
+    <Compile Include="CommandModel\Production\UpdateJobCardMaintanceCM.cs" />
     <Compile Include="CommandModel\Production\UpdateProcessCardCM.cs" />
     <Compile Include="CommandModel\Production\AddProcessCardCM.cs" />
     <Compile Include="CommandModel\Registration\UserInfoCommandModel.cs" />
