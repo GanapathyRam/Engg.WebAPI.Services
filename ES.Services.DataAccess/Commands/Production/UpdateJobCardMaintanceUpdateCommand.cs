@@ -21,7 +21,7 @@ namespace ES.Services.DataAccess.Commands.Production
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.Add(AddParameter("@PartCode", SsDbType.Decimal, ParameterDirection.Input, updateJobCardMaintanceCM.PartCode));
                 sqlCommand.Parameters.Add(AddParameter("@SequeneNumber", SsDbType.Decimal, ParameterDirection.Input, updateJobCardMaintanceCM.SequenceNumber));
-                //sqlCommand.Parameters.Add(AddParameter("@SerialNo", SsDbType.VarChar, ParameterDirection.Input, updateJobCardMaintanceCM.SerialNo));
+                sqlCommand.Parameters.Add(AddParameter("@SerialNo", SsDbType.VarChar, ParameterDirection.Input, updateJobCardMaintanceCM.SerialNo));
                 sqlCommand.Parameters.Add(AddParameter("@ActualSettingTime", SsDbType.Decimal, ParameterDirection.Input, updateJobCardMaintanceCM.ActualSettingTime));
                 sqlCommand.Parameters.Add(AddParameter("@ActualRunningTime", SsDbType.Decimal, ParameterDirection.Input, updateJobCardMaintanceCM.ActualRunningTime));
                 sqlCommand.Parameters.Add(AddParameter("@OperationDate", SsDbType.DateTime, ParameterDirection.Input, updateJobCardMaintanceCM.OperationDate));

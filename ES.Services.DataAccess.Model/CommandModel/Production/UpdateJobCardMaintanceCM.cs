@@ -8,11 +8,11 @@ namespace ES.Services.DataAccess.Model.CommandModel.Production
 {
     public class UpdateJobCardMaintanceCM
     {
-        //public string SerialNo { get; set; }
-
         public decimal PartCode { get; set; }
 
         public decimal SequenceNumber { get; set; }
+
+        public string SerialNo { get; set; }
 
         public decimal ActualSettingTime { get; set; }
 

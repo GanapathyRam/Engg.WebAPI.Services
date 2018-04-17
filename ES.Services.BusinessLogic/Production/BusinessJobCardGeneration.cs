@@ -118,7 +118,7 @@ namespace ES.Services.BusinessLogic.Production
             {
                 updateJobCardMaintanceCM.PartCode = master.PartCode;
                 updateJobCardMaintanceCM.SequenceNumber = master.SequenceNumber;
-                //updateJobCardMaintanceCM.SerialNo = master.SerialNo;
+                updateJobCardMaintanceCM.SerialNo = master.SerialNo;
                 updateJobCardMaintanceCM.ActualRunningTime = master.ActualRunningTime;
                 updateJobCardMaintanceCM.ActualSettingTime = master.ActualSettingTime;
                 updateJobCardMaintanceCM.OperationDate = master.OperationDate;
