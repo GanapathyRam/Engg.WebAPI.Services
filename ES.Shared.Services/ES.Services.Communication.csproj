@@ -168,6 +168,7 @@
     <Compile Include="Controllers\Despatch\InvoiceController.cs" />
     <Compile Include="Controllers\Masters\CategoryMasterController.cs" />
     <Compile Include="Controllers\Masters\CompanyMasterController.cs" />
+    <Compile Include="Controllers\Masters\EmployeeMasterController.cs" />
     <Compile Include="Controllers\Masters\InstrumentMasterController.cs" />
     <Compile Include="Controllers\Masters\JigsMasterController.cs" />
     <Compile Include="Controllers\Masters\MachineMasterController.cs" />

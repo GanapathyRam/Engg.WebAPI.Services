@@ -120,6 +120,7 @@
     <Compile Include="QueryModel\Despatch\GetWoMasterAndDetailsFromCustomerCodeTypeQM.cs" />
     <Compile Include="QueryModel\Despatch\GetWOMasterForDcModel.cs" />
     <Compile Include="QueryModel\Despatch\GetWOMasterForDcQM.cs" />
+    <Compile Include="QueryModel\Masters\GetEmployeeMasterQM.cs" />
     <Compile Include="QueryModel\Production\GetJobCardGenerationQM.cs" />
     <Compile Include="QueryModel\Production\GetJobCardMaintanceQM.cs" />
     <Compile Include="QueryModel\Production\GetProcessCardDetailsQM.cs" />

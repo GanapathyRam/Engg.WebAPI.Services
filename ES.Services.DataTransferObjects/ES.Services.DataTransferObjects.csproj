@@ -129,6 +129,7 @@
     <Compile Include="Response\Despatch\GetWOMasterForDcResponseList.cs" />
     <Compile Include="Response\Despatch\AddInvoiceResponseDto.cs" />
     <Compile Include="Response\Masters\AddSymbolMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\GetEmployeeMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetSymbolMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddCompanyMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddJigsMasterResponseDto.cs" />

@@ -56,6 +56,7 @@
     <Compile Include="Despatch\ReportInvoice.cs" />
     <Compile Include="Masters\ReportCategoryMaster.cs" />
     <Compile Include="Masters\ReportCompanyMaster.cs" />
+    <Compile Include="Masters\ReportEmployeeMaster.cs" />
     <Compile Include="Masters\ReportInstrumentMaster.cs" />
     <Compile Include="Masters\ReportMachineMaster.cs" />
     <Compile Include="Masters\ReportParameterMaster.cs" />

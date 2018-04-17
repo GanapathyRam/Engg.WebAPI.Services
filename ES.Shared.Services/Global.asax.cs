@@ -243,6 +243,16 @@ namespace ES.Shared.Services
                 //x.For<IReportJobCardGeneration>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
                 x.For<IBusinessJobCardGeneration>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
             });
+
+            ObjectFactory.Configure(x =>
+            {
+                x.For<IReportEmployeeMaster>().Use<ReportEmployeeMaster>();
+                x.For<IEmployeeMasterRepository>().Use<EmployeeMasterRepository>();
+                var proxyGenerator = new ProxyGenerator();
+                var transactionInterceptor = new TransactionInterceptor();
+                x.For<IReportEmployeeMaster>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
+            });
+
             #endregion
         }
     }
