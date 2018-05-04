@@ -18,5 +18,9 @@ namespace ES.Services.DataTransferObjects.Response.Despatch
         public string VendorName { get; set; }
         public string DcTypeDescription { get; set; }        public string WoTypeDescription { get; set; }
         public bool Invoiced { get; set; }
+        public string FullAddress { get; set; }
+        public string City { get; set; }
+        public string PinCode { get; set; }
+        public string CompanyGST { get; set; }
     }
 }

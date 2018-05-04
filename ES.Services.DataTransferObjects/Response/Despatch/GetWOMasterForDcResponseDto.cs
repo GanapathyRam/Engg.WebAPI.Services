@@ -18,6 +18,10 @@ namespace ES.Services.DataTransferObjects.Response.Despatch
         public decimal WOQuantity { get; set; }
         public decimal PartCode { get; set; }
         public string PartDescription { get; set; }
+        public string DrawingNumber { get; set; }
+        public string DrawingNumberRevision { get; set; }
+        public string HeatNo { get; set; }
+        public string WDCNumber { get; set; }
         public string ItemCode { get; set; }
         public decimal MaterialCode { get; set; }
         public string MaterialDescription { get; set; }

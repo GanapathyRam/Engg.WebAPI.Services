@@ -75,6 +75,10 @@ namespace ES.Services.ReportLogic.Despatch
                         getsingle.DCNumber = dcMasterDetails.DCNumber;
                         getsingle.WOQuantity = dcMasterDetails.WOQuantity;
                         getsingle.MaterialCode = dcMasterDetails.MaterialCode;
+                        getsingle.DrawingNumber = dcMasterDetails.DrawingNumber;
+                        getsingle.DrawingNumberRevision = dcMasterDetails.DrawingNumberRevision;
+                        getsingle.HeatNo = dcMasterDetails.HeatNo;
+                        getsingle.WDCNumber = dcMasterDetails.WDCNumber;
                         getsingle.ItemCode = dcMasterDetails.ItemCode;
                         getsingle.PONumber = dcMasterDetails.PONumber;
                         getsingle.PartDescription = dcMasterDetails.PartDescription;
@@ -103,6 +107,10 @@ namespace ES.Services.ReportLogic.Despatch
                     getsingle.ItemCode = dcMasterDetails.ItemCode;
                     getsingle.PONumber = dcMasterDetails.PONumber;
                     getsingle.PartDescription = dcMasterDetails.PartDescription;
+                    getsingle.DrawingNumber = dcMasterDetails.DrawingNumber;
+                    getsingle.DrawingNumberRevision = dcMasterDetails.DrawingNumberRevision;
+                    getsingle.HeatNo = dcMasterDetails.HeatNo;
+                    getsingle.WDCNumber = dcMasterDetails.WDCNumber;
                     getsingle.MaterialDescription = dcMasterDetails.MaterialDescription;
                     getsingle.IsDeletable = false;
                     getsingle.IsNew = dcMasterDetails.IsNew ? false : true;

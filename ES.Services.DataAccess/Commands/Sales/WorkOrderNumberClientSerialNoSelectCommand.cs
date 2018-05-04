@@ -30,7 +30,6 @@ namespace ES.Services.DataAccess.Commands.Sales
                         workOrderSerialNo = new GetWorkOrderClientSerialNoQM()
                         {
                             WorkOrderClientSerialNo = Convert.ToString(reader["SerialNo"]),
-                            WorkOrderClientSerialChar = Convert.ToString(reader["SerialChar"]),
                         };
                     }
                 }

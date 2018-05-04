@@ -83,8 +83,13 @@ namespace ES.Services.BusinessLogic.Sales
                 string ClientSerialStartName = System.Configuration.ConfigurationManager.AppSettings["ClientStartName"].ToString();
                 string CurrentMonth = Constant.GetMonthByAlphabet(System.DateTime.UtcNow.Month);
                 string CurrentYear = Constant.GetYearByAlphabet(System.DateTime.UtcNow.Year);
+                string clientSerialNo = "";
+                if (!string.IsNullOrEmpty(getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo))
+                {
+                    clientSerialNo = getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo.ToString();
 
-                string clientSerialNo = getWorkOrderClientSerialNoQM.WorkOrderClientSerialChar.ToString() + getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo.ToString();
+                }
+             
 
                 var clientSerialDigit = ClientSerialStartName + CurrentYear + CurrentMonth;
 
@@ -201,7 +206,7 @@ namespace ES.Services.BusinessLogic.Sales
                     string CurrentMonth = Constant.GetMonthByAlphabet(System.DateTime.UtcNow.Month);
                     string CurrentYear = Constant.GetYearByAlphabet(System.DateTime.UtcNow.Year);
 
-                    string clientSerialNo = getWorkOrderClientSerialNoQM.WorkOrderClientSerialChar.ToString() + getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo.ToString();
+                    string clientSerialNo = getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo.ToString();
 
                     var clientSerialDigit = ClientSerialStartName + CurrentMonth + CurrentYear;
 

@@ -9,7 +9,5 @@ namespace ES.Services.DataAccess.Model.QueryModel.Sales
     public class GetWorkOrderClientSerialNoQM
     {
         public string WorkOrderClientSerialNo { get; set; }
-
-        public string WorkOrderClientSerialChar { get; set; }
     }
 }

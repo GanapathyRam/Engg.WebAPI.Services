@@ -10,7 +10,5 @@ namespace ES.Services.DataTransferObjects.Request.Sales
     public class GetWorkOrderClientSerialNoResponseDto : BaseResponse
     {
         public string WorkOrderClientSerialNo { get; set; }
-
-        public string WorkOrderClientSerialChar { get; set; }
     }
 }
