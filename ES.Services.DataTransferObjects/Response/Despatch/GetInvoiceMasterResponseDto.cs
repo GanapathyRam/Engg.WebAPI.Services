@@ -38,5 +38,9 @@ namespace ES.Services.DataTransferObjects.Response.Despatch
         public Int64 VendorCode { get; set; }
 
         public string VendorName { get; set; }
+        public string FullAddress { get; set; }
+        public string City { get; set; }
+        public string PinCode { get; set; }
+        public string CompanyGST { get; set; }
     }
 }

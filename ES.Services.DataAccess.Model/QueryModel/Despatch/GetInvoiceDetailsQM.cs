@@ -40,5 +40,14 @@ namespace ES.Services.DataAccess.Model.QueryModel.Despatch
         public Guid CreatedBy { get; set; }
 
         public DateTime CreatedDateTime { get; set; }
+
+        public string DrawingNumber { get; set; }
+        public string DrawingNumberRevision { get; set; }
+        public string ItemCode { get; set; }
+        public string MaterialDescription { get; set; }
+        public string HeatNo { get; set; }
+        public string PONumber { get; set; }
+        public string SerialNos { get; set; }
+        public string WDCNumber { get; set; }
     }
 }
