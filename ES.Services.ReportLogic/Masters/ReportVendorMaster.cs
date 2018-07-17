@@ -42,7 +42,7 @@ namespace ES.Services.ReportLogic.Masters
             return response;
         }
 
-        public GetVendorMasterListResponseDto GetVendorMasterList()
+        public GetVendorMasterListResponseDto GetVendorMasterList(Char CategoryCode)
         {
             var response = new GetVendorMasterListResponseDto();
 
@@ -51,7 +51,7 @@ namespace ES.Services.ReportLogic.Masters
             //    PageIndex = getVendorMasterListRequestDto.PageIndex,
             //    PageSize = getVendorMasterListRequestDto.PageSize
             //};
-            var model = vendorMastersRepository.GetVendorMasterList();
+            var model = vendorMastersRepository.GetVendorMasterList(CategoryCode);
 
             if (model != null)
             {

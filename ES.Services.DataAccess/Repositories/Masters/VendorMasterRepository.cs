@@ -53,7 +53,7 @@ namespace ES.Services.DataAccess.Repositories.Masters
             return model;
         }
 
-        public GetVendorMasterListQM GetVendorMasterList()
+        public GetVendorMasterListQM GetVendorMasterList(Char CategoryCode)
         {
             var model = new GetVendorMasterListQM();
             using (var connection = new DbConnectionProvider().CreateConnection())
@@ -61,7 +61,7 @@ namespace ES.Services.DataAccess.Repositories.Masters
                 connection.Open();
 
                 var command = new VendorMasterListSelectCommand { Connection = connection };
-                model = command.Execute();
+                model = command.Execute(CategoryCode);
             }
 
             return model;

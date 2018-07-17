@@ -16,6 +16,6 @@ namespace ES.Services.DataAccess.Interface.Masters
 
         GetVendorMasterQM GetVendorMaster();
 
-        GetVendorMasterListQM GetVendorMasterList();
+        GetVendorMasterListQM GetVendorMasterList(Char CategoryCode);
     }
 }

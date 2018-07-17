@@ -126,13 +126,13 @@ namespace ES.Shared.Services.Controllers.Masters
         }
 
         [HttpPost]
-        public GetVendorMasterListResponseDto GetVendorMasterList()
+        public GetVendorMasterListResponseDto GetVendorMasterList(Char CategoryCode = 'C')
         {
             GetVendorMasterListResponseDto response;
 
             try
             {
-                response = rVendorMasterProvider.GetVendorMasterList();
+                response = rVendorMasterProvider.GetVendorMasterList(CategoryCode);
                 response.ServiceResponseStatus = 1;
             }
             catch (SSException applicationException)

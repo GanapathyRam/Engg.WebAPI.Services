@@ -15,7 +15,7 @@ namespace ES.Services.DataAccess.Commands.Masters
 {
     public class VendorMasterListSelectCommand : SsDbCommand
     {
-        public GetVendorMasterListQM Execute()
+        public GetVendorMasterListQM Execute(Char CategoryCode)
         {
             var response = new GetVendorMasterListQM();
             using (var sqlCommand = CreateCommand())
@@ -23,7 +23,7 @@ namespace ES.Services.DataAccess.Commands.Masters
                 sqlCommand.Connection = Connection;
                 sqlCommand.CommandText = "[dbo].[uspGetVendorMasterList]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                //sqlCommand.Parameters.Add(AddParameter("@PageSize", SsDbType.Int, ParameterDirection.Input, model.PageSize));
+                sqlCommand.Parameters.Add(AddParameter("@CategoryCode", SsDbType.Char, ParameterDirection.Input, CategoryCode));
                 //sqlCommand.Parameters.Add(AddParameter("@PageIndex", SsDbType.Int, ParameterDirection.Input, model.PageIndex));
                 sqlCommand.Parameters.Add(AddParameter("@RecordCount", SsDbType.Int, ParameterDirection.Output, default(int)));
 

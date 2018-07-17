@@ -10,5 +10,6 @@ namespace ES.Services.DataAccess.Model.CommandModel.Masters
     {
         public int PageIndex { get; set; }
         public int PageSize { get; set; }
+        public Char CategoryCode { get; set; }
     }
 }

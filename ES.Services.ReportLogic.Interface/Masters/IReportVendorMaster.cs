@@ -12,6 +12,6 @@ namespace ES.Services.ReportLogic.Interface.Masters
     {
         GetVendorMasterResponseDto GetVendorMaster();
 
-        GetVendorMasterListResponseDto GetVendorMasterList();
+        GetVendorMasterListResponseDto GetVendorMasterList(Char CategoryCode);
     }
 }
