@@ -17,12 +17,14 @@ using ES.Services.DataAccess.Interface.Masters;
 using ES.Services.DataAccess.Interface.Production;
 using ES.Services.DataAccess.Interface.Registration;
 using ES.Services.DataAccess.Interface.Sales;
+using ES.Services.DataAccess.Interface.SubContract;
 using ES.Services.DataAccess.Repositories.Authentication;
 using ES.Services.DataAccess.Repositories.Despatch;
 using ES.Services.DataAccess.Repositories.Masters;
 using ES.Services.DataAccess.Repositories.Production;
 using ES.Services.DataAccess.Repositories.Registration;
 using ES.Services.DataAccess.Repositories.Sales;
+using ES.Services.DataAccess.Repositories.SubContract;
 using ES.Services.ReportLogic.Authentication;
 using ES.Services.ReportLogic.Despatch;
 using ES.Services.ReportLogic.Interface.Authentication;
@@ -30,9 +32,11 @@ using ES.Services.ReportLogic.Interface.Despatch;
 using ES.Services.ReportLogic.Interface.Masters;
 using ES.Services.ReportLogic.Interface.Production;
 using ES.Services.ReportLogic.Interface.Sales;
+using ES.Services.ReportLogic.Interface.SubContract;
 using ES.Services.ReportLogic.Masters;
 using ES.Services.ReportLogic.Production;
 using ES.Services.ReportLogic.Sales;
+using ES.Services.ReportLogic.SubContract;
 using SS.Framework.AopInterceptor;
 using StructureMap;
 using System.Web.Http;
@@ -254,6 +258,18 @@ namespace ES.Shared.Services
             });
 
             #endregion
+
+            #region Sub Contract
+            ObjectFactory.Configure(x =>
+            {
+                x.For<IReportSubContract>().Use<ReportSubContract>();
+                x.For<ISubContractRepository>().Use<SubContractRepository>();
+                var proxyGenerator = new ProxyGenerator();
+                var transactionInterceptor = new TransactionInterceptor();
+                x.For<IReportSubContract>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
+            });
+            #endregion
+
         }
     }
 }

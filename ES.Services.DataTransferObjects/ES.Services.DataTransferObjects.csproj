@@ -193,6 +193,10 @@
     <Compile Include="Response\Sales\UpdateWorkOrderResponseDto.cs" />
     <Compile Include="Response\Sales\WorkOrderResponseDto.cs" />
     <Compile Include="Response\Sales\WorkOrderTypeList.cs" />
+    <Compile Include="Response\SubContract\GetSubContractSendingResponseDto.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Request\SubContract\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

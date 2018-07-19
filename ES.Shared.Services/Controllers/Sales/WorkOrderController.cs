@@ -20,7 +20,6 @@ namespace ES.Shared.Services.Controllers.Sales
     {
         private readonly IReportWorkOrder rWorkOrderProvider;
         private readonly IBusinessWorkOrder bWorkOrderProvider;
-
         public WorkOrderController()
         {
             this.rWorkOrderProvider = ObjectFactory.GetInstance<IReportWorkOrder>();
