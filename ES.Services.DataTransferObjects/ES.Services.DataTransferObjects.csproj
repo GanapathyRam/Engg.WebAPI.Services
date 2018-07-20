@@ -78,6 +78,7 @@
     <Compile Include="Request\Masters\GetMaterialMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetOperationMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetParameterMasterRequestDto.cs" />
+    <Compile Include="Request\Masters\GetSubcontractProcessMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetSymbolMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetToolsMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetVendorMasterListRequestDto.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Response\Despatch\AddInvoiceResponseDto.cs" />
     <Compile Include="Response\Masters\AddSymbolMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetEmployeeMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\GetSubcontractProcessMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetSymbolMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddCompanyMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddJigsMasterResponseDto.cs" />

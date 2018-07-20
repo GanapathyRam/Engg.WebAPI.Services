@@ -58,6 +58,7 @@
     <Compile Include="Masters\BusinessParameterMaster.cs" />
     <Compile Include="Masters\BusinessJigsMaster.cs" />
     <Compile Include="Masters\BusinessPartMaster.cs" />
+    <Compile Include="Masters\BusinessSubcontractProcessMaster.cs" />
     <Compile Include="Masters\BusinessSymbolMaster.cs" />
     <Compile Include="Masters\BusinessToolsMaster.cs" />
     <Compile Include="Masters\BusinessOperationMaster.cs" />

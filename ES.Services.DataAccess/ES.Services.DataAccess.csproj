@@ -93,6 +93,7 @@
     <Compile Include="Commands\Masters\PartMasterInsertCommand.cs" />
     <Compile Include="Commands\Masters\PartMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\PartMasterUpdateCommand.cs" />
+    <Compile Include="Commands\Masters\SubcontractProcessMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\SymbolMasterInsertCommand.cs" />
     <Compile Include="Commands\Masters\SymbolMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\SymbolMasterUpdateCommand.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Repositories\Masters\ParameterMasterRepository.cs" />
     <Compile Include="Repositories\Masters\JigsMasterRepository.cs" />
     <Compile Include="Repositories\Masters\PartMasterRepository.cs" />
+    <Compile Include="Repositories\Masters\SubcontractProcessMasterRepository.cs" />
     <Compile Include="Repositories\Masters\SymbolMasterRepository.cs" />
     <Compile Include="Repositories\Masters\ToolsMasterRepository.cs" />
     <Compile Include="Repositories\Masters\OperationMasterRepository.cs" />

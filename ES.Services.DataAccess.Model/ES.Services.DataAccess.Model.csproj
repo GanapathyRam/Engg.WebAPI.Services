@@ -75,6 +75,7 @@
     <Compile Include="CommandModel\Masters\GetOperationMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetParameterMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetPartMasterCM.cs" />
+    <Compile Include="CommandModel\Masters\GetSubcontractProcessMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetSymbolMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetToolsMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetVendorMasterCM.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="QueryModel\Despatch\GetWOMasterForDcModel.cs" />
     <Compile Include="QueryModel\Despatch\GetWOMasterForDcQM.cs" />
     <Compile Include="QueryModel\Masters\GetEmployeeMasterQM.cs" />
+    <Compile Include="QueryModel\Masters\GetSubcontractProcessMasterQM.cs" />
     <Compile Include="QueryModel\Production\GetJobCardGenerationQM.cs" />
     <Compile Include="QueryModel\Production\GetJobCardMaintanceQM.cs" />
     <Compile Include="QueryModel\Production\GetProcessCardDetailsQM.cs" />
