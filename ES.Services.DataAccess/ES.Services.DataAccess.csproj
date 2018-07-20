@@ -129,6 +129,7 @@
     <Compile Include="Commands\Sales\WorkOrderNumberSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderTypeSelectCommand.cs" />
+    <Compile Include="Commands\SubContract\GetSubContractSendingSelectCommand.cs" />
     <Compile Include="DbConnectionProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Authentication\AuthenticateRepository.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="Repositories\Registration\RegistrationRepository.cs" />
     <Compile Include="Repositories\Despatch\DeliveryChallanRepository.cs" />
     <Compile Include="Repositories\Sales\WorkOrderRepository.cs" />
+    <Compile Include="Repositories\SubContract\SubContractRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ES.Services.DataAccess.Interface\ES.Services.DataAccess.Interface.csproj">

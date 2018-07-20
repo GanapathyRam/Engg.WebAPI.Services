@@ -185,6 +185,8 @@
     <Compile Include="QueryModel\Sales\GetWorkOrderTypeQM.cs" />
     <Compile Include="QueryModel\Sales\WorkOrderQM.cs" />
     <Compile Include="QueryModel\Sales\WorkOrderTypeModel.cs" />
+    <Compile Include="QueryModel\SubContract\GetSubContractSendingResponseModel.cs" />
+    <Compile Include="QueryModel\SubContract\GetSubContractSendingResponseQM.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -1,0 +1,94 @@
+﻿using ES.Services.DataAccess.Interface.Despatch;
+using ES.Services.ReportLogic.Interface.Sales;
+using ES.Services.ReportLogic.Interface.SubContract;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using ES.Services.DataTransferObjects.Response.SubContract;
+using ES.Services.DataAccess.Interface.SubContract;
+
+namespace ES.Services.ReportLogic.SubContract
+{
+    public class ReportSubContract : IReportSubContract
+    {
+        private readonly ISubContractRepository subContractRepository;
+
+        public ReportSubContract(ISubContractRepository subContractRepository)
+        {
+            this.subContractRepository = subContractRepository;
+        }
+
+        public GetSubContractSendingResponseDto GetSubContractSendingDetails()
+        {
+            var response = new GetSubContractSendingResponseDto()
+            {
+                getSubContractSendingResponseList = new List<GetSubContractSendingResponse>()
+            };
+
+            var model = subContractRepository.GetSubContractSendingDetails();
+
+
+            foreach (var responseModel in model.getSubContractSendingResponseModel)
+            {
+                var getsingle = new GetSubContractSendingResponse
+                {
+                    getSubContractSendingSerialList = new List<GetSubContractSendingSerialList>()
+                };
+                var getWoMasterDetailsResponse = new GetSubContractSendingSerialList();
+                getWoMasterDetailsResponse.SerialNo = responseModel.SerialNo;
+                getWoMasterDetailsResponse.WONumber = responseModel.WONumber;
+                getWoMasterDetailsResponse.WOSerial = responseModel.WOSerial;
+
+                if (response.getSubContractSendingResponseList.Count > 0)
+                {
+                    var isExist = response.getSubContractSendingResponseList.Any(dcMaster => dcMaster.WONumber == responseModel.WONumber && dcMaster.WOSerial == responseModel.WOSerial);
+                    if (isExist)
+                    {
+                        var index = response.getSubContractSendingResponseList.FindIndex(a => a.WONumber == responseModel.WONumber && a.WOSerial == responseModel.WOSerial);
+
+                        response.getSubContractSendingResponseList[index].getSubContractSendingSerialList.Add(getWoMasterDetailsResponse);
+                    }
+                    else
+                    {
+                        getsingle.WONumber = responseModel.WONumber;
+                        getsingle.WOSerial = responseModel.WOSerial;
+                        getsingle.CustomerName = responseModel.CustomerName;
+                        getsingle.DrawingNumber = responseModel.DrawingNumber;
+                        getsingle.ItemCode = responseModel.ItemCode;
+                        getsingle.MaterialCode = responseModel.MaterialCode;
+                        getsingle.MaterialDescription = responseModel.MaterialDescription;
+                        getsingle.PartCode = responseModel.PartCode;
+                        getsingle.PartDescription = responseModel.PartDescription;
+
+
+                        getsingle.getSubContractSendingSerialList.Add
+                        (getWoMasterDetailsResponse);
+
+                        response.getSubContractSendingResponseList.Add(getsingle);
+                    }
+                }
+                else
+                {
+                    getsingle.WONumber = responseModel.WONumber;
+                    getsingle.WOSerial = responseModel.WOSerial;
+                    getsingle.CustomerName = responseModel.CustomerName;
+                    getsingle.DrawingNumber = responseModel.DrawingNumber;
+                    getsingle.ItemCode = responseModel.ItemCode;
+                    getsingle.MaterialCode = responseModel.MaterialCode;
+                    getsingle.MaterialDescription = responseModel.MaterialDescription;
+                    getsingle.PartCode = responseModel.PartCode;
+                    getsingle.PartDescription = responseModel.PartDescription;
+
+                    getsingle.getSubContractSendingSerialList.Add
+                    (getWoMasterDetailsResponse);
+
+                    response.getSubContractSendingResponseList.Add(getsingle);
+                }
+            }
+
+            return response;
+        }
+    }
+}

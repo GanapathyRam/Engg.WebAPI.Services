@@ -203,6 +203,7 @@
     <Compile Include="Controllers\Production\JobCardGenerationController.cs" />
     <Compile Include="Controllers\Production\ProcessCardController.cs" />
     <Compile Include="Controllers\Registration\RegistrationController.cs" />
+    <Compile Include="Controllers\SubContract\SubContractController.cs" />
     <Compile Include="Controllers\Sales\WorkOrderController.cs" />
     <Compile Include="Filters\AddChallengeOnUnauthorizedResult.cs" />
     <Compile Include="Filters\AuthenticationFailureResult.cs" />

@@ -63,6 +63,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\IRegistrationRepository.cs" />
     <Compile Include="Sales\IWorkOrderRepository.cs" />
+    <Compile Include="SubContract\ISubContractRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ES.Services.DataAccess.Model\ES.Services.DataAccess.Model.csproj">
