@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ES.Services.DataAccess.Model.CommandModel.Masters
 {
-    class GetSubcontractProcessMasterCM
+    public class GetSubcontractProcessMasterCM
     {
+        public int PageIndex { get; set; }
+        public int PageSize { get; set; }
     }
 }

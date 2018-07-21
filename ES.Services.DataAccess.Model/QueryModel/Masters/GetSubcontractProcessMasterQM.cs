@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ES.Services.DataAccess.Model.QueryModel.Masters
 {
-    class GetSubcontractProcessMasterQM
+   public class GetSubcontractProcessMasterQM
     {
+        public int RecordCount { get; set; }
+
+        public IEnumerable<SubcontractProcessMasterModel> GetSubcontractProcessMasterList { get; set; }
     }
 }

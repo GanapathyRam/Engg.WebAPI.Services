@@ -63,6 +63,7 @@
     <Compile Include="CommandModel\Masters\AddOperationMasterCM.cs" />
     <Compile Include="CommandModel\Masters\AddParameterMasterCM.cs" />
     <Compile Include="CommandModel\Masters\AddPartMasterCM.cs" />
+    <Compile Include="CommandModel\Masters\AddSubcontractProcessMasterCM.cs" />
     <Compile Include="CommandModel\Masters\AddSymbolMasterCM.cs" />
     <Compile Include="CommandModel\Masters\AddToolsMasterCM.cs" />
     <Compile Include="CommandModel\Masters\AddVendorMasterCM.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="CommandModel\Masters\UpdateOperationMasterCM.cs" />
     <Compile Include="CommandModel\Masters\UpdateParameterMasterCM.cs" />
     <Compile Include="CommandModel\Masters\UpdatePartMasterCM.cs" />
+    <Compile Include="CommandModel\Masters\UpdateSubcontractProcessMasterCM.cs" />
     <Compile Include="CommandModel\Masters\UpdateToolsMasterCM.cs" />
     <Compile Include="CommandModel\Masters\UpdateVendorMasterCM.cs" />
     <Compile Include="CommandModel\Production\AddJobCardMasterAndDetailsCM.cs" />
@@ -122,8 +124,11 @@
     <Compile Include="QueryModel\Despatch\GetWoMasterAndDetailsFromCustomerCodeTypeQM.cs" />
     <Compile Include="QueryModel\Despatch\GetWOMasterForDcModel.cs" />
     <Compile Include="QueryModel\Despatch\GetWOMasterForDcQM.cs" />
+    <Compile Include="QueryModel\Masters\AddSubcontractProcessMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetEmployeeMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetSubcontractProcessMasterQM.cs" />
+    <Compile Include="QueryModel\Masters\SubcontractProcessMasterModel.cs" />
+    <Compile Include="QueryModel\Masters\UpdateSubcontractProcessMasterQM.cs" />
     <Compile Include="QueryModel\Production\GetJobCardGenerationQM.cs" />
     <Compile Include="QueryModel\Production\GetJobCardMaintanceQM.cs" />
     <Compile Include="QueryModel\Production\GetProcessCardDetailsQM.cs" />

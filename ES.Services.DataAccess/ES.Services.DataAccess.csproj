@@ -93,7 +93,9 @@
     <Compile Include="Commands\Masters\PartMasterInsertCommand.cs" />
     <Compile Include="Commands\Masters\PartMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\PartMasterUpdateCommand.cs" />
+    <Compile Include="Commands\Masters\SubcontractProcessMasterInsertCommand.cs" />
     <Compile Include="Commands\Masters\SubcontractProcessMasterSelectCommand.cs" />
+    <Compile Include="Commands\Masters\SubcontractProcessMasterUpdateCommand.cs" />
     <Compile Include="Commands\Masters\SymbolMasterInsertCommand.cs" />
     <Compile Include="Commands\Masters\SymbolMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\SymbolMasterUpdateCommand.cs" />

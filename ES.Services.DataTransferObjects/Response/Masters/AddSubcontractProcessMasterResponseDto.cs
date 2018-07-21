@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace ES.Services.DataTransferObjects.Response.Masters
 {
-   public class GetSubcontractProcessMasterResponseDto : BaseResponse
+   public class AddSubcontractProcessMasterResponseDto:BaseResponse
     {
         public int RecordCount { get; set; }
-
-        public IEnumerable<SubcontractProcessMaster> GetSubcontractProcessMasterList { get; set; }
     }
 }
