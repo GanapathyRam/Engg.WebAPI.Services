@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace ES.Services.DataTransferObjects.Request.Masters
 {
-    public class GetSubcontractProcessMasterRequestDto
+    public class AddSubcontractProcessMasterRequestDto
     {
-        public int PageIndex { get; set; }
-
-        public int PageSize { get; set; }
-
         public string ProcessDescription { get; set; }
+        public Guid CreatedBy { get; set; }
+
+        public DateTime CreatedDateTime { get; set; }
     }
 }

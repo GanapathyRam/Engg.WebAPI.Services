@@ -145,9 +145,17 @@ namespace ES.Shared.Services
                 var transactionInterceptor = new TransactionInterceptor();
                 x.For<IBusinessParameterMaster>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
             });
+            ObjectFactory.Configure(x =>
+            {
+                x.For<IReportSubcontractProcessMaster>().Use<ReportSubcontractProcessMaster>();
+                x.For<IBusinessSubcontractProcessMaster>().Use<BusinessSubcontractProcessMaster>();
+                x.For<ISubcontractProcessMasterRepository>().Use<SubcontractProcessMasterRepository>();
+                var proxyGenerator = new ProxyGenerator();
+                var transactionInterceptor = new TransactionInterceptor();
+                x.For<IBusinessSubcontractProcessMaster>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
+            });
 
-            
-                 ObjectFactory.Configure(x =>
+            ObjectFactory.Configure(x =>
                  {
                      x.For<IReportSymbolMaster>().Use<ReportSymbolMaster>();
                      x.For<IBusinessSymbolMaster>().Use<BusinessSymbolMaster>();
