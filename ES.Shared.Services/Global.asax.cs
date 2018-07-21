@@ -7,10 +7,12 @@ using ES.Services.BusinessLogic.Interface.Masters;
 using ES.Services.BusinessLogic.Interface.Production;
 using ES.Services.BusinessLogic.Interface.Registration;
 using ES.Services.BusinessLogic.Interface.Sales;
+using ES.Services.BusinessLogic.Interface.SubContract;
 using ES.Services.BusinessLogic.Masters;
 using ES.Services.BusinessLogic.Production;
 using ES.Services.BusinessLogic.Registration;
 using ES.Services.BusinessLogic.Sales;
+using ES.Services.BusinessLogic.SubContract;
 using ES.Services.DataAccess.Interface.Authentication;
 using ES.Services.DataAccess.Interface.Despatch;
 using ES.Services.DataAccess.Interface.Masters;
@@ -263,6 +265,7 @@ namespace ES.Shared.Services
             ObjectFactory.Configure(x =>
             {
                 x.For<IReportSubContract>().Use<ReportSubContract>();
+                x.For<IBusinessSubContract>().Use<BusinessSubContract>();
                 x.For<ISubContractRepository>().Use<SubContractRepository>();
                 var proxyGenerator = new ProxyGenerator();
                 var transactionInterceptor = new TransactionInterceptor();

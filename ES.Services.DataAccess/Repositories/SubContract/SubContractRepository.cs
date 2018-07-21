@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using ES.Services.DataAccess.Model.QueryModel.SubContract;
 using ES.Services.DataAccess.Commands.Despatch;
 using ES.Services.DataAccess.Commands.SubContract;
+using ES.Services.DataAccess.Model.CommandModel.SubContract;
+using SS.Framework.DataAccess.Extentions;
 
 namespace ES.Services.DataAccess.Repositories.SubContract
 {
@@ -24,6 +26,50 @@ namespace ES.Services.DataAccess.Repositories.SubContract
             }
 
             return model;
+        }
+
+        public void AddScSerial(ScDetailSerialCM scDetailSerialCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new ScSerialInsertCommand { Connection = connection };
+                command.Execute(scDetailSerialCM.ScDetailSerialItems.ToDataTableWithNull(), scDetailSerialCM);
+            }
+        }
+
+        public void AddSubContractMasterDetails(DateTime SubContractDcDate, string SubContractDcNumber, decimal SubContractSentFor, string Vehicle, long VendorCode, string Remarks)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new ScMasterCommonInsertCommand { Connection = connection };
+                command.Execute(SubContractDcDate, SubContractDcNumber, SubContractSentFor, Vehicle, VendorCode, Remarks);
+            }
+        }
+
+        public void UpdateScDetails(string ScNumber, string WoNumber, decimal WoSerial, decimal PartCode)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new ScDetailsInsertCommand { Connection = connection };
+                command.Execute(ScNumber, WoNumber, WoSerial, PartCode);
+            }
+        }
+
+        public void AddScDetails(string ScNumber, string WoNumber, decimal WoSerial, decimal PartCode)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new ScDetailsInsertCommand { Connection = connection };
+                command.Execute(ScNumber, WoNumber, WoSerial, PartCode);
+            }
         }
     }
 }

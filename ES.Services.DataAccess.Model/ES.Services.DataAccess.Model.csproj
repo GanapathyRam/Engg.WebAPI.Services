@@ -101,6 +101,7 @@
     <Compile Include="CommandModel\Sales\WorkOrderCM.cs" />
     <Compile Include="CommandModel\Sales\WorkOrderDetailsCM.cs" />
     <Compile Include="CommandModel\Masters\UpdateSymbolMasterCM.cs" />
+    <Compile Include="CommandModel\SubContract\ScDetailSerialCM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryModel\Authentication\CustomUserInformationQueryModel.cs" />
     <Compile Include="QueryModel\Authentication\RegistrationQM.cs" />

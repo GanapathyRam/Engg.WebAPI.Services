@@ -130,6 +130,10 @@
     <Compile Include="Commands\Sales\WorkOrderSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderTypeSelectCommand.cs" />
     <Compile Include="Commands\SubContract\GetSubContractSendingSelectCommand.cs" />
+    <Compile Include="Commands\SubContract\ScDetailsInsertCommand.cs" />
+    <Compile Include="Commands\SubContract\ScDetailsUpdateCommand.cs" />
+    <Compile Include="Commands\SubContract\ScMasterCommonInsertCommand.cs" />
+    <Compile Include="Commands\SubContract\ScSerialInsertCommand.cs" />
     <Compile Include="DbConnectionProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Authentication\AuthenticateRepository.cs" />

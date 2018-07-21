@@ -107,6 +107,7 @@
     <Compile Include="Request\Sales\WorkOrderTypeRequestDto.cs" />
     <Compile Include="Request\Sales\WorkOrderRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateSymbolMasterRequestDto.cs" />
+    <Compile Include="Request\SubContract\SubContractRequestDto.cs" />
     <Compile Include="Response\Authentication\AuthenticationResponseDto.cs" />
     <Compile Include="Response\Authentication\RegistrationResponseDto.cs" />
     <Compile Include="Response\BaseResponse.cs" />
@@ -196,10 +197,9 @@
     <Compile Include="Response\Sales\WorkOrderResponseDto.cs" />
     <Compile Include="Response\Sales\WorkOrderTypeList.cs" />
     <Compile Include="Response\SubContract\GetSubContractSendingResponseDto.cs" />
+    <Compile Include="Response\SubContract\SubContractResponseDto.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Request\SubContract\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
