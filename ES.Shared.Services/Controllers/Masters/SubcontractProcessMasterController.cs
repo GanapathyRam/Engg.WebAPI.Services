@@ -8,9 +8,8 @@ using StructureMap;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Http;
-using System.Web.Mvc;
+
 
 namespace ES.Shared.Services.Controllers.Masters
 {
@@ -25,6 +24,7 @@ namespace ES.Shared.Services.Controllers.Masters
             this.bSubcontractProcessMasterProvider = ObjectFactory.GetInstance<IBusinessSubcontractProcessMaster>();
             this.rSubcontractProcessMasterProvider = ObjectFactory.GetInstance<IReportSubcontractProcessMaster>();
         }
+        [HttpPost]
         public GetSubcontractProcessMasterResponseDto GetSubcontractProcessMaster()
         {
             GetSubcontractProcessMasterResponseDto getSubcontractProcessMasterResponseDto; 
