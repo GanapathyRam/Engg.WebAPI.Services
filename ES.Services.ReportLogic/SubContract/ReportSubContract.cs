@@ -118,7 +118,7 @@ namespace ES.Services.ReportLogic.SubContract
                 var savedYear = Convert.ToString(model.ToString().Substring(2, 2));
                 var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
 
-                if (savedYear.Equals(currentYear))
+                if (!savedYear.Equals(currentYear))
                 {
                     response.DCNumber = "SS" + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
                 }
