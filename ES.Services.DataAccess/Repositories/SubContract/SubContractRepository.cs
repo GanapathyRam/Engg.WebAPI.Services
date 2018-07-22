@@ -110,5 +110,19 @@ namespace ES.Services.DataAccess.Repositories.SubContract
 
             return DcNumberForSCSending;
         }
+
+        public GetScDetailsAndSerialsQM GetSubContractDetailAndSerials(Int64 vendorCode, string DcNumber)
+        {
+            var model = new GetScDetailsAndSerialsQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetScDetailsAndSerialSelectCommand { Connection = connection };
+                model = command.Execute(vendorCode, DcNumber);
+            }
+
+            return model;
+        }
     }
 }

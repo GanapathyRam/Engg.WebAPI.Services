@@ -1,4 +1,5 @@
-﻿using ES.Services.DataTransferObjects.Response.SubContract;
+﻿using ES.Services.DataTransferObjects.Request.SubContract;
+using ES.Services.DataTransferObjects.Response.SubContract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace ES.Services.ReportLogic.Interface.SubContract
         GetScSendingMasterResponseDto GetScSendingMaster();
 
         GetDCNumberForScSendingResponseDto GetDCNumber();
+
+        GetScDetailsAndSerialsResponseDto GetSubContractDetailAndSerials(GetScDetailsAndSerialsRequestDto getScDetailsAndSerialsRequestDto);
     }
 }

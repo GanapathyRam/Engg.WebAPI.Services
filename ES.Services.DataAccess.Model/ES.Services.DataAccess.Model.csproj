@@ -192,6 +192,8 @@
     <Compile Include="QueryModel\Sales\GetWorkOrderTypeQM.cs" />
     <Compile Include="QueryModel\Sales\WorkOrderQM.cs" />
     <Compile Include="QueryModel\Sales\WorkOrderTypeModel.cs" />
+    <Compile Include="QueryModel\SubContract\GetScDetailsAndSerialsModel.cs" />
+    <Compile Include="QueryModel\SubContract\GetScDetailsAndSerialsQM.cs" />
     <Compile Include="QueryModel\SubContract\GetScMasterModel.cs" />
     <Compile Include="QueryModel\SubContract\GetScMasterQM.cs" />
     <Compile Include="QueryModel\SubContract\GetSubContractSendingResponseModel.cs" />

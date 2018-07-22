@@ -131,6 +131,7 @@
     <Compile Include="Commands\Sales\WorkOrderNumberSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderTypeSelectCommand.cs" />
+    <Compile Include="Commands\SubContract\GetScDetailsAndSerialSelectCommand.cs" />
     <Compile Include="Commands\SubContract\GetScMasterSelectCommand.cs" />
     <Compile Include="Commands\SubContract\GetSCSendingDCNumberSelectCommand.cs" />
     <Compile Include="Commands\SubContract\GetSubContractSendingSelectCommand.cs" />

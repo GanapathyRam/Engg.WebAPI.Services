@@ -2,7 +2,9 @@
 using ES.Services.DataAccess.Model.CommandModel.SubContract;
 using ES.Services.DataAccess.Model.QueryModel.Despatch;
 using ES.Services.DataAccess.Model.QueryModel.SubContract;
+using ES.Services.DataTransferObjects.Request.SubContract;
 using ES.Services.DataTransferObjects.Response.Despatch;
+using ES.Services.DataTransferObjects.Response.SubContract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,5 +30,7 @@ namespace ES.Services.DataAccess.Interface.SubContract
         GetScMasterQM GetScMaster();
 
         string GetSCSendingDCNumber();
+
+        GetScDetailsAndSerialsQM GetSubContractDetailAndSerials(Int64 VendorCode, string SubContractDcNumber);
     }
 }

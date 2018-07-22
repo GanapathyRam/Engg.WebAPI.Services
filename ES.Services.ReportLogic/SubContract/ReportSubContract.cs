@@ -10,6 +10,7 @@ using ES.Services.DataTransferObjects.Response.SubContract;
 using ES.Services.DataAccess.Interface.SubContract;
 using AutoMapper;
 using ES.Services.DataAccess.Model.QueryModel.SubContract;
+using ES.Services.DataTransferObjects.Request.SubContract;
 
 namespace ES.Services.ReportLogic.SubContract
 {
@@ -137,6 +138,70 @@ namespace ES.Services.ReportLogic.SubContract
             return response;
         }
 
+        public GetScDetailsAndSerialsResponseDto GetSubContractDetailAndSerials(GetScDetailsAndSerialsRequestDto getScDetailsAndSerialsRequestDto)
+        {
+            var response = new GetScDetailsAndSerialsResponseDto()
+            {
+                getScDetailsResponse = new List<GetScDetailsResponse>()
+            };
+
+            var model = subContractRepository.GetSubContractDetailAndSerials(getScDetailsAndSerialsRequestDto.VendorCode, getScDetailsAndSerialsRequestDto.DcNumber);
+
+
+            foreach (var responseModel in model.getScDetailsAndSerialsModel)
+            {
+                var getsingle = new GetScDetailsResponse
+                {
+                    getGetScSerialsResponse = new List<GetScSerialsResponse>()
+                };
+                var getWoMasterDetailsResponse = new GetScSerialsResponse();
+                getWoMasterDetailsResponse.SerialNo = responseModel.SerialNo;
+                getWoMasterDetailsResponse.WoNumber = responseModel.WONumber;
+                getWoMasterDetailsResponse.WoSerial = responseModel.WOSerial;
+
+                if (response.getScDetailsResponse.Count > 0)
+                {
+                    var isExist = response.getScDetailsResponse.Any(dcMaster => dcMaster.WoNumber == responseModel.WONumber && dcMaster.WoSerial == responseModel.WOSerial);
+                    if (isExist)
+                    {
+                        var index = response.getScDetailsResponse.FindIndex(a => a.WoNumber == responseModel.WONumber && a.WoSerial == responseModel.WOSerial);
+
+                        response.getScDetailsResponse[index].getGetScSerialsResponse.Add(getWoMasterDetailsResponse);
+                    }
+                    else
+                    {
+                        getsingle.WoNumber = responseModel.WONumber;
+                        getsingle.WoSerial = responseModel.WOSerial;
+                        getsingle.PartCode = responseModel.PartCode;
+                        //getsingle.DrawingNumber = responseModel.DrawingNumber;
+                        //getsingle.ItemCode = responseModel.ItemCode;
+                        //getsingle.MaterialCode = responseModel.MaterialCode;
+                        //getsingle.MaterialDescription = responseModel.MaterialDescription;
+                        //getsingle.PartCode = responseModel.PartCode;
+                        //getsingle.PartDescription = responseModel.PartDescription;
+
+
+                        getsingle.getGetScSerialsResponse.Add
+                        (getWoMasterDetailsResponse);
+
+                        response.getScDetailsResponse.Add(getsingle);
+                    }
+                }
+                else
+                {
+                    getsingle.WoNumber = responseModel.WONumber;
+                    getsingle.WoSerial = responseModel.WOSerial;
+                    getsingle.PartCode = responseModel.PartCode;
+
+                    getsingle.getGetScSerialsResponse.Add
+                    (getWoMasterDetailsResponse);
+
+                    response.getScDetailsResponse.Add(getsingle);
+                }
+            }
+
+            return response;
+        }
 
         #region Mapper
 

@@ -183,5 +183,38 @@ namespace ES.Shared.Services.Controllers.SubContract
 
             return response;
         }
+
+        [HttpPost]
+        public GetScDetailsAndSerialsResponseDto GetSubContractDetailAndSerials(GetScDetailsAndSerialsRequestDto getScDetailsAndSerialsRequestDto)
+        {
+            GetScDetailsAndSerialsResponseDto response;
+
+            try
+            {
+                response = rSubContractProvider.GetSubContractDetailAndSerials(getScDetailsAndSerialsRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetScDetailsAndSerialsResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetScDetailsAndSerialsResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
     }
 }
