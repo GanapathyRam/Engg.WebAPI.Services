@@ -10,5 +10,7 @@ namespace ES.Services.ReportLogic.Interface.SubContract
     public interface IReportSubContract
     {
         GetSubContractSendingResponseDto GetSubContractSendingDetails();
+
+        GetScSendingMasterResponseDto GetScSendingMaster();
     }
 }

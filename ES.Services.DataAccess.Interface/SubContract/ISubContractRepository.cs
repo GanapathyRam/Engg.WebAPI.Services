@@ -22,5 +22,9 @@ namespace ES.Services.DataAccess.Interface.SubContract
         void UpdateScDetails(string ScNumber, string WoNumber, decimal WoSerial, decimal PartCode);
 
         void AddScSerial(ScDetailSerialCM scDetailSerialCM);
+
+        void DeleteScSendingDetails(DeleteScDetailsCM deleteScDetailsCM);
+
+        GetScMasterQM GetScMaster();
     }
 }

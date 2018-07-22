@@ -71,5 +71,30 @@ namespace ES.Services.DataAccess.Repositories.SubContract
                 command.Execute(ScNumber, WoNumber, WoSerial, PartCode);
             }
         }
+
+        public GetScMasterQM GetScMaster()
+        {
+            GetScMasterQM getScMasterQM = new GetScMasterQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetScMasterSelectCommand { Connection = connection };
+                getScMasterQM = command.Execute();
+            }
+
+            return getScMasterQM;
+        }
+
+        public void DeleteScSendingDetails(DeleteScDetailsCM deleteScDetailsCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new DcDeleteCommand { Connection = connection };
+                command.Execute(deleteScDetailsCM.scDetailsListItems.ToDataTableWithNull(), deleteScDetailsCM.ScNumer, deleteScDetailsCM.WoNumber, deleteScDetailsCM.IsDeleteFrom);
+            }
+        }
     }
 }

@@ -11,5 +11,7 @@ namespace ES.Services.BusinessLogic.Interface.SubContract
     public interface IBusinessSubContract
     {
         SubContractResponseDto AddSubContractSending(SubContractRequestDto subContractRequestDto);
+
+        DeleteScSendingResponseDto DeleteScSendingDetails(DeleteScSendingRequestDto deleteScSendingRequestDto);
     }
 }

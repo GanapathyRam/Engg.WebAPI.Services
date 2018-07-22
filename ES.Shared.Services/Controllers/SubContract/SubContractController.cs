@@ -87,5 +87,69 @@ namespace ES.Shared.Services.Controllers.SubContract
 
             return response;
         }
+
+        [HttpPost]
+        public DeleteScSendingResponseDto DeleteScSendingDetails(DeleteScSendingRequestDto deleteScSendingRequestDto)
+        {
+            DeleteScSendingResponseDto response = new DeleteScSendingResponseDto();
+            try
+            {
+                response = bSubContractProvider.DeleteScSendingDetails(deleteScSendingRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new DeleteScSendingResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new DeleteScSendingResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        [HttpPost]
+        public GetScSendingMasterResponseDto GetScSendingMaster()
+        {
+            GetScSendingMasterResponseDto response = new GetScSendingMasterResponseDto();
+            try
+            {
+                response = rSubContractProvider.GetScSendingMaster();
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetScSendingMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetScSendingMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
     }
 }

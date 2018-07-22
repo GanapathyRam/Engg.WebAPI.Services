@@ -109,6 +109,7 @@
     <Compile Include="Request\Sales\WorkOrderTypeRequestDto.cs" />
     <Compile Include="Request\Sales\WorkOrderRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateSymbolMasterRequestDto.cs" />
+    <Compile Include="Request\SubContract\DeleteScSendingRequestDto.cs" />
     <Compile Include="Request\SubContract\SubContractRequestDto.cs" />
     <Compile Include="Response\Authentication\AuthenticationResponseDto.cs" />
     <Compile Include="Response\Authentication\RegistrationResponseDto.cs" />
@@ -201,6 +202,9 @@
     <Compile Include="Response\Sales\UpdateWorkOrderResponseDto.cs" />
     <Compile Include="Response\Sales\WorkOrderResponseDto.cs" />
     <Compile Include="Response\Sales\WorkOrderTypeList.cs" />
+    <Compile Include="Response\SubContract\DeleteScSendingResponseDto.cs" />
+    <Compile Include="Response\SubContract\GetScSendingMasterResponseDto.cs" />
+    <Compile Include="Response\SubContract\GetScSendingMasterResponseModel.cs" />
     <Compile Include="Response\SubContract\GetSubContractSendingResponseDto.cs" />
     <Compile Include="Response\SubContract\SubContractResponseDto.cs" />
   </ItemGroup>

@@ -93,5 +93,36 @@ namespace ES.Services.BusinessLogic.SubContract
 
             return response;
         }
+
+        public DeleteScSendingResponseDto DeleteScSendingDetails(DeleteScSendingRequestDto deleteScSendingRequestDto)
+        {
+            DeleteScSendingResponseDto response = new DeleteScSendingResponseDto();
+            var deleteDcDetailsItems = new List<DeleteScDetailsItems>();
+
+            var deleteScResponse = new DeleteScDetailsCM();
+            foreach (var dcItems in deleteScSendingRequestDto.ScSendingDetailsList)
+            {
+                var deleteDcDetails = new DeleteScDetailsItems
+                {
+                    WoNumber = dcItems.WoNumber,
+                    SerialNo = dcItems.SerialNo,
+                    WoSerial = dcItems.WoSerial,
+                    UpdatedBy = new Guid("783F190B-9B66-42AC-920B-E938732C1C01"), //Later needs to be remove
+                    UpdatedDateTime = System.DateTime.UtcNow
+                };
+
+                deleteDcDetailsItems.Add(deleteDcDetails);
+            }
+
+            deleteScResponse.ScNumer = deleteScSendingRequestDto.ScDcNumer;
+            deleteScResponse.WoNumber = deleteScSendingRequestDto.WoNumber;
+            deleteScResponse.IsDeleteFrom = deleteScSendingRequestDto.IsDeleteFrom;
+            deleteScResponse.scDetailsListItems = deleteDcDetailsItems;
+
+            subContractRepository.DeleteScSendingDetails(deleteScResponse);
+
+            return response;
+        }
+
     }
 }

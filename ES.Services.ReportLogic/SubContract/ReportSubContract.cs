@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using ES.Services.DataTransferObjects.Response.SubContract;
 using ES.Services.DataAccess.Interface.SubContract;
+using AutoMapper;
+using ES.Services.DataAccess.Model.QueryModel.SubContract;
 
 namespace ES.Services.ReportLogic.SubContract
 {
@@ -90,5 +92,32 @@ namespace ES.Services.ReportLogic.SubContract
 
             return response;
         }
+
+        public GetScSendingMasterResponseDto GetScSendingMaster()
+        {
+            GetScSendingMasterResponseDto response = new GetScSendingMasterResponseDto();
+
+            var model = subContractRepository.GetScMaster();
+
+            if (model != null)
+            {
+                response = ScSendingMasterMapper((List<GetScMasterModel>)model.GetScMasterModelList, response);
+            }
+
+            return response;
+        }
+
+
+        #region Mapper
+
+        private static GetScSendingMasterResponseDto ScSendingMasterMapper(List<GetScMasterModel> list, GetScSendingMasterResponseDto getScSendingMasterResponseDto)
+        {
+            Mapper.CreateMap<GetScMasterModel, GetScSendingMasterResponseModel>();
+            getScSendingMasterResponseDto.GetScSendingMasterResponseModelList = Mapper.Map<List<GetScMasterModel>, List<GetScSendingMasterResponseModel>>(list);
+
+            return getScSendingMasterResponseDto;
+        }
+
+        #endregion
     }
 }
