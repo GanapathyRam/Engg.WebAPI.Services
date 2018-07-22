@@ -26,5 +26,7 @@ namespace ES.Services.DataAccess.Interface.SubContract
         void DeleteScSendingDetails(DeleteScDetailsCM deleteScDetailsCM);
 
         GetScMasterQM GetScMaster();
+
+        string GetSCSendingDCNumber();
     }
 }

@@ -203,6 +203,7 @@
     <Compile Include="Response\Sales\WorkOrderResponseDto.cs" />
     <Compile Include="Response\Sales\WorkOrderTypeList.cs" />
     <Compile Include="Response\SubContract\DeleteScSendingResponseDto.cs" />
+    <Compile Include="Response\SubContract\GetDCNumberForScSendingResponseDto.cs" />
     <Compile Include="Response\SubContract\GetScSendingMasterResponseDto.cs" />
     <Compile Include="Response\SubContract\GetScSendingMasterResponseModel.cs" />
     <Compile Include="Response\SubContract\GetSubContractSendingResponseDto.cs" />

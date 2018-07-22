@@ -107,6 +107,36 @@ namespace ES.Services.ReportLogic.SubContract
             return response;
         }
 
+        public GetDCNumberForScSendingResponseDto GetDCNumber()
+        {
+            var response = new GetDCNumberForScSendingResponseDto();
+
+            var model = subContractRepository.GetSCSendingDCNumber();
+
+            if (!string.IsNullOrEmpty(model))
+            {
+                var savedYear = Convert.ToString(model.ToString().Substring(2, 2));
+                var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
+
+                if (savedYear.Equals(currentYear))
+                {
+                    response.DCNumber = "SS" + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                }
+                else
+                {
+                    var dcType = "SS";
+                    var workOrderInc = Int32.Parse(model.ToString().Substring(2, 6)) + 1;
+                    response.DCNumber = Convert.ToString(dcType + workOrderInc);
+                }
+            }
+            else
+            {
+                response.DCNumber = "SS" + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+            }
+
+            return response;
+        }
+
 
         #region Mapper
 

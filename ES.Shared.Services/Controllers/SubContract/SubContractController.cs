@@ -151,5 +151,37 @@ namespace ES.Shared.Services.Controllers.SubContract
 
             return response;
         }
+
+        [HttpPost]
+        public GetDCNumberForScSendingResponseDto GetDCNumberForSCSending()
+        {
+            GetDCNumberForScSendingResponseDto response = new GetDCNumberForScSendingResponseDto();
+            try
+            {
+                response = rSubContractProvider.GetDCNumber();
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetDCNumberForScSendingResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetDCNumberForScSendingResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
     }
 }

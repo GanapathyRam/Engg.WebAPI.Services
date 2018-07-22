@@ -96,5 +96,19 @@ namespace ES.Services.DataAccess.Repositories.SubContract
                 command.Execute(deleteScDetailsCM.scDetailsListItems.ToDataTableWithNull(), deleteScDetailsCM.ScNumer, deleteScDetailsCM.WoNumber, deleteScDetailsCM.IsDeleteFrom);
             }
         }
+
+        public string GetSCSendingDCNumber()
+        {
+            string DcNumberForSCSending = string.Empty;
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetSCSendingDCNumberSelectCommand { Connection = connection };
+                DcNumberForSCSending = command.Execute();
+            }
+
+            return DcNumberForSCSending;
+        }
     }
 }
