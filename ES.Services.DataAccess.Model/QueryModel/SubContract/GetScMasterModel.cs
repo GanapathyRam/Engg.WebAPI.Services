@@ -14,6 +14,7 @@ namespace ES.Services.DataAccess.Model.QueryModel.SubContract
         public string VendorName { get; set; }
         public string Vehicle { get; set; }
         public decimal SubContractSentFor { get; set; }
+        public string ProcessDescription { get; set; }
         public string Remarks { get; set; }
     }
 }
