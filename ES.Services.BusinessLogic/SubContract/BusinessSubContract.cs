@@ -28,8 +28,8 @@ namespace ES.Services.BusinessLogic.SubContract
 
             if (subContractRequestDto.IsNew == true)
             {
-                //subContractRepository.AddSubContractMasterDetails(subContractRequestDto.SubContractDcDate, subContractRequestDto.SubContractDcNumber, subContractRequestDto.SubContractSentFor,
-                //    subContractRequestDto.Vehicle, subContractRequestDto.VendorCode, subContractRequestDto.Remarks);
+                subContractRepository.AddSubContractMasterDetails(subContractRequestDto.SubContractDcDate, subContractRequestDto.SubContractDcNumber, subContractRequestDto.SubContractSentFor,
+                    subContractRequestDto.Vehicle, subContractRequestDto.VendorCode, subContractRequestDto.Remarks);
             }
 
             #endregion
