@@ -91,12 +91,12 @@ namespace ES.Shared.Services.Controllers.Sales
         }
 
         [HttpPost]
-        public GetWorkOrderClientSerialNoResponseDto GetWorkOrderClientSerialNo()
+        public GetWorkOrderClientSerialNoResponseDto GetWorkOrderClientSerialNo(string shortCode)
         {
             GetWorkOrderClientSerialNoResponseDto response = new GetWorkOrderClientSerialNoResponseDto();
             try
             {
-                response = rWorkOrderProvider.GetWorkOrderClientSerialNo();
+                response = rWorkOrderProvider.GetWorkOrderClientSerialNo(shortCode);
                 response.ServiceResponseStatus = 1;
             }
             catch (SSException applicationException)

@@ -24,6 +24,21 @@ namespace ES.Services.BusinessLogic.Sales
         public WorkOrderResponseDto AddWorkOrder(WorkOrderRequestDto workOrderRequestDto)
         {
             var getWorkOrderClientSerialNoQM = new GetWorkOrderClientSerialNoQM();
+            string ClientSerialStartName = System.Configuration.ConfigurationManager.AppSettings["ClientStartName"].ToString();
+            string CurrentMonth = Constant.GetMonthByAlphabet(System.DateTime.UtcNow.Month);
+            string CurrentYear = Constant.GetYearByAlphabet(System.DateTime.UtcNow.Year);
+            var clientSerialDigit = ClientSerialStartName + CurrentYear + CurrentMonth;
+            getWorkOrderClientSerialNoQM = workOrderRepository.GetWorkOrderClientSerialNo(clientSerialDigit);
+
+            string clientSerialNo = "";
+            string clientSerialNumber = "";
+            var existingclientSerialDigit = "";
+            if (!string.IsNullOrEmpty(getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo))
+            {
+                clientSerialNumber = getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo.ToString();
+                existingclientSerialDigit =getWorkOrderClientSerialNoQM.WorkOrderClientChar;
+
+            }
 
             #region Section For to save the work order master common details
             workOrderRepository.AddWorkOrderMasterCommon(workOrderRequestDto.WorkOrderType, workOrderRequestDto.WorkOrderNumber, workOrderRequestDto.WorkOrderDate, workOrderRequestDto.VendorCode);
@@ -72,7 +87,7 @@ namespace ES.Services.BusinessLogic.Sales
                 // Section to add the work order master information
                 var response = workOrderRepository.AddWorkOrder(cModel);
 
-                getWorkOrderClientSerialNoQM = workOrderRepository.GetWorkOrderClientSerialNo();
+
 
                 // Section to add the work order details information
                 var quantity = cModel.WorkOrderMasterListItems.FirstOrDefault().WOQuantity;
@@ -80,46 +95,34 @@ namespace ES.Services.BusinessLogic.Sales
                 var woSerialNo = cModel.WorkOrderMasterListItems.FirstOrDefault().WorkOrderSerial;
                 var workOrderNumber = cModel.WorkOrderMasterListItems.FirstOrDefault().WorkOrderNumber;
 
-                string ClientSerialStartName = System.Configuration.ConfigurationManager.AppSettings["ClientStartName"].ToString();
-                string CurrentMonth = Constant.GetMonthByAlphabet(System.DateTime.UtcNow.Month);
-                string CurrentYear = Constant.GetYearByAlphabet(System.DateTime.UtcNow.Year);
-                string clientSerialNo = "";
-                if (!string.IsNullOrEmpty(getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo))
-                {
-                    clientSerialNo = getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo.ToString();
-
-                }
-             
-
-                var clientSerialDigit = ClientSerialStartName + CurrentYear + CurrentMonth;
-
-                if (!string.IsNullOrEmpty(clientSerialNo))
+                if (!string.IsNullOrEmpty(clientSerialNumber))
                 {
                     //var existingclientSerialDigit = clientSerialNo.ToString().Substring(0, 3);
-                    var existingclientSerialDigit = clientSerialNo.ToString().Substring(0, 3);
-
 
                     if (!clientSerialDigit.Equals(existingclientSerialDigit))
                     {
                         string serialNoStarting = "0";
                         clientSerialNo = clientSerialDigit + serialNoStarting;
                     }
+                    else
+                    {
+                        clientSerialNo = existingclientSerialDigit + clientSerialNumber;
+                    }
+                }
+                else
+                {
+                    string serialNoStarting = "0";
+                    clientSerialNo = clientSerialDigit + serialNoStarting;
                 }
 
                 for (int i = 0; i < quantity; i++)
                 {
-                    if (string.IsNullOrEmpty(clientSerialNo))
-                    {
-                        string serialNoStarting = "1";
-                        clientSerialNo = clientSerialDigit + serialNoStarting;
-                    }
-                    else
-                    {
+           
                         var splitSerialChar = clientSerialNo.ToString().Substring(0, 3);
                         var splitSerialNo = clientSerialNo.ToString().Substring(3);
                         clientSerialNo = splitSerialChar + ((Convert.ToInt64(splitSerialNo) + 1));
-                    }
-
+                        clientSerialNumber= ((Convert.ToInt64(splitSerialNo) + 1)).ToString();
+                        existingclientSerialDigit = splitSerialChar;
                     WorkOrderDetailsCM workOrderDetailsCM = new WorkOrderDetailsCM()
                     {
                         WorkOrderNumber = workOrderNumber,
@@ -130,9 +133,9 @@ namespace ES.Services.BusinessLogic.Sales
                         JTC = false,
                         SubContract = false,
                         DC = false,
+                        CreatedDateTime=System.DateTime.UtcNow
                     };
                     workOrderRepository.AddWorkOrderDetails(workOrderDetailsCM);
-                    clientSerialNo = workOrderDetailsCM.SerialNo;
                 }
 
             }
@@ -146,6 +149,21 @@ namespace ES.Services.BusinessLogic.Sales
         public UpdateWorkOrderResponseDto UpdateWorkOrder(UpdateWorkOrderRequestDto updateWorkOrderRequestDto)
         {
             var getWorkOrderClientSerialNoQM = new GetWorkOrderClientSerialNoQM();
+            string ClientSerialStartName = System.Configuration.ConfigurationManager.AppSettings["ClientStartName"].ToString();
+            string CurrentMonth = Constant.GetMonthByAlphabet(System.DateTime.UtcNow.Month);
+            string CurrentYear = Constant.GetYearByAlphabet(System.DateTime.UtcNow.Year);
+            var clientSerialDigit = ClientSerialStartName + CurrentYear + CurrentMonth;
+            getWorkOrderClientSerialNoQM = workOrderRepository.GetWorkOrderClientSerialNo(clientSerialDigit);
+
+            string clientSerialNo = "";
+            string clientSerialNumber = "";
+            var existingclientSerialDigit = "";
+            if (!string.IsNullOrEmpty(getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo))
+            {
+                clientSerialNumber = getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo.ToString();
+                existingclientSerialDigit = getWorkOrderClientSerialNoQM.WorkOrderClientChar;
+
+            }
 
             foreach (var updateWorKOrder in updateWorkOrderRequestDto.WorkOrderMasterDetails)
             {
@@ -194,7 +212,7 @@ namespace ES.Services.BusinessLogic.Sales
                     // Section to add the work order master information
                     var response = workOrderRepository.AddWorkOrder(cModel);
 
-                    getWorkOrderClientSerialNoQM = workOrderRepository.GetWorkOrderClientSerialNo();
+                   
 
                     // Section to add the work order details information
                     var quantity = cModel.WorkOrderMasterListItems.FirstOrDefault().WOQuantity;
@@ -202,38 +220,34 @@ namespace ES.Services.BusinessLogic.Sales
                     var woSerialNo = cModel.WorkOrderMasterListItems.FirstOrDefault().WorkOrderSerial;
                     var workOrderNumber = cModel.WorkOrderMasterListItems.FirstOrDefault().WorkOrderNumber;
 
-                    string ClientSerialStartName = System.Configuration.ConfigurationManager.AppSettings["ClientStartName"].ToString();
-                    string CurrentMonth = Constant.GetMonthByAlphabet(System.DateTime.UtcNow.Month);
-                    string CurrentYear = Constant.GetYearByAlphabet(System.DateTime.UtcNow.Year);
 
-                    string clientSerialNo = getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo.ToString();
-
-                    var clientSerialDigit = ClientSerialStartName + CurrentMonth + CurrentYear;
-
-                    if (!string.IsNullOrEmpty(clientSerialNo))
+                    if (!string.IsNullOrEmpty(clientSerialNumber))
                     {
-                        var existingclientSerialDigit = clientSerialNo.ToString().Substring(0, 3);
+                        //var existingclientSerialDigit = clientSerialNo.ToString().Substring(0, 3);
 
                         if (!clientSerialDigit.Equals(existingclientSerialDigit))
                         {
                             string serialNoStarting = "0";
                             clientSerialNo = clientSerialDigit + serialNoStarting;
                         }
+                        else
+                        {
+                            clientSerialNo = existingclientSerialDigit + clientSerialNumber;
+                        }
+                    }
+                    else
+                    {
+                        string serialNoStarting = "0";
+                        clientSerialNo = clientSerialDigit + serialNoStarting;
                     }
 
                     for (int i = 0; i < quantity; i++)
                     {
-                        if (string.IsNullOrEmpty(clientSerialNo))
-                        {
-                            string serialNoStarting = "1";
-                            clientSerialNo = clientSerialDigit + serialNoStarting;
-                        }
-                        else
-                        {
-                            var splitSerialChar = clientSerialNo.ToString().Substring(0, 3);
-                            var splitSerialNo = clientSerialNo.ToString().Substring(3);
-                            clientSerialNo = splitSerialChar + ((Convert.ToInt64(splitSerialNo) + 1));
-                        }
+                        var splitSerialChar = clientSerialNo.ToString().Substring(0, 3);
+                        var splitSerialNo = clientSerialNo.ToString().Substring(3);
+                        clientSerialNo = splitSerialChar + ((Convert.ToInt64(splitSerialNo) + 1));
+                        clientSerialNumber = ((Convert.ToInt64(splitSerialNo) + 1)).ToString();
+                        existingclientSerialDigit = splitSerialChar;
 
                         WorkOrderDetailsCM workOrderDetailsCM = new WorkOrderDetailsCM()
                         {
@@ -245,9 +259,9 @@ namespace ES.Services.BusinessLogic.Sales
                             JTC = false,
                             SubContract = false,
                             DC = false,
+                            CreatedDateTime = System.DateTime.UtcNow
                         };
                         workOrderRepository.AddWorkOrderDetails(workOrderDetailsCM);
-                        clientSerialNo = workOrderDetailsCM.SerialNo;
                     }
 
                     //}

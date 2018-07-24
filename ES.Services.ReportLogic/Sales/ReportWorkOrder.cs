@@ -63,11 +63,11 @@ namespace ES.Services.ReportLogic.Sales
             return response;
         }
 
-        public GetWorkOrderClientSerialNoResponseDto GetWorkOrderClientSerialNo()
+        public GetWorkOrderClientSerialNoResponseDto GetWorkOrderClientSerialNo(string shortCode)
         {
             var response = new GetWorkOrderClientSerialNoResponseDto();
 
-            var model = workOrderTypeRepository.GetWorkOrderClientSerialNo();
+            var model = workOrderTypeRepository.GetWorkOrderClientSerialNo(shortCode);
 
             return response;
         }
@@ -178,5 +178,6 @@ namespace ES.Services.ReportLogic.Sales
 
             return getWorkOrderTypeResponseDto;
         }
+
     }
 }

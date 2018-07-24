@@ -44,7 +44,7 @@ namespace ES.Services.DataAccess.Repositories.Sales
             return workOrderNumber;
         }
 
-        public GetWorkOrderClientSerialNoQM GetWorkOrderClientSerialNo()
+        public GetWorkOrderClientSerialNoQM GetWorkOrderClientSerialNo(string shortCode)
         {
             //var model = new GetWorkOrderTypeQM();
             GetWorkOrderClientSerialNoQM workOrderNumber;
@@ -53,7 +53,7 @@ namespace ES.Services.DataAccess.Repositories.Sales
                 connection.Open();
 
                 var command = new WorkOrderNumberClientSerialNoSelectCommand { Connection = connection };
-                workOrderNumber = command.Execute();
+                workOrderNumber = command.Execute(shortCode);
             }
 
             return workOrderNumber;

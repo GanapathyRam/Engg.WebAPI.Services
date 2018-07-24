@@ -1,5 +1,6 @@
 ﻿using ES.Services.DataAccess.Model.QueryModel.Despatch;
 using ES.Services.DataAccess.Model.QueryModel.Sales;
+using SS.Framework.DataAccess;
 using SS.Framework.DataAccess.Commands;
 using SS.Framework.DataAccess.Helpers;
 using System;
@@ -13,7 +14,7 @@ namespace ES.Services.DataAccess.Commands.Sales
 {
     public class WorkOrderNumberClientSerialNoSelectCommand : SsDbCommand
     {
-        public GetWorkOrderClientSerialNoQM Execute()
+        public GetWorkOrderClientSerialNoQM Execute(String shortCode)
         {
             //var response = new GetWorkOrderTypeQM();
             GetWorkOrderClientSerialNoQM workOrderSerialNo = new GetWorkOrderClientSerialNoQM();
@@ -22,7 +23,8 @@ namespace ES.Services.DataAccess.Commands.Sales
                 sqlCommand.Connection = Connection;
                 sqlCommand.CommandText = "[dbo].[uspGetWorkOrderClientSerialNo]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.Add(AddParameter("@shortCode", SsDbType.VarChar, ParameterDirection.Input, shortCode));
                 using (var reader = SsDbCommandHelper.ExecuteReader(sqlCommand))
                 {
                     if (reader.Read())
@@ -30,6 +32,7 @@ namespace ES.Services.DataAccess.Commands.Sales
                         workOrderSerialNo = new GetWorkOrderClientSerialNoQM()
                         {
                             WorkOrderClientSerialNo = Convert.ToString(reader["SerialNo"]),
+                            WorkOrderClientChar= Convert.ToString(reader["SerialChar"])
                         };
                     }
                 }

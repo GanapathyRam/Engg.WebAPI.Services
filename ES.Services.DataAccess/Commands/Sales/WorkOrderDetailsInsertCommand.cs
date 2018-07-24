@@ -24,7 +24,7 @@ namespace ES.Services.DataAccess.Commands.Sales
                 sqlCommand.Parameters.Add(AddParameter("@SerialNo", SsDbType.VarChar, ParameterDirection.Input, model.SerialNo));
                 sqlCommand.Parameters.Add(AddParameter("@HeatNo", SsDbType.VarChar, ParameterDirection.Input, model.HeatNo));
                 sqlCommand.Parameters.Add(AddParameter("@CreatedBy", SsDbType.UniqueIdentifier, ParameterDirection.Input, new Guid()));
-                sqlCommand.Parameters.Add(AddParameter("@CreatedDateTime", SsDbType.DateTime, ParameterDirection.Input, DateTime.UtcNow));
+                sqlCommand.Parameters.Add(AddParameter("@CreatedDateTime", SsDbType.DateTime, ParameterDirection.Input, model.CreatedDateTime));
 
                 sqlCommand.ExecuteNonQuery();
             }
