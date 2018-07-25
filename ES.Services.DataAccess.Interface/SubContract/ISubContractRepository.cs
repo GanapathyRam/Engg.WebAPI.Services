@@ -29,7 +29,7 @@ namespace ES.Services.DataAccess.Interface.SubContract
 
         GetScMasterQM GetScMaster();
 
-        string GetSCSendingDCNumber();
+        string GetSCSendingDCNumber(int DcNumberFor);
 
         GetScDetailsAndSerialsQM GetSubContractDetailAndSerials(Int64 VendorCode, string SubContractDcNumber);
     }

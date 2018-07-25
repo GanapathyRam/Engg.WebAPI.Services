@@ -108,31 +108,57 @@ namespace ES.Services.ReportLogic.SubContract
             return response;
         }
 
-        public GetDCNumberForScSendingResponseDto GetDCNumber()
+        public GetDCNumberForScSendingResponseDto GetDCNumber(int DcNumberFor)
         {
             var response = new GetDCNumberForScSendingResponseDto();
 
-            var model = subContractRepository.GetSCSendingDCNumber();
+            var model = subContractRepository.GetSCSendingDCNumber(DcNumberFor);
 
-            if (!string.IsNullOrEmpty(model))
+            if (DcNumberFor == 1)
             {
-                var savedYear = Convert.ToString(model.ToString().Substring(2, 2));
-                var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
-
-                if (!savedYear.Equals(currentYear))
+                if (!string.IsNullOrEmpty(model))
                 {
-                    response.DCNumber = "SS" + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                    var savedYear = Convert.ToString(model.ToString().Substring(2, 2));
+                    var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
+
+                    if (!savedYear.Equals(currentYear))
+                    {
+                        response.DCNumber = "SS" + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                    }
+                    else
+                    {
+                        var dcType = "SS";
+                        var workOrderInc = Int32.Parse(model.ToString().Substring(2, 6)) + 1;
+                        response.DCNumber = Convert.ToString(dcType + workOrderInc);
+                    }
                 }
                 else
                 {
-                    var dcType = "SS";
-                    var workOrderInc = Int32.Parse(model.ToString().Substring(2, 6)) + 1;
-                    response.DCNumber = Convert.ToString(dcType + workOrderInc);
+                    response.DCNumber = "SS" + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
                 }
             }
-            else
+            else if (DcNumberFor == 2)
             {
-                response.DCNumber = "SS" + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                if (!string.IsNullOrEmpty(model))
+                {
+                    var savedYear = Convert.ToString(model.ToString().Substring(2, 2));
+                    var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
+
+                    if (!savedYear.Equals(currentYear))
+                    {
+                        response.DCNumber = "SR" + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                    }
+                    else
+                    {
+                        var dcType = "SR";
+                        var workOrderInc = Int32.Parse(model.ToString().Substring(2, 6)) + 1;
+                        response.DCNumber = Convert.ToString(dcType + workOrderInc);
+                    }
+                }
+                else
+                {
+                    response.DCNumber = "SR" + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                }
             }
 
             return response;

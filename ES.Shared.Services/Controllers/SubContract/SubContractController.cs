@@ -22,6 +22,8 @@ namespace ES.Shared.Services.Controllers.SubContract
             this.bSubContractProvider = ObjectFactory.GetInstance<IBusinessSubContract>();
         }
 
+
+        #region Sub Contract Sending Master
         [HttpPost]
         public GetSubContractSendingResponseDto GetSubContractSendingDetails()
         {
@@ -153,12 +155,12 @@ namespace ES.Shared.Services.Controllers.SubContract
         }
 
         [HttpPost]
-        public GetDCNumberForScSendingResponseDto GetDCNumberForSCSending()
+        public GetDCNumberForScSendingResponseDto GetDCNumberForSCSending(int DcNumberFor)
         {
             GetDCNumberForScSendingResponseDto response = new GetDCNumberForScSendingResponseDto();
             try
             {
-                response = rSubContractProvider.GetDCNumber();
+                response = rSubContractProvider.GetDCNumber(DcNumberFor);
                 response.ServiceResponseStatus = 1;
             }
             catch (SSException applicationException)
@@ -216,5 +218,11 @@ namespace ES.Shared.Services.Controllers.SubContract
 
             return response;
         }
+
+        #endregion
+
+        #region Sub Contract Receiving
+
+        #endregion
     }
 }

@@ -14,7 +14,7 @@ namespace ES.Services.ReportLogic.Interface.SubContract
 
         GetScSendingMasterResponseDto GetScSendingMaster();
 
-        GetDCNumberForScSendingResponseDto GetDCNumber();
+        GetDCNumberForScSendingResponseDto GetDCNumber(int DcNumberFor);
 
         GetScDetailsAndSerialsResponseDto GetSubContractDetailAndSerials(GetScDetailsAndSerialsRequestDto getScDetailsAndSerialsRequestDto);
     }

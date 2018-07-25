@@ -97,7 +97,7 @@ namespace ES.Services.DataAccess.Repositories.SubContract
             }
         }
 
-        public string GetSCSendingDCNumber()
+        public string GetSCSendingDCNumber(int DcNumberFor)
         {
             string DcNumberForSCSending = string.Empty;
             using (var connection = new DbConnectionProvider().CreateConnection())
@@ -105,7 +105,7 @@ namespace ES.Services.DataAccess.Repositories.SubContract
                 connection.Open();
 
                 var command = new GetSCSendingDCNumberSelectCommand { Connection = connection };
-                DcNumberForSCSending = command.Execute();
+                DcNumberForSCSending = command.Execute(DcNumberFor);
             }
 
             return DcNumberForSCSending;
