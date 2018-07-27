@@ -18,14 +18,14 @@ namespace ES.Services.DataTransferObjects.Response.Masters
         public string City { get; set; }
         public string PinCode { get; set; }
         public string CompanyGST { get; set; }
-        public decimal PaymentDays { get; set; }
+        public decimal? PaymentDays { get; set; }
         public string Contact1 { get; set; }
         public string Contact2 { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
         public string Email { get; set; }
         public string VendorCustomerCode { get; set; }
-        public DateTime AddedDate { get; set; }
+        public DateTime? AddedDate { get; set; }
         public DateTime DeletedDate { get; set; }
         public string CERegisterCode { get; set; }
         public string DeliveryChallanTo { get; set; }

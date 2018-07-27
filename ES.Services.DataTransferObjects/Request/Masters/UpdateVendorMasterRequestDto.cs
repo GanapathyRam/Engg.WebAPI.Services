@@ -43,7 +43,7 @@ namespace ES.Services.DataTransferObjects.Request.Masters
         //   ,@VendorCustomerCode varchar(10)
         public string VendorCustomerCode { get; set; }
         //   ,@AddedDate varchar(50)
-        public DateTime AddedDate { get; set; }
+        public DateTime? AddedDate { get; set; }
         //   ,@DeletedDate varchar(50)
         public DateTime DeletedDate { get; set; }
         //   ,@CERegisterCode varchar(15)

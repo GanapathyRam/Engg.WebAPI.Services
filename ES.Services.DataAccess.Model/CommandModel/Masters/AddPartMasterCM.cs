@@ -16,10 +16,10 @@ namespace ES.Services.DataAccess.Model.CommandModel.Masters
 
         public decimal MaterialCode { get; set; }
 
-        public decimal RatePiece { get; set; }
+        public decimal? RatePiece { get; set; }
 
-        public decimal RawWeight { get; set; }
+        public decimal? RawWeight { get; set; }
 
-        public decimal FinishWeight { get; set; }
+        public decimal? FinishWeight { get; set; }
     }
 }

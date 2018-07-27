@@ -23,8 +23,8 @@ namespace ES.Services.DataAccess.Model.CommandModel.Masters
         public string Fax { get; set; }
         public string Email { get; set; }
         public string VendorCustomerCode { get; set; }
-        public DateTime AddedDate { get; set; }
-        public DateTime DeletedDate { get; set; }
+        public DateTime? AddedDate { get; set; }
+        public DateTime? DeletedDate { get; set; }
         public string CERegisterCode { get; set; }      
         public string DCTo { get; set; }
         public string InvoiceTo { get; set; }

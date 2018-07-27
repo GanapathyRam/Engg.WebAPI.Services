@@ -22,11 +22,11 @@ namespace ES.Services.DataTransferObjects.Response.Masters
 
         public string MaterialDescription { get; set; }
 
-        public decimal RatePiece { get; set; }
+        public decimal? RatePiece { get; set; }
 
-        public decimal RawWeight { get; set; }
+        public decimal? RawWeight { get; set; }
 
-        public decimal FinishWeight { get; set; }
+        public decimal? FinishWeight { get; set; }
 
         public Int64 PartCode { get; set; }
 

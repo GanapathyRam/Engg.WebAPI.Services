@@ -25,11 +25,11 @@ namespace ES.Services.DataAccess.Model.QueryModel.Masters
         public string MaterialDescription { get; set; }
 
 
-        public decimal RatePiece { get; set; }
+        public decimal? RatePiece { get; set; }
 
-        public decimal RawWeight { get; set; }
+        public decimal? RawWeight { get; set; }
 
-        public decimal FinishWeight { get; set; }
+        public decimal? FinishWeight { get; set; }
 
         public Guid CreatedBy { get; set; }
         public DateTime CreatedDateTime { get; set; }
