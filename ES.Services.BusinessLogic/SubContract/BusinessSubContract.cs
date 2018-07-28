@@ -63,7 +63,7 @@ namespace ES.Services.BusinessLogic.SubContract
 
                 #endregion
 
-                #region SubContract Detail Serial
+            #region SubContract Detail Serial
 
                 var scDetailSerialCM = new ScDetailSerialCM();
                 foreach (var scDetailSerialItems in ScDetails.SubContractDetailsSerial)
@@ -124,5 +124,78 @@ namespace ES.Services.BusinessLogic.SubContract
             return response;
         }
 
+
+        public SubContractReceivingResponseDto AddSubContractReceiving(SubContractReceivingRequestDto subContractReceivingRequestDto)
+        {
+            SubContractReceivingResponseDto response = new SubContractReceivingResponseDto();
+
+            #region SubContract Master
+
+            if (subContractReceivingRequestDto.IsNew == true)
+            {
+                subContractRepository.AddSubContractReceiveMasterDetails(subContractReceivingRequestDto.ScReceivingDcDate, subContractReceivingRequestDto.ScReceivingDcNumber,
+                    subContractReceivingRequestDto.VendorCode, subContractReceivingRequestDto.VendorDCNumber, subContractReceivingRequestDto.ScReceivingVendorDate, subContractReceivingRequestDto.Vehicle, subContractReceivingRequestDto.Remarks);
+            }
+
+            #endregion
+
+            #region SubContract Details
+
+            foreach (var ScDetails in subContractReceivingRequestDto.SubContractReceivingDetails)
+            {
+                var scReceivingDetailsList = new List<SubContractReceivingDetails>();
+                var scReceivingDetailsSerial = new List<ScReceivingDetailSerialItems>();
+
+                if (ScDetails.IsNew == true && ScDetails.SubContractReceivingDetailsSerial.Count() > 0)
+                {
+                    var subContractReceivingDetails = new SubContractReceivingDetails
+                    {
+                        PartCode = ScDetails.PartCode,
+                        ProcessDescription = ScDetails.ProcessDescription,
+                        ScReceivingDcNumber = ScDetails.ScReceivingDcNumber,
+                        WoNumber = ScDetails.WoNumber,
+                        WoSerial = ScDetails.WoSerial
+                    };
+
+                    subContractRepository.AddScReceivingDetails(subContractReceivingDetails.ScReceivingDcNumber, subContractReceivingDetails.WoNumber, subContractReceivingDetails.WoSerial, subContractReceivingDetails.PartCode);
+                    //Insert
+                    //scDetailsList.Add(ScDetails);
+                }
+                else if (ScDetails.IsNew == false && ScDetails.SubContractReceivingDetailsSerial.Count > 0)
+                {
+                }
+
+                #endregion
+
+                #region SubContract Detail Serial
+
+                var scReceivingDetailSerialCM = new ScReceivingDetailSerialCM();
+                foreach (var scDetailSerialItems in ScDetails.SubContractReceivingDetailsSerial)
+                {
+                    if (scDetailSerialItems.IsNew == true)
+                    {
+                        var scReceivingDetailSerialItems = new ScReceivingDetailSerialItems
+                        {
+                            WoNumber = scDetailSerialItems.WoNumber,
+                            ScReceivingNumber = scDetailSerialItems.ScReceivingDcNumber,
+                            SerialNo = scDetailSerialItems.SerialNo,
+                            WoSerial = ScDetails.WoSerial,
+                            CreatedBy = new Guid("783F190B-9B66-42AC-920B-E938732C1C01"), //Later needs to be remove
+                            CreatedDateTime = System.DateTime.UtcNow
+                        };
+
+                        scReceivingDetailsSerial.Add(scReceivingDetailSerialItems);
+                    }
+                }
+
+                scReceivingDetailSerialCM.ScReceivingDetailSerialItems = scReceivingDetailsSerial;
+                subContractRepository.AddScReceivingSerial(scReceivingDetailSerialCM);
+
+            }
+
+            #endregion
+
+            return response;
+        }
     }
 }

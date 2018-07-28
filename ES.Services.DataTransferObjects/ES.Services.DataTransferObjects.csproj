@@ -111,6 +111,8 @@
     <Compile Include="Request\Masters\UpdateSymbolMasterRequestDto.cs" />
     <Compile Include="Request\SubContract\DeleteScSendingRequestDto.cs" />
     <Compile Include="Request\SubContract\GetScDetailsAndSerialsRequestDto.cs" />
+    <Compile Include="Request\SubContract\GetScReceivingDetailsRequestDto.cs" />
+    <Compile Include="Request\SubContract\SubContractReceivingRequestDto.cs" />
     <Compile Include="Request\SubContract\SubContractRequestDto.cs" />
     <Compile Include="Response\Authentication\AuthenticationResponseDto.cs" />
     <Compile Include="Response\Authentication\RegistrationResponseDto.cs" />
@@ -206,9 +208,14 @@
     <Compile Include="Response\SubContract\DeleteScSendingResponseDto.cs" />
     <Compile Include="Response\SubContract\GetDCNumberForScSendingResponseDto.cs" />
     <Compile Include="Response\SubContract\GetScDetailsAndSerialsResponseDto.cs" />
+    <Compile Include="Response\SubContract\GetScReceivingDetailsAndSerialsResponseDto.cs" />
+    <Compile Include="Response\SubContract\GetScReceivingDetailsResponseDto.cs" />
+    <Compile Include="Response\SubContract\GetScReceivingMasterResponseDto.cs" />
+    <Compile Include="Response\SubContract\GetScReceivingMasterResponseModel.cs" />
     <Compile Include="Response\SubContract\GetScSendingMasterResponseDto.cs" />
     <Compile Include="Response\SubContract\GetScSendingMasterResponseModel.cs" />
     <Compile Include="Response\SubContract\GetSubContractSendingResponseDto.cs" />
+    <Compile Include="Response\SubContract\SubContractReceivingResponseDto.cs" />
     <Compile Include="Response\SubContract\SubContractResponseDto.cs" />
   </ItemGroup>
   <ItemGroup />

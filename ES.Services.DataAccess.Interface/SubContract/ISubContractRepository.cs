@@ -32,5 +32,18 @@ namespace ES.Services.DataAccess.Interface.SubContract
         string GetSCSendingDCNumber(int DcNumberFor);
 
         GetScDetailsAndSerialsQM GetSubContractDetailAndSerials(Int64 VendorCode, string SubContractDcNumber);
+
+        void AddSubContractReceiveMasterDetails(DateTime ScReceivingDcDate, string ScReceivingDcNumber, Int64 VendorCode, string VendorDCNumber, DateTime ScReceivingVendorDate, string Vehicle, string Remarks);
+
+        void AddScReceivingDetails(string ScReceivingNumber, string WoNumber, decimal WoSerial, decimal PartCode);
+
+        void AddScReceivingSerial(ScReceivingDetailSerialCM scReceivingDetailSerialCM);
+
+        GetSubContractReceivingResponseQM GetSubContractReceivingDetails(Int64 VendorCode);
+
+        GetScReceivingDetailsAndSerialsQM GetScReceivingDetailAndSerials(Int64 VendorCode, string SubContractDcNumber);
+
+        GetScReceivingMasterQM GetScReceivingMaster();
+
     }
 }

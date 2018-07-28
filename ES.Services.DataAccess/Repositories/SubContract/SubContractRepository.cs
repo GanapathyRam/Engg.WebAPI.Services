@@ -124,5 +124,85 @@ namespace ES.Services.DataAccess.Repositories.SubContract
 
             return model;
         }
+
+        #region Subcontract Receiving
+
+        public void AddSubContractReceiveMasterDetails(DateTime ScReceivingDcDate, string ScReceivingDcNumber, Int64 VendorCode, string VendorDCNumber, DateTime ScReceivingVendorDate, string Vehicle, string Remarks)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new ScReceivingMasterCommonInsertCommand { Connection = connection };
+                command.Execute(ScReceivingDcDate, ScReceivingDcNumber, VendorCode, VendorDCNumber, ScReceivingVendorDate,  Vehicle, Remarks);
+            }
+        }
+
+        public void AddScReceivingDetails(string ScReceivingNumber, string WoNumber, decimal WoSerial, decimal PartCode)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new ScReceivingDetailsInsertCommand { Connection = connection };
+                command.Execute(ScReceivingNumber, WoNumber, WoSerial, PartCode);
+            }
+        }
+
+        public void AddScReceivingSerial(ScReceivingDetailSerialCM scReceivingDetailSerialCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new ScReceivingSerialInsertCommand { Connection = connection };
+                command.Execute(scReceivingDetailSerialCM.ScReceivingDetailSerialItems.ToDataTableWithNull(), scReceivingDetailSerialCM);
+            }
+        }
+
+        public GetSubContractReceivingResponseQM GetSubContractReceivingDetails(Int64 VendorCode)
+        {
+            var model = new GetSubContractReceivingResponseQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetSubContractReceivingSelectCommand { Connection = connection };
+                model = command.Execute(VendorCode);
+            }
+
+            return model;
+        }
+
+        public GetScReceivingDetailsAndSerialsQM GetScReceivingDetailAndSerials(Int64 VendorCode, string DcNumber)
+        {
+            var model = new GetScReceivingDetailsAndSerialsQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetScReceivingDetailsAndSerialSelectCommand { Connection = connection };
+                model = command.Execute(VendorCode, DcNumber);
+            }
+
+            return model;
+        }
+
+        public GetScReceivingMasterQM GetScReceivingMaster()
+        {
+            GetScReceivingMasterQM getScReceivingMasterQM = new GetScReceivingMasterQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetScReceivingMasterSelectCommand { Connection = connection };
+                getScReceivingMasterQM = command.Execute();
+            }
+
+            return getScReceivingMasterQM;
+        }
+
+
+        #endregion
     }
 }

@@ -13,5 +13,7 @@ namespace ES.Services.BusinessLogic.Interface.SubContract
         SubContractResponseDto AddSubContractSending(SubContractRequestDto subContractRequestDto);
 
         DeleteScSendingResponseDto DeleteScSendingDetails(DeleteScSendingRequestDto deleteScSendingRequestDto);
+
+        SubContractReceivingResponseDto AddSubContractReceiving(SubContractReceivingRequestDto subContractReceivingRequestDto);
     }
 }
