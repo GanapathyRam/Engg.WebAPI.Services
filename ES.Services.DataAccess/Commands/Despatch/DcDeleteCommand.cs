@@ -17,10 +17,10 @@ namespace ES.Services.DataAccess.Commands.Despatch
             using (var sqlCommand = CreateCommand())
             {
                 sqlCommand.Connection = Connection;
-                sqlCommand.CommandText = "[dbo].[uspDeleteScMaster]";
+                sqlCommand.CommandText = "[dbo].[uspDeleteDcMaster]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.Add(AddParameter("@DeleteWODetails", SsDbType.Structured, ParameterDirection.Input, dataTableForDcDetails));
-                sqlCommand.Parameters.Add(AddParameter("@SCDcNumber", SsDbType.VarChar, ParameterDirection.Input, DcNumber));
+                sqlCommand.Parameters.Add(AddParameter("@DCNumber", SsDbType.VarChar, ParameterDirection.Input, DcNumber));
                 sqlCommand.Parameters.Add(AddParameter("@WoNumber", SsDbType.VarChar, ParameterDirection.Input, WoNumber));
                 sqlCommand.Parameters.Add(AddParameter("@IsDeleteFrom", SsDbType.Int, ParameterDirection.Input, IsDeleteFrom));
                 sqlCommand.ExecuteNonQuery();

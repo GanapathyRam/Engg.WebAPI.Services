@@ -92,7 +92,7 @@ namespace ES.Services.DataAccess.Repositories.SubContract
             {
                 connection.Open();
 
-                var command = new DcDeleteCommand { Connection = connection };
+                var command = new ScDeleteCommand { Connection = connection };
                 command.Execute(deleteScDetailsCM.scDetailsListItems.ToDataTableWithNull(), deleteScDetailsCM.ScNumer, deleteScDetailsCM.WoNumber, deleteScDetailsCM.IsDeleteFrom);
             }
         }

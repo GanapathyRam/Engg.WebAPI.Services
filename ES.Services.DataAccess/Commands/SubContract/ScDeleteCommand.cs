@@ -19,7 +19,7 @@ namespace ES.Services.DataAccess.Commands.SubContract
                 sqlCommand.CommandText = "[dbo].[uspDeleteScMaster]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.Add(AddParameter("@DeleteWODetails", SsDbType.Structured, ParameterDirection.Input, dataTableForScDetails));
-                sqlCommand.Parameters.Add(AddParameter("@DCNumber", SsDbType.VarChar, ParameterDirection.Input, ScNumber));
+                sqlCommand.Parameters.Add(AddParameter("@SCDcNumber", SsDbType.VarChar, ParameterDirection.Input, ScNumber));
                 sqlCommand.Parameters.Add(AddParameter("@WoNumber", SsDbType.VarChar, ParameterDirection.Input, WoNumber));
                 sqlCommand.Parameters.Add(AddParameter("@IsDeleteFrom", SsDbType.Int, ParameterDirection.Input, IsDeleteFrom));
                 sqlCommand.ExecuteNonQuery();
