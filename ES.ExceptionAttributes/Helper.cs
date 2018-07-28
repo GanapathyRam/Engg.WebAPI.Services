@@ -117,5 +117,16 @@ namespace ES.ExceptionAttributes
             }
         }
 
+        public static string CurrentFiniancialYear()
+        {
+            int month = System.DateTime.Now.Month;
+            var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
+            if (month > 3)
+            {
+                currentYear = Convert.ToString(Convert.ToInt16(currentYear)+1);
+
+            }
+            return currentYear;
+        }
     }
 }

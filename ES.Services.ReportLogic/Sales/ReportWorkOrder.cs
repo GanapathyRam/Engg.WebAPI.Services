@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ES.ExceptionAttributes;
 using ES.Services.DataAccess.Interface.Sales;
 using ES.Services.DataAccess.Model.QueryModel.Sales;
 using ES.Services.DataTransferObjects.Request.Sales;
@@ -39,15 +40,15 @@ namespace ES.Services.ReportLogic.Sales
             var response = new GetWorkOrderNumberResponseDto();
 
             var model = workOrderTypeRepository.GetWorkOrderNumber();
-
+            var currentYear = Helper.CurrentFiniancialYear();
             if (!string.IsNullOrEmpty(model))
             {
                 var savedYear = Convert.ToString(model.ToString().Substring(0, 2));
-                var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
+               
 
                 if (!savedYear.Equals(currentYear))
                 {
-                    response.WorkOrderNumber = Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                    response.WorkOrderNumber = Convert.ToString(currentYear + "0001");
                 }
                 else
                 {
@@ -57,7 +58,7 @@ namespace ES.Services.ReportLogic.Sales
             }
             else
             {
-                response.WorkOrderNumber = Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                response.WorkOrderNumber = Convert.ToString(currentYear + "0001");
             }
 
             return response;
