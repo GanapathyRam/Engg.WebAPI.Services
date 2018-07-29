@@ -11,6 +11,7 @@ using ES.Services.DataAccess.Interface.SubContract;
 using AutoMapper;
 using ES.Services.DataAccess.Model.QueryModel.SubContract;
 using ES.Services.DataTransferObjects.Request.SubContract;
+using ES.ExceptionAttributes;
 
 namespace ES.Services.ReportLogic.SubContract
 {
@@ -114,16 +115,18 @@ namespace ES.Services.ReportLogic.SubContract
 
             var model = subContractRepository.GetSCSendingDCNumber(DcNumberFor);
 
+            var currentYear = Helper.CurrentFiniancialYear();
+
             if (DcNumberFor == 1)
             {
                 if (!string.IsNullOrEmpty(model))
                 {
                     var savedYear = Convert.ToString(model.ToString().Substring(2, 2));
-                    var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
+                    //var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
 
                     if (!savedYear.Equals(currentYear))
                     {
-                        response.DCNumber = "SS" + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                        response.DCNumber = "SS" + Convert.ToString(currentYear + "0001");
                     }
                     else
                     {
@@ -134,7 +137,7 @@ namespace ES.Services.ReportLogic.SubContract
                 }
                 else
                 {
-                    response.DCNumber = "SS" + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                    response.DCNumber = "SS" + Convert.ToString(currentYear + "0001");
                 }
             }
             else if (DcNumberFor == 2)
@@ -142,11 +145,11 @@ namespace ES.Services.ReportLogic.SubContract
                 if (!string.IsNullOrEmpty(model))
                 {
                     var savedYear = Convert.ToString(model.ToString().Substring(2, 2));
-                    var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
+                    //var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
 
                     if (!savedYear.Equals(currentYear))
                     {
-                        response.DCNumber = "SR" + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                        response.DCNumber = "SR" + Convert.ToString(currentYear + "0001");
                     }
                     else
                     {
@@ -157,7 +160,7 @@ namespace ES.Services.ReportLogic.SubContract
                 }
                 else
                 {
-                    response.DCNumber = "SR" + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                    response.DCNumber = "SR" + Convert.ToString(currentYear + "0001");
                 }
             }
 

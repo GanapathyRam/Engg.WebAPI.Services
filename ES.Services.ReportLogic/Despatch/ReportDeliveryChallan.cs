@@ -9,6 +9,7 @@ using ES.Services.DataAccess.Interface.Despatch;
 using AutoMapper;
 using ES.Services.DataAccess.Model.QueryModel.Despatch;
 using ES.Services.DataTransferObjects.Request.Despatch;
+using ES.ExceptionAttributes;
 
 namespace ES.Services.ReportLogic.Despatch
 {
@@ -153,14 +154,16 @@ namespace ES.Services.ReportLogic.Despatch
 
             var model = deliveryChallanRepository.GetDCNumber(WoType);
 
+            var currentYear = Helper.CurrentFiniancialYear();
+
             if (!string.IsNullOrEmpty(model))
             {
                 var savedYear = Convert.ToString(model.ToString().Substring(2, 2));
-                var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
+                //var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
 
                 if (!savedYear.Equals(currentYear))
                 {
-                    response.DCNumber = "D" + WoType + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                    response.DCNumber = "D" + WoType + Convert.ToString(currentYear + "0001");
                 }
                 else
                 {
@@ -171,7 +174,7 @@ namespace ES.Services.ReportLogic.Despatch
             }
             else
             {
-                response.DCNumber = "D" + WoType + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                response.DCNumber = "D" + WoType + Convert.ToString(currentYear + "0001");
             }
 
             return response;

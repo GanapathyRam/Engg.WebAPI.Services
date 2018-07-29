@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ES.ExceptionAttributes;
 using ES.Services.DataAccess.Interface.Despatch;
 using ES.Services.DataAccess.Model.QueryModel.Despatch;
 using ES.Services.DataTransferObjects.Request.Despatch;
@@ -27,14 +28,16 @@ namespace ES.Services.ReportLogic.Despatch
 
             var model = invoiceRepository.GetInvoiceNumber(WoType);
 
+            var currentYear = Helper.CurrentFiniancialYear();
+
             if (!string.IsNullOrEmpty(model))
             {
                 var savedYear = Convert.ToString(model.ToString().Substring(2, 2));
-                var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
+                //var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
 
                 if (!savedYear.Equals(currentYear))
                 {
-                    response.InvoiceNumber = "I" + WoType + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                    response.InvoiceNumber = "I" + WoType + Convert.ToString(currentYear + "0001");
                 }
                 else
                 {
@@ -45,7 +48,7 @@ namespace ES.Services.ReportLogic.Despatch
             }
             else
             {
-                response.InvoiceNumber = "I" + WoType + Convert.ToString(System.DateTime.UtcNow.ToString().Substring(8, 2) + "0001");
+                response.InvoiceNumber = "I" + WoType + Convert.ToString(currentYear + "0001");
             }
 
             return response;
