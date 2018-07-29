@@ -25,5 +25,6 @@ namespace ES.Services.DataTransferObjects.Response.Despatch
         public int WoSerial { get; set; }
 
         public string PartDescription { get; set; }
+        public decimal Rate { get; set; }
     }
 }

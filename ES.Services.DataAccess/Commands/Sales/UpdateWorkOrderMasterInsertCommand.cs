@@ -29,6 +29,7 @@ namespace ES.Services.DataAccess.Commands.Sales
                 sqlCommand.Parameters.Add(AddParameter("@PODate", SsDbType.DateTime, ParameterDirection.Input, model.UpdateWorkOrderMasterListItems.FirstOrDefault().PODate));
                 sqlCommand.Parameters.Add(AddParameter("@DrawingNo", SsDbType.NVarChar, ParameterDirection.Input, model.UpdateWorkOrderMasterListItems.FirstOrDefault().DrawingNo));
                 sqlCommand.Parameters.Add(AddParameter("@DrawingRevisionNo", SsDbType.NVarChar, ParameterDirection.Input, model.UpdateWorkOrderMasterListItems.FirstOrDefault().DrawingRev));
+                sqlCommand.Parameters.Add(AddParameter("@Rate", SsDbType.Decimal, ParameterDirection.Input, model.UpdateWorkOrderMasterListItems.FirstOrDefault().Rate));
                 sqlCommand.Parameters.Add(AddParameter("@UpdatedBy", SsDbType.UniqueIdentifier, ParameterDirection.Input, new Guid()));
                 sqlCommand.Parameters.Add(AddParameter("@UpdatedDateTime", SsDbType.DateTime, ParameterDirection.Input, DateTime.UtcNow));
 
