@@ -155,5 +155,14 @@ namespace ES.Services.BusinessLogic.Production
 
             return response;
         }
+
+        public DeleteJobCardDetailsResponseDto DeleteJobCardDetails(DeleteJobCardDetailsRequestDto deleteJobCardDetailsRequestDto)
+        {
+            DeleteJobCardDetailsResponseDto response = new DeleteJobCardDetailsResponseDto();
+
+            jobCardGenerationRepository.DeleteJobCardDetails(deleteJobCardDetailsRequestDto.SerialNo, deleteJobCardDetailsRequestDto.PartCode, deleteJobCardDetailsRequestDto.SequenceNumber);
+
+            return response;
+        }
     }
 }

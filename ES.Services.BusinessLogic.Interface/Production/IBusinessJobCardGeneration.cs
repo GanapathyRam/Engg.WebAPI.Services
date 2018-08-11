@@ -13,5 +13,7 @@ namespace ES.Services.BusinessLogic.Interface.Production
         AddJobCardGenerationResponseDto AddJobCardGeneration(AddJobCardGenerationRequestDto addJobCardGenerationRequestDto);
 
         UpdateJobCardMaintanceResponseDto UpdateJobCardMaintance(GetJobCardMaintanceResponseDto getJobCardMaintanceResponseDto);
+
+        DeleteJobCardDetailsResponseDto DeleteJobCardDetails(DeleteJobCardDetailsRequestDto deleteJobCardDetailsRequestDto);
     }
 }

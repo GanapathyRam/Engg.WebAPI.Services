@@ -98,6 +98,7 @@
     <Compile Include="Request\Masters\UpdateVendorMasterRequestDto.cs" />
     <Compile Include="Request\Production\AddJobCardGenerationRequestDto.cs" />
     <Compile Include="Request\Production\AddProcessCardRequestDto.cs" />
+    <Compile Include="Request\Production\DeleteJobCardDetailsRequestDto.cs" />
     <Compile Include="Request\Production\DeleteProcessCardRequestDto.cs" />
     <Compile Include="Request\Production\GetSequenceNumberRequestDto.cs" />
     <Compile Include="Request\Production\UpdateJobCardMaintanceRequestDto.cs" />
@@ -191,6 +192,7 @@
     <Compile Include="Response\Masters\VendorMasterListForDropDown.cs" />
     <Compile Include="Response\Production\AddJobCardGenerationResponseDto.cs" />
     <Compile Include="Response\Production\AddProcessCardResponseDto.cs" />
+    <Compile Include="Response\Production\DeleteJobCardDetailsResponseDto.cs" />
     <Compile Include="Response\Production\DeleteProcessCardResponseDto.cs" />
     <Compile Include="Response\Production\GetJobCardGenerationResponseDto.cs" />
     <Compile Include="Response\Production\GetJobCardMaintanceResponseDto.cs" />
