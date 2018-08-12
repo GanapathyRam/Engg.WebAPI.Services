@@ -1,5 +1,6 @@
 ﻿using ES.Services.DataAccess.Model.CommandModel.Sales;
 using ES.Services.DataAccess.Model.QueryModel.Sales;
+using ES.Services.DataTransferObjects.Request.Sales;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,9 +21,12 @@ namespace ES.Services.DataAccess.Interface.Sales
 
         AddWorkOrderQM AddWorkOrder(AddWorkOrderCM workOrderCM);
         void UpdateWorkOrder(UpdateWorkOrderCM workOrderCM);
+        void UpdateWorkOrderHeat(UpdateWorkOrderHeatCM updateWorkOrderHeatCM);
         void AddWorkOrderDetails(WorkOrderDetailsCM workOrderDetailsCM);
         void DeleteWorkOrder(GetWorkOrderDetailsStatusCM deleteWorkOrderCM);
         void AddWorkOrderMasterCommon(string WorkOrderType, string WorkOrderNumber, DateTime WorkOrderDate, Int64 VendorCode);
         GetWorkOrderDetailsStatusQM GetWorkOrderDetailsStatus(GetWorkOrderDetailsStatusCM getWorkOrderDetailsStatusCM);
+        GetWorkOrderHeatDetailsQM GetWorkOrderHeatList(string WorkOrderNumber);
+        GetWorkOrderNumberForHeatQM GetWorkOrderNumberHeat();
     }
 }

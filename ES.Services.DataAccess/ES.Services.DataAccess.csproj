@@ -121,6 +121,8 @@
     <Compile Include="Commands\Production\UpdateJobCardMaintanceUpdateCommand.cs" />
     <Compile Include="Commands\Registration\UserRegistrationInsertCommand.cs" />
     <Compile Include="Commands\Despatch\GetDcTypeSelectCommand.cs" />
+    <Compile Include="Commands\Sales\UpdateWorkOrderHeatInsertCommand.cs" />
+    <Compile Include="Commands\Sales\WorkOrderHeatSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderMasterDeleteCommand.cs" />
     <Compile Include="Commands\Sales\UpdateWorkOrderMasterInsertCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderDetailsInsertCommand.cs" />
@@ -128,6 +130,7 @@
     <Compile Include="Commands\Sales\WorkOrderMasterInsertCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderMasterCommonInsertCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderNumberClientSerialNoSelectCommand.cs" />
+    <Compile Include="Commands\Sales\WorkOrderNumberForHeatSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderNumberSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderTypeSelectCommand.cs" />

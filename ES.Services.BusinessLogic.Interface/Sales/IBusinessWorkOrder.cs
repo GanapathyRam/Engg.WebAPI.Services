@@ -13,7 +13,7 @@ namespace ES.Services.BusinessLogic.Interface.Sales
         WorkOrderResponseDto AddWorkOrder(WorkOrderRequestDto workOrderRequestDto);
 
         UpdateWorkOrderResponseDto UpdateWorkOrder(UpdateWorkOrderRequestDto updateWorkOrderRequestDto);
-
+        UpdateWorkOrderHeatResponseDto UpdateWorkOrderHeat(UpdateWorkOrderHeatRequestDto updateWorkOrderHeatRequestDto);
         DeleteWorkOrderResponseDto DeleteWorkOrder(DeleteWorkOrderRequestDto deleteWorkOrderRequestDto);
     }
 }

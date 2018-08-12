@@ -73,6 +73,8 @@ namespace ES.Services.ReportLogic.Sales
             return response;
         }
 
+
+
         public GetWorkOrderResponseDto GetWorkOrder()
         {
             var response = new GetWorkOrderResponseDto()
@@ -161,6 +163,46 @@ namespace ES.Services.ReportLogic.Sales
             return response;
         }
 
+        public GetWorkOrderHeatResponseDto GetWorkOrderHeatList(GetWorkOrderHeatRequest getWorkOrderHeatRequest)
+        {
+            var response = new GetWorkOrderHeatResponseDto()
+            {
+                getWorkOrderHeatDetails = new List<GetWorkOrderHeatDetailsResponse>()
+            };
+            var responseDto = new GetWorkOrderHeatResponseDto();
+            var model = workOrderTypeRepository.GetWorkOrderHeatList(getWorkOrderHeatRequest.WorkOrderNumber);
+            if (model != null)
+            {
+                responseDto = WorkOrderHeatMapper((List<GetWorkOrderHeatModel>)model.getWorkOrderHeatDetails, response);
+            }
+
+                return response;
+        }
+
+        public GetWorkOrderNumberForHeatResponseDto GetWorkOrderNumberHeat ()
+        {
+            var response = new GetWorkOrderNumberForHeatResponseDto()
+            {
+                getWorkOrderNumberHeatDetails = new List<GetWorkOrderNumberHeatResponseModel>()
+            };
+            var responseDto = new GetWorkOrderNumberForHeatResponseDto();
+            var model = workOrderTypeRepository.GetWorkOrderNumberHeat();
+            if (model != null)
+            {
+                responseDto = WorkOrderNumberHeatMapper((List<GetWorkOrderNumberHeatModelQM>)model.getWorkOrderNumberHeatDetails, response);
+            }
+            return response;
+        }
+
+        private GetWorkOrderNumberForHeatResponseDto WorkOrderNumberHeatMapper(List<GetWorkOrderNumberHeatModelQM> list, GetWorkOrderNumberForHeatResponseDto response)
+        {
+            Mapper.CreateMap<GetWorkOrderNumberHeatModelQM, GetWorkOrderNumberHeatResponseModel>();
+            response.getWorkOrderNumberHeatDetails =
+                Mapper.Map<List<GetWorkOrderNumberHeatModelQM>, List<GetWorkOrderNumberHeatResponseModel>>(list);
+
+            return response;
+        }
+
         private static GetWorkOrderResponse WorkOrderMapper(List<GetWorkOrderModel> list, GetWorkOrderResponse getWorkOrderResponseDto)
         {
             Mapper.CreateMap<GetWorkOrderModel, GetWorkOrderMasterDetailsResponse>();
@@ -170,7 +212,14 @@ namespace ES.Services.ReportLogic.Sales
             return getWorkOrderResponseDto;
         }
 
+        private static GetWorkOrderHeatResponseDto WorkOrderHeatMapper(List<GetWorkOrderHeatModel> list, GetWorkOrderHeatResponseDto getWorkOrderHeatResponseDto)
+        {
+            Mapper.CreateMap<GetWorkOrderHeatModel, GetWorkOrderHeatDetailsResponse>();
+            getWorkOrderHeatResponseDto.getWorkOrderHeatDetails =
+                Mapper.Map<List<GetWorkOrderHeatModel>, List<GetWorkOrderHeatDetailsResponse>>(list);
 
+            return getWorkOrderHeatResponseDto;
+        }
         private static GetWorkOrderTypeResponseDto WorkOrderTypeMapper(List<WorkOrderTypeModel> list, GetWorkOrderTypeResponseDto getWorkOrderTypeResponseDto)
         {
             Mapper.CreateMap<WorkOrderTypeModel, WorkOrderTypeList>();

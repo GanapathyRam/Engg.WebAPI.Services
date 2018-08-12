@@ -89,6 +89,72 @@ namespace ES.Shared.Services.Controllers.Sales
 
             return response;
         }
+       
+        [HttpPost]
+        public GetWorkOrderHeatResponseDto GetWorkOrderHeatList(GetWorkOrderHeatRequest getWorkOrderHeatRequest)
+        {
+            GetWorkOrderHeatResponseDto response = new GetWorkOrderHeatResponseDto();
+            try
+            {
+                response = rWorkOrderProvider.GetWorkOrderHeatList(getWorkOrderHeatRequest);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetWorkOrderHeatResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetWorkOrderHeatResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+
+        [HttpPost]
+        public GetWorkOrderNumberForHeatResponseDto GetWorkOrderNumberHeat()
+        {
+            GetWorkOrderNumberForHeatResponseDto response = new GetWorkOrderNumberForHeatResponseDto();
+            try
+            {
+                response = rWorkOrderProvider.GetWorkOrderNumberHeat();
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetWorkOrderNumberForHeatResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetWorkOrderNumberForHeatResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
 
         [HttpPost]
         public GetWorkOrderClientSerialNoResponseDto GetWorkOrderClientSerialNo(string shortCode)
@@ -175,6 +241,38 @@ namespace ES.Shared.Services.Controllers.Sales
             catch (Exception exception)
             {
                 response = new UpdateWorkOrderResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        [HttpPost]
+        public UpdateWorkOrderHeatResponseDto UpdateWorkOrderHeat(UpdateWorkOrderHeatRequestDto updateWorkOrderHeatRequestDto)
+        {
+            UpdateWorkOrderHeatResponseDto response = new UpdateWorkOrderHeatResponseDto();
+            try
+            {
+                response = bWorkOrderProvider.UpdateWorkOrderHeat(updateWorkOrderHeatRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new UpdateWorkOrderHeatResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new UpdateWorkOrderHeatResponseDto
                 {
                     ServiceResponseStatus = 0,
                     ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,

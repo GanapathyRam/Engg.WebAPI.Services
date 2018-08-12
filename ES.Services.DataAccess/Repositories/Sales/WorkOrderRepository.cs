@@ -126,6 +126,18 @@ namespace ES.Services.DataAccess.Repositories.Sales
             //return new AddWorkOrderQM();
         }
 
+        public void UpdateWorkOrderHeat(UpdateWorkOrderHeatCM updateWorkOrderHeatCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new UpdateWorkOrderHeatInsertCommand { Connection = connection };
+
+                command.Execute(updateWorkOrderHeatCM);
+            }
+        }
+
         public GetWorkOrderQM GetWorkOrder()
         {
             var model = new GetWorkOrderQM();
@@ -138,6 +150,35 @@ namespace ES.Services.DataAccess.Repositories.Sales
             }
 
             return model;
+        }
+
+        public GetWorkOrderHeatDetailsQM GetWorkOrderHeatList(String WorkOrderNumber)
+        {
+            var model = new GetWorkOrderHeatDetailsQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new WorkOrderHeatSelectCommand { Connection = connection };
+                model = command.Execute(WorkOrderNumber);
+            }
+
+            return model;
+
+        }
+        public GetWorkOrderNumberForHeatQM GetWorkOrderNumberHeat()
+        {
+            var model = new GetWorkOrderNumberForHeatQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new WorkOrderNumberForHeatSelectCommand { Connection = connection };
+                model = command.Execute();
+            }
+
+            return model;
+
         }
 
         public GetWorkOrderDetailsStatusQM GetWorkOrderDetailsStatus(GetWorkOrderDetailsStatusCM modelCM)

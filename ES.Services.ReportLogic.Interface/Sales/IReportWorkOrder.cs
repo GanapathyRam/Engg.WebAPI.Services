@@ -16,5 +16,7 @@ namespace ES.Services.ReportLogic.Interface.Sales
         //GetWorkOrderClientSerialNoResponseDto GetWorkOrderClientSerialNo();
         GetWorkOrderResponseDto GetWorkOrder();
         GetWorkOrderClientSerialNoResponseDto GetWorkOrderClientSerialNo(string shortCode);
+        GetWorkOrderHeatResponseDto GetWorkOrderHeatList(GetWorkOrderHeatRequest getWorkOrderHeatRequest);
+        GetWorkOrderNumberForHeatResponseDto GetWorkOrderNumberHeat();
     }
 }

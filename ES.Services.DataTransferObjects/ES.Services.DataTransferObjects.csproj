@@ -104,7 +104,10 @@
     <Compile Include="Request\Registration\RegisterUserRequestDto.cs" />
     <Compile Include="Request\Sales\DeleteWorkOrderRequestDto.cs" />
     <Compile Include="Request\Sales\GetWorkOrderClientSerialNoResponseDto.cs" />
+    <Compile Include="Request\Sales\GetWorkOrderHeatRequest.cs" />
+    <Compile Include="Request\Sales\GetWorkOrderNumberForHeatRequestDto.cs" />
     <Compile Include="Request\Sales\GetWorkOrderNumberRequestDto.cs" />
+    <Compile Include="Request\Sales\UpdateWorkOrderHeatRequestDto.cs" />
     <Compile Include="Request\Sales\UpdateWorkOrderRequestDto.cs" />
     <Compile Include="Request\Sales\WorkOrderTypeRequestDto.cs" />
     <Compile Include="Request\Sales\WorkOrderRequestDto.cs" />
@@ -199,9 +202,12 @@
     <Compile Include="Response\Production\UpdateJobCardMaintanceResponseDto.cs" />
     <Compile Include="Response\Registration\RegisterUserResponseDto.cs" />
     <Compile Include="Response\Sales\DeleteWorkOrderResponseDto.cs" />
+    <Compile Include="Response\Sales\GetWorkOrderHeatResponseDto.cs" />
+    <Compile Include="Response\Sales\GetWorkOrderNumberForHeatResponseDto.cs" />
     <Compile Include="Response\Sales\GetWorkOrderNumberResponseDto.cs" />
     <Compile Include="Response\Sales\GetWorkOrderResponseDto.cs" />
     <Compile Include="Response\Sales\GetWorkOrderTypeResponseDto.cs" />
+    <Compile Include="Response\Sales\UpdateWorkOrderHeatResponseDto.cs" />
     <Compile Include="Response\Sales\UpdateWorkOrderResponseDto.cs" />
     <Compile Include="Response\Sales\WorkOrderResponseDto.cs" />
     <Compile Include="Response\Sales\WorkOrderTypeList.cs" />

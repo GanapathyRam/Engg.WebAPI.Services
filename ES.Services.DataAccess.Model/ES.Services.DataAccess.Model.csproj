@@ -99,7 +99,9 @@
     <Compile Include="CommandModel\Registration\UserInfoCommandModel.cs" />
     <Compile Include="CommandModel\Sales\DeleteWorkOrderCM.cs" />
     <Compile Include="CommandModel\Sales\GetWorkOrderDetailsStatusCM.cs" />
+    <Compile Include="CommandModel\Sales\GetWorkOrderHeatDetailsCM.cs" />
     <Compile Include="CommandModel\Sales\UpdateWorkOrderCM.cs" />
+    <Compile Include="CommandModel\Sales\UpdateWorkOrderHeatCM.cs" />
     <Compile Include="CommandModel\Sales\WorkOrderCM.cs" />
     <Compile Include="CommandModel\Sales\WorkOrderDetailsCM.cs" />
     <Compile Include="CommandModel\Masters\UpdateSymbolMasterCM.cs" />
@@ -188,7 +190,9 @@
     <Compile Include="QueryModel\Production\GetSequenceNumberQM.cs" />
     <Compile Include="QueryModel\Registration\UserInfoQueryModel.cs" />
     <Compile Include="QueryModel\Sales\GetWorkOrderDetailsStatusQM.cs" />
+    <Compile Include="QueryModel\Sales\GetWorkOrderHeatDetailsQM.cs" />
     <Compile Include="QueryModel\Sales\GetWorkOrderModel.cs" />
+    <Compile Include="QueryModel\Sales\GetWorkOrderNumberForHeatQM.cs" />
     <Compile Include="QueryModel\Sales\GetWorkOrderQM.cs" />
     <Compile Include="QueryModel\Sales\GetWorkOrderTypeQM.cs" />
     <Compile Include="QueryModel\Sales\WorkOrderQM.cs" />

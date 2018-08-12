@@ -319,6 +319,21 @@ namespace ES.Services.BusinessLogic.Sales
             return new UpdateWorkOrderResponseDto();
         }
 
+        public UpdateWorkOrderHeatResponseDto UpdateWorkOrderHeat(UpdateWorkOrderHeatRequestDto updateWorkOrderHeatRequestDto)
+        {
+            foreach (var updateWorKOrderHeat in updateWorkOrderHeatRequestDto.getWorkOrderHeatDetails)
+            {
+                var cModel = new UpdateWorkOrderHeatCM();
+                cModel.WONumber = updateWorKOrderHeat.WONumber;
+                cModel.WOSerial = updateWorKOrderHeat.WOSerial;
+                cModel.SerialNo = updateWorKOrderHeat.SerialNo;
+                cModel.HeatNo = updateWorKOrderHeat.HeatNo;
+                workOrderRepository.UpdateWorkOrderHeat(cModel);
+            }
+                return new UpdateWorkOrderHeatResponseDto();
+
+        }
+
         public DeleteWorkOrderResponseDto DeleteWorkOrder(DeleteWorkOrderRequestDto deleteWorkOrderRequestDto)
         {
             // Section to verify, whether the particular order has delivered or not
