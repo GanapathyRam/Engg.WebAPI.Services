@@ -76,5 +76,6 @@ namespace ES.Services.DataAccess.Model.QueryModel.Production
         public string InstrumentName { get; set; }
 
         public string ToolDescription { get; set; }
+        public bool IsDeletable { get; set; }
     }
 }

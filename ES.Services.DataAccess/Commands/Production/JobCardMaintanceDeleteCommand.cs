@@ -20,7 +20,7 @@ namespace ES.Services.DataAccess.Commands.Production
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.Add(AddParameter("@SerialNo", SsDbType.VarChar, ParameterDirection.Input, serialNo));
                 sqlCommand.Parameters.Add(AddParameter("@PartCode", SsDbType.Decimal, ParameterDirection.Input, partCode));
-                sqlCommand.Parameters.Add(AddParameter("@SequeneNumber", SsDbType.Decimal, ParameterDirection.Input, sequenceNumber));
+                sqlCommand.Parameters.Add(AddParameter("@SequenceNumber", SsDbType.Decimal, ParameterDirection.Input, sequenceNumber));
                 sqlCommand.ExecuteNonQuery();
             }
         }

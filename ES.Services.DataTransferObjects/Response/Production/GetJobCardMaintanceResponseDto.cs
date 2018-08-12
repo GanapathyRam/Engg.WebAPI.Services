@@ -43,7 +43,7 @@ namespace ES.Services.DataTransferObjects.Response.Production
 
         public string Shift { get; set; }
 
-        //public bool IsNew { get; set; }
+        public bool IsDeletable { get; set; }
 
         public List<GetJobCardMaintanceDetails> getJobCardMaintanceDetails { get; set; }
 

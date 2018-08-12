@@ -152,7 +152,7 @@ namespace ES.Shared.Services.Controllers.Production
 
             return response;
         }
-
+        [HttpPost]
         public DeleteJobCardDetailsResponseDto DeleteJobCardDetails(DeleteJobCardDetailsRequestDto deleteJobCardDetailsRequestDto)
         {
             DeleteJobCardDetailsResponseDto response = new DeleteJobCardDetailsResponseDto();

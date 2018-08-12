@@ -100,6 +100,7 @@ namespace ES.Services.ReportLogic.Production
                         getsingle.OperationDate = dcMasterDetails.OperationDate;
                         getsingle.EmployeeCode = dcMasterDetails.EmployeeCode;
                         getsingle.Shift = dcMasterDetails.Shift;
+                        getsingle.IsDeletable = dcMasterDetails.IsDeletable ? false : true;
 
                         //if (!dcMasterDetails.IsDelete)
                         //{
