@@ -112,6 +112,7 @@
     <Compile Include="Commands\Production\GetJobCardMaintanceSelectCommand.cs" />
     <Compile Include="Commands\Production\GetProcessCardDetailsSelectCommand.cs" />
     <Compile Include="Commands\Production\GetProcessCardMasterSelectCommand.cs" />
+    <Compile Include="Commands\Production\JobCardMaintanceDeleteCommand.cs" />
     <Compile Include="Commands\Production\JobCardMasterAndDetailsInsertCommand.cs" />
     <Compile Include="Commands\Production\ProcessCardDeleteCommand.cs" />
     <Compile Include="Commands\Production\ProcessCardInsertCommand.cs" />

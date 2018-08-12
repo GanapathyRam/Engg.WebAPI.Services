@@ -102,5 +102,16 @@ namespace ES.Services.DataAccess.Repositories.Production
                 command.Execute(updateJobCardMaintanceCM.GetUpdateJobCardDetails.ToDataTableWithNull(), updateJobCardMaintanceCM);
             }
         }
+
+        public void DeleteJobCardDetails(string serialNo, decimal partCode, decimal sequenceNumber)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new JobCardMaintanceDeleteCommand { Connection = connection };
+                command.Execute(serialNo, partCode, sequenceNumber);
+            }
+        }
     }
 }

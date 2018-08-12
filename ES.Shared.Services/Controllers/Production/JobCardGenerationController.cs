@@ -152,5 +152,37 @@ namespace ES.Shared.Services.Controllers.Production
 
             return response;
         }
+
+        public DeleteJobCardDetailsResponseDto DeleteJobCardDetails(DeleteJobCardDetailsRequestDto deleteJobCardDetailsRequestDto)
+        {
+            DeleteJobCardDetailsResponseDto response = new DeleteJobCardDetailsResponseDto();
+            try
+            {
+                response = bJobCardProvider.DeleteJobCardDetails(deleteJobCardDetailsRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new DeleteJobCardDetailsResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new DeleteJobCardDetailsResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
     }
 }

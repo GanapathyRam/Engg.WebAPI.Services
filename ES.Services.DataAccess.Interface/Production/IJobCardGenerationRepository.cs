@@ -22,5 +22,7 @@ namespace ES.Services.DataAccess.Interface.Production
         GetJobCardMaintanceQM GetJobCardMaintane();
 
         void UpdateJobCardMaintance(UpdateJobCardMaintanceCM updateJobCardMaintanceCM);
+
+        void DeleteJobCardDetails(string serialNo, decimal partCode, decimal sequenceNumber);
     }
 }

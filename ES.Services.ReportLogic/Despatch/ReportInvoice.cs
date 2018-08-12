@@ -30,25 +30,51 @@ namespace ES.Services.ReportLogic.Despatch
 
             var currentYear = Helper.CurrentFiniancialYear();
 
-            if (!string.IsNullOrEmpty(model))
+            if (WoType == "S")
             {
-                var savedYear = Convert.ToString(model.ToString().Substring(2, 2));
-                //var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
-
-                if (!savedYear.Equals(currentYear))
+                if (!string.IsNullOrEmpty(model))
                 {
-                    response.InvoiceNumber = "I" + WoType + Convert.ToString(currentYear + "0001");
+                    var savedYear = Convert.ToString(model.ToString().Substring(2, 2));
+                    //var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
+
+                    if (!savedYear.Equals(currentYear))
+                    {
+                        response.InvoiceNumber = "I" + WoType + Convert.ToString(currentYear + "0001");
+                    }
+                    else
+                    {
+                        var dcType = Convert.ToString(model.ToString().Substring(0, 1));
+                        var workOrderInc = Int32.Parse(model.ToString().Substring(2, 6)) + 1;
+                        response.InvoiceNumber = dcType + WoType + Convert.ToString(workOrderInc);
+                    }
                 }
                 else
                 {
-                    var dcType = Convert.ToString(model.ToString().Substring(0, 1));
-                    var workOrderInc = Int32.Parse(model.ToString().Substring(2, 6)) + 1;
-                    response.InvoiceNumber = dcType + WoType + Convert.ToString(workOrderInc);
+                    response.InvoiceNumber = "I" + WoType + Convert.ToString(currentYear + "0001");
                 }
             }
-            else
+            else if (WoType == "L")
             {
-                response.InvoiceNumber = "I" + WoType + Convert.ToString(currentYear + "0001");
+                if (!string.IsNullOrEmpty(model))
+                {
+                    var savedYear = Convert.ToString(model.ToString().Substring(2, 2));
+                    //var currentYear = Convert.ToString(DateTime.UtcNow.Year.ToString().Substring(2, 2));
+
+                    if (!savedYear.Equals(currentYear))
+                    {
+                        response.InvoiceNumber = "I" + WoType + Convert.ToString(currentYear + "3001");
+                    }
+                    else
+                    {
+                        var dcType = Convert.ToString(model.ToString().Substring(0, 1));
+                        var workOrderInc = Int32.Parse(model.ToString().Substring(2, 6)) + 1;
+                        response.InvoiceNumber = dcType + WoType + Convert.ToString(workOrderInc);
+                    }
+                }
+                else
+                {
+                    response.InvoiceNumber = "I" + WoType + Convert.ToString(currentYear + "3001");
+                }
             }
 
             return response;
