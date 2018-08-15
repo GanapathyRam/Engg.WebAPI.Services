@@ -83,6 +83,7 @@ namespace ES.Shared.Services
             ObjectFactory.Configure(x =>
             {
                 x.For<IBusinessCompanyMaster>().Use<BusinessCompanyMaster>();
+                x.For<IReportCompanyMaster>().Use<ReportCompanyMaster>();
                 x.For<ICompanyMastersRepository>().Use<CompanyMastersRepository>();
                 var proxyGenerator = new ProxyGenerator();
                 var transactionInterceptor = new TransactionInterceptor();

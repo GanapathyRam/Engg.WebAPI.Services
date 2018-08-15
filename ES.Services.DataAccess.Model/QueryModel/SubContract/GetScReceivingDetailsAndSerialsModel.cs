@@ -19,5 +19,6 @@ namespace ES.Services.DataAccess.Model.QueryModel.SubContract
         public string ProcessDescription { get; set; }
         public string DCNumber { get; set; }
         public string SerialNo { get; set; }
+        public string CustomerName { get; set; }
     }
 }

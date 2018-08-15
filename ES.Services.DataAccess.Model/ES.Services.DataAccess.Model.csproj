@@ -129,6 +129,7 @@
     <Compile Include="QueryModel\Despatch\GetWOMasterForDcModel.cs" />
     <Compile Include="QueryModel\Despatch\GetWOMasterForDcQM.cs" />
     <Compile Include="QueryModel\Masters\AddSubcontractProcessMasterQM.cs" />
+    <Compile Include="QueryModel\Masters\GetCompanyMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetEmployeeMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetSubcontractProcessMasterQM.cs" />
     <Compile Include="QueryModel\Masters\SubcontractProcessMasterModel.cs" />

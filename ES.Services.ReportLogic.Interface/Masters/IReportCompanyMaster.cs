@@ -10,7 +10,7 @@ namespace ES.Services.ReportLogic.Interface.Masters
 {
     public interface IReportCompanyMaster
     {
-        GetCompanyMasterResponseDto GetCompanyMaster(GetCompanyMasterRequestDto getCompanyMasterRequestDto);
+        GetCompanyMasterResponseDto GetCompanyMaster();
 
     }
 }

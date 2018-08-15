@@ -26,6 +26,7 @@ namespace ES.Services.BusinessLogic.Masters
             {
                 Description = addPartMasterRequestDto.Description,
                 DrawingNumber = addPartMasterRequestDto.DrawingNumber,
+                DrawingUnit = addPartMasterRequestDto.DrawingUnit,
                 DrawingNumberRevision = addPartMasterRequestDto.DrawingNumberRevision,
                 FinishWeight = addPartMasterRequestDto.FinishWeight,
                 ItemCode = addPartMasterRequestDto.ItemCode,
@@ -46,6 +47,7 @@ namespace ES.Services.BusinessLogic.Masters
             {
                 Description = updatePartMasterRequestDto.Description,
                 DrawingNumber = updatePartMasterRequestDto.DrawingNumber,
+                DrawingUnit = updatePartMasterRequestDto.DrawingUnit,
                 DrawingNumberRevision = updatePartMasterRequestDto.DrawingNumberRevision,
                 FinishWeight = updatePartMasterRequestDto.FinishWeight,
                 ItemCode = updatePartMasterRequestDto.ItemCode,

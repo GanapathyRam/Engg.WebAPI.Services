@@ -71,6 +71,7 @@
     <Compile Include="Commands\Despatch\InvoiceMasterUpdateCommand.cs" />
     <Compile Include="Commands\Masters\CategoryMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\CompanyMasterInsertCommand.cs" />
+    <Compile Include="Commands\Masters\CompanyMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\CompanyMasterUpdateCommand.cs" />
     <Compile Include="Commands\Masters\EmployeeMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\InstrumentMasterInsertCommand.cs" />
@@ -183,6 +184,10 @@
     <ProjectReference Include="..\ES.Services.DataAccess.Model\ES.Services.DataAccess.Model.csproj">
       <Project>{6d40e88b-2c44-4353-b58e-d6106d70dbee}</Project>
       <Name>ES.Services.DataAccess.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ES.Services.DataTransferObjects\ES.Services.DataTransferObjects.csproj">
+      <Project>{DA74D5CB-9E4D-4AF0-8871-B8DCA7409DB7}</Project>
+      <Name>ES.Services.DataTransferObjects</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

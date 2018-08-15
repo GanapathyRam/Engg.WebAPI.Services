@@ -22,6 +22,7 @@ namespace ES.Services.DataAccess.Commands.Masters
                 sqlCommand.Parameters.Add(AddParameter("@VendorCode", SsDbType.BigInt, ParameterDirection.Input, model.VendorCode));
                 sqlCommand.Parameters.Add(AddParameter("@Description", SsDbType.VarChar, ParameterDirection.Input, model.Description));
                 sqlCommand.Parameters.Add(AddParameter("@DrawingNumber", SsDbType.VarChar, ParameterDirection.Input, model.DrawingNumber));
+                sqlCommand.Parameters.Add(AddParameter("@DrawingUnit", SsDbType.VarChar, ParameterDirection.Input, model.DrawingUnit));
                 sqlCommand.Parameters.Add(AddParameter("@DrawingNoRevision", SsDbType.VarChar, ParameterDirection.Input, model.DrawingNumberRevision));
                 sqlCommand.Parameters.Add(AddParameter("@ItemCode", SsDbType.VarChar, ParameterDirection.Input, model.ItemCode));
                 sqlCommand.Parameters.Add(AddParameter("@RatePiece", SsDbType.Decimal, ParameterDirection.Input, model.RatePiece));

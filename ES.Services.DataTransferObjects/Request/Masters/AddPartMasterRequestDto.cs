@@ -20,6 +20,8 @@ namespace ES.Services.DataTransferObjects.Request.Masters
 
         public decimal MaterialCode { get; set; }
 
+        public string DrawingUnit { get; set; }
+
         public decimal? RatePiece { get; set; }
 
         public decimal? RawWeight { get; set; }

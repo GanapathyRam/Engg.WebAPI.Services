@@ -17,6 +17,8 @@ namespace ES.Services.DataAccess.Model.QueryModel.Masters
 
         public string DrawingNumber { get; set; }
 
+        public string DrawingUnit { get; set; }
+
         public string DrawingNumberRevision { get; set; }
 
         public string ItemCode { get; set; }

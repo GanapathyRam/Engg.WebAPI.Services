@@ -10,17 +10,20 @@ using System.Web.Http;
 using ES.Services.BusinessLogic.Interface.Masters;
 using StructureMap;
 using ES.Shared.Services.Filters;
+using ES.Services.ReportLogic.Interface.Masters;
 
 namespace ES.Shared.Services.Controllers.Masters
 {
     [JwtAuthenticationAttribute]
     public class CompanyMasterController : ApiController, IBusinessCompanyMaster
     {
-        private readonly IBusinessCompanyMaster companyMasterProvider;
+        private readonly IBusinessCompanyMaster bcompanyMasterProvider;
+        private readonly IReportCompanyMaster rcompanyMasterProvider;
 
         public CompanyMasterController()
         {
-            companyMasterProvider = ObjectFactory.GetInstance<IBusinessCompanyMaster>();
+            bcompanyMasterProvider = ObjectFactory.GetInstance<IBusinessCompanyMaster>();
+            rcompanyMasterProvider = ObjectFactory.GetInstance<IReportCompanyMaster>();
         }
         public AddCompanyMasterResponseDto AddCompanyMaster(AddCompanyMasterRequestDto addCompanyMasterRequestDto)
         {
@@ -28,7 +31,7 @@ namespace ES.Shared.Services.Controllers.Masters
 
             try
             {
-                addCompanyMasterResponseDto = companyMasterProvider.AddCompanyMaster(addCompanyMasterRequestDto);
+                addCompanyMasterResponseDto = bcompanyMasterProvider.AddCompanyMaster(addCompanyMasterRequestDto);
                 addCompanyMasterResponseDto.ServiceResponseStatus = 1;
             }
             catch (SSException applicationException)
@@ -54,9 +57,37 @@ namespace ES.Shared.Services.Controllers.Masters
             return addCompanyMasterResponseDto;
         }
 
-        public GetCompanyMasterResponseDto GetCompanyMaster(GetCompanyMasterRequestDto getCompanyMasterRequestDto)
+        [HttpPost]
+        public GetCompanyMasterResponseDto GetCompanyMaster()
         {
-            throw new NotImplementedException();
+            GetCompanyMasterResponseDto getCompanyMasterResponseDto;
+
+            try
+            {
+                getCompanyMasterResponseDto = rcompanyMasterProvider.GetCompanyMaster();
+                getCompanyMasterResponseDto.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                getCompanyMasterResponseDto = new GetCompanyMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                getCompanyMasterResponseDto = new GetCompanyMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return getCompanyMasterResponseDto;
         }
     }
 }
