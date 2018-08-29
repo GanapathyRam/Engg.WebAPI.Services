@@ -27,7 +27,7 @@ namespace ES.Services.DataTransferObjects.Response.SubContract
         public string MaterialDescription { get; set; }
         public string DrawingNumber { get; set; }
         public string ProcessDescription { get; set; }
-
+        public string CustomerName { get; set; }
         public bool IsNew { get; set; }
 
         public bool IsDeletable { get; set; }

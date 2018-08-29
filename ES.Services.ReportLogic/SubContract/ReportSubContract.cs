@@ -65,7 +65,7 @@ namespace ES.Services.ReportLogic.SubContract
                         getsingle.MaterialDescription = responseModel.MaterialDescription;
                         getsingle.PartCode = responseModel.PartCode;
                         getsingle.PartDescription = responseModel.PartDescription;
-
+                        getsingle.CustomerName = responseModel.CustomerName;
 
                         getsingle.getSubContractSendingSerialList.Add
                         (getWoMasterDetailsResponse);
@@ -84,7 +84,7 @@ namespace ES.Services.ReportLogic.SubContract
                     getsingle.MaterialDescription = responseModel.MaterialDescription;
                     getsingle.PartCode = responseModel.PartCode;
                     getsingle.PartDescription = responseModel.PartDescription;
-
+                    getsingle.CustomerName = responseModel.CustomerName;
                     getsingle.getSubContractSendingSerialList.Add
                     (getWoMasterDetailsResponse);
 
@@ -207,7 +207,7 @@ namespace ES.Services.ReportLogic.SubContract
                         getsingle.MaterialCode = responseModel.MaterialCode;
                         getsingle.MaterialDescription = responseModel.MaterialDescription;
                         getsingle.PartDescription = responseModel.PartDescription;
-
+                        getsingle.CustomerName = responseModel.CustomerName;
 
                         getsingle.getGetScSerialsResponse.Add
                         (getWoMasterDetailsResponse);
@@ -225,6 +225,7 @@ namespace ES.Services.ReportLogic.SubContract
                     getsingle.MaterialCode = responseModel.MaterialCode;
                     getsingle.MaterialDescription = responseModel.MaterialDescription;
                     getsingle.PartDescription = responseModel.PartDescription;
+                    getsingle.CustomerName = responseModel.CustomerName;
                     getsingle.getGetScSerialsResponse.Add
                     (getWoMasterDetailsResponse);
 

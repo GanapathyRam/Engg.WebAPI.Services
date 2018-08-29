@@ -14,6 +14,7 @@ namespace ES.Services.DataAccess.Model.QueryModel.SubContract
         public string PartDescription { get; set; }
         public string ItemCode { get; set; }
         public decimal MaterialCode { get; set; }
+        public string CustomerName { get; set; }
         public string MaterialDescription { get; set; }
         public string DrawingNumber { get; set; }
         public string ProcessDescription { get; set; }
