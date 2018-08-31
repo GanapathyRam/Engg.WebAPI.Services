@@ -208,7 +208,9 @@ namespace ES.Services.ReportLogic.SubContract
                         getsingle.MaterialDescription = responseModel.MaterialDescription;
                         getsingle.PartDescription = responseModel.PartDescription;
                         getsingle.CustomerName = responseModel.CustomerName;
-
+                        getsingle.DrawingNumberRevision = responseModel.DrawingNumberRevision;
+                        getsingle.HeatNo = responseModel.HeatNo;
+                        getsingle.PONumber = responseModel.PONumber;
                         getsingle.getGetScSerialsResponse.Add
                         (getWoMasterDetailsResponse);
 
@@ -226,6 +228,9 @@ namespace ES.Services.ReportLogic.SubContract
                     getsingle.MaterialDescription = responseModel.MaterialDescription;
                     getsingle.PartDescription = responseModel.PartDescription;
                     getsingle.CustomerName = responseModel.CustomerName;
+                    getsingle.DrawingNumberRevision = responseModel.DrawingNumberRevision;
+                    getsingle.HeatNo = responseModel.HeatNo;
+                    getsingle.PONumber = responseModel.PONumber;
                     getsingle.getGetScSerialsResponse.Add
                     (getWoMasterDetailsResponse);
 

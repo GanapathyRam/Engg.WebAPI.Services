@@ -17,5 +17,9 @@ namespace ES.Services.DataTransferObjects.Response.SubContract
         public string ProcessDescription { get; set; }
         public string Remarks { get; set; }
         public bool IsDeletable { get; set; }
+        public string FullAddress { get; set; }
+        public string City { get; set; }
+        public string PinCode { get; set; }
+        public string CompanyGST { get; set; }
     }
 }

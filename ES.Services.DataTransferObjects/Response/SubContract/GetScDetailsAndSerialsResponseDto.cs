@@ -28,6 +28,9 @@ namespace ES.Services.DataTransferObjects.Response.SubContract
         public string DrawingNumber { get; set; }
         public string ProcessDescription { get; set; }
         public string CustomerName { get; set; }
+        public string DrawingNumberRevision { get; set; }
+        public string HeatNo { get; set; }
+        public string PONumber { get; set; }
         public bool IsNew { get; set; }
 
         public bool IsDeletable { get; set; }

@@ -20,5 +20,8 @@ namespace ES.Services.DataAccess.Model.QueryModel.SubContract
         public string ProcessDescription { get; set; }
         public string DCNumber { get; set; }
         public string SerialNo { get; set; }
+        public string DrawingNumberRevision { get; set; }
+        public string HeatNo { get; set; }
+        public string PONumber { get; set; }
     }
 }
