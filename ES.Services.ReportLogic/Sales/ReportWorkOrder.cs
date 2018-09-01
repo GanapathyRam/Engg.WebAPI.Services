@@ -150,6 +150,8 @@ namespace ES.Services.ReportLogic.Sales
                 getsingle.CustomerName = workOrderMasterDetails.CustomerName;
                 getsingle.Description = workOrderMasterDetails.Description;
                 getsingle.DrawingNumber = workOrderMasterDetails.DrawingNumber;
+                getsingle.DrawingNumberRevision = workOrderMasterDetails.DrawingNumberRevision;
+                getsingle.MaterialShortDescription= workOrderMasterDetails.MaterialShortDescription;
             }
 
             response.getJobCardEntryCommonList.Add(getsingle);

@@ -17,6 +17,9 @@ namespace ES.Services.DataTransferObjects.Response.Sales
 
         public string DrawingNumber { get; set; }
 
+        public string DrawingNumberRevision { get; set; }
+        public string MaterialShortDescription { get; set; }
+
         public string WoNoAndSI { get; set; }
 
         public string Description { get; set; }
