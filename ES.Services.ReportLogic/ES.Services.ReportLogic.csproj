@@ -55,6 +55,7 @@
     <Compile Include="Authentication\ReportAuthentication.cs" />
     <Compile Include="Despatch\ReportDeliveryChallan.cs" />
     <Compile Include="Despatch\ReportInvoice.cs" />
+    <Compile Include="Enquiry\EnquiryReport.cs" />
     <Compile Include="Masters\ReportCategoryMaster.cs" />
     <Compile Include="Masters\ReportCompanyMaster.cs" />
     <Compile Include="Masters\ReportEmployeeMaster.cs" />

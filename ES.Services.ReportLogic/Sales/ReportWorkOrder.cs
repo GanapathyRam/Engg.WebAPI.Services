@@ -73,6 +73,90 @@ namespace ES.Services.ReportLogic.Sales
             return response;
         }
 
+        public GetJobCardEntryReportResponseDto GetJobCardEntryReport(GetJobCardEntryReportRequestDto getJobCardEntryReportRequestDto)
+        {
+            var response = new GetJobCardEntryReportResponseDto()
+            {
+                getJobCardEntryCommonList = new List<JobCardEntryCommon> ()
+            };
+            var responseDto = new JobCardEntryCommon();
+
+            var model = workOrderTypeRepository.GetJobCardEntryReport(getJobCardEntryReportRequestDto.WoNumber, getJobCardEntryReportRequestDto.WoSerial);
+
+            if (model != null)
+            {
+                responseDto = JobCardEntryMapper((List<GetJobCardEntryReportModel>)model.GetJobCardEntryReportModel, responseDto);
+            }
+
+            foreach (var workOrderMasterDetails in responseDto.getJobCardEntryDetailsResponseList)
+            {
+                var getsingle = new JobCardEntryCommon
+                {
+                    getJobCardEntryDetailsResponseList = new List<JobCardEntryDetailsResponse> ()
+                };
+                var getJobCardEntryDetailsResponse = new JobCardEntryDetailsResponse();
+                getJobCardEntryDetailsResponse.WoNumber = workOrderMasterDetails.WoNumber;
+                getJobCardEntryDetailsResponse.WoSerial = workOrderMasterDetails.WoSerial;
+                getJobCardEntryDetailsResponse.DrawingNumberRevision = workOrderMasterDetails.DrawingNumberRevision;
+                getJobCardEntryDetailsResponse.DimensionMax = workOrderMasterDetails.DimensionMax;
+                getJobCardEntryDetailsResponse.DimensionMin = workOrderMasterDetails.DimensionMin;
+                getJobCardEntryDetailsResponse.HeatNo = workOrderMasterDetails.HeatNo;
+                getJobCardEntryDetailsResponse.ItemCode = workOrderMasterDetails.ItemCode;
+                getJobCardEntryDetailsResponse.RunningTime = workOrderMasterDetails.RunningTime;
+                getJobCardEntryDetailsResponse.SequenceNumber = workOrderMasterDetails.SequenceNumber;
+                getJobCardEntryDetailsResponse.Serial = workOrderMasterDetails.Serial;
+                getJobCardEntryDetailsResponse.SerialNo = workOrderMasterDetails.SerialNo;
+                getJobCardEntryDetailsResponse.SettingTime = workOrderMasterDetails.SettingTime;
+              
+
+                if (response.getJobCardEntryCommonList.Count > 0)
+                {
+                    var isExist = response.getJobCardEntryCommonList.Any(woNumber => woNumber.WoNumber == workOrderMasterDetails.WoNumber);
+                    if (isExist)
+                    {
+                        var index = response.getJobCardEntryCommonList.FindIndex(a => a.WoNumber == workOrderMasterDetails.WoNumber);
+
+                        response.getJobCardEntryCommonList[index].getJobCardEntryDetailsResponseList.Add(getJobCardEntryDetailsResponse);
+                    }
+                    else
+                    {
+                        getsingle.WoNumber = workOrderMasterDetails.WoNumber;
+                        getsingle.WoSerial = workOrderMasterDetails.WoSerial;
+                        getsingle.WoNoAndSI = workOrderMasterDetails.WoNoAndSI;
+                        getsingle.PartCode = workOrderMasterDetails.PartCode;
+                        getsingle.PartDescription = workOrderMasterDetails.PartDescription;
+                        getsingle.CustomerName = workOrderMasterDetails.CustomerName;
+                        getsingle.Description = workOrderMasterDetails.Description;
+                        getsingle.DrawingNumber = workOrderMasterDetails.DrawingNumber;
+
+
+
+                        getsingle.getJobCardEntryDetailsResponseList.Add
+                        (getJobCardEntryDetailsResponse);
+
+                        response.getJobCardEntryCommonList.Add(getsingle);
+                    }
+                }
+                else
+                {
+                    getsingle.WoNumber = workOrderMasterDetails.WoNumber;
+                    getsingle.WoSerial = workOrderMasterDetails.WoSerial;
+                    getsingle.WoNoAndSI = workOrderMasterDetails.WoNoAndSI;
+                    getsingle.PartCode = workOrderMasterDetails.PartCode;
+                    getsingle.PartDescription = workOrderMasterDetails.PartDescription;
+                    getsingle.CustomerName = workOrderMasterDetails.CustomerName;
+                    getsingle.Description = workOrderMasterDetails.Description;
+                    getsingle.DrawingNumber = workOrderMasterDetails.DrawingNumber;
+
+                    getsingle.getJobCardEntryDetailsResponseList.Add
+                    (getJobCardEntryDetailsResponse);
+
+                    response.getJobCardEntryCommonList.Add(getsingle);
+                }
+            }
+
+            return response;
+        }
 
 
         public GetWorkOrderResponseDto GetWorkOrder()
@@ -220,6 +304,7 @@ namespace ES.Services.ReportLogic.Sales
 
             return getWorkOrderHeatResponseDto;
         }
+
         private static GetWorkOrderTypeResponseDto WorkOrderTypeMapper(List<WorkOrderTypeModel> list, GetWorkOrderTypeResponseDto getWorkOrderTypeResponseDto)
         {
             Mapper.CreateMap<WorkOrderTypeModel, WorkOrderTypeList>();
@@ -227,6 +312,15 @@ namespace ES.Services.ReportLogic.Sales
                 Mapper.Map<List<WorkOrderTypeModel>, List<WorkOrderTypeList>>(list);
 
             return getWorkOrderTypeResponseDto;
+        }
+
+        private static JobCardEntryCommon JobCardEntryMapper(List<GetJobCardEntryReportModel> list, JobCardEntryCommon getJobCardEntryReportResponseDto)
+        {
+            Mapper.CreateMap<GetJobCardEntryReportModel, JobCardEntryDetailsResponse>();
+            getJobCardEntryReportResponseDto.getJobCardEntryDetailsResponseList =
+                Mapper.Map<List<GetJobCardEntryReportModel>, List<JobCardEntryDetailsResponse>>(list);
+
+            return getJobCardEntryReportResponseDto;
         }
 
     }

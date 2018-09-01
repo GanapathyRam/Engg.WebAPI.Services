@@ -44,6 +44,7 @@
     <Compile Include="Authentication\IAuthenticationRepository.cs" />
     <Compile Include="Despatch\IDeliveryChallanRepository.cs" />
     <Compile Include="Despatch\IInvoiceRepository.cs" />
+    <Compile Include="Enquiry\IEnquiryRepository.cs" />
     <Compile Include="Masters\ICategoryMasterRepository.cs" />
     <Compile Include="Masters\ICompanyMastersRepository.cs" />
     <Compile Include="Masters\IEmployeeMasterRepository.cs" />

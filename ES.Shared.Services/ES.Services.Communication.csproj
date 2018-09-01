@@ -186,6 +186,7 @@
     <Compile Include="Controllers\Authentication\AuthenticationController.cs" />
     <Compile Include="Controllers\Despatch\DeliveryChallanController.cs" />
     <Compile Include="Controllers\Despatch\InvoiceController.cs" />
+    <Compile Include="Controllers\Enquiry\EnquiryController.cs" />
     <Compile Include="Controllers\Masters\CategoryMasterController.cs" />
     <Compile Include="Controllers\Masters\CompanyMasterController.cs" />
     <Compile Include="Controllers\Masters\EmployeeMasterController.cs" />

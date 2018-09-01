@@ -152,6 +152,20 @@ namespace ES.Services.DataAccess.Repositories.Sales
             return model;
         }
 
+        public GetJobCardEntryReportQM GetJobCardEntryReport(string WoNumber, string WoSerial)
+        {
+            var model = new GetJobCardEntryReportQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new JobCardEntryReportSelectCommand { Connection = connection };
+                model = command.Execute(WoNumber, WoSerial);
+            }
+
+            return model;
+        }
+
         public GetWorkOrderHeatDetailsQM GetWorkOrderHeatList(String WorkOrderNumber)
         {
             var model = new GetWorkOrderHeatDetailsQM();
@@ -166,6 +180,7 @@ namespace ES.Services.DataAccess.Repositories.Sales
             return model;
 
         }
+
         public GetWorkOrderNumberForHeatQM GetWorkOrderNumberHeat()
         {
             var model = new GetWorkOrderNumberForHeatQM();

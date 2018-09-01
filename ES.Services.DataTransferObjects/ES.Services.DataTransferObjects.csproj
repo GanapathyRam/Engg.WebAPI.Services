@@ -104,6 +104,7 @@
     <Compile Include="Request\Production\UpdateJobCardMaintanceRequestDto.cs" />
     <Compile Include="Request\Registration\RegisterUserRequestDto.cs" />
     <Compile Include="Request\Sales\DeleteWorkOrderRequestDto.cs" />
+    <Compile Include="Request\Sales\GetJobCardEntryReportRequestDto.cs" />
     <Compile Include="Request\Sales\GetWorkOrderClientSerialNoResponseDto.cs" />
     <Compile Include="Request\Sales\GetWorkOrderHeatRequest.cs" />
     <Compile Include="Request\Sales\GetWorkOrderNumberForHeatRequestDto.cs" />
@@ -204,6 +205,7 @@
     <Compile Include="Response\Production\UpdateJobCardMaintanceResponseDto.cs" />
     <Compile Include="Response\Registration\RegisterUserResponseDto.cs" />
     <Compile Include="Response\Sales\DeleteWorkOrderResponseDto.cs" />
+    <Compile Include="Response\Sales\GetJobCardEntryReportResponseDto.cs" />
     <Compile Include="Response\Sales\GetWorkOrderHeatResponseDto.cs" />
     <Compile Include="Response\Sales\GetWorkOrderNumberForHeatResponseDto.cs" />
     <Compile Include="Response\Sales\GetWorkOrderNumberResponseDto.cs" />
@@ -226,7 +228,10 @@
     <Compile Include="Response\SubContract\SubContractReceivingResponseDto.cs" />
     <Compile Include="Response\SubContract\SubContractResponseDto.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Request\Enquiry\" />
+    <Folder Include="Response\Enquiry\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

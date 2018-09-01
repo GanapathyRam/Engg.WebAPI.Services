@@ -28,5 +28,6 @@ namespace ES.Services.DataAccess.Interface.Sales
         GetWorkOrderDetailsStatusQM GetWorkOrderDetailsStatus(GetWorkOrderDetailsStatusCM getWorkOrderDetailsStatusCM);
         GetWorkOrderHeatDetailsQM GetWorkOrderHeatList(string WorkOrderNumber);
         GetWorkOrderNumberForHeatQM GetWorkOrderNumberHeat();
+        GetJobCardEntryReportQM GetJobCardEntryReport(string WoNumber, string WoSerial);
     }
 }

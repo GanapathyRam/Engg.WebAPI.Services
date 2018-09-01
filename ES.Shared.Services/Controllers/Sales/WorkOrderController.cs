@@ -122,7 +122,6 @@ namespace ES.Shared.Services.Controllers.Sales
             return response;
         }
 
-
         [HttpPost]
         public GetWorkOrderNumberForHeatResponseDto GetWorkOrderNumberHeat()
         {
@@ -154,7 +153,6 @@ namespace ES.Shared.Services.Controllers.Sales
 
             return response;
         }
-
 
         [HttpPost]
         public GetWorkOrderClientSerialNoResponseDto GetWorkOrderClientSerialNo(string shortCode)
@@ -337,6 +335,38 @@ namespace ES.Shared.Services.Controllers.Sales
             catch (Exception exception)
             {
                 response = new GetWorkOrderResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        [HttpPost]
+        public GetJobCardEntryReportResponseDto GetJobCardEntryReport(GetJobCardEntryReportRequestDto getJobCardEntryReportRequestDto)
+        {
+            GetJobCardEntryReportResponseDto response = new GetJobCardEntryReportResponseDto();
+            try
+            {
+                response = rWorkOrderProvider.GetJobCardEntryReport(getJobCardEntryReportRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetJobCardEntryReportResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetJobCardEntryReportResponseDto
                 {
                     ServiceResponseStatus = 0,
                     ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,

@@ -69,6 +69,7 @@
     <Compile Include="Commands\Despatch\InvoiceDetailsUpdateCommand.cs" />
     <Compile Include="Commands\Despatch\InvoiceMasterInsertCommand.cs" />
     <Compile Include="Commands\Despatch\InvoiceMasterUpdateCommand.cs" />
+    <Compile Include="Commands\Enquiry\GetStockEnquirySelectCommand.cs" />
     <Compile Include="Commands\Masters\CategoryMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\CompanyMasterInsertCommand.cs" />
     <Compile Include="Commands\Masters\CompanyMasterSelectCommand.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Commands\Production\UpdateJobCardMaintanceUpdateCommand.cs" />
     <Compile Include="Commands\Registration\UserRegistrationInsertCommand.cs" />
     <Compile Include="Commands\Despatch\GetDcTypeSelectCommand.cs" />
+    <Compile Include="Commands\Sales\JobCardEntryReportSelectCommand.cs" />
     <Compile Include="Commands\Sales\UpdateWorkOrderHeatInsertCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderHeatSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderMasterDeleteCommand.cs" />
@@ -155,6 +157,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Authentication\AuthenticateRepository.cs" />
     <Compile Include="Repositories\Despatch\InvoiceRepository.cs" />
+    <Compile Include="Repositories\Enquiry\EnquiryRepository.cs" />
     <Compile Include="Repositories\Masters\EmployeeMasterRepository.cs" />
     <Compile Include="Repositories\Masters\InstrumentMasterRepository.cs" />
     <Compile Include="Repositories\Masters\MachineMasterRepository.cs" />

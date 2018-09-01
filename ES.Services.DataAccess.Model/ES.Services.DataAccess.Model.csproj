@@ -138,6 +138,7 @@
     <Compile Include="QueryModel\Production\GetJobCardMaintanceQM.cs" />
     <Compile Include="QueryModel\Production\GetProcessCardDetailsQM.cs" />
     <Compile Include="QueryModel\Production\GetProcessCardMasterQM.cs" />
+    <Compile Include="QueryModel\Sales\GetJobCardEntryReportQM.cs" />
     <Compile Include="QueryModel\Sales\GetWorkOrderClientSerialNoQM.cs" />
     <Compile Include="QueryModel\Masters\AddCompanyMasterQueryModel.cs" />
     <Compile Include="QueryModel\Masters\AddInstrumentMasterQM.cs" />
@@ -211,7 +212,10 @@
     <Compile Include="QueryModel\SubContract\GetSubContractSendingResponseModel.cs" />
     <Compile Include="QueryModel\SubContract\GetSubContractSendingResponseQM.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="CommandModel\Enquiry\" />
+    <Folder Include="QueryModel\Enquiry\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
