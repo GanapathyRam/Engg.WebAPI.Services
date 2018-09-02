@@ -25,6 +25,8 @@ namespace ES.Services.DataTransferObjects.Response.Despatch
 
         public string DrawingNo { get; set; }
 
+        public string DrawingNumberRevision { get; set; }
+
         public string MaterialDescription { get; set; }
 
         public decimal PartCode { get; set; }

@@ -208,6 +208,7 @@ namespace ES.Services.ReportLogic.Despatch
                     getsingle.CustomerName = workOrderMasterDetails.VendorName;
                     getsingle.Description = workOrderMasterDetails.Description;
                     getsingle.DrawingNo = workOrderMasterDetails.DrawingNumber;
+                    getsingle.DrawingNumberRevision = workOrderMasterDetails.DrawingNumberRevision;
                     getsingle.InvoiceDate = workOrderMasterDetails.InvoiceDate;
                     getsingle.InvoiceNumber = workOrderMasterDetails.InvoiceNumber;
                     getsingle.InvoiceSerial = workOrderMasterDetails.InvoiceSerial;
