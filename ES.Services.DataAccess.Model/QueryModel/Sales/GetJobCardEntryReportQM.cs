@@ -25,6 +25,8 @@ namespace ES.Services.DataAccess.Model.QueryModel.Sales
 
         public string PartDescription { get; set; }
 
+        public string MaterialShortDescription { get; set; }
+
         public string WoNumber { get; set; }
 
         public decimal WoSerial { get; set; }

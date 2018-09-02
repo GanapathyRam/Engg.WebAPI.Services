@@ -140,15 +140,17 @@ namespace ES.Services.ReportLogic.Sales
                         }
                     }
 
-                    getsingle.WoNumber = workOrderMasterDetails.WoNumber;
-                    getsingle.WoSerial = workOrderMasterDetails.WoSerial;
-                    getsingle.WoNoAndSI = workOrderMasterDetails.WoNoAndSI;
-                    getsingle.PartCode = workOrderMasterDetails.PartCode;
-                    getsingle.PartDescription = workOrderMasterDetails.PartDescription;
-                    getsingle.CustomerName = workOrderMasterDetails.CustomerName;
-                    getsingle.Description = workOrderMasterDetails.Description;
-                    getsingle.DrawingNumber = workOrderMasterDetails.DrawingNumber;
-                }
+                getsingle.WoNumber = workOrderMasterDetails.WoNumber;
+                getsingle.WoSerial = workOrderMasterDetails.WoSerial;
+                getsingle.WoNoAndSI = workOrderMasterDetails.WoNoAndSI;
+                getsingle.PartCode = workOrderMasterDetails.PartCode;
+                getsingle.PartDescription = workOrderMasterDetails.PartDescription;
+                getsingle.CustomerName = workOrderMasterDetails.CustomerName;
+                getsingle.Description = workOrderMasterDetails.Description;
+                getsingle.DrawingNumber = workOrderMasterDetails.DrawingNumber;
+                getsingle.DrawingNumberRevision = workOrderMasterDetails.DrawingNumberRevision;
+                getsingle.MaterialShortDescription= workOrderMasterDetails.MaterialShortDescription;
+            }
 
                 response.getJobCardEntryCommonList.Add(getsingle);
             }
