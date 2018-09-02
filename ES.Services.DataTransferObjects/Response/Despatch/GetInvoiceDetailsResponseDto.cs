@@ -48,5 +48,8 @@ namespace ES.Services.DataTransferObjects.Response.Despatch
         public string PONumber { get; set; }
         public string SerialNos { get; set; }
         public string WDCNumber { get; set; }
+
+        public string DrawingUnit { get; set; }
+
     }
 }
