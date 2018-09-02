@@ -18,6 +18,7 @@ namespace ES.Services.DataTransferObjects.Response.Sales
         public string DrawingNumber { get; set; }
 
         public string DrawingNumberRevision { get; set; }
+
         public string MaterialShortDescription { get; set; }
 
         public string WoNoAndSI { get; set; }
@@ -31,8 +32,6 @@ namespace ES.Services.DataTransferObjects.Response.Sales
         public string WoNumber { get; set; }
 
         public decimal WoSerial { get; set; }
-
-        //public List<JobCardEntryDetailsResponse> getJobCardEntryDetailsResponseList { get; set; }
 
         public List<JobCardEntrySerialList> getJobCardEntrySerialList { get; set; }
 

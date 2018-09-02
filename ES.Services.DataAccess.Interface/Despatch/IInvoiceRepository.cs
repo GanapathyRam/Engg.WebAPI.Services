@@ -33,5 +33,7 @@ namespace ES.Services.DataAccess.Interface.Despatch
         void UpdateInvoiceMaster(string InvoiceNumber, DateTime InvoiceDate, string DcNumber, string WoType, Int64 VendorCode, string Tariff, string Vehicle, string EWayBill, decimal CGSTPercent,
         decimal SGSTPercent, decimal IGSTPercent, decimal ValueOfGoods, decimal CGSTAmount, decimal SGSTAmount, decimal IGSTAmount, decimal GrandTotal, decimal RoundOff, decimal FineTotal);
 
+        GetDimensionReportQM GetDimensionReport(string InvoiceNumberm, decimal InvoiceSerial, int IsReportFor);
+
     }
 }

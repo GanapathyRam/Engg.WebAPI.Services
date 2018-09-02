@@ -120,6 +120,7 @@
     <Compile Include="QueryModel\Despatch\GetDcNumberForInvoiceQM.cs" />
     <Compile Include="QueryModel\Despatch\GetDcSerialForInvoiceSerialQM.cs" />
     <Compile Include="QueryModel\Despatch\GetDcTypeQM.cs" />
+    <Compile Include="QueryModel\Despatch\GetDimensionReportQM.cs" />
     <Compile Include="QueryModel\Despatch\GetInvoiceDetailsQM.cs" />
     <Compile Include="QueryModel\Despatch\GetInvoiceMasterQM.cs" />
     <Compile Include="QueryModel\Despatch\GetSerialNoFromWoNumerWoSerialModel.cs" />

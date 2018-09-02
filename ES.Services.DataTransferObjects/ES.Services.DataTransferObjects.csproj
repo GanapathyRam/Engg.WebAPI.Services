@@ -55,6 +55,7 @@
     <Compile Include="Request\Despatch\GetDcDetailsForInvoiceRequestDto.cs" />
     <Compile Include="Request\Despatch\GetDcMasterRequestDto.cs" />
     <Compile Include="Request\Despatch\GetDcNumberForInvoiceRequestDto.cs" />
+    <Compile Include="Request\Despatch\GetDimensionReportRequestDto.cs" />
     <Compile Include="Request\Despatch\GetInvoiceDetailsRequestDto.cs" />
     <Compile Include="Request\Despatch\GetInvoiceNumberRequestDto.cs" />
     <Compile Include="Request\Despatch\GetWOMasterForDcRequestDto.cs" />
@@ -134,6 +135,7 @@
     <Compile Include="Response\Despatch\GetDcNumberForInvoiceResponseDto.cs" />
     <Compile Include="Response\Despatch\GetDCNumberResponseDto.cs" />
     <Compile Include="Response\Despatch\GetDcTypeResponseDto.cs" />
+    <Compile Include="Response\Despatch\GetDimensionReportResponseDto.cs" />
     <Compile Include="Response\Despatch\GetInvoiceDetailsResponseDto.cs" />
     <Compile Include="Response\Despatch\GetInvoiceMasterResponseDto.cs" />
     <Compile Include="Response\Despatch\GetInvoiceNumberResponseDto.cs" />

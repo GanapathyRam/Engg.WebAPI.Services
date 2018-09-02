@@ -172,5 +172,19 @@ namespace ES.Services.DataAccess.Repositories.Despatch
             }
 
         }
+
+        public GetDimensionReportQM GetDimensionReport(string InvoiceNumber, decimal InvoiceSerial, int IsReportFor)
+        {
+            var response = new GetDimensionReportQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetDimensionReportSelectCommand { Connection = connection };
+                response = command.Execute(InvoiceNumber, InvoiceSerial, IsReportFor);
+            }
+
+            return response;
+        }
     }
 }

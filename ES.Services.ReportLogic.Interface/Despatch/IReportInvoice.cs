@@ -19,5 +19,7 @@ namespace ES.Services.ReportLogic.Interface.Despatch
         GetInvoiceMasterResponseDto GetInvoiceMaster();
 
         GetInvoiceDetailsResponseDto GetInvoiceDetails(GetInvoiceDetailsRequestDto getInvoiceDetailsRequestDto);
+
+        GetDimensionReportResponseDto GetDimensionReport(string InvoiceNumber, decimal InvoiceSerial, int IsReportFor);
     }
 }

@@ -57,6 +57,7 @@
     <Compile Include="Commands\Despatch\GetDCNumberSelectCommand.cs" />
     <Compile Include="Commands\Despatch\DcSerialInsertCommand.cs" />
     <Compile Include="Commands\Despatch\GetDcSerialForInvoiceSerialSelectCommand.cs" />
+    <Compile Include="Commands\Despatch\GetDimensionReportSelectCommand.cs" />
     <Compile Include="Commands\Despatch\GetInvoiceDetailsSelectCommand.cs" />
     <Compile Include="Commands\Despatch\GetInvoiceMasterSelectCommand.cs" />
     <Compile Include="Commands\Despatch\GetInvoiceNumberSelectCommand.cs" />

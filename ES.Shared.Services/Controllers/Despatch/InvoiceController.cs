@@ -247,6 +247,66 @@ namespace ES.Shared.Services.Controllers.Despatch
         }
 
 
+        [HttpPost]
+        public GetDimensionReportResponseDto GetDimensionReport(GetDimensionReportRequestDto getDimensionReportRequestDto)
+        {
+            GetDimensionReportResponseDto response = new GetDimensionReportResponseDto();
+            try
+            {
+                response = rInvoiceProvider.GetDimensionReport(getDimensionReportRequestDto.InvoiceNumber, getDimensionReportRequestDto.InvoiceSerial, getDimensionReportRequestDto.IsReportFor);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetDimensionReportResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
 
+            }
+            catch (Exception exception)
+            {
+                response = new GetDimensionReportResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        GetInvoiceNumberResponseDto IReportInvoice.GetInvoiceNumber(string WoType)
+        {
+            throw new NotImplementedException();
+        }
+
+        GetDcNumberForInvoiceResponseDto IReportInvoice.GetDcNumberForInvoice(GetInvoiceNumberRequestDto getInvoiceNumberRequestDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        GetDcDetailsForInvoiceResponseDto IReportInvoice.GetDcDetailsForInvoice(string DcNumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        GetInvoiceMasterResponseDto IReportInvoice.GetInvoiceMaster()
+        {
+            throw new NotImplementedException();
+        }
+
+        GetInvoiceDetailsResponseDto IReportInvoice.GetInvoiceDetails(GetInvoiceDetailsRequestDto getInvoiceDetailsRequestDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        GetDimensionReportResponseDto IReportInvoice.GetDimensionReport(string InvoiceNumber, decimal InvoiceSerial, int IsReportFor)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

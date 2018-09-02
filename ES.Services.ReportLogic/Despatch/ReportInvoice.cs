@@ -137,6 +137,95 @@ namespace ES.Services.ReportLogic.Despatch
             return response;
         }
 
+        public GetDimensionReportResponseDto GetDimensionReport(string InvoiceNumber, decimal InvoiceSerial, int IsReportFor)
+        {
+            GetDimensionReportResponseDto response = new GetDimensionReportResponseDto()
+            {
+                getDimensionReportResponseList = new List<GetDimensionReportResponse>()
+            };
+
+            var model = invoiceRepository.GetDimensionReport(InvoiceNumber, InvoiceSerial, IsReportFor);
+
+            if (model != null && model.getDimensionReportModel.Count() > 0)
+            {
+                var getsingle = new GetDimensionReportResponse
+                {
+                    getDimensionReportSerialList = new List<DimensionReportSerialList>(),
+                    getDimensionReportSequenceList = new List<DimensionReportSequenceList>()
+                };
+
+                foreach (var workOrderMasterDetails in model.getDimensionReportModel)
+                {
+                    var getJobCardEntrySerialList = new DimensionReportSerialList();
+                    getJobCardEntrySerialList.SerialNo = workOrderMasterDetails.SerialNo;
+
+                    var isExist = getsingle.getDimensionReportSerialList.Any(serialNo => serialNo.SerialNo == workOrderMasterDetails.SerialNo);
+
+                    if (!isExist)
+                    {
+                        getsingle.getDimensionReportSerialList.Add(getJobCardEntrySerialList);
+                    }
+
+                    var getDimensionReportSequenceList = new List<DimensionReportSequenceList>();
+                    var dimensionReportSequenceList = new DimensionReportSequenceList()
+                    {
+                        getDimensionReportBySerial = new List<DimensionReportBySerial>()
+                    };
+                    var dimensionReportBySerial = new DimensionReportBySerial();
+
+                    dimensionReportSequenceList.Description = workOrderMasterDetails.Description;
+                    dimensionReportSequenceList.DimensionMax = workOrderMasterDetails.DimensionMax;
+                    dimensionReportSequenceList.DimensionMin = workOrderMasterDetails.DimensionMin;
+                    dimensionReportSequenceList.Serial = workOrderMasterDetails.Serial;
+                    dimensionReportSequenceList.SequenceNumber = workOrderMasterDetails.SequenceNumber;
+                    dimensionReportSequenceList.InstrumentDescription = workOrderMasterDetails.InstrumentName;
+
+                    dimensionReportBySerial.SequenceNumber = workOrderMasterDetails.SequenceNumber;
+                    dimensionReportBySerial.DimensionActual = workOrderMasterDetails.DimensionActual;
+                    dimensionReportBySerial.SerialNo = workOrderMasterDetails.SerialNo;
+                    dimensionReportBySerial.Serial = workOrderMasterDetails.Serial;
+
+                    var isSequenceExist = getsingle.getDimensionReportSequenceList.Any(sequenceNo => sequenceNo.SequenceNumber == workOrderMasterDetails.SequenceNumber && sequenceNo.Serial == workOrderMasterDetails.Serial);
+
+                    if (!isSequenceExist)
+                    {
+                        dimensionReportSequenceList.getDimensionReportBySerial.Add(dimensionReportBySerial);
+                        getsingle.getDimensionReportSequenceList.Add(dimensionReportSequenceList);
+                    }
+                    else
+                    {
+                        var indexForSequence = getsingle.getDimensionReportSequenceList.FindIndex(a => a.SequenceNumber == workOrderMasterDetails.SequenceNumber && a.Serial == workOrderMasterDetails.Serial);
+
+                        var isSerialExist = getsingle.getDimensionReportSequenceList[indexForSequence].getDimensionReportBySerial.Any(serial => serial.Serial == workOrderMasterDetails.Serial);
+
+                        //if (!isSerialExist)
+                        //{
+                        getsingle.getDimensionReportSequenceList[indexForSequence].getDimensionReportBySerial.Add(dimensionReportBySerial);
+                        //}
+                    }
+
+                    getsingle.PartCode = workOrderMasterDetails.PartCode;
+                    getsingle.CustomerName = workOrderMasterDetails.VendorName;
+                    getsingle.Description = workOrderMasterDetails.Description;
+                    getsingle.DrawingNo = workOrderMasterDetails.DrawingNumber;
+                    getsingle.InvoiceDate = workOrderMasterDetails.InvoiceDate;
+                    getsingle.InvoiceNumber = workOrderMasterDetails.InvoiceNumber;
+                    getsingle.InvoiceSerial = workOrderMasterDetails.InvoiceSerial;
+                    getsingle.MaterialDescription = workOrderMasterDetails.MaterialShortDescription;
+                    getsingle.Description = workOrderMasterDetails.PartDescription;
+                    getsingle.PoNumber = workOrderMasterDetails.PONumber;
+                    getsingle.Quantity = workOrderMasterDetails.Quantity;
+                    getsingle.UnitDescription = workOrderMasterDetails.UnitDescription;
+                    getsingle.Units = workOrderMasterDetails.Unit;
+
+                }
+                 
+                response.getDimensionReportResponseList.Add(getsingle);
+            }
+
+            return response;
+        }
+
 
         #region Mapper Section
         private static GetDcNumberForInvoiceResponseDto DcNumberForInvoiceMapper(List<GetDcNumberForInvoiceModel> list, GetDcNumberForInvoiceResponseDto getDcNumberForInvoiceResponseDto)

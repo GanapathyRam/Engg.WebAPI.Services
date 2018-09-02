@@ -201,5 +201,12 @@ namespace ES.Services.BusinessLogic.Despatch
         {
             throw new NotImplementedException();
         }
+
+        public GetDimensionReportResponseDto GetDimensionReport(string InvoiceNumber, decimal InvoiceSerial, int IsReportFor)
+        {
+            GetDimensionReportResponseDto respone = new GetDimensionReportResponseDto();
+
+            return respone;
+        }
     }
 }
