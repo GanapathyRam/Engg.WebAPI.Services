@@ -21,7 +21,7 @@ namespace ES.Services.DataAccess.Model.QueryModel.Despatch
 
         public decimal DcSerial { get; set; }
 
-        public decimal PartCode { get; set; }
+        public string PartCode { get; set; }
 
         public string PartDescription { get; set; }
 

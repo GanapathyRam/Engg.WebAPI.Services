@@ -29,7 +29,7 @@ namespace ES.Services.DataTransferObjects.Response.Despatch
 
         public string MaterialDescription { get; set; }
 
-        public decimal PartCode { get; set; }
+        public string PartCode { get; set; }
 
         public decimal Quantity { get; set; }
 
