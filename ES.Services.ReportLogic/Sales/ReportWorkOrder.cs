@@ -259,7 +259,7 @@ namespace ES.Services.ReportLogic.Sales
                 responseDto = WorkOrderHeatMapper((List<GetWorkOrderHeatModel>)model.getWorkOrderHeatDetails, response);
             }
 
-            return response;
+            return responseDto;
         }
 
         public GetWorkOrderNumberForHeatResponseDto GetWorkOrderNumberHeat()
