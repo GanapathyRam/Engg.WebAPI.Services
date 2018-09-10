@@ -11,7 +11,7 @@ namespace ES.Services.DataAccess.Model.QueryModel.Despatch
         public string WONumber { get; set; }
         public decimal WOSerial { get; set; }
         public decimal WOQuantity { get; set; }
-        public string PartCode { get; set; }
+        public decimal PartCode { get; set; }
         public string PartDescription { get; set; }
         public string DrawingNumber { get; set; }
         public string DrawingNumberRevision { get; set; }

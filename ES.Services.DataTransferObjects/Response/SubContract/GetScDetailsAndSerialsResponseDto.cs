@@ -19,7 +19,7 @@ namespace ES.Services.DataTransferObjects.Response.SubContract
 
         public decimal WoSerial { get; set; }
 
-        public string PartCode { get; set; }
+        public decimal PartCode { get; set; }
 
         public string PartDescription { get; set; }
         public string ItemCode { get; set; }

@@ -53,7 +53,7 @@ namespace ES.Services.DataAccess.Model.QueryModel.Despatch
 
         public decimal InvoiceSerial { get; set; }
 
-        public string PartCode { get; set; }
+        public decimal PartCode { get; set; }
 
         public decimal Quantity { get; set; }
 
