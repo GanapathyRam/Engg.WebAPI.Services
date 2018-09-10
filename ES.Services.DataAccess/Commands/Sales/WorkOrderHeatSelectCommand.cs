@@ -28,10 +28,7 @@ namespace ES.Services.DataAccess.Commands.Sales
 
                 using (var reader = SsDbCommandHelper.ExecuteReader(sqlCommand))
                 {
-                    if (reader.Read())
-                    {
-                        response.getWorkOrderHeatDetails = reader.ToList<GetWorkOrderHeatModel>();
-                    }
+                    response.getWorkOrderHeatDetails = reader.ToList<GetWorkOrderHeatModel>();
                 }
             }
             return response;
