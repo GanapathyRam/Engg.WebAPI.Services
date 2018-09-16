@@ -204,6 +204,7 @@ namespace ES.Services.ReportLogic.Despatch
                         //}
                     }
 
+                    getsingle.ItemCode = workOrderMasterDetails.ItemCode;
                     getsingle.PartCode = workOrderMasterDetails.PartCode;
                     getsingle.CustomerName = workOrderMasterDetails.VendorName;
                     getsingle.Description = workOrderMasterDetails.Description;

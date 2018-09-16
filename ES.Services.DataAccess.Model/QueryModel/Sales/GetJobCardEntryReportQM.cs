@@ -23,6 +23,8 @@ namespace ES.Services.DataAccess.Model.QueryModel.Sales
 
         public decimal PartCode { get; set; }
 
+        public string ItemCode { get; set; }
+
         public string PartDescription { get; set; }
 
         public string MaterialShortDescription { get; set; }
@@ -36,8 +38,6 @@ namespace ES.Services.DataAccess.Model.QueryModel.Sales
         public string HeatNo { get; set; }
 
         public string DrawingNumberRevision { get; set; }
-
-        public string ItemCode { get; set; }
 
         public decimal SequenceNumber { get; set; }
 

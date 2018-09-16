@@ -22,11 +22,17 @@ namespace ES.Services.DataTransferObjects.Response.SubContract
         public decimal PartCode { get; set; }
 
         public string PartDescription { get; set; }
+
         public string ItemCode { get; set; }
+
         public decimal MaterialCode { get; set; }
+
         public string MaterialDescription { get; set; }
+
         public string DrawingNumber { get; set; }
+
         public string ProcessDescription { get; set; }
+
         public string CustomerName { get; set; }
         public string DrawingNumberRevision { get; set; }
         public string HeatNo { get; set; }

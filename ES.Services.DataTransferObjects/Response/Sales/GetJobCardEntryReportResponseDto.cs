@@ -27,6 +27,8 @@ namespace ES.Services.DataTransferObjects.Response.Sales
 
         public decimal PartCode { get; set; }
 
+        public string ItemCode { get; set; }
+
         public string PartDescription { get; set; }
 
         public string WoNumber { get; set; }

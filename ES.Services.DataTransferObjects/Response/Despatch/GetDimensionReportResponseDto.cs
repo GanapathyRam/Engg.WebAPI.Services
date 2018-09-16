@@ -31,6 +31,8 @@ namespace ES.Services.DataTransferObjects.Response.Despatch
 
         public decimal PartCode { get; set; }
 
+        public string ItemCode { get; set; }
+
         public decimal Quantity { get; set; }
 
         public char Units { get; set; }

@@ -41,6 +41,8 @@ namespace ES.Services.DataAccess.Model.QueryModel.Production
 
         public decimal PartCode { get; set; }
 
+        public string ItemCode { get; set; }
+
         public string PartDescription { get; set; }
 
         public decimal SequenceNumber { get; set; }

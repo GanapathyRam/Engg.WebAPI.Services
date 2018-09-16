@@ -144,6 +144,7 @@ namespace ES.Services.ReportLogic.Sales
                     getsingle.WoSerial = workOrderMasterDetails.WoSerial;
                     getsingle.WoNoAndSI = workOrderMasterDetails.WoNoAndSI;
                     getsingle.PartCode = workOrderMasterDetails.PartCode;
+                    getsingle.ItemCode = workOrderMasterDetails.ItemCode;
                     getsingle.PartDescription = workOrderMasterDetails.PartDescription;
                     getsingle.CustomerName = workOrderMasterDetails.CustomerName;
                     getsingle.Description = workOrderMasterDetails.Description;

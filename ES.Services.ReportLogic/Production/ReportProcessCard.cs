@@ -59,6 +59,7 @@ namespace ES.Services.ReportLogic.Production
 
                 var processCardDetailsItems = new ProcessCardDetailsResponse();
                 processCardDetailsItems.PartCode = processCardDetails.PartCode;
+                processCardDetailsItems.ItemCode = processCardDetails.ItemCode;
                 processCardDetailsItems.SequenceNumber = processCardDetails.SequenceNumber;
                 processCardDetailsItems.SerialNo = processCardDetails.SerialNo;
                 processCardDetailsItems.Description = processCardDetails.Description;
