@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ES.Services.DataAccess.Model.QueryModel.Enquiry;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -9,6 +10,12 @@ namespace ES.Services.DataAccess.Interface.Enquiry
 {
     public interface IEnquiryRepository
     {
-        DataSet GetStockEnquiry();
+        DataSet GetStockEnquiry(Int16 Option);
+
+        StockEnquiryOptionQM GetStockEnquiryForGrid(Int16 Option);
+
+        DespatchEnquiryOptionQM GetDespatchEnquiryForGrid(Int16 Option, DateTime? FromDate, DateTime? ToDate);
+
+        DataSet GetDespatchEnquiry(Int16 Option, DateTime? FromDate, DateTime? ToDate);
     }
 }

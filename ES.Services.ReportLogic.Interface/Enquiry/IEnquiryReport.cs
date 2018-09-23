@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ES.Services.DataTransferObjects.Request.Enquiry;
+using ES.Services.DataTransferObjects.Response.Enquiry;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,12 @@ namespace ES.Services.ReportLogic.Interface.Enquiry
 {
     public interface IEnquiryReport
     {
-        string GetStockEnquiry();
+        void GetStockEnquiry(Int16 Option, string filePath);
+
+        StockEnquiryOptionResponseDto GetStockEnquiryForGrid(Int16 Option);
+
+        DespatchEnquiryOptionResponseDto GetDespatchEnquiryForGrid(DespatchEnquiryOptionRequestDto despatchEnquiryOptionRequestDto);
+
+        void GetDespacthEnquiry(DespatchEnquiryOptionRequestDto despatchEnquiryOptionRequestDto, string filePath);
     }
 }

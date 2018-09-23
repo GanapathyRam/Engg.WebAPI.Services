@@ -59,6 +59,7 @@
     <Compile Include="Request\Despatch\GetInvoiceDetailsRequestDto.cs" />
     <Compile Include="Request\Despatch\GetInvoiceNumberRequestDto.cs" />
     <Compile Include="Request\Despatch\GetWOMasterForDcRequestDto.cs" />
+    <Compile Include="Request\Enquiry\DespatchEnquiryOptionRequestDto.cs" />
     <Compile Include="Request\Masters\AddCompanyMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddInstrumentMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddJigsMasterRequestDto.cs" />
@@ -143,6 +144,8 @@
     <Compile Include="Response\Despatch\GetWOMasterForDcResponseDto.cs" />
     <Compile Include="Response\Despatch\GetWOMasterForDcResponseList.cs" />
     <Compile Include="Response\Despatch\AddInvoiceResponseDto.cs" />
+    <Compile Include="Response\Enquiry\DespatchEnquiryOptionResponseDto.cs" />
+    <Compile Include="Response\Enquiry\StockEnquiryOptionResponseDto.cs" />
     <Compile Include="Response\Masters\AddSubcontractProcessMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddSymbolMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetEmployeeMasterResponseDto.cs" />
@@ -230,10 +233,7 @@
     <Compile Include="Response\SubContract\SubContractReceivingResponseDto.cs" />
     <Compile Include="Response\SubContract\SubContractResponseDto.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Request\Enquiry\" />
-    <Folder Include="Response\Enquiry\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

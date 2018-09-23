@@ -1,4 +1,5 @@
-﻿using SS.Framework.DataAccess.Commands;
+﻿using SS.Framework.DataAccess;
+using SS.Framework.DataAccess.Commands;
 using SS.Framework.DataAccess.Helpers;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace ES.Services.DataAccess.Commands.Enquiry
 {
     public class GetStockEnquirySelectCommand : SsDbCommand
     {
-        public DataSet Execute()
+        public DataSet Execute(Int16 Option)
         {
             DataSet ds = new DataSet();
             using (var sqlCommand = CreateCommand())
@@ -19,7 +20,7 @@ namespace ES.Services.DataAccess.Commands.Enquiry
                 sqlCommand.Connection = Connection;
                 sqlCommand.CommandText = "[dbo].[uspGetStockOptionEnquiry]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                //sqlCommand.Parameters.Add(AddParameter("@WoType", SsDbType.VarChar, ParameterDirection.Input, WoType));
+                sqlCommand.Parameters.Add(AddParameter("@Option", SsDbType.SmallInt, ParameterDirection.Input, Option));
 
                 ds = SsDbCommandHelper.ExecuteDataset(sqlCommand);
             }
