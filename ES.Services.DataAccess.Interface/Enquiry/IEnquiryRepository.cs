@@ -17,5 +17,13 @@ namespace ES.Services.DataAccess.Interface.Enquiry
         DespatchEnquiryOptionQM GetDespatchEnquiryForGrid(Int16 Option, DateTime? FromDate, DateTime? ToDate);
 
         DataSet GetDespatchEnquiry(Int16 Option, DateTime? FromDate, DateTime? ToDate);
+
+        DataSet GetInvoicedEnquiry();
+
+        InvoicedEnquiryOptionQM GetInvoicedEnquiryForGrid();
+
+        DataSet GetSerialNoEnquiry(string SerialNo);
+
+        SerialNoEnquiryOptionQM GetSerialNoEnquiryForGrid(string SerialNo);
     }
 }

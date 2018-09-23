@@ -145,6 +145,8 @@
     <Compile Include="Response\Despatch\GetWOMasterForDcResponseList.cs" />
     <Compile Include="Response\Despatch\AddInvoiceResponseDto.cs" />
     <Compile Include="Response\Enquiry\DespatchEnquiryOptionResponseDto.cs" />
+    <Compile Include="Response\Enquiry\InvoicedEnquiryOptionResponseDto.cs" />
+    <Compile Include="Response\Enquiry\SerialNoEnquiryOptionResponseDto.cs" />
     <Compile Include="Response\Enquiry\StockEnquiryOptionResponseDto.cs" />
     <Compile Include="Response\Masters\AddSubcontractProcessMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddSymbolMasterResponseDto.cs" />

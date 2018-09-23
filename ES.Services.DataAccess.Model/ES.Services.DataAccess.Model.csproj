@@ -133,6 +133,10 @@
     <Compile Include="QueryModel\Enquiry\DespatchEnquiryOptionQM.cs" />
     <Compile Include="QueryModel\Enquiry\GetStockOptionEnquiryForItemModel.cs" />
     <Compile Include="QueryModel\Enquiry\GetStockOptionEnquiryForSerialModel.cs" />
+    <Compile Include="QueryModel\Enquiry\InvoicedEnquiryOptionModel.cs" />
+    <Compile Include="QueryModel\Enquiry\InvoicedEnquiryOptionQM.cs" />
+    <Compile Include="QueryModel\Enquiry\SerialNoEnquiryOptionModel.cs" />
+    <Compile Include="QueryModel\Enquiry\SerialNoEnquiryOptionQM.cs" />
     <Compile Include="QueryModel\Enquiry\StockEnquiryOptionQM.cs" />
     <Compile Include="QueryModel\Masters\AddSubcontractProcessMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetCompanyMasterQM.cs" />

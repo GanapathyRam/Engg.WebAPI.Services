@@ -154,5 +154,137 @@ namespace ES.Shared.Services.Controllers.Enquiry
 
             return httpResponseMessage;
         }
+
+        [HttpPost]
+        public HttpResponseMessage GetinvoicedEnquiry()
+        {
+            HttpResponseMessage httpResponseMessage = new HttpResponseMessage();
+
+            var filePath = System.Configuration.ConfigurationManager.AppSettings["InvoicedEnquiryOption"].ToString();
+
+            try
+            {
+                rEnquiryProvider.GetInvoicedEnquiry(filePath);
+
+                var dataBytes = File.ReadAllBytes(filePath);
+                //adding bytes to memory stream   
+                var dataStream = new MemoryStream(dataBytes);
+
+                httpResponseMessage = Request.CreateResponse(HttpStatusCode.OK);
+                httpResponseMessage.Content = new StreamContent(dataStream);
+                httpResponseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
+                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "DespatchEnquiryOption";
+                httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
+
+                return httpResponseMessage;
+            }
+            catch (SSException applicationException)
+            {
+            }
+            catch (Exception exception)
+            {
+            }
+
+            return httpResponseMessage;
+        }
+
+        [HttpPost]
+        public InvoicedEnquiryOptionResponseDto GetInvoicedEnquiryForGrid()
+        {
+            InvoicedEnquiryOptionResponseDto response;
+
+            try
+            {
+                response = rEnquiryProvider.GetInvoicedEnquiryForGrid();
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new InvoicedEnquiryOptionResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new InvoicedEnquiryOptionResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        [HttpPost]
+        public HttpResponseMessage GetSerialNoEnquiry(string SerialNo)
+        {
+            HttpResponseMessage httpResponseMessage = new HttpResponseMessage();
+
+            var filePath = System.Configuration.ConfigurationManager.AppSettings["SerialNoEnquiryOption"].ToString();
+
+            try
+            {
+                rEnquiryProvider.GetSerialNoEnquiry(filePath, SerialNo);
+
+                var dataBytes = File.ReadAllBytes(filePath);
+                //adding bytes to memory stream   
+                var dataStream = new MemoryStream(dataBytes);
+
+                httpResponseMessage = Request.CreateResponse(HttpStatusCode.OK);
+                httpResponseMessage.Content = new StreamContent(dataStream);
+                httpResponseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
+                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "DespatchEnquiryOption";
+                httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
+
+                return httpResponseMessage;
+            }
+            catch (SSException applicationException)
+            {
+            }
+            catch (Exception exception)
+            {
+            }
+
+            return httpResponseMessage;
+        }
+
+        [HttpPost]
+        public SerialNoEnquiryOptionResponseDto GetSerialNoEnquiryForGrid(string SerialNo)
+        {
+            SerialNoEnquiryOptionResponseDto response;
+
+            try
+            {
+                response = rEnquiryProvider.GetSerialNoEnquiryForGrid(SerialNo);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new SerialNoEnquiryOptionResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new SerialNoEnquiryOptionResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
     }
 }

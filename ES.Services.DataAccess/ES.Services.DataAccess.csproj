@@ -72,6 +72,10 @@
     <Compile Include="Commands\Despatch\InvoiceMasterUpdateCommand.cs" />
     <Compile Include="Commands\Enquiry\GetDespatchEnquirySelectCommand.cs" />
     <Compile Include="Commands\Enquiry\GetDespatchEnquirySelectCommandForGrid.cs" />
+    <Compile Include="Commands\Enquiry\GetInvoicedEnquirySelectCommand.cs" />
+    <Compile Include="Commands\Enquiry\GetInvoicedEnquirySelectCommandForGrid.cs" />
+    <Compile Include="Commands\Enquiry\GetSerialNoEnquirySelectCommand.cs" />
+    <Compile Include="Commands\Enquiry\GetSerialNoEnquirySelectCommandForGrid.cs" />
     <Compile Include="Commands\Enquiry\GetStockEnquirySelectCommand.cs" />
     <Compile Include="Commands\Enquiry\GetStockEnquirySelectCommandForGrid.cs" />
     <Compile Include="Commands\Masters\CategoryMasterSelectCommand.cs" />

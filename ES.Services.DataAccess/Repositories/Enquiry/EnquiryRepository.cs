@@ -68,5 +68,61 @@ namespace ES.Services.DataAccess.Repositories.Enquiry
 
             return ds;
         }
+
+        public DataSet GetInvoicedEnquiry()
+        {
+            DataSet ds = new DataSet();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetInvoicedEnquirySelectCommand { Connection = connection };
+                ds = command.Execute();
+            }
+
+            return ds;
+        }
+
+        public InvoicedEnquiryOptionQM GetInvoicedEnquiryForGrid()
+        {
+            InvoicedEnquiryOptionQM ds = new InvoicedEnquiryOptionQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetInvoicedEnquirySelectCommandForGrid { Connection = connection };
+                ds = command.Execute();
+            }
+
+            return ds;
+        }
+
+        public DataSet GetSerialNoEnquiry(string SerialNo)
+        {
+            DataSet ds = new DataSet();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetSerialNoEnquirySelectCommand { Connection = connection };
+                ds = command.Execute(SerialNo);
+            }
+
+            return ds;
+        }
+
+        public SerialNoEnquiryOptionQM GetSerialNoEnquiryForGrid(string SerialNo)
+        {
+            SerialNoEnquiryOptionQM ds = new SerialNoEnquiryOptionQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetSerialNoEnquirySelectCommandForGrid { Connection = connection };
+                ds = command.Execute(SerialNo);
+            }
+
+            return ds;
+        }
     }
 }

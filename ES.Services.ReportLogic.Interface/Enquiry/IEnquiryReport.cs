@@ -17,5 +17,14 @@ namespace ES.Services.ReportLogic.Interface.Enquiry
         DespatchEnquiryOptionResponseDto GetDespatchEnquiryForGrid(DespatchEnquiryOptionRequestDto despatchEnquiryOptionRequestDto);
 
         void GetDespacthEnquiry(DespatchEnquiryOptionRequestDto despatchEnquiryOptionRequestDto, string filePath);
+
+        void GetInvoicedEnquiry(string filePath);
+
+        InvoicedEnquiryOptionResponseDto GetInvoicedEnquiryForGrid();
+
+        void GetSerialNoEnquiry(string filePath, string SerialNo);
+
+        SerialNoEnquiryOptionResponseDto GetSerialNoEnquiryForGrid(string SerialNo);
+
     }
 }

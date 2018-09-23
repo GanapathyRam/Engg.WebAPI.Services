@@ -74,6 +74,48 @@ namespace ES.Services.ReportLogic.Enquiry
             ConvertToExcel(dataSet, filePath);
         }
 
+        public void GetInvoicedEnquiry(string filePath)
+        {
+            var dataSet = enquiryRepository.GetInvoicedEnquiry();
+
+            ConvertToExcel(dataSet, filePath);
+        }
+
+        public InvoicedEnquiryOptionResponseDto GetInvoicedEnquiryForGrid()
+        {
+            InvoicedEnquiryOptionResponseDto response = new InvoicedEnquiryOptionResponseDto();
+
+            var model = enquiryRepository.GetInvoicedEnquiryForGrid();
+
+            if (model != null)
+            {
+                response = GetInvoicedEnquiryForItemMapper((List<InvoicedEnquiryOptionModel>)model.GetInvoicedEnquiryOptionModel, response);
+            }
+
+            return response;
+        }
+
+        public void GetSerialNoEnquiry(string filePath, string SerialNo)
+        {
+            var dataSet = enquiryRepository.GetSerialNoEnquiry(SerialNo);
+
+            ConvertToExcel(dataSet, filePath);
+        }
+
+        public SerialNoEnquiryOptionResponseDto GetSerialNoEnquiryForGrid(string SerialNo)
+        {
+            SerialNoEnquiryOptionResponseDto response = new SerialNoEnquiryOptionResponseDto();
+
+            var model = enquiryRepository.GetSerialNoEnquiryForGrid(SerialNo);
+
+            if (model != null)
+            {
+                response = GetSerialNoEnquiryForItemMapper((List<SerialNoEnquiryOptionModel>)model.getSerialNoEnquiryOptionModel, response);
+            }
+
+            return response;
+        }
+
         public void ConvertToExcel(DataSet ds, string filePath)
         {
             //Instance reference for Excel Application
@@ -211,6 +253,22 @@ namespace ES.Services.ReportLogic.Enquiry
             getDespatchEnquiryOptionResponseDto.GetDespatchEnquiryOptionResponse = Mapper.Map<List<DespatchEnquiryOptionModel>, List<DespatchEnquiryOptionResponse>>(list);
 
             return getDespatchEnquiryOptionResponseDto;
+        }
+
+        private static InvoicedEnquiryOptionResponseDto GetInvoicedEnquiryForItemMapper(List<InvoicedEnquiryOptionModel> list, InvoicedEnquiryOptionResponseDto getInvoicedEnquiryOptionResponseDto)
+        {
+            Mapper.CreateMap<InvoicedEnquiryOptionModel, InvoicedEnquiryOptionResponse>();
+            getInvoicedEnquiryOptionResponseDto.GetInvoicedEnquiryOptionResponse = Mapper.Map<List<InvoicedEnquiryOptionModel>, List<InvoicedEnquiryOptionResponse>>(list);
+
+            return getInvoicedEnquiryOptionResponseDto;
+        }
+
+        private static SerialNoEnquiryOptionResponseDto GetSerialNoEnquiryForItemMapper(List<SerialNoEnquiryOptionModel> list, SerialNoEnquiryOptionResponseDto getSerialNoEnquiryOptionResponseDto)
+        {
+            Mapper.CreateMap<SerialNoEnquiryOptionModel, SerialNoEnquiryOptionResponse>();
+            getSerialNoEnquiryOptionResponseDto.getSerialNoEnquiryOptionResponse = Mapper.Map<List<SerialNoEnquiryOptionModel>, List<SerialNoEnquiryOptionResponse>>(list);
+
+            return getSerialNoEnquiryOptionResponseDto;
         }
 
         #endregion
