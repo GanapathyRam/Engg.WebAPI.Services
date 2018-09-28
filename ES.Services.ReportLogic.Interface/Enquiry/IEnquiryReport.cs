@@ -26,5 +26,9 @@ namespace ES.Services.ReportLogic.Interface.Enquiry
 
         SerialNoEnquiryOptionResponseDto GetSerialNoEnquiryForGrid(string SerialNo);
 
+        void GetDeliveryFollowUpEnquiry(string filePath, DateTime FromDate);
+
+        DeliveryFollowUpEnquiryOptionResponseDto GetDeliveryFollowUpEnquiryForGrid(DateTime FromDate);
+
     }
 }

@@ -286,5 +286,71 @@ namespace ES.Shared.Services.Controllers.Enquiry
 
             return response;
         }
+
+        [HttpPost]
+        public HttpResponseMessage GetDeliveryFollowUpEnquiry(DateTime FromDate)
+        {
+            HttpResponseMessage httpResponseMessage = new HttpResponseMessage();
+
+            var filePath = System.Configuration.ConfigurationManager.AppSettings["SerialNoEnquiryOption"].ToString();
+
+            try
+            {
+                rEnquiryProvider.GetDeliveryFollowUpEnquiry(filePath, FromDate);
+
+                var dataBytes = File.ReadAllBytes(filePath);
+                //adding bytes to memory stream   
+                var dataStream = new MemoryStream(dataBytes);
+
+                httpResponseMessage = Request.CreateResponse(HttpStatusCode.OK);
+                httpResponseMessage.Content = new StreamContent(dataStream);
+                httpResponseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
+                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "DeliveryFollowUpOption";
+                httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
+
+                return httpResponseMessage;
+            }
+            catch (SSException applicationException)
+            {
+            }
+            catch (Exception exception)
+            {
+            }
+
+            return httpResponseMessage;
+        }
+
+        [HttpPost]
+        public DeliveryFollowUpEnquiryOptionResponseDto GetDeliveryFollowUpEnquiryForGrid(DateTime FromDate)
+        {
+            DeliveryFollowUpEnquiryOptionResponseDto response;
+
+            try
+            {
+                response = rEnquiryProvider.GetDeliveryFollowUpEnquiryForGrid(FromDate);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new DeliveryFollowUpEnquiryOptionResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new DeliveryFollowUpEnquiryOptionResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
     }
 }

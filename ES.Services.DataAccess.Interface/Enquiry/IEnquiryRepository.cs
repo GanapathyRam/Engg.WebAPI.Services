@@ -25,5 +25,9 @@ namespace ES.Services.DataAccess.Interface.Enquiry
         DataSet GetSerialNoEnquiry(string SerialNo);
 
         SerialNoEnquiryOptionQM GetSerialNoEnquiryForGrid(string SerialNo);
+
+        DataSet GetDeliveryFollowUpEnquiry(DateTime FromDate);
+
+        DeliveryFollowUpOptionQM GetDeliveryFollowUpEnquiryForGrid(DateTime FromDate);
     }
 }

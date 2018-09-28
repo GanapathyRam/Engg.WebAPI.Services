@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace ES.Services.DataAccess.Commands.Enquiry
 {
-    public class GetSerialNoEnquirySelectCommand : SsDbCommand
+    public class GetDeliveryFollowUpEnquirySelectCommand : SsDbCommand
     {
-        public DataSet Execute(string SerialNo)
+        public DataSet Execute(DateTime FromDate)
         {
             DataSet ds = new DataSet();
             using (var sqlCommand = CreateCommand())
             {
                 sqlCommand.Connection = Connection;
-                sqlCommand.CommandText = "[dbo].[uspGetSerialNoEnquiry]";
+                sqlCommand.CommandText = "[dbo].[uspGetDeliveryFollowUpEnquiry]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.Add(AddParameter("@SerialNo", SsDbType.NVarChar, ParameterDirection.Input, SerialNo));
+                sqlCommand.Parameters.Add(AddParameter("@CutOffDate", SsDbType.NVarChar, ParameterDirection.Input, FromDate));
 
                 ds = SsDbCommandHelper.ExecuteDataset(sqlCommand);
             }
