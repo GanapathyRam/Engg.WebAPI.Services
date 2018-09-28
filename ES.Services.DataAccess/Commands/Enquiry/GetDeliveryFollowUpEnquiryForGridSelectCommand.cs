@@ -21,9 +21,9 @@ namespace ES.Services.DataAccess.Commands.Enquiry
             using (var sqlCommand = CreateCommand())
             {
                 sqlCommand.Connection = Connection;
-                sqlCommand.CommandText = "[dbo].[uspGetDespatchEnquiry]";
+                sqlCommand.CommandText = "[dbo].[uspGetDeliveryFollowUpEnquiry]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.Add(AddParameter("@FromDate", SsDbType.DateTime, ParameterDirection.Input, FromDate));
+                sqlCommand.Parameters.Add(AddParameter("@CutOffDate", SsDbType.DateTime, ParameterDirection.Input, FromDate));
 
                 using (var reader = SsDbCommandHelper.ExecuteReader(sqlCommand))
                 {
