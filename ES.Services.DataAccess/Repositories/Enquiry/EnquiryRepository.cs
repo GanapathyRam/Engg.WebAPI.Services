@@ -124,5 +124,33 @@ namespace ES.Services.DataAccess.Repositories.Enquiry
 
             return ds;
         }
+
+        public DataSet GetDeliveryFollowUpEnquiry(DateTime FromDate)
+        {
+            DataSet ds = new DataSet();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetDeliveryFollowUpEnquirySelectCommand { Connection = connection };
+                ds = command.Execute(FromDate);
+            }
+
+            return ds;
+        }
+
+        public DeliveryFollowUpOptionQM GetDeliveryFollowUpEnquiryForGrid(DateTime FromDate)
+        {
+            DeliveryFollowUpOptionQM ds = new DeliveryFollowUpOptionQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetDeliveryFollowUpEnquiryForGridSelectCommand { Connection = connection };
+                ds = command.Execute(FromDate);
+            }
+
+            return ds;
+        }
     }
 }

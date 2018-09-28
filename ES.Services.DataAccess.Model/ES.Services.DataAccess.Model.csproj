@@ -129,6 +129,8 @@
     <Compile Include="QueryModel\Despatch\GetWoMasterAndDetailsFromCustomerCodeTypeQM.cs" />
     <Compile Include="QueryModel\Despatch\GetWOMasterForDcModel.cs" />
     <Compile Include="QueryModel\Despatch\GetWOMasterForDcQM.cs" />
+    <Compile Include="QueryModel\Enquiry\DeliveryFollowUpOptionModel.cs" />
+    <Compile Include="QueryModel\Enquiry\DeliveryFollowUpOptionQM.cs" />
     <Compile Include="QueryModel\Enquiry\DespatchEnquiryOptionModel.cs" />
     <Compile Include="QueryModel\Enquiry\DespatchEnquiryOptionQM.cs" />
     <Compile Include="QueryModel\Enquiry\GetStockOptionEnquiryForItemModel.cs" />

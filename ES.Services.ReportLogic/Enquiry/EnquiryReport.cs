@@ -116,6 +116,28 @@ namespace ES.Services.ReportLogic.Enquiry
             return response;
         }
 
+
+        public void GetDeliveryFollowUpEnquiry(string filePath, DateTime FromDate)
+        {
+            var dataSet = enquiryRepository.GetDeliveryFollowUpEnquiry(FromDate);
+
+            ConvertToExcel(dataSet, filePath);
+        }
+
+        public DeliveryFollowUpEnquiryOptionResponseDto GetDeliveryFollowUpEnquiryForGrid(DateTime FromDate)
+        {
+            DeliveryFollowUpEnquiryOptionResponseDto response = new DeliveryFollowUpEnquiryOptionResponseDto();
+
+            var model = enquiryRepository.GetDeliveryFollowUpEnquiryForGrid(FromDate);
+
+            if (model != null)
+            {
+                response = GetDeliveryFollowUpEnquiryForItemMapper((List<DeliveryFollowUpOptionModel>)model.getDeliveryFollowUpOptionModel, response);
+            }
+
+            return response;
+        }
+
         public void ConvertToExcel(DataSet ds, string filePath)
         {
             //Instance reference for Excel Application
@@ -269,6 +291,14 @@ namespace ES.Services.ReportLogic.Enquiry
             getSerialNoEnquiryOptionResponseDto.getSerialNoEnquiryOptionResponse = Mapper.Map<List<SerialNoEnquiryOptionModel>, List<SerialNoEnquiryOptionResponse>>(list);
 
             return getSerialNoEnquiryOptionResponseDto;
+        }
+
+        private static DeliveryFollowUpEnquiryOptionResponseDto GetDeliveryFollowUpEnquiryForItemMapper(List<DeliveryFollowUpOptionModel> list, DeliveryFollowUpEnquiryOptionResponseDto getDeliveryFollowUpEnquiryOptionResponseDto)
+        {
+            Mapper.CreateMap<DeliveryFollowUpOptionModel, DeliveryFollowUpEnquiryOptionResponse>();
+            getDeliveryFollowUpEnquiryOptionResponseDto.GetDeliveryFollowUpEnquiryOptionResponse = Mapper.Map<List<DeliveryFollowUpOptionModel>, List<DeliveryFollowUpEnquiryOptionResponse>>(list);
+
+            return getDeliveryFollowUpEnquiryOptionResponseDto;
         }
 
         #endregion

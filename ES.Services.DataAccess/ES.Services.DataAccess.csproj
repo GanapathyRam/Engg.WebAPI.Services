@@ -70,6 +70,8 @@
     <Compile Include="Commands\Despatch\InvoiceDetailsUpdateCommand.cs" />
     <Compile Include="Commands\Despatch\InvoiceMasterInsertCommand.cs" />
     <Compile Include="Commands\Despatch\InvoiceMasterUpdateCommand.cs" />
+    <Compile Include="Commands\Enquiry\GetDeliveryFollowUpEnquiryForGridSelectCommand.cs" />
+    <Compile Include="Commands\Enquiry\GetDeliveryFollowUpEnquirySelectCommand.cs" />
     <Compile Include="Commands\Enquiry\GetDespatchEnquirySelectCommand.cs" />
     <Compile Include="Commands\Enquiry\GetDespatchEnquirySelectCommandForGrid.cs" />
     <Compile Include="Commands\Enquiry\GetInvoicedEnquirySelectCommand.cs" />
