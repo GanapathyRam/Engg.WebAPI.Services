@@ -352,5 +352,71 @@ namespace ES.Shared.Services.Controllers.Enquiry
 
             return response;
         }
+
+        [HttpPost]
+        public HttpResponseMessage GetSalesEnquiry(DateTime FromDate, DateTime ToDate, Int16 WorkOrdeType, Int16 Option, string Type)
+        {
+            HttpResponseMessage httpResponseMessage = new HttpResponseMessage();
+
+            var filePath = System.Configuration.ConfigurationManager.AppSettings["SerialNoEnquiryOption"].ToString();
+
+            try
+            {
+                rEnquiryProvider.GetSalesEnquiry(filePath, FromDate, ToDate, WorkOrdeType, Option, Type);
+
+                var dataBytes = File.ReadAllBytes(filePath);
+                //adding bytes to memory stream   
+                var dataStream = new MemoryStream(dataBytes);
+
+                httpResponseMessage = Request.CreateResponse(HttpStatusCode.OK);
+                httpResponseMessage.Content = new StreamContent(dataStream);
+                httpResponseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
+                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "SalesEnquiryOption";
+                httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
+
+                return httpResponseMessage;
+            }
+            catch (SSException applicationException)
+            {
+            }
+            catch (Exception exception)
+            {
+            }
+
+            return httpResponseMessage;
+        }
+
+        [HttpPost]
+        public SalesEnquiryOptionResponseDto GetSalesEnquiryForGrid(DateTime FromDate, DateTime ToDate, Int16 WorkOrdeType, Int16 Option, string Type)
+        {
+            SalesEnquiryOptionResponseDto response;
+
+            try
+            {
+                response = rEnquiryProvider.GetSalesEnquiryForGrid(FromDate, ToDate, WorkOrdeType, Option, Type);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new SalesEnquiryOptionResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new SalesEnquiryOptionResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
     }
 }

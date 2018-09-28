@@ -29,5 +29,9 @@ namespace ES.Services.DataAccess.Interface.Enquiry
         DataSet GetDeliveryFollowUpEnquiry(DateTime FromDate);
 
         DeliveryFollowUpOptionQM GetDeliveryFollowUpEnquiryForGrid(DateTime FromDate);
+
+        DataSet GetSalesEnquiry(DateTime FromDate, DateTime ToDate, Int16 WorkOrdeType, Int16 Option, string Type);
+
+        SalesEnquiryOptionQM GetSalesEnquiryForGrid(DateTime FromDate, DateTime ToDate, Int16 WorkOrdeType, Int16 Option, string Type);
     }
 }

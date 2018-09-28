@@ -30,5 +30,9 @@ namespace ES.Services.ReportLogic.Interface.Enquiry
 
         DeliveryFollowUpEnquiryOptionResponseDto GetDeliveryFollowUpEnquiryForGrid(DateTime FromDate);
 
+        void GetSalesEnquiry(string filePath, DateTime FromDate, DateTime ToDate, Int16 WorkOrdeType, Int16 Option, string Type);
+
+        SalesEnquiryOptionResponseDto GetSalesEnquiryForGrid(DateTime FromDate, DateTime ToDate, Int16 WorkOrdeType, Int16 Option, string Type);
+
     }
 }

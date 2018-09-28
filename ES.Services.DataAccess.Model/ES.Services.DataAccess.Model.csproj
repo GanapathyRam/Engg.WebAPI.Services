@@ -137,6 +137,8 @@
     <Compile Include="QueryModel\Enquiry\GetStockOptionEnquiryForSerialModel.cs" />
     <Compile Include="QueryModel\Enquiry\InvoicedEnquiryOptionModel.cs" />
     <Compile Include="QueryModel\Enquiry\InvoicedEnquiryOptionQM.cs" />
+    <Compile Include="QueryModel\Enquiry\SalesEnquiryOptionModel.cs" />
+    <Compile Include="QueryModel\Enquiry\SalesEnquiryOptionQM.cs" />
     <Compile Include="QueryModel\Enquiry\SerialNoEnquiryOptionModel.cs" />
     <Compile Include="QueryModel\Enquiry\SerialNoEnquiryOptionQM.cs" />
     <Compile Include="QueryModel\Enquiry\StockEnquiryOptionQM.cs" />

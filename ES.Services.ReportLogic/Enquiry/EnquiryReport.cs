@@ -138,6 +138,27 @@ namespace ES.Services.ReportLogic.Enquiry
             return response;
         }
 
+        public void GetSalesEnquiry(string filePath, DateTime FromDate, DateTime ToDate, Int16 WorkOrdeType, Int16 Option, string Type)
+        {
+            var dataSet = enquiryRepository.GetSalesEnquiry(FromDate, ToDate, WorkOrdeType, Option, Type);
+
+            ConvertToExcel(dataSet, filePath);
+        }
+
+        public SalesEnquiryOptionResponseDto GetSalesEnquiryForGrid(DateTime FromDate, DateTime ToDate, Int16 WorkOrdeType, Int16 Option, string Type)
+        {
+            SalesEnquiryOptionResponseDto response = new SalesEnquiryOptionResponseDto();
+
+            var model = enquiryRepository.GetDeliveryFollowUpEnquiryForGrid(FromDate);
+
+            if (model != null)
+            {
+                response = GetSalesEnquiryForItemMapper((List<SalesEnquiryOptionModel>)model.getDeliveryFollowUpOptionModel, response);
+            }
+
+            return response;
+        }
+
         public void ConvertToExcel(DataSet ds, string filePath)
         {
             //Instance reference for Excel Application
@@ -299,6 +320,14 @@ namespace ES.Services.ReportLogic.Enquiry
             getDeliveryFollowUpEnquiryOptionResponseDto.GetDeliveryFollowUpEnquiryOptionResponse = Mapper.Map<List<DeliveryFollowUpOptionModel>, List<DeliveryFollowUpEnquiryOptionResponse>>(list);
 
             return getDeliveryFollowUpEnquiryOptionResponseDto;
+        }
+
+        private static SalesEnquiryOptionResponseDto GetSalesEnquiryForItemMapper(List<SalesEnquiryOptionModel> list, SalesEnquiryOptionResponseDto getSalesEnquiryOptionResponseDto)
+        {
+            Mapper.CreateMap<SalesEnquiryOptionModel, SalesEnquiryOptionResponse>();
+            getSalesEnquiryOptionResponseDto.GetSalesEnquiryOptionResponse = Mapper.Map<List<SalesEnquiryOptionModel>, List<SalesEnquiryOptionResponse>>(list);
+
+            return getSalesEnquiryOptionResponseDto;
         }
 
         #endregion

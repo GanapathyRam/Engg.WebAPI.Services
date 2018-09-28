@@ -76,6 +76,8 @@
     <Compile Include="Commands\Enquiry\GetDespatchEnquirySelectCommandForGrid.cs" />
     <Compile Include="Commands\Enquiry\GetInvoicedEnquirySelectCommand.cs" />
     <Compile Include="Commands\Enquiry\GetInvoicedEnquirySelectCommandForGrid.cs" />
+    <Compile Include="Commands\Enquiry\GetSalesEnquiryForGridSelectCommand.cs" />
+    <Compile Include="Commands\Enquiry\GetSalesEnquirySelectCommand.cs" />
     <Compile Include="Commands\Enquiry\GetSerialNoEnquirySelectCommand.cs" />
     <Compile Include="Commands\Enquiry\GetSerialNoEnquirySelectCommandForGrid.cs" />
     <Compile Include="Commands\Enquiry\GetStockEnquirySelectCommand.cs" />

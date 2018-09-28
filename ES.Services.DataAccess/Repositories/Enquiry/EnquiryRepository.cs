@@ -152,5 +152,33 @@ namespace ES.Services.DataAccess.Repositories.Enquiry
 
             return ds;
         }
+
+        public DataSet GetSalesEnquiry(DateTime FromDate, DateTime ToDate, Int16 WorkOrdeType, Int16 Option, string Type)
+        {
+            DataSet ds = new DataSet();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetSalesEnquirySelectCommand { Connection = connection };
+                ds = command.Execute(FromDate, ToDate, WorkOrdeType, Option, Type);
+            }
+
+            return ds;
+        }
+
+        public SalesEnquiryOptionQM GetSalesEnquiryForGrid(DateTime FromDate, DateTime ToDate, Int16 WorkOrdeType, Int16 Option, string Type)
+        {
+            SalesEnquiryOptionQM salesEnquiryOptionQM = new SalesEnquiryOptionQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetSalesEnquiryForGridSelectCommand { Connection = connection };
+                salesEnquiryOptionQM = command.Execute(FromDate, ToDate, WorkOrdeType, Option, Type);
+            }
+
+            return salesEnquiryOptionQM;
+        }
     }
 }

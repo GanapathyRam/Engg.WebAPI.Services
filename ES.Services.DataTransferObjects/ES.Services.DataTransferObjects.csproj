@@ -147,6 +147,7 @@
     <Compile Include="Response\Enquiry\DeliveryFollowUpEnquiryOptionResponseDto.cs" />
     <Compile Include="Response\Enquiry\DespatchEnquiryOptionResponseDto.cs" />
     <Compile Include="Response\Enquiry\InvoicedEnquiryOptionResponseDto.cs" />
+    <Compile Include="Response\Enquiry\SalesEnquiryOptionResponseDto.cs" />
     <Compile Include="Response\Enquiry\SerialNoEnquiryOptionResponseDto.cs" />
     <Compile Include="Response\Enquiry\StockEnquiryOptionResponseDto.cs" />
     <Compile Include="Response\Masters\AddSubcontractProcessMasterResponseDto.cs" />
