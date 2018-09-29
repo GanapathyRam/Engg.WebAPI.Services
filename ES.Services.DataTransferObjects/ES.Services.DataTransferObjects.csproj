@@ -59,7 +59,9 @@
     <Compile Include="Request\Despatch\GetInvoiceDetailsRequestDto.cs" />
     <Compile Include="Request\Despatch\GetInvoiceNumberRequestDto.cs" />
     <Compile Include="Request\Despatch\GetWOMasterForDcRequestDto.cs" />
+    <Compile Include="Request\Enquiry\DeliveryFollowUpEnquiryOptionRequestDto.cs" />
     <Compile Include="Request\Enquiry\DespatchEnquiryOptionRequestDto.cs" />
+    <Compile Include="Request\Enquiry\SalesEnquiryOptionRequestDto.cs" />
     <Compile Include="Request\Masters\AddCompanyMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddInstrumentMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddJigsMasterRequestDto.cs" />

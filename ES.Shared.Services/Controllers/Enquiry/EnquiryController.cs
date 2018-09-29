@@ -288,15 +288,15 @@ namespace ES.Shared.Services.Controllers.Enquiry
         }
 
         [HttpPost]
-        public HttpResponseMessage GetDeliveryFollowUpEnquiry(DateTime FromDate)
+        public HttpResponseMessage GetDeliveryFollowUpEnquiry(DeliveryFollowUpEnquiryOptionRequestDto deliveryFollowUpEnquiryOptionRequestDto)
         {
             HttpResponseMessage httpResponseMessage = new HttpResponseMessage();
 
-            var filePath = System.Configuration.ConfigurationManager.AppSettings["SerialNoEnquiryOption"].ToString();
+            var filePath = System.Configuration.ConfigurationManager.AppSettings["DeliveryFollowUpOption"].ToString();
 
             try
             {
-                rEnquiryProvider.GetDeliveryFollowUpEnquiry(filePath, FromDate);
+                rEnquiryProvider.GetDeliveryFollowUpEnquiry(filePath, deliveryFollowUpEnquiryOptionRequestDto.FromDate);
 
                 var dataBytes = File.ReadAllBytes(filePath);
                 //adding bytes to memory stream   
@@ -321,13 +321,13 @@ namespace ES.Shared.Services.Controllers.Enquiry
         }
 
         [HttpPost]
-        public DeliveryFollowUpEnquiryOptionResponseDto GetDeliveryFollowUpEnquiryForGrid(DateTime FromDate)
+        public DeliveryFollowUpEnquiryOptionResponseDto GetDeliveryFollowUpEnquiryForGrid(DeliveryFollowUpEnquiryOptionRequestDto deliveryFollowUpEnquiryOptionRequestDto)
         {
             DeliveryFollowUpEnquiryOptionResponseDto response;
 
             try
             {
-                response = rEnquiryProvider.GetDeliveryFollowUpEnquiryForGrid(FromDate);
+                response = rEnquiryProvider.GetDeliveryFollowUpEnquiryForGrid(deliveryFollowUpEnquiryOptionRequestDto.FromDate);
                 response.ServiceResponseStatus = 1;
             }
             catch (SSException applicationException)
@@ -354,15 +354,15 @@ namespace ES.Shared.Services.Controllers.Enquiry
         }
 
         [HttpPost]
-        public HttpResponseMessage GetSalesEnquiry(DateTime FromDate, DateTime ToDate, Int16 WorkOrdeType, Int16 Option, string Type)
+        public HttpResponseMessage GetSalesEnquiry(SalesEnquiryOptionRequestDto salesEnquiryOptionRequestDto)
         {
             HttpResponseMessage httpResponseMessage = new HttpResponseMessage();
 
-            var filePath = System.Configuration.ConfigurationManager.AppSettings["SerialNoEnquiryOption"].ToString();
+            var filePath = System.Configuration.ConfigurationManager.AppSettings["SalesEnquiryOption"].ToString();
 
             try
             {
-                rEnquiryProvider.GetSalesEnquiry(filePath, FromDate, ToDate, WorkOrdeType, Option, Type);
+                rEnquiryProvider.GetSalesEnquiry(filePath, salesEnquiryOptionRequestDto.FromDate, salesEnquiryOptionRequestDto.ToDate, salesEnquiryOptionRequestDto.WorkOrderType, salesEnquiryOptionRequestDto.Option, salesEnquiryOptionRequestDto.Type);
 
                 var dataBytes = File.ReadAllBytes(filePath);
                 //adding bytes to memory stream   
@@ -387,13 +387,13 @@ namespace ES.Shared.Services.Controllers.Enquiry
         }
 
         [HttpPost]
-        public SalesEnquiryOptionResponseDto GetSalesEnquiryForGrid(DateTime FromDate, DateTime ToDate, Int16 WorkOrdeType, Int16 Option, string Type)
+        public SalesEnquiryOptionResponseDto GetSalesEnquiryForGrid(SalesEnquiryOptionRequestDto salesEnquiryOptionRequestDto)
         {
             SalesEnquiryOptionResponseDto response;
 
             try
             {
-                response = rEnquiryProvider.GetSalesEnquiryForGrid(FromDate, ToDate, WorkOrdeType, Option, Type);
+                response = rEnquiryProvider.GetSalesEnquiryForGrid(salesEnquiryOptionRequestDto.FromDate, salesEnquiryOptionRequestDto.ToDate, salesEnquiryOptionRequestDto.WorkOrderType, salesEnquiryOptionRequestDto.Option, salesEnquiryOptionRequestDto.Type);
                 response.ServiceResponseStatus = 1;
             }
             catch (SSException applicationException)

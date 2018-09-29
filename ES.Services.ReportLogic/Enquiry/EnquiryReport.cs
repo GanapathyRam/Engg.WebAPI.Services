@@ -329,7 +329,6 @@ namespace ES.Services.ReportLogic.Enquiry
 
             return getSalesEnquiryOptionResponseDto;
         }
-
         #endregion
     }
 }
