@@ -149,11 +149,11 @@ namespace ES.Services.ReportLogic.Enquiry
         {
             SalesEnquiryOptionResponseDto response = new SalesEnquiryOptionResponseDto();
 
-            var model = enquiryRepository.GetDeliveryFollowUpEnquiryForGrid(FromDate);
+            var model = enquiryRepository.GetSalesEnquiryForGrid(FromDate, ToDate, WorkOrdeType, Option, Type);
 
             if (model != null)
             {
-                response = GetSalesEnquiryForItemMapper((List<SalesEnquiryOptionModel>)model.getDeliveryFollowUpOptionModel, response);
+                response = GetSalesEnquiryForItemMapper((List<SalesEnquiryOptionModel>)model.getSalesEnquiryOptionModel, response);
             }
 
             return response;

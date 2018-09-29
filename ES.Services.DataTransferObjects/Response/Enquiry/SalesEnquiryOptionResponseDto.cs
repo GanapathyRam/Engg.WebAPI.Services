@@ -27,6 +27,6 @@ namespace ES.Services.DataTransferObjects.Response.Enquiry
 
         public decimal IGSTAmount { get; set; }
 
-        public decimal FineTotal { get; set; }
+        public decimal FinalTotal { get; set; }
     }
 }
