@@ -41,8 +41,8 @@ namespace ES.Shared.Services.Controllers.Enquiry
                 httpResponseMessage = Request.CreateResponse(HttpStatusCode.OK);
                 httpResponseMessage.Content = new StreamContent(dataStream);
                 httpResponseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
-                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "StockEnquiryOption.xlsx";
-                httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "StockEnquiryOption";
+                httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
 
                 return httpResponseMessage;
             }
@@ -173,7 +173,7 @@ namespace ES.Shared.Services.Controllers.Enquiry
                 httpResponseMessage = Request.CreateResponse(HttpStatusCode.OK);
                 httpResponseMessage.Content = new StreamContent(dataStream);
                 httpResponseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
-                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "DespatchEnquiryOption";
+                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "InvoicedEnquiryOption";
                 httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
 
                 return httpResponseMessage;
@@ -239,7 +239,7 @@ namespace ES.Shared.Services.Controllers.Enquiry
                 httpResponseMessage = Request.CreateResponse(HttpStatusCode.OK);
                 httpResponseMessage.Content = new StreamContent(dataStream);
                 httpResponseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
-                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "DespatchEnquiryOption";
+                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "SerialEnquiryOption";
                 httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
 
                 return httpResponseMessage;
