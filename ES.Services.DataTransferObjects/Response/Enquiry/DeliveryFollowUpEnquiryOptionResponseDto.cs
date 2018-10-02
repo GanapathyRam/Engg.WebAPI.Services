@@ -25,9 +25,9 @@ namespace ES.Services.DataTransferObjects.Response.Enquiry
 
         public string SerialNo { get; set; }
 
-        public decimal HeatNo { get; set; }
+        public string HeatNo { get; set; }
 
-        public DateTime DeliveryDate { get; set; }
+        public string DeliveryDate { get; set; }
 
         public bool DC { get; set; }
     }

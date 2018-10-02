@@ -5,11 +5,13 @@ using ES.Services.DataTransferObjects.Request.Enquiry;
 using ES.Services.DataTransferObjects.Response.Enquiry;
 using ES.Services.ReportLogic.Enquiry;
 using ES.Services.ReportLogic.Interface.Enquiry;
+using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +19,10 @@ namespace ES.Services.ReportLogic.Enquiry
 {
     public class EnquiryReport : IEnquiryReport
     {
+        protected Application excel = null;
+        protected Workbooks workbooks = null;
+        protected Workbook workbook = null;
+
         private readonly IEnquiryRepository enquiryRepository;
 
         public EnquiryReport(IEnquiryRepository enquiryRepository)
@@ -28,9 +34,12 @@ namespace ES.Services.ReportLogic.Enquiry
         {
             var dataSet = enquiryRepository.GetStockEnquiry(Option);
 
-            ConvertToExcel(dataSet, filePath);
-        }
+            //Open();
 
+            //ConvertToExcel(dataSet, filePath);
+
+            ExportDataSet(dataSet, filePath, "StockEnquiry");
+        }
 
         public StockEnquiryOptionResponseDto GetStockEnquiryForGrid(Int16 Option)
         {
@@ -71,14 +80,18 @@ namespace ES.Services.ReportLogic.Enquiry
         {
             var dataSet = enquiryRepository.GetDespatchEnquiry(despatchEnquiryOptionRequestDto.Option, despatchEnquiryOptionRequestDto.FromDate, despatchEnquiryOptionRequestDto.ToDate);
 
-            ConvertToExcel(dataSet, filePath);
+            //ConvertToExcel(dataSet, filePath);
+
+            ExportDataSet(dataSet, filePath, "DespacthEnquiry");
         }
 
         public void GetInvoicedEnquiry(string filePath)
         {
             var dataSet = enquiryRepository.GetInvoicedEnquiry();
 
-            ConvertToExcel(dataSet, filePath);
+            //ConvertToExcel(dataSet, filePath);
+
+            ExportDataSet(dataSet, filePath, "InvoicedEnquiry");
         }
 
         public InvoicedEnquiryOptionResponseDto GetInvoicedEnquiryForGrid()
@@ -99,7 +112,9 @@ namespace ES.Services.ReportLogic.Enquiry
         {
             var dataSet = enquiryRepository.GetSerialNoEnquiry(SerialNo);
 
-            ConvertToExcel(dataSet, filePath);
+            //ConvertToExcel(dataSet, filePath);
+
+            ExportDataSet(dataSet, filePath, "SerialNoEnquiry");
         }
 
         public SerialNoEnquiryOptionResponseDto GetSerialNoEnquiryForGrid(string SerialNo)
@@ -121,7 +136,9 @@ namespace ES.Services.ReportLogic.Enquiry
         {
             var dataSet = enquiryRepository.GetDeliveryFollowUpEnquiry(FromDate);
 
-            ConvertToExcel(dataSet, filePath);
+            //ConvertToExcel(dataSet, filePath);
+
+            ExportDataSet(dataSet, filePath, "DeliveryFollowUpEnquiry");
         }
 
         public DeliveryFollowUpEnquiryOptionResponseDto GetDeliveryFollowUpEnquiryForGrid(DateTime FromDate)
@@ -142,18 +159,21 @@ namespace ES.Services.ReportLogic.Enquiry
         {
             var dataSet = enquiryRepository.GetSalesEnquiry(FromDate, ToDate, WorkOrdeType, Option, Type);
 
-            ConvertToExcel(dataSet, filePath);
+            //ConvertToExcel(dataSet, filePath);
+
+            ExportDataSet(dataSet, filePath, "SalesEnquiry");
+
         }
 
         public SalesEnquiryOptionResponseDto GetSalesEnquiryForGrid(DateTime FromDate, DateTime ToDate, Int16 WorkOrdeType, Int16 Option, string Type)
         {
             SalesEnquiryOptionResponseDto response = new SalesEnquiryOptionResponseDto();
 
-            var model = enquiryRepository.GetDeliveryFollowUpEnquiryForGrid(FromDate);
+            var model = enquiryRepository.GetSalesEnquiryForGrid(FromDate, ToDate, WorkOrdeType, Option, Type);
 
             if (model != null)
             {
-                response = GetSalesEnquiryForItemMapper((List<SalesEnquiryOptionModel>)model.getDeliveryFollowUpOptionModel, response);
+                response = GetSalesEnquiryForItemMapper((List<SalesEnquiryOptionModel>)model.getSalesEnquiryOptionModel, response);
             }
 
             return response;
@@ -161,24 +181,24 @@ namespace ES.Services.ReportLogic.Enquiry
 
         public void ConvertToExcel(DataSet ds, string filePath)
         {
-            //Instance reference for Excel Application
+            ////Instance reference for Excel Application
 
-            Microsoft.Office.Interop.Excel.Application objXL = null;
+            //Microsoft.Office.Interop.Excel.Application objXL = null;
 
-            //Workbook refrence
+            ////Workbook refrence
 
-            Microsoft.Office.Interop.Excel.Workbook objWB = null;
+            //Microsoft.Office.Interop.Excel.Workbook objWB = null;
 
             try
 
             {
                 //Instancing Excel using COM services
 
-                objXL = new Microsoft.Office.Interop.Excel.Application();
+                excel = new Microsoft.Office.Interop.Excel.Application();
 
                 //Adding WorkBook
 
-                objWB = objXL.Workbooks.Add(ds.Tables.Count);
+                workbook = excel.Workbooks.Add(ds.Tables.Count);
 
                 //Variable to keep sheet count
 
@@ -186,13 +206,13 @@ namespace ES.Services.ReportLogic.Enquiry
 
                 //Do I need to explain this ??? If yes please close my website and learn abc of .net .
 
-                foreach (DataTable dt in ds.Tables)
+                foreach (System.Data.DataTable dt in ds.Tables)
 
                 {
 
                     //Adding sheet to workbook for each datatable
 
-                    Microsoft.Office.Interop.Excel.Worksheet objSHT = (Microsoft.Office.Interop.Excel.Worksheet)objWB.Sheets.Add();
+                    Microsoft.Office.Interop.Excel.Worksheet objSHT = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets.Add();
 
                     //Naming sheet as SheetData1.SheetData2 etc....
 
@@ -234,42 +254,135 @@ namespace ES.Services.ReportLogic.Enquiry
 
                 //Saving the work book
 
-                objWB.Saved = true;
+                //objWB.Saved = true;
 
-                if (File.Exists(filePath))
-                {
-                    File.Delete(filePath);
-                }
+                //if (File.Exists(filePath))
+                //{
+                //    File.Delete(filePath);
+                //}
 
-                objWB.SaveAs(filePath);
+                //objWB.SaveAs(filePath);
 
                 //Closing work book
 
-                objWB.Close();
+                //objWB.Close();
 
                 //Closing excel application
 
-                objXL.Quit();
+                //objXL.Quit();
             }
 
             catch (Exception ex)
 
             {
 
-                objWB.Saved = true;
+                workbook.Saved = true;
 
                 //Closing work book
 
-                objWB.Close();
+                workbook.Close();
 
                 //Closing excel application
 
-                objXL.Quit();
+                excel.Quit();
 
                 Console.Write("Illegal permission");
 
             }
+            finally
+            {
+                SaveAndClose(filePath);
+            }
 
+        }
+
+        private void ExportDataSet(DataSet ds, string filePath, string fileName)
+        {
+            using (Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook())
+            {
+                workbook.Worksheets[0].Name = fileName;
+
+                workbook.Worksheets[0].Cells.ImportDataTable(ds.Tables[0], true, 0, 0, true, false);
+
+                workbook.Save(filePath);
+            }
+        }
+
+        private void ExportDataSetToExcel(DataSet ds)
+        {
+            //Creae an Excel application instance
+
+            //Create an Excel workbook instance and open it from the predefined location
+            workbook = excel.Workbooks.Open(@"F:\Excel_Download\StockEnquiryOption.xlsx");
+
+            //foreach (dynamic worksheet in workbook.Worksheets)
+            //{
+            //    worksheet.Cells.ClearContents();
+            //}
+
+            //workbook.SaveAs(@"F:\Excel_Download\StockEnquiryOption.xlsx");
+
+            foreach (System.Data.DataTable table in ds.Tables)
+            {
+                //Add a new worksheet to workbook with the Datatable name
+                Microsoft.Office.Interop.Excel.Worksheet excelWorkSheet = workbook.Sheets.Add();
+                excelWorkSheet.Name = table.TableName;
+
+                for (int i = 1; i < table.Columns.Count + 1; i++)
+                {
+                    excelWorkSheet.Cells[1, i] = table.Columns[i - 1].ColumnName;
+                }
+
+                for (int j = 0; j < table.Rows.Count; j++)
+                {
+                    for (int k = 0; k < table.Columns.Count; k++)
+                    {
+                        excelWorkSheet.Cells[j + 2, k + 1] = table.Rows[j].ItemArray[k].ToString();
+                    }
+                }
+            }
+
+            SaveAndClose(@"F:\Excel_Download\StockEnquiryOption.xlsx");
+
+        }
+
+        public void Open()
+        {
+            excel = new Application();
+            excel.Visible = false;
+            excel.DisplayAlerts = false;
+            excel.StandardFont = "Arial";
+            workbooks = excel.Workbooks;
+            workbook = workbooks.Add(Type.Missing);
+        }
+
+        public void SaveAndClose(string path)
+        {
+            if (workbook != null)
+            {
+                workbook.SaveAs(path);
+                workbook.Close();
+                Marshal.FinalReleaseComObject(workbook);
+                workbook = null;
+
+                workbooks.Close();
+                Marshal.FinalReleaseComObject(workbooks);
+                workbooks = null;
+            }
+
+            if (excel != null)
+            {
+                excel.Application.Workbooks.Close();
+                excel.Application.Quit();
+                excel.Quit();
+
+                Marshal.FinalReleaseComObject(excel.Application);
+                Marshal.FinalReleaseComObject(excel);
+                excel = null;
+            }
+
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
 
         #region Mapper

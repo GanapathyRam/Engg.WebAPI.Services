@@ -1,6 +1,8 @@
 ﻿using ES.Services.DataTransferObjects.Request.Enquiry;
 using ES.Services.DataTransferObjects.Response.Enquiry;
 using ES.Services.ReportLogic.Interface.Enquiry;
+using log4net;
+using log4net.Repository.Hierarchy;
 using SS.Framework.Exceptions;
 using StructureMap;
 using System;
@@ -10,6 +12,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web;
 
 namespace ES.Shared.Services.Controllers.Enquiry
 {
@@ -41,7 +44,7 @@ namespace ES.Shared.Services.Controllers.Enquiry
                 httpResponseMessage = Request.CreateResponse(HttpStatusCode.OK);
                 httpResponseMessage.Content = new StreamContent(dataStream);
                 httpResponseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
-                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "StockEnquiryOption.xlsx";
+                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "StockEnquiryOption";
                 httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 
                 return httpResponseMessage;
@@ -49,8 +52,11 @@ namespace ES.Shared.Services.Controllers.Enquiry
             catch (SSException applicationException)
             {
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
+                //Logger.Error(ex, ex.Message + "Exception occured during exporting carousel information into excel.");
+                //httpResponseMessage = Request.CreateResponse(HttpStatusCode.InternalServerError);
+                //return httpResponseMessage;
             }
 
             return httpResponseMessage;
@@ -173,7 +179,7 @@ namespace ES.Shared.Services.Controllers.Enquiry
                 httpResponseMessage = Request.CreateResponse(HttpStatusCode.OK);
                 httpResponseMessage.Content = new StreamContent(dataStream);
                 httpResponseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
-                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "DespatchEnquiryOption";
+                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "InvoicedEnquiryOption";
                 httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
 
                 return httpResponseMessage;
@@ -239,7 +245,7 @@ namespace ES.Shared.Services.Controllers.Enquiry
                 httpResponseMessage = Request.CreateResponse(HttpStatusCode.OK);
                 httpResponseMessage.Content = new StreamContent(dataStream);
                 httpResponseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
-                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "DespatchEnquiryOption";
+                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "SerialNoEnquiryOption";
                 httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
 
                 return httpResponseMessage;

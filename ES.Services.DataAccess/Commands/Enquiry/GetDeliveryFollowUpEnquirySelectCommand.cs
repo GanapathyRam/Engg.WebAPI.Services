@@ -20,7 +20,7 @@ namespace ES.Services.DataAccess.Commands.Enquiry
                 sqlCommand.Connection = Connection;
                 sqlCommand.CommandText = "[dbo].[uspGetDeliveryFollowUpEnquiry]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.Add(AddParameter("@CutOffDate", SsDbType.NVarChar, ParameterDirection.Input, FromDate));
+                sqlCommand.Parameters.Add(AddParameter("@CutOffDate", SsDbType.DateTime, ParameterDirection.Input, FromDate));
 
                 ds = SsDbCommandHelper.ExecuteDataset(sqlCommand);
             }
