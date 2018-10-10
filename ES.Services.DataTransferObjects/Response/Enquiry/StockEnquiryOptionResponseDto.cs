@@ -30,7 +30,7 @@ namespace ES.Services.DataTransferObjects.Response.Enquiry
 
         public string WONumber { get; set; }
 
-        public DateTime WODate { get; set; }
+        public string WODate { get; set; }
 
         public string WOType { get; set; }
 

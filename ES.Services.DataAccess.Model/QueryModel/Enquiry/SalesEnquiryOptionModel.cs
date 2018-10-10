@@ -10,7 +10,7 @@ namespace ES.Services.DataAccess.Model.QueryModel.Enquiry
     {
         public string InvoiceNumber { get; set; }
 
-        public DateTime InvoiceDate { get; set; }
+        public string InvoiceDate { get; set; }
 
         public string VendorName { get; set; }
 

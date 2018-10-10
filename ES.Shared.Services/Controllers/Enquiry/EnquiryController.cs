@@ -186,9 +186,11 @@ namespace ES.Shared.Services.Controllers.Enquiry
             }
             catch (SSException applicationException)
             {
+                
             }
             catch (Exception exception)
             {
+
             }
 
             return httpResponseMessage;

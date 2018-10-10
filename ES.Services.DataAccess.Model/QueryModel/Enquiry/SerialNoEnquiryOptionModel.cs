@@ -24,7 +24,7 @@ namespace ES.Services.DataAccess.Model.QueryModel.Enquiry
 
         public decimal WOSerial { get; set; }
 
-        public DateTime WODate { get; set; }
+        public string WODate { get; set; }
 
         public string CustomerDCNumber { get; set; }
 
@@ -38,11 +38,11 @@ namespace ES.Services.DataAccess.Model.QueryModel.Enquiry
 
         public string DCNumber { get; set; }
 
-        public DateTime DCDate { get; set; }
+        public string DCDate { get; set; }
 
         public string InvoiceNumber { get; set; }
 
-        public DateTime InvoiceDate { get; set; }
+        public string InvoiceDate { get; set; }
 
         public decimal Rate { get; set; }
 
