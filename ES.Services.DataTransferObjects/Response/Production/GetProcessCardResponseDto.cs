@@ -27,6 +27,8 @@ namespace ES.Services.DataTransferObjects.Response.Production
 
         public string JigCode { get; set; }
 
+        public string ItemCode { get; set; }
+
         public string MachineDescription { get; set; }
 
         public string JigDescription { get; set; }

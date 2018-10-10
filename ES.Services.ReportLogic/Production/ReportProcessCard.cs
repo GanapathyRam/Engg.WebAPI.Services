@@ -102,6 +102,7 @@ namespace ES.Services.ReportLogic.Production
                         getsingle.VendorName = processCardDetails.VendorName;
                         getsingle.MaxSerial = processCardDetails.MaxSerial;
                         getsingle.IsNew = false;
+                        getsingle.ItemCode = processCardDetails.ItemCode;
                         getsingle.GetProcessCardDetailsResponse.Add(processCardDetailsItems);
                        
                         response.GetProcessCardMasterResponse.Add(getsingle);
@@ -122,6 +123,7 @@ namespace ES.Services.ReportLogic.Production
                     getsingle.VendorName = processCardDetails.VendorName;
                     getsingle.MaxSerial = processCardDetails.MaxSerial;
                     getsingle.IsNew = false;
+                    getsingle.ItemCode = processCardDetails.ItemCode;
                     getsingle.GetProcessCardDetailsResponse.Add(processCardDetailsItems);
 
                     response.GetProcessCardMasterResponse.Add(getsingle);

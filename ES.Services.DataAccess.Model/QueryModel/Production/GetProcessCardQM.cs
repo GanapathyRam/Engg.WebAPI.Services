@@ -22,6 +22,8 @@ namespace ES.Services.DataAccess.Model.QueryModel.Production
 
         public string JigCode { get; set; }
 
+        public string ItemCode { get; set; }
+
         public string SettingTime { get; set; }
 
         public string RunningTime { get; set; }
