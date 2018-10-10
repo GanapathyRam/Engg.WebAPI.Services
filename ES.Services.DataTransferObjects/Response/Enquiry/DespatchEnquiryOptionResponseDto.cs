@@ -29,11 +29,11 @@ namespace ES.Services.DataTransferObjects.Response.Enquiry
 
         public decimal DCSerial { get; set; }
 
-        public DateTime DCDate { get; set; }
+        public string DCDate { get; set; }
 
         public string WONumber { get; set; }
 
-        public DateTime WODate { get; set; }
+        public string WODate { get; set; }
 
         public decimal WOSerial { get; set; }
 
