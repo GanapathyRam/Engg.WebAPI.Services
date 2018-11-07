@@ -14,6 +14,8 @@ namespace ES.Services.DataAccess.Model.QueryModel.Despatch
 
         public decimal PartCode { get; set; }
 
+        public string ItemCode { get; set; }
+
         public decimal Quantity { get; set; }
 
         public string Remarks { get; set; }

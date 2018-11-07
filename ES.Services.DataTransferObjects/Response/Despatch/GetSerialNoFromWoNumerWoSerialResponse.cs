@@ -15,5 +15,6 @@ namespace ES.Services.DataTransferObjects.Response.Despatch
         public string DCNumber { get; set; }
 
         public decimal WOSerial { get; set; }
+
     }
 }

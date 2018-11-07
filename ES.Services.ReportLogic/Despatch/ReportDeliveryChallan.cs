@@ -58,7 +58,7 @@ namespace ES.Services.ReportLogic.Despatch
                 getWoMasterDetailsResponse.WOSerial = dcMasterDetails.WOSerial;
                 getWoMasterDetailsResponse.DCNumber = dcMasterDetails.DCNumber;
                 getWoMasterDetailsResponse.IsNew = dcMasterDetails.IsNew ? false : true;
-
+                getWoMasterDetailsResponse.HeatNo = dcMasterDetails.HeatNo;
                 if (response.getWOMasterForDcResponseList.Count > 0)
                 {
                     var isExist = response.getWOMasterForDcResponseList.Any(dcMaster => dcMaster.WONumber == dcMasterDetails.WONumber && dcMaster.WOSerial == dcMasterDetails.WOSerial);

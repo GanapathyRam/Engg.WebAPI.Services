@@ -18,5 +18,6 @@ namespace ES.Services.DataAccess.Model.QueryModel.Despatch
         public string MaterialDescription { get; set; }
         public string DCNumber { get; set; }
         public string PONumber { get; set; }
+        public string HeatNo { get; set; }
     }
 }

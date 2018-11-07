@@ -47,5 +47,6 @@ namespace ES.Services.DataTransferObjects.Response.Despatch
         public bool IsDeletable { get; set; }
 
         public bool IsNew { get; set; }
+        public string HeatNo { get; set; }
     }
 }

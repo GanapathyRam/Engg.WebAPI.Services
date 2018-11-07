@@ -19,6 +19,7 @@ namespace ES.Services.DataTransferObjects.Response.Despatch
         public string DCNumber { get; set; }
         public string PONumber { get; set; }
 
+
         public IEnumerable<GetSerialNoFromWoNumerWoSerialResponse> getSerialNoFromWoNumerWoSerialResponseList;
     }
 }
