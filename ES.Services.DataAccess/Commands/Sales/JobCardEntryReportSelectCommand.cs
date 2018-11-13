@@ -28,10 +28,7 @@ namespace ES.Services.DataAccess.Commands.Sales
 
                 using (var reader = SsDbCommandHelper.ExecuteReader(sqlCommand))
                 {
-                    if (reader.Read())
-                    {
-                        response.GetJobCardEntryReportModel = reader.ToList<GetJobCardEntryReportModel>();
-                    }
+                    response.GetJobCardEntryReportModel = reader.ToList<GetJobCardEntryReportModel>();
                 }
             }
 
