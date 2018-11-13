@@ -81,7 +81,7 @@ namespace ES.Services.BusinessLogic.Despatch
                     var invoiceDetailSerialItem = new InvoiceDetailSerialItem
                     {
                         InvoiceNumber = addInvoiceRequestDto.InvoiceNumber,
-                        InvoiceSerial = addInvoiceRequestDto.GetInvoiceDetailList.FirstOrDefault().InvoiceSerial,
+                        InvoiceSerial = invoiceDetailsSerial.InvoiceSerial,
                         DcNumber = invoiceDetailsSerial.DcNumber,
                         DcSerial = invoiceDetailsSerial.DcSerial,
                         SerialNo = invoiceDetailsSerial.SerialNo,
