@@ -16,10 +16,10 @@ namespace ES.Services.DataAccess.Model.CommandModel.Sales
         public string WorkOrderNumber { get; set; }
         public decimal WorkOrderSerial { get; set; }
         public string DCNumber { get; set; }
-        public DateTime DCDate { get; set; }
+        public DateTime? DCDate { get; set; }
         public string DCSerial { get; set; }
         public string PONumber { get; set; }
-        public DateTime PODate { get; set; }
+        public DateTime? PODate { get; set; }
         public string POSerial { get; set; }
         public string DrawingNo { get; set; }
         public string DrawingRev { get; set; }

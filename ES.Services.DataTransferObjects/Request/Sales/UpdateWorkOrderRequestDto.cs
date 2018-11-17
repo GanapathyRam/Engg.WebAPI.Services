@@ -28,7 +28,7 @@ namespace ES.Services.DataTransferObjects.Request.Sales
         public decimal PartCode { get; set; }
         public decimal WOQuantity { get; set; }
         public decimal Rate { get; set; }
-        public DateTime? DeliveryDate { get; set; }
+        public DateTime DeliveryDate { get; set; }
         public Guid UpdatedBy { get; set; }
         public DateTime UpdatedDateTime { get; set; }
         public Int64 VendorCode { get; set; }
