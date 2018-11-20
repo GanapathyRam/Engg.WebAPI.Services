@@ -23,8 +23,8 @@ namespace ES.Services.DataAccess.Commands.SubContract
                 sqlCommand.Parameters.Add(AddParameter("@VendorCode", SsDbType.BigInt, ParameterDirection.Input, VendorCode));
                 sqlCommand.Parameters.Add(AddParameter("@VendorDCNumber", SsDbType.VarChar, ParameterDirection.Input, VendorDCNumber));
                 sqlCommand.Parameters.Add(AddParameter("@ScReceivingVendorDCDate", SsDbType.DateTime, ParameterDirection.Input, ScReceivingVendorDate));
-                sqlCommand.Parameters.Add(AddParameter("@Vehicle", SsDbType.NVarChar, ParameterDirection.Input, Vehicle));
-                sqlCommand.Parameters.Add(AddParameter("@Remarks", SsDbType.NVarChar, ParameterDirection.Input, Remarks));
+                sqlCommand.Parameters.Add(AddParameter("@Vehicle", SsDbType.NVarChar, ParameterDirection.Input, Vehicle == null ? "" : Vehicle));
+                sqlCommand.Parameters.Add(AddParameter("@Remarks", SsDbType.NVarChar, ParameterDirection.Input, Remarks == null ? "" : Remarks));
                 sqlCommand.Parameters.Add(AddParameter("@CreatedBy", SsDbType.UniqueIdentifier, ParameterDirection.Input, new Guid()));
                 sqlCommand.Parameters.Add(AddParameter("@CreatedDateTime", SsDbType.DateTime, ParameterDirection.Input, DateTime.UtcNow));
 
