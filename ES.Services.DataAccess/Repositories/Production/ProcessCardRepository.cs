@@ -75,5 +75,30 @@ namespace ES.Services.DataAccess.Repositories.Production
                 command.Execute(deleteProcessCardCM.PartCode, deleteProcessCardCM.SequenceNumber, deleteProcessCardCM.SerialNo, deleteProcessCardCM.IsDeleteFrom);
             }
         }
+
+        public GetProcesssCardCopyQM GetProcessCardCopy()
+        {
+            GetProcesssCardCopyQM model = new GetProcesssCardCopyQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetProcessCardCopySelectCommand { Connection = connection };
+                model = command.Execute();
+            }
+
+            return model;
+        }
+
+        public void AddProcessCardCopy(decimal FromPartCode, decimal ToPartCode)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new AddProcessCardCopyCommand { Connection = connection };
+                command.Execute(FromPartCode, ToPartCode);
+            }
+        }
     }
 }

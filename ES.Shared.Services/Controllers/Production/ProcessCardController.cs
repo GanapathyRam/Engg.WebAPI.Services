@@ -153,5 +153,69 @@ namespace ES.Shared.Services.Controllers.Production
 
             return response;
         }
+
+        [HttpPost]
+        public GetProcesssCardCopyResponseDto GetProcessCardCopy()
+        {
+            GetProcesssCardCopyResponseDto response = new GetProcesssCardCopyResponseDto();
+            try
+            {
+                response = rProcessCardProvider.GetProcessCardCopy();
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetProcesssCardCopyResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetProcesssCardCopyResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        [HttpPost]
+        public AddProcesssCardCopyResponseDto AddProcessCardCopy(AddProcesssCardCopyRequestDto addProcesssCardCopyRequestDto)
+        {
+            AddProcesssCardCopyResponseDto response = new AddProcesssCardCopyResponseDto();
+            try
+            {
+                response = bProcessCardProvider.AddProcessCardCopy(addProcesssCardCopyRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new AddProcesssCardCopyResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new AddProcesssCardCopyResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
     }
 }

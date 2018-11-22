@@ -152,5 +152,13 @@ namespace ES.Services.BusinessLogic.Production
 
             return response;
         }
+
+        public AddProcesssCardCopyResponseDto AddProcessCardCopy(AddProcesssCardCopyRequestDto addProcesssCardCopyRequestDto)
+        {
+            AddProcesssCardCopyResponseDto response = new AddProcesssCardCopyResponseDto();
+            processCardRepository.AddProcessCardCopy(addProcesssCardCopyRequestDto.FromPartCode, addProcesssCardCopyRequestDto.ToPartCode);
+
+            return response;
+        }
     }
 }

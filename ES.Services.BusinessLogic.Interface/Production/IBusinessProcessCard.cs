@@ -13,5 +13,7 @@ namespace ES.Services.BusinessLogic.Interface.Production
         AddProcessCardResponseDto AddProcessCard(AddProcessCardRequestDto addProcessCardRequestDto);
 
         DeleteProcessCardResponseDto DeleteProcessCard(DeleteProcessCardRequestDto deleteProcessCardRequestDto);
+
+        AddProcesssCardCopyResponseDto AddProcessCardCopy(AddProcesssCardCopyRequestDto addProcesssCardCopyRequestDto);
     }
 }

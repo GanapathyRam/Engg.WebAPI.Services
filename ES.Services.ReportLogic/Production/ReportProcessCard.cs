@@ -133,6 +133,19 @@ namespace ES.Services.ReportLogic.Production
             return response;
         }
 
+        public GetProcesssCardCopyResponseDto GetProcessCardCopy()
+        {
+            GetProcesssCardCopyResponseDto response = new GetProcesssCardCopyResponseDto();
+
+            var model = processCardRepository.GetProcessCardCopy();
+
+            if (model != null)
+            {
+                response = GetProcessCardCopyMapper((List<GetProcesssCardCopyQMModel>)model.GetProcesssCardCopyQMModel, response);
+            }
+
+            return response;
+        }
 
         #region Mapper Method
         private static GetSequenceNumberResponseDto GetSequnceNumberMapper(List<GetSequenceNumberModel> list, GetSequenceNumberResponseDto getSequenceNumberResponseDto)
@@ -151,6 +164,15 @@ namespace ES.Services.ReportLogic.Production
                 Mapper.Map<List<GetProcessCardQMModel>, List<ProcessCardDetailsResponse>>(list);
 
             return getProcessCardMasterResponse;
+        }
+
+        private static GetProcesssCardCopyResponseDto GetProcessCardCopyMapper(List<GetProcesssCardCopyQMModel> list, GetProcesssCardCopyResponseDto getProcesssCardCopyResponseDto)
+        {
+            Mapper.CreateMap<GetProcesssCardCopyQMModel, GetProcesssCardCopyResponse>();
+            getProcesssCardCopyResponseDto.GetProcesssCardCopyResponse =
+                Mapper.Map<List<GetProcesssCardCopyQMModel>, List<GetProcesssCardCopyResponse>>(list);
+
+            return getProcesssCardCopyResponseDto;
         }
 
         #endregion
