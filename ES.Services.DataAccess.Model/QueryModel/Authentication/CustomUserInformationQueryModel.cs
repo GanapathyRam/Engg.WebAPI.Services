@@ -22,5 +22,7 @@ namespace ES.Services.DataAccess.Model.QueryModel.Authentication
 
         public string PhoneNumber { get; set; }
 
-}
+        public int RoleId { get; set; }
+
+    }
 }

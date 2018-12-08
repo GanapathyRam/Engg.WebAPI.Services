@@ -33,12 +33,13 @@ namespace ES.Services.DataAccess.Commands.Authentication
                 sqlCommand.Parameters.Add(this.AddParameter("@LoginName", SsDbType.NVarChar, ParameterDirection.Input, registrationCM.LoginName));
                 sqlCommand.Parameters.Add(this.AddParameter("@UserPassword", SsDbType.NVarChar, ParameterDirection.Input, registrationCM.UserPassword));
                 sqlCommand.Parameters.Add(this.AddParameter("@PasswordSalt", SsDbType.NVarChar, ParameterDirection.Input, registrationCM.PasswordSalt));
+                sqlCommand.Parameters.Add(this.AddParameter("@RoleId", SsDbType.Int, ParameterDirection.Input, registrationCM.RoleId));
                 sqlCommand.Parameters.Add(this.AddParameter("@RegisteredUserId", SsDbType.UniqueIdentifier, ParameterDirection.Output));
-
+               
                 var reader = sqlCommand.ExecuteNonQuery();
                 registrationQM.RegisteredUserId = (Guid)sqlCommand.Parameters["@RegisteredUserId"].Value;
             }
                 return registrationQM;
         }
-        }
+    }
 }

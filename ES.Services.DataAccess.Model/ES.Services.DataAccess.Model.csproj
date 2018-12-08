@@ -49,6 +49,8 @@
   <ItemGroup>
     <Compile Include="CommandModel\Authentication\CustomUserInformationCommandModel.cs" />
     <Compile Include="CommandModel\Authentication\RegistrationCM.cs" />
+    <Compile Include="CommandModel\Authentication\UserActivateCM.cs" />
+    <Compile Include="CommandModel\Authentication\UserPasswordCM.cs" />
     <Compile Include="CommandModel\Despatch\DcDetailSerialCM.cs" />
     <Compile Include="CommandModel\Despatch\DeleteDcDetailsCM.cs" />
     <Compile Include="CommandModel\Despatch\DeleteInvoiceCM.cs" />
@@ -111,6 +113,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryModel\Authentication\CustomUserInformationQueryModel.cs" />
     <Compile Include="QueryModel\Authentication\RegistrationQM.cs" />
+    <Compile Include="QueryModel\Authentication\RolesQM.cs" />
+    <Compile Include="QueryModel\Authentication\UserActivateQM.cs" />
+    <Compile Include="QueryModel\Authentication\UsersQM.cs" />
     <Compile Include="QueryModel\Despatch\DcTypeModel.cs" />
     <Compile Include="QueryModel\Despatch\GetDcDetailsForInvoiceModel.cs" />
     <Compile Include="QueryModel\Despatch\GetDcDetailsForInvoiceQM.cs" />

@@ -47,6 +47,10 @@
   <ItemGroup>
     <Compile Include="Commands\Authentication\CustomUserInformationSelectCommand.cs" />
     <Compile Include="Commands\Authentication\RegistrationInsertCommand.cs" />
+    <Compile Include="Commands\Authentication\RolesSelectCommand.cs" />
+    <Compile Include="Commands\Authentication\UserActivateCommand.cs" />
+    <Compile Include="Commands\Authentication\UserPasswordCommand.cs" />
+    <Compile Include="Commands\Authentication\UsersSelectCommand.cs" />
     <Compile Include="Commands\Despatch\DcDeleteCommand.cs" />
     <Compile Include="Commands\Despatch\DcDetailsInsertCommand.cs" />
     <Compile Include="Commands\Despatch\DcDetailsUpdateCommand.cs" />

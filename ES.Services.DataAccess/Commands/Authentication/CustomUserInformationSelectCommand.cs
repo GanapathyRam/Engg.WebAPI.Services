@@ -36,7 +36,8 @@ namespace ES.Services.DataAccess.Commands.Authentication
                         LoginName = reader["LoginName"].ToString(),
                         Email = reader["Email"].ToString(),
                         PhoneNumber = reader["PhoneNumber"].ToString(),
-                        FullName = reader["FirstName"].ToString() + " " + reader["LastName"].ToString()
+                        FullName = reader["FirstName"].ToString() + " " + reader["LastName"].ToString(),
+                        RoleId= Int32.Parse(reader["RoleId"].ToString())
                     };
                 }
                 else {

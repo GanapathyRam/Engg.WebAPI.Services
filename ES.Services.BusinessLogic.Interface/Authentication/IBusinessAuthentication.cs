@@ -11,5 +11,7 @@ namespace ES.Services.BusinessLogic.Interface.Authentication
   public interface IBusinessAuthentication
     {
         RegistrationResponseDto RegisterUser(RegistrationRequestDto registrationRequestDto);
+        UserActivateResponseDto UpdateUserActive(UserActivateRequestDto userActivateRequestDto);
+        UserActivateResponseDto UpdateUserPassword(UserPasswordRequestDto userPasswordRequestDto);
     }
 }

@@ -21,7 +21,7 @@ namespace ES.Services.BusinessLogic.Authentication
         }
         public RegistrationResponseDto RegisterUser(RegistrationRequestDto registrationRequestDto)
         {
-            RegistrationResponseDto registrationResponseDto=new RegistrationResponseDto();
+            RegistrationResponseDto registrationResponseDto = new RegistrationResponseDto();
             var keyNew = Helper.GeneratePassword(25);
             var password = Helper.EncodePassword(registrationRequestDto.UserPassword, keyNew);
             var cModel = new RegistrationCM
@@ -32,15 +32,47 @@ namespace ES.Services.BusinessLogic.Authentication
                 Email = registrationRequestDto.Email,
                 PhoneNumber = registrationRequestDto.PhoneNumber,
                 PasswordSalt = keyNew,
-                IsActive =true,
+                IsActive = true,
                 FirstName = registrationRequestDto.FirstName,
                 LastName = registrationRequestDto.LastName,
-
+                RoleId = registrationRequestDto.RoleId
             };
 
             var response = authenticationRepository.UserRegistration(cModel);
             registrationResponseDto.RegisteredUserId = response.RegisteredUserId;
             return registrationResponseDto;
+        }
+
+        public UserActivateResponseDto UpdateUserActive(UserActivateRequestDto userActivateRequestDto)
+        {
+            UserActivateResponseDto userActivateResponseDto = new UserActivateResponseDto();
+            var cModel = new UserActivateCM
+            {
+                UserId = userActivateRequestDto.UserId,
+                IsActive = userActivateRequestDto.IsActive
+            };
+            var response = authenticationRepository.UpdateUserActive(cModel);
+
+            userActivateResponseDto.RegisteredUserId = response.RegisteredUserId;
+            return userActivateResponseDto;
+        }
+
+        public UserActivateResponseDto UpdateUserPassword(UserPasswordRequestDto userPasswordRequestDto)
+        {
+            UserActivateResponseDto userActivateResponseDto = new UserActivateResponseDto();
+            var keyNew = Helper.GeneratePassword(25);
+            var password = Helper.EncodePassword(userPasswordRequestDto.NewPassword, keyNew);
+            var cModel = new UserPasswordCM
+            {
+                UserId = userPasswordRequestDto.UserId,
+                UserPassword = password,
+                PasswordSalt = keyNew
+
+            };
+            var response = authenticationRepository.UpdateUserPassword(cModel);
+
+            userActivateResponseDto.RegisteredUserId = response.RegisteredUserId;
+            return userActivateResponseDto;
         }
     }
 }

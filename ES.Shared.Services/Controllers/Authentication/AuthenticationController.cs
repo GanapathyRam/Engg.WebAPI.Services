@@ -22,6 +22,72 @@ namespace ES.Shared.Services.Controllers.Authentication
         }
 
         [HttpPost]
+        public RoleResponseDto GetRoles()
+        {
+            RoleResponseDto roleResponseDto;
+            try
+            {
+                roleResponseDto = reportAuthentication.GetRoles();
+                roleResponseDto.ServiceResponseStatus = 1;
+                
+            }
+            catch (SSException exception)
+            {
+                roleResponseDto = new RoleResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = exception.Message,
+                    ErrorCode = exception.ExceptionCode
+                };
+            }
+            catch (Exception exception)
+            {
+                roleResponseDto = new RoleResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return roleResponseDto;
+        }
+
+
+        [HttpPost]
+        public UsersResponseDto GetUsers()
+        {
+            UsersResponseDto usersResponseDto;
+            try
+            {
+                usersResponseDto = reportAuthentication.GetUsers();
+                usersResponseDto.ServiceResponseStatus = 1;
+
+            }
+            catch (SSException exception)
+            {
+                usersResponseDto = new UsersResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = exception.Message,
+                    ErrorCode = exception.ExceptionCode
+                };
+            }
+            catch (Exception exception)
+            {
+                usersResponseDto = new UsersResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return usersResponseDto;
+        }
+
+
+        [HttpPost]
         public AuthenticationResponseDto Authenticate(AuthenticationRequestDto authenticationRequestDto)
         {
             AuthenticationResponseDto authenticationResponseDto;
@@ -91,6 +157,86 @@ namespace ES.Shared.Services.Controllers.Authentication
 
 
             return registrationResponseDto;
+        }
+
+        public UserActivateResponseDto UpdateUserActive(UserActivateRequestDto userActivateRequestDto)
+        {
+            UserActivateResponseDto userActivateResponseDto;
+
+            try
+            {
+                userActivateResponseDto = businessAuthentication.UpdateUserActive(userActivateRequestDto);
+                userActivateResponseDto.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                userActivateResponseDto = new UserActivateResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                userActivateResponseDto = new UserActivateResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+
+            return userActivateResponseDto;
+        }
+
+        public UserActivateResponseDto UpdateUserPassword(UserPasswordRequestDto userPasswordRequestDto)
+        {
+            UserActivateResponseDto userActivateResponseDto =new UserActivateResponseDto();
+
+            try
+            {
+                AuthenticationRequestDto authenticationRequestDto = new AuthenticationRequestDto {
+                    UserName= userPasswordRequestDto.UserName,
+                    UserPassword= userPasswordRequestDto.Password
+                };
+                var authenticationResponseDto = reportAuthentication.Authenticate(authenticationRequestDto);
+                if (string.IsNullOrEmpty(authenticationResponseDto.LoginName))
+                {
+                    userActivateResponseDto.ServiceResponseStatus = 0;
+                    userActivateResponseDto.ErrorMessage = "Old Password is invalid";
+                }
+                else
+                {
+                    userActivateResponseDto = businessAuthentication.UpdateUserPassword(userPasswordRequestDto);
+                    userActivateResponseDto.ServiceResponseStatus = 1;
+                }
+                
+            }
+            catch (SSException applicationException)
+            {
+                userActivateResponseDto = new UserActivateResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                userActivateResponseDto = new UserActivateResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+
+            return userActivateResponseDto;
         }
     }
 }

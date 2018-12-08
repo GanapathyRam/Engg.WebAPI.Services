@@ -22,6 +22,7 @@ namespace ES.Services.DataAccess.Model.CommandModel.Authentication
         public bool? IsActive { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public int RoleId { get; set; }
 
     }
 }

@@ -7,5 +7,9 @@ namespace ES.Services.DataAccess.Interface.Authentication
     {
         CustomUserInformationQueryModel GetUserInformation(CustomUserInformationCommandModel customUserInformationCM);
         RegistrationQM UserRegistration(RegistrationCM registrationCM);
+        RolesQM GetRoles();
+        UsersQM GetUsers();
+        UserActivateQM UpdateUserActive(UserActivateCM userActivateCM);
+        UserActivateQM UpdateUserPassword(UserPasswordCM userPasswordCM);
     }
 }

@@ -1,4 +1,5 @@
-﻿using ES.ExceptionAttributes;
+﻿using AutoMapper;
+using ES.ExceptionAttributes;
 using ES.Services.DataAccess.Interface.Authentication;
 using ES.Services.DataAccess.Model.CommandModel.Authentication;
 using ES.Services.DataAccess.Model.QueryModel.Authentication;
@@ -21,6 +22,49 @@ namespace ES.Services.ReportLogic.Authentication
         public ReportAuthentication(IAuthenticationRepository authenticationRepository)
         {
             this.authenticationRepository = authenticationRepository;
+        }
+
+        public RoleResponseDto GetRoles()
+        {
+            var response = new RoleResponseDto();
+            var model = authenticationRepository.GetRoles();
+            if (model != null)
+            {
+                response = RolesMapper((List<RoleResponseModel>)model.roleList, response);
+            }
+
+            return response;
+        }
+
+        public UsersResponseDto GetUsers()
+        {
+            var response = new UsersResponseDto();
+            var model = authenticationRepository.GetUsers();
+            if (model != null)
+            {
+                response = UsersMapper((List<UserResponseModel>)model.userList, response);
+            }
+
+            return response;
+        }
+
+
+        private static RoleResponseDto RolesMapper(List<RoleResponseModel> list, RoleResponseDto roleResponseDto)
+        {
+            Mapper.CreateMap<RoleResponseModel, RoleResponse>();
+            roleResponseDto.roleList =
+                Mapper.Map<List<RoleResponseModel>, List<RoleResponse>>(list);
+
+            return roleResponseDto;
+        }
+
+        private static UsersResponseDto UsersMapper(List<UserResponseModel> list, UsersResponseDto usersResponseDto)
+        {
+            Mapper.CreateMap<UserResponseModel, UserResponse>();
+            usersResponseDto.userList =
+                Mapper.Map<List<UserResponseModel>, List<UserResponse>>(list);
+
+            return usersResponseDto;
         }
 
         public AuthenticationResponseDto Authenticate(AuthenticationRequestDto authenticationRequestDto)
@@ -104,6 +148,8 @@ namespace ES.Services.ReportLogic.Authentication
                 LoginName = userInformation.LoginName,
                 Email = userInformation.Email,
                 PhoneNumber = userInformation.PhoneNumber,
+                RoleId = userInformation.RoleId,
+                FullName = userInformation.FirstName + ' ' + userInformation.LastName
             };
 
             return authenticationResponseDto;

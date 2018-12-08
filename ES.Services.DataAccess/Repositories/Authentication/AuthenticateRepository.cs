@@ -34,5 +34,57 @@ namespace ES.Services.DataAccess.Repositories.Authentication
             }
             return registrationQM;
         }
+
+        public RolesQM GetRoles()
+        {
+            RolesQM rolesQM;
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var rolesInsertCommand = new RolesSelectCommand { Connection = connection };
+                rolesQM = rolesInsertCommand.Execute();
+            }
+            return rolesQM;
+        }
+
+        public UsersQM GetUsers()
+        {
+            UsersQM usersQM;
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var rolesInsertCommand = new UsersSelectCommand { Connection = connection };
+                usersQM = rolesInsertCommand.Execute();
+            }
+            return usersQM;
+        }
+
+        public UserActivateQM UpdateUserActive(UserActivateCM userActivateCM)
+        {
+            UserActivateQM userActivateQM;
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var registrationInsertCommand = new UserActivateCommand { Connection = connection };
+                userActivateQM = registrationInsertCommand.Execute(userActivateCM);
+            }
+            return userActivateQM;
+        }
+
+        public UserActivateQM UpdateUserPassword(UserPasswordCM userPasswordCM)
+        {
+            UserActivateQM userActivateQM;
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var registrationInsertCommand = new UserPasswordCommand { Connection = connection };
+                userActivateQM = registrationInsertCommand.Execute(userPasswordCM);
+            }
+            return userActivateQM;
+        }
     }
 }

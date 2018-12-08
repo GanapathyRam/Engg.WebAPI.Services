@@ -48,6 +48,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\Authentication\AuthenticationRequestDto.cs" />
     <Compile Include="Request\Authentication\RegistrationRequestDto.cs" />
+    <Compile Include="Request\Authentication\RoleRequestDto.cs" />
+    <Compile Include="Request\Authentication\UserActivateRequestDto.cs" />
+    <Compile Include="Request\Authentication\UserPasswordRequestDto.cs" />
     <Compile Include="Request\Despatch\AddInvoiceRequestDto.cs" />
     <Compile Include="Request\Despatch\DeleteDcRequestDto.cs" />
     <Compile Include="Request\Despatch\DeleteInvoiceRequestDto.cs" />
@@ -126,6 +129,9 @@
     <Compile Include="Request\SubContract\SubContractRequestDto.cs" />
     <Compile Include="Response\Authentication\AuthenticationResponseDto.cs" />
     <Compile Include="Response\Authentication\RegistrationResponseDto.cs" />
+    <Compile Include="Response\Authentication\RoleResponseDto.cs" />
+    <Compile Include="Response\Authentication\UserActivateResponseDto.cs" />
+    <Compile Include="Response\Authentication\UsersResponseDto.cs" />
     <Compile Include="Response\BaseResponse.cs" />
     <Compile Include="Response\Despatch\DcTypeList.cs" />
     <Compile Include="Response\Despatch\DeleteDcResponseDto.cs" />

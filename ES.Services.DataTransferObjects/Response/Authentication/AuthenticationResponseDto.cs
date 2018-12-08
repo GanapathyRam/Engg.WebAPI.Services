@@ -21,6 +21,8 @@ namespace ES.Services.DataTransferObjects.Response.Authentication
 
         public string Token { get; set; }
 
+        public int RoleId { get; set; }
+
         public int TokenExpiry { get; set; }
     }
 }
