@@ -17,5 +17,8 @@ namespace ES.Services.DataAccess.Model.QueryModel.Sales
         public decimal WOSerial { get; set; }
         public string HeatNo { get; set; }
         public string SerialNo { get; set; }
+        public string PartDescription { get; set; }
+        public string DrawingNumber { get; set; }
+        public string ItemCode { get; set; }
     }
 }
