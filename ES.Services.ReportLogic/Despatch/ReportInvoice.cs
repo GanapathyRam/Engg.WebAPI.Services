@@ -158,7 +158,7 @@ namespace ES.Services.ReportLogic.Despatch
                 {
                     var getJobCardEntrySerialList = new DimensionReportSerialList();
                     getJobCardEntrySerialList.SerialNo = workOrderMasterDetails.SerialNo;
-
+                    getJobCardEntrySerialList.HeatNo = workOrderMasterDetails.HeatNo;
                     var isExist = getsingle.getDimensionReportSerialList.Any(serialNo => serialNo.SerialNo == workOrderMasterDetails.SerialNo);
 
                     if (!isExist)

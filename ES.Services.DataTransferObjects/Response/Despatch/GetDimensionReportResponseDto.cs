@@ -50,7 +50,7 @@ namespace ES.Services.DataTransferObjects.Response.Despatch
     {
         public string SerialNo { get; set; }
 
-        //public string Description { get; set; }
+        public string HeatNo { get; set; }
     }
 
     public class DimensionReportSequenceList
