@@ -156,6 +156,10 @@
     <Compile Include="Commands\Sales\WorkOrderNumberSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderTypeSelectCommand.cs" />
+    <Compile Include="Commands\Stores\GetGPReceiptVendorSelectCommand.cs" />
+    <Compile Include="Commands\Stores\GPReceiptNumberSelectCommand.cs" />
+    <Compile Include="Commands\Stores\GPSendingNumberSelectCommand.cs" />
+    <Compile Include="Commands\Stores\GPTypeMasterSelectCommand.cs" />
     <Compile Include="Commands\SubContract\GetScDetailsAndSerialSelectCommand.cs" />
     <Compile Include="Commands\SubContract\GetScMasterSelectCommand.cs" />
     <Compile Include="Commands\SubContract\GetScReceivingDetailsAndSerialSelectCommand.cs" />
@@ -195,6 +199,7 @@
     <Compile Include="Repositories\Registration\RegistrationRepository.cs" />
     <Compile Include="Repositories\Despatch\DeliveryChallanRepository.cs" />
     <Compile Include="Repositories\Sales\WorkOrderRepository.cs" />
+    <Compile Include="Repositories\Stores\GatePassRepository.cs" />
     <Compile Include="Repositories\SubContract\SubContractRepository.cs" />
   </ItemGroup>
   <ItemGroup>

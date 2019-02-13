@@ -13,9 +13,11 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web;
+using ES.Shared.Services.Filters;
 
 namespace ES.Shared.Services.Controllers.Enquiry
 {
+    [JwtAuthenticationAttribute]
     public class EnquiryController : ApiController
     {
         private readonly IEnquiryReport rEnquiryProvider;

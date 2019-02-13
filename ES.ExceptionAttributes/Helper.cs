@@ -9,6 +9,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace ES.ExceptionAttributes
 {
@@ -127,6 +128,18 @@ namespace ES.ExceptionAttributes
 
             }
             return currentYear;
+        }
+
+        public static string userIdToekn()
+        {
+            var identity = HttpContext.Current.User.Identity as ClaimsIdentity;
+            var clientId = string.Empty;
+            if (identity != null)
+            {
+                IEnumerable<Claim> claims = identity.Claims;
+                clientId = claims.First(claim => claim.Type.ToLower() == ClaimTypes.SerialNumber).Value;
+            }
+            return clientId;
         }
     }
 }

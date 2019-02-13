@@ -61,6 +61,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\IBusinessRegistration.cs" />
     <Compile Include="Sales\IBusinessWorkOrder.cs" />
+    <Compile Include="Stores\IBusinessGatePass.cs" />
     <Compile Include="SubContract\IBusinessSubContract.cs" />
   </ItemGroup>
   <ItemGroup>

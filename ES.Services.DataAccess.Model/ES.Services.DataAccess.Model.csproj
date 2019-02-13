@@ -107,6 +107,7 @@
     <Compile Include="CommandModel\Sales\WorkOrderCM.cs" />
     <Compile Include="CommandModel\Sales\WorkOrderDetailsCM.cs" />
     <Compile Include="CommandModel\Masters\UpdateSymbolMasterCM.cs" />
+    <Compile Include="CommandModel\Stores\GPSendingCM.cs" />
     <Compile Include="CommandModel\SubContract\DeleteScDetailsCM.cs" />
     <Compile Include="CommandModel\SubContract\ScDetailSerialCM.cs" />
     <Compile Include="CommandModel\SubContract\ScReceivingDetailSerialCM.cs" />
@@ -219,6 +220,8 @@
     <Compile Include="QueryModel\Sales\GetWorkOrderTypeQM.cs" />
     <Compile Include="QueryModel\Sales\WorkOrderQM.cs" />
     <Compile Include="QueryModel\Sales\WorkOrderTypeModel.cs" />
+    <Compile Include="QueryModel\Stores\GetGPReceiptVendorQM.cs" />
+    <Compile Include="QueryModel\Stores\GPTypeMasterQM.cs" />
     <Compile Include="QueryModel\SubContract\GetScDetailsAndSerialsModel.cs" />
     <Compile Include="QueryModel\SubContract\GetScDetailsAndSerialsQM.cs" />
     <Compile Include="QueryModel\SubContract\GetScMasterModel.cs" />
