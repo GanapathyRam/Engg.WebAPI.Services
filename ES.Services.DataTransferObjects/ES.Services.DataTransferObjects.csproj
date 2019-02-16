@@ -122,6 +122,9 @@
     <Compile Include="Request\Sales\WorkOrderTypeRequestDto.cs" />
     <Compile Include="Request\Sales\WorkOrderRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateSymbolMasterRequestDto.cs" />
+    <Compile Include="Request\Stores\DeleteGPSendingRequestDto.cs" />
+    <Compile Include="Request\Stores\GetGPSendingRequestDto.cs" />
+    <Compile Include="Request\Stores\GPSendingRequestDto.cs" />
     <Compile Include="Request\Stores\GPTypeMasterRequestDto.cs" />
     <Compile Include="Request\SubContract\DeleteScSendingRequestDto.cs" />
     <Compile Include="Request\SubContract\GetScDetailsAndSerialsRequestDto.cs" />
@@ -236,9 +239,12 @@
     <Compile Include="Response\Sales\UpdateWorkOrderResponseDto.cs" />
     <Compile Include="Response\Sales\WorkOrderResponseDto.cs" />
     <Compile Include="Response\Sales\WorkOrderTypeList.cs" />
+    <Compile Include="Response\Stores\DeleteGPSendingResponseDto.cs" />
     <Compile Include="Response\Stores\GetGPReceiptVendorResponseDto.cs" />
+    <Compile Include="Response\Stores\GetGPSendingResponseDto.cs" />
     <Compile Include="Response\Stores\GPReceiptNumberResponseDto.cs" />
     <Compile Include="Response\Stores\GPSendingNumberResponseDto.cs" />
+    <Compile Include="Response\Stores\GPSendingResponseDto.cs" />
     <Compile Include="Response\Stores\GPTypeMasterResponseDto.cs" />
     <Compile Include="Response\SubContract\DeleteScSendingResponseDto.cs" />
     <Compile Include="Response\SubContract\GetDCNumberForScSendingResponseDto.cs" />

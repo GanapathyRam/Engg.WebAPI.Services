@@ -59,6 +59,83 @@ namespace ES.Services.ReportLogic.Stores
 
             return response;
         }
+
+        public GetGPSendingResponseDto GetGPSendingMasterAndDetails()
+        {
+            var response = new GetGPSendingResponseDto()
+            {
+                GetGPSendingResponse = new List<GetGPSendingResponse>()
+            };
+            var responseDto = new GetGPSendingResponse();
+
+            var model = gatePassRepository.GetGPSendingMasterAndDetails();
+
+            if (model != null)
+            {
+                responseDto = GetGPSendingMapper((List<GetGPSendingModel>)model.getGPSendingModel, responseDto);
+            }
+
+            foreach (var gpSendingDetails in responseDto.GetGPSendingDetailsist)
+            {
+                var getsingle = new GetGPSendingResponse
+                {
+                    GetGPSendingDetailsist = new List<GetGPSendingDetails>()
+                };
+                var getGPSendingDetailsResponse = new GetGPSendingDetails();
+                getGPSendingDetailsResponse.GPNumber = gpSendingDetails.GPNumber;
+                getGPSendingDetailsResponse.GPType = gpSendingDetails.GPType;
+                getGPSendingDetailsResponse.GPSerialNo = gpSendingDetails.GPSerialNo;
+                getGPSendingDetailsResponse.Description = gpSendingDetails.Description;
+                getGPSendingDetailsResponse.Units = gpSendingDetails.Units;
+                getGPSendingDetailsResponse.SentQuantity = gpSendingDetails.SentQuantity;
+                getGPSendingDetailsResponse.ReceivedQuantity = gpSendingDetails.ReceivedQuantity;
+
+                //getWorkOrderMasterDetailsResponse.IsDeletable = workOrderMasterDetails.IsDeletable;
+                //getWorkOrderMasterDetailsResponse.IsNew = false;
+
+                if (response.GetGPSendingResponse.Count > 0)
+                {
+                    var isExist = response.GetGPSendingResponse.Any(gpNumber => gpNumber.GPNumber == gpSendingDetails.GPNumber);
+                    if (isExist)
+                    {
+                        var index = response.GetGPSendingResponse.FindIndex(a => a.GPNumber == gpSendingDetails.GPNumber);
+
+                        response.GetGPSendingResponse[index].GetGPSendingDetailsist.Add(getGPSendingDetailsResponse);
+                    }
+                    else
+                    {
+                        getsingle.GPType = gpSendingDetails.GPType;
+                        getsingle.GPNumber = gpSendingDetails.GPNumber;                      
+                        getsingle.GPDate = gpSendingDetails.GPDate;
+                        getsingle.VendorCode = gpSendingDetails.VendorCode;
+                        getsingle.RequestedBy = gpSendingDetails.RequestedBy;
+                        getsingle.Remarks = gpSendingDetails.Remarks;
+
+                        getsingle.GetGPSendingDetailsist.Add
+                        (getGPSendingDetailsResponse);
+
+                        response.GetGPSendingResponse.Add(getsingle);
+                    }
+                }
+                else
+                {
+                    getsingle.GPType = gpSendingDetails.GPType;
+                    getsingle.GPNumber = gpSendingDetails.GPNumber;
+                    getsingle.GPDate = gpSendingDetails.GPDate;
+                    getsingle.VendorCode = gpSendingDetails.VendorCode;
+                    getsingle.RequestedBy = gpSendingDetails.RequestedBy;
+                    getsingle.Remarks = gpSendingDetails.Remarks;
+
+                    getsingle.GetGPSendingDetailsist.Add
+                    (getGPSendingDetailsResponse);
+
+                    response.GetGPSendingResponse.Add(getsingle);
+                }
+            }
+
+            return response;
+        }
+
         private static GPTypeMasterResponseDto GPTypeMasterMapper(List<GPTypeMasterResponseModel> list, GPTypeMasterResponseDto response)
         {
             Mapper.CreateMap<GPTypeMasterResponseModel, GPTypeMasterResponse>();
@@ -66,6 +143,15 @@ namespace ES.Services.ReportLogic.Stores
                 Mapper.Map<List<GPTypeMasterResponseModel>, List<GPTypeMasterResponse>>(list);
 
             return response;
+        }
+
+        private static GetGPSendingResponse GetGPSendingMapper(List<GetGPSendingModel> list, GetGPSendingResponse getGPSendingResponse)
+        {
+            Mapper.CreateMap<GetGPSendingModel, GetGPSendingDetails>();
+            getGPSendingResponse.GetGPSendingDetailsist =
+                Mapper.Map<List<GetGPSendingModel>, List<GetGPSendingDetails>>(list);
+
+            return getGPSendingResponse;
         }
 
         #endregion

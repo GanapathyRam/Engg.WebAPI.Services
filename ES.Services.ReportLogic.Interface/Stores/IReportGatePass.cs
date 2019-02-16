@@ -13,5 +13,7 @@ namespace ES.Services.ReportLogic.Interface.Stores
         GPSendingNumberResponseDto getGPSendingNumber(string gpType);
         GPReceiptNumberResponseDto getGPReceiptNumber();
         GetGPReceiptVendorResponseDto getGPReceiptVendor();
+
+        GetGPSendingResponseDto GetGPSendingMasterAndDetails();
     }
 }

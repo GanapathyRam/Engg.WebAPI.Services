@@ -1,4 +1,6 @@
 ﻿using ES.ExceptionAttributes;
+using ES.Services.BusinessLogic.Interface.Stores;
+using ES.Services.DataTransferObjects.Request.Stores;
 using ES.Services.DataTransferObjects.Response.Stores;
 using ES.Services.ReportLogic.Interface.Stores;
 using ES.Shared.Services.Filters;
@@ -21,10 +23,12 @@ namespace ES.Shared.Services.Controllers.Stores
     {
         private readonly IReportGatePass reportGatePass;
 
+        private readonly IBusinessGatePass businessGatePass;
+
         public GatePassController()
         {
             this.reportGatePass = ObjectFactory.GetInstance<IReportGatePass>();
-           // this.businessAuthentication = ObjectFactory.GetInstance<IBusinessAuthentication>();
+            this.businessGatePass = ObjectFactory.GetInstance<IBusinessGatePass>();
         }
         [HttpPost]
         public GPTypeMasterResponseDto getGPTypeMaster()
@@ -119,7 +123,6 @@ namespace ES.Shared.Services.Controllers.Stores
 
             return gPReceiptNumberResponseDto;
         }
-
         [HttpPost]
         public GetGPReceiptVendorResponseDto getGPReceiptVendor()
         {
@@ -150,6 +153,100 @@ namespace ES.Shared.Services.Controllers.Stores
             }
 
             return getGPReceiptVendorResponseDto;
+        }
+        [HttpPost]
+        public GPSendingResponseDto SaveGPSendingDetails(GPSendingRequestDto GPSendingRequestDto)
+        {
+            GPSendingResponseDto getGPSendingResponseDto;
+            try
+            {
+                getGPSendingResponseDto = businessGatePass.SaveGPSendingDetails(GPSendingRequestDto);
+                getGPSendingResponseDto.ServiceResponseStatus = 1;
+
+            }
+            catch (SSException exception)
+            {
+                getGPSendingResponseDto = new GPSendingResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = exception.Message,
+                    ErrorCode = exception.ExceptionCode
+                };
+            }
+            catch (Exception exception)
+            {
+                getGPSendingResponseDto = new GPSendingResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return getGPSendingResponseDto;
+        }
+        [HttpPost]
+        public GetGPSendingResponseDto GetGPSendingMasterAndDetails()
+        {
+            GetGPSendingResponseDto response = new GetGPSendingResponseDto();
+            try
+            {
+                response = reportGatePass.GetGPSendingMasterAndDetails();
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetGPSendingResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetGPSendingResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        [HttpPost]
+        public DeleteGPSendingResponseDto DeleteGPSendingMasterAndDetails(DeleteGPSendingRequestDto deleteGPSendingRequestDto)
+        {
+            DeleteGPSendingResponseDto response = new DeleteGPSendingResponseDto();
+            try
+            {
+                response = businessGatePass.DeleteGPSendingMasterAndDetails(deleteGPSendingRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new DeleteGPSendingResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new DeleteGPSendingResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
         }
     }
 }

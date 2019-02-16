@@ -1,5 +1,8 @@
 ﻿using ES.Services.BusinessLogic.Interface.Stores;
 using ES.Services.DataAccess.Interface.Stores;
+using ES.Services.DataAccess.Model.CommandModel.Stores;
+using ES.Services.DataTransferObjects.Request.Stores;
+using ES.Services.DataTransferObjects.Response.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ES.Services.BusinessLogic.Stores
 {
-    public class BusinessGatePass: IBusinessGatePass
+    public class BusinessGatePass : IBusinessGatePass
     {
         private readonly IGatePassRepository gatePassRepository;
 
@@ -17,5 +20,74 @@ namespace ES.Services.BusinessLogic.Stores
             this.gatePassRepository = gatePassRepository;
         }
 
+        public GPSendingResponseDto SaveGPSendingDetails(GPSendingRequestDto GPSendingRequestDto)
+        {
+            GPSendingResponseDto GPSendingResponseDto = new GPSendingResponseDto();
+
+            #region Section To Save GPMaster
+
+            gatePassRepository.SaveGPSendingMaster(GPSendingRequestDto.GPType, GPSendingRequestDto.GPNumber, GPSendingRequestDto.VendorCode, GPSendingRequestDto.GPDate,
+                GPSendingRequestDto.RequestedBy, GPSendingRequestDto.Remarks);
+
+            #endregion
+
+            #region Section To Save GP Details
+
+            foreach (var gpSendingDetails in GPSendingRequestDto.GPSendingDetailsList)
+            {
+                var GPSendingDetailsListCM = new List<GPSendingDetailsListCM>();
+
+                var cModel = new GPSendingDetailsCM();
+                var GPSendingDetail = new GPSendingDetailsListCM
+                {
+                    GPNumber = gpSendingDetails.GPNumber,
+                    GPSerialNo = gpSendingDetails.GPSerialNo,
+                    Description = gpSendingDetails.Description,
+                    Units = gpSendingDetails.Units,
+                    ReceivedQuantity = gpSendingDetails.ReceivedQuantity,
+                    SentQuantity = gpSendingDetails.SentQuantity
+                };
+
+                GPSendingDetailsListCM.Add(GPSendingDetail);
+
+                cModel.GPSendingDetailsListItemsCM = GPSendingDetailsListCM;
+
+                // Section to add the gp sending master details information
+                gatePassRepository.SaveGPSendingDetails(cModel);
+            }
+
+            #endregion
+
+            return GPSendingResponseDto;
+        }
+
+        public DeleteGPSendingResponseDto DeleteGPSendingMasterAndDetails(DeleteGPSendingRequestDto deleteGPSendingRequestDto)
+        {
+            DeleteGPSendingResponseDto response = new DeleteGPSendingResponseDto();
+
+            var deleteGPSendingDetailsItems = new List<DeleteGPSendingDetailsCM>();
+
+            var deleteGPSendingCM = new DeleteGPSendingCM();
+            foreach (var dcItems in deleteGPSendingRequestDto.DeleteGPSendingDetails)
+            {
+                var deleteDcDetails = new DeleteGPSendingDetailsCM
+                {
+                    GPNumber = dcItems.GPNumber,
+                    GPSerialNo = dcItems.GPSerialNo,
+                    UpdatedBy = new Guid("783F190B-9B66-42AC-920B-E938732C1C01"), //Later needs to be remove
+                    UpdatedDateTime = System.DateTime.UtcNow
+                };
+
+                deleteGPSendingDetailsItems.Add(deleteDcDetails);
+            }
+
+            deleteGPSendingCM.GPNumber = deleteGPSendingRequestDto.GPNumber;
+            deleteGPSendingCM.IsDeleteFrom = deleteGPSendingRequestDto.IsDeleteFrom;
+            deleteGPSendingCM.DeleteGPSendingDetailsCM = deleteGPSendingDetailsItems;
+
+            gatePassRepository.DeleteGPSendingMasterAndDetails(deleteGPSendingCM);
+
+            return response;
+        }
     }
 }

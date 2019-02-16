@@ -1,6 +1,8 @@
 ﻿using ES.Services.DataAccess.Commands.Stores;
 using ES.Services.DataAccess.Interface.Stores;
+using ES.Services.DataAccess.Model.CommandModel.Stores;
 using ES.Services.DataAccess.Model.QueryModel.Stores;
+using SS.Framework.DataAccess.Extentions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,5 +64,53 @@ namespace ES.Services.DataAccess.Repositories.Stores
             }
             return GPReceiptNumber;
         }
+
+        public void SaveGPSendingMaster(string GPType, string GPNumber, Int64 VendorCode, DateTime GPDate, string RequestedBy, string Remarks)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GPSendingMasterInsertCommand { Connection = connection };
+                command.Execute(GPType, GPNumber, VendorCode, GPDate, RequestedBy, Remarks, new Guid(), DateTime.UtcNow);
+            }
+        }
+
+        public void SaveGPSendingDetails(GPSendingDetailsCM GPSendingDetailsCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GPSendingDetailsInsertCommand { Connection = connection };
+                command.Execute(GPSendingDetailsCM.GPSendingDetailsListItemsCM.ToDataTableWithNull(), GPSendingDetailsCM);
+            }
+        }
+
+        public GetGPSendingQM GetGPSendingMasterAndDetails()
+        {
+            var model = new GetGPSendingQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GPSendingMasterAndDetailsSelectCommand { Connection = connection };
+                model = command.Execute();
+            }
+
+            return model;
+        }
+
+        public void DeleteGPSendingMasterAndDetails(DeleteGPSendingCM DeleteGPSendingCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GPSendingDeleteCommand { Connection = connection };
+                command.Execute(DeleteGPSendingCM.DeleteGPSendingDetailsCM.ToDataTableWithNull(), DeleteGPSendingCM.GPNumber, DeleteGPSendingCM.IsDeleteFrom);
+            }
+        }
+
     }
 }

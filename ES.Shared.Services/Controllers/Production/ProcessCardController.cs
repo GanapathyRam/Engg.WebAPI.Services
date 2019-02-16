@@ -20,6 +20,7 @@ namespace ES.Shared.Services.Controllers.Production
         public readonly IBusinessProcessCard bProcessCardProvider;
         public readonly IReportProcessCard rProcessCardProvider;
 
+
         public ProcessCardController()
         {
             this.rProcessCardProvider = ObjectFactory.GetInstance<IReportProcessCard>();

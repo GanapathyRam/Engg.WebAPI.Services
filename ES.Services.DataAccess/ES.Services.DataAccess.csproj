@@ -158,6 +158,10 @@
     <Compile Include="Commands\Sales\WorkOrderTypeSelectCommand.cs" />
     <Compile Include="Commands\Stores\GetGPReceiptVendorSelectCommand.cs" />
     <Compile Include="Commands\Stores\GPReceiptNumberSelectCommand.cs" />
+    <Compile Include="Commands\Stores\GPSendingDeleteCommand.cs" />
+    <Compile Include="Commands\Stores\GPSendingDetailsInsertCommand.cs" />
+    <Compile Include="Commands\Stores\GPSendingMasterAndDetailsSelectCommand.cs" />
+    <Compile Include="Commands\Stores\GPSendingMasterInsertCommand.cs" />
     <Compile Include="Commands\Stores\GPSendingNumberSelectCommand.cs" />
     <Compile Include="Commands\Stores\GPTypeMasterSelectCommand.cs" />
     <Compile Include="Commands\SubContract\GetScDetailsAndSerialSelectCommand.cs" />
