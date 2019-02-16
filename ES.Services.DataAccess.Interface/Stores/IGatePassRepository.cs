@@ -12,9 +12,14 @@ namespace ES.Services.DataAccess.Interface.Stores
 {
     public interface IGatePassRepository
     {
+        GetUnitMasterQM GetUnitMaster();
+
         GPTypeMasterQM getGPTypeMaster();
+
         string getGPSendingNumber(string gpType);
+
         string getGPReceiptNumber();
+
         GetGPReceiptVendorQM getGPReceiptVendor();
 
         void SaveGPSendingMaster(string GPType, string GPNumber, Int64 VendorCode, DateTime GPDate, string RequestedBy, string Remarks);

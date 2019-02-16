@@ -242,10 +242,12 @@
     <Compile Include="Response\Stores\DeleteGPSendingResponseDto.cs" />
     <Compile Include="Response\Stores\GetGPReceiptVendorResponseDto.cs" />
     <Compile Include="Response\Stores\GetGPSendingResponseDto.cs" />
+    <Compile Include="Response\Stores\GetUnitMasterResponseDto.cs" />
     <Compile Include="Response\Stores\GPReceiptNumberResponseDto.cs" />
     <Compile Include="Response\Stores\GPSendingNumberResponseDto.cs" />
     <Compile Include="Response\Stores\GPSendingResponseDto.cs" />
     <Compile Include="Response\Stores\GPTypeMasterResponseDto.cs" />
+    <Compile Include="Response\Stores\UnitMasterList.cs" />
     <Compile Include="Response\SubContract\DeleteScSendingResponseDto.cs" />
     <Compile Include="Response\SubContract\GetDCNumberForScSendingResponseDto.cs" />
     <Compile Include="Response\SubContract\GetScDetailsAndSerialsResponseDto.cs" />

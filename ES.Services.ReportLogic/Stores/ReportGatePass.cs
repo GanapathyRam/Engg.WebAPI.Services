@@ -13,7 +13,7 @@ using static ES.Services.DataTransferObjects.Response.Stores.GPTypeMasterRespons
 
 namespace ES.Services.ReportLogic.Stores
 {
-   public class ReportGatePass : IReportGatePass
+    public class ReportGatePass : IReportGatePass
     {
         private readonly IGatePassRepository gatePassRepository;
 
@@ -22,6 +22,19 @@ namespace ES.Services.ReportLogic.Stores
             this.gatePassRepository = gatePassRepository;
         }
         #region Sending
+
+        public GetUnitMasterResponseDto GetUnitMaster()
+        {
+            var response = new GetUnitMasterResponseDto();
+            var model = gatePassRepository.GetUnitMaster();
+            if (model != null)
+            {
+                response = GPUnitMasterMapper((List<GetUnitMasterQMList>)model.GetUnitMasterQMList, response);
+            }
+
+            return response;
+        }
+
         public GPTypeMasterResponseDto getGPTypeMaster()
         {
             var response = new GPTypeMasterResponseDto();
@@ -34,10 +47,10 @@ namespace ES.Services.ReportLogic.Stores
             return response;
         }
 
-       public GPSendingNumberResponseDto getGPSendingNumber(string gpType)
+        public GPSendingNumberResponseDto getGPSendingNumber(string gpType)
         {
             var response = new GPSendingNumberResponseDto();
-            var model  = gatePassRepository.getGPSendingNumber(gpType);
+            var model = gatePassRepository.getGPSendingNumber(gpType);
             var currentYear = Helper.CurrentFiniancialYear();
             if (!string.IsNullOrEmpty(model))
             {
@@ -48,7 +61,7 @@ namespace ES.Services.ReportLogic.Stores
                 }
                 else
                 {
-                    var gpnumbernc = (Int32.Parse(model.ToString().Substring(model.ToString().Length - 4)) + 1).ToString().PadLeft(4,'0');
+                    var gpnumbernc = (Int32.Parse(model.ToString().Substring(model.ToString().Length - 4)) + 1).ToString().PadLeft(4, '0');
                     response.GPNumber = "G" + Convert.ToString(currentYear + "I" + gpType + gpnumbernc);
                 }
             }
@@ -105,7 +118,7 @@ namespace ES.Services.ReportLogic.Stores
                     else
                     {
                         getsingle.GPType = gpSendingDetails.GPType;
-                        getsingle.GPNumber = gpSendingDetails.GPNumber;                      
+                        getsingle.GPNumber = gpSendingDetails.GPNumber;
                         getsingle.GPDate = gpSendingDetails.GPDate;
                         getsingle.VendorCode = gpSendingDetails.VendorCode;
                         getsingle.RequestedBy = gpSendingDetails.RequestedBy;
@@ -132,6 +145,15 @@ namespace ES.Services.ReportLogic.Stores
                     response.GetGPSendingResponse.Add(getsingle);
                 }
             }
+
+            return response;
+        }
+
+        private static GetUnitMasterResponseDto GPUnitMasterMapper(List<GetUnitMasterQMList> list, GetUnitMasterResponseDto response)
+        {
+            Mapper.CreateMap<GetUnitMasterQMList, UnitMasterList>();
+            response.GetUnitMasterList =
+                Mapper.Map<List<GetUnitMasterQMList>, List<UnitMasterList>>(list);
 
             return response;
         }
@@ -205,7 +227,7 @@ namespace ES.Services.ReportLogic.Stores
             return response;
         }
         #endregion
-    
+
 
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ES.Services.ReportLogic.Interface.Stores
 {
-  public interface IReportGatePass
+    public interface IReportGatePass
     {
         GPTypeMasterResponseDto getGPTypeMaster();
         GPSendingNumberResponseDto getGPSendingNumber(string gpType);
@@ -15,5 +15,7 @@ namespace ES.Services.ReportLogic.Interface.Stores
         GetGPReceiptVendorResponseDto getGPReceiptVendor();
 
         GetGPSendingResponseDto GetGPSendingMasterAndDetails();
+
+        GetUnitMasterResponseDto GetUnitMaster();
     }
 }

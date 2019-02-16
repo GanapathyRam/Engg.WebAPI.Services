@@ -30,6 +30,40 @@ namespace ES.Shared.Services.Controllers.Stores
             this.reportGatePass = ObjectFactory.GetInstance<IReportGatePass>();
             this.businessGatePass = ObjectFactory.GetInstance<IBusinessGatePass>();
         }
+
+        [HttpPost]
+        public GetUnitMasterResponseDto GetUnitMaster()
+        {
+            GetUnitMasterResponseDto response;
+
+            try
+            {
+                response = reportGatePass.GetUnitMaster();
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetUnitMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetUnitMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
         [HttpPost]
         public GPTypeMasterResponseDto getGPTypeMaster()
         {

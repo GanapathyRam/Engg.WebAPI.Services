@@ -292,7 +292,6 @@ namespace ES.Shared.Services
             });
             #endregion
 
-
             #region Enquiry
 
             ObjectFactory.Configure(x =>

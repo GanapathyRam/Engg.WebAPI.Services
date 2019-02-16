@@ -225,6 +225,8 @@
     <Compile Include="QueryModel\Stores\GetGPReceiptVendorQM.cs" />
     <Compile Include="QueryModel\Stores\GetGPSendingModel.cs" />
     <Compile Include="QueryModel\Stores\GetGPSendingQM.cs" />
+    <Compile Include="QueryModel\Stores\GetUnitMasterQM.cs" />
+    <Compile Include="QueryModel\Stores\GetUnitMasterQMList.cs" />
     <Compile Include="QueryModel\Stores\GPTypeMasterQM.cs" />
     <Compile Include="QueryModel\SubContract\GetScDetailsAndSerialsModel.cs" />
     <Compile Include="QueryModel\SubContract\GetScDetailsAndSerialsQM.cs" />

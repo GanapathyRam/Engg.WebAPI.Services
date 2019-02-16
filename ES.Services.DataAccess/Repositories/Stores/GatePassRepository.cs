@@ -26,6 +26,19 @@ namespace ES.Services.DataAccess.Repositories.Stores
             return gpTypeMasterQM;
         }
 
+        public GetUnitMasterQM GetUnitMaster()
+        {
+            GetUnitMasterQM getUnitMasterQM;
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var rolesInsertCommand = new GetUnitMasterSelectCommand { Connection = connection };
+                getUnitMasterQM = rolesInsertCommand.Execute();
+            }
+            return getUnitMasterQM;
+        }
+
         public GetGPReceiptVendorQM getGPReceiptVendor()
         {
             GetGPReceiptVendorQM getGPReceiptVendorQM;
