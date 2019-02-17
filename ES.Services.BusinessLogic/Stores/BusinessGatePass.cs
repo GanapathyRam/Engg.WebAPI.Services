@@ -1,4 +1,5 @@
-﻿using ES.Services.BusinessLogic.Interface.Stores;
+﻿using ES.ExceptionAttributes;
+using ES.Services.BusinessLogic.Interface.Stores;
 using ES.Services.DataAccess.Interface.Stores;
 using ES.Services.DataAccess.Model.CommandModel.Stores;
 using ES.Services.DataTransferObjects.Request.Stores;
@@ -22,6 +23,7 @@ namespace ES.Services.BusinessLogic.Stores
 
         public GPSendingResponseDto SaveGPSendingDetails(GPSendingRequestDto GPSendingRequestDto)
         {
+            var createdBy = Helper.userIdToekn();
             GPSendingResponseDto GPSendingResponseDto = new GPSendingResponseDto();
 
             #region Section To Save GPMaster
@@ -45,7 +47,9 @@ namespace ES.Services.BusinessLogic.Stores
                     Description = gpSendingDetails.Description,
                     Units = gpSendingDetails.Units,
                     ReceivedQuantity = gpSendingDetails.ReceivedQuantity,
-                    SentQuantity = gpSendingDetails.SentQuantity
+                    SentQuantity = gpSendingDetails.SentQuantity,
+                    CreatedBy = createdBy,
+                    CreatedDateTime = DateTime.Now
                 };
 
                 GPSendingDetailsListCM.Add(GPSendingDetail);

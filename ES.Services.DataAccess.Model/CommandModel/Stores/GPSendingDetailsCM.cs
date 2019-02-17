@@ -24,5 +24,9 @@ namespace ES.Services.DataAccess.Model.CommandModel.Stores
         public decimal SentQuantity { get; set; }
 
         public decimal ReceivedQuantity { get; set; }
-    }
+
+        public string CreatedBy { get; set; }
+
+        public DateTime CreatedDateTime { get; set; }
+}
 }
