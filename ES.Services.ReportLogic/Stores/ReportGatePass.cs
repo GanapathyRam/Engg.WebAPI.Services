@@ -83,12 +83,12 @@ namespace ES.Services.ReportLogic.Stores
 
             var model = gatePassRepository.GetGPSendingMasterAndDetails();
 
-            if (model != null)
-            {
-                responseDto = GetGPSendingMapper((List<GetGPSendingModel>)model.getGPSendingModel, responseDto);
-            }
+            //if (model != null)
+            //{
+            //    responseDto = GetGPSendingMapper((List<GetGPSendingModel>)model.getGPSendingModel, responseDto);
+            //}
 
-            foreach (var gpSendingDetails in responseDto.GetGPSendingDetailsist)
+            foreach (var gpSendingDetails in model.getGPSendingModel)
             {
                 var getsingle = new GetGPSendingResponse
                 {
@@ -96,10 +96,10 @@ namespace ES.Services.ReportLogic.Stores
                 };
                 var getGPSendingDetailsResponse = new GetGPSendingDetails();
                 getGPSendingDetailsResponse.GPNumber = gpSendingDetails.GPNumber;
-                getGPSendingDetailsResponse.GPType = gpSendingDetails.GPType;
                 getGPSendingDetailsResponse.GPSerialNo = gpSendingDetails.GPSerialNo;
                 getGPSendingDetailsResponse.Description = gpSendingDetails.Description;
                 getGPSendingDetailsResponse.Units = gpSendingDetails.Units;
+                getGPSendingDetailsResponse.UnitsDescription = gpSendingDetails.UnitsDescription;
                 getGPSendingDetailsResponse.SentQuantity = gpSendingDetails.SentQuantity;
                 getGPSendingDetailsResponse.ReceivedQuantity = gpSendingDetails.ReceivedQuantity;
 
@@ -118,10 +118,13 @@ namespace ES.Services.ReportLogic.Stores
                     else
                     {
                         getsingle.GPType = gpSendingDetails.GPType;
+                        getsingle.GPDescription = gpSendingDetails.GPDescription;
                         getsingle.GPNumber = gpSendingDetails.GPNumber;
                         getsingle.GPDate = gpSendingDetails.GPDate;
                         getsingle.VendorCode = gpSendingDetails.VendorCode;
+                        getsingle.VendorName = gpSendingDetails.VendorName;
                         getsingle.RequestedBy = gpSendingDetails.RequestedBy;
+                        getsingle.RequestedName = gpSendingDetails.RequestedName;
                         getsingle.Remarks = gpSendingDetails.Remarks;
 
                         getsingle.GetGPSendingDetailsist.Add
@@ -133,10 +136,13 @@ namespace ES.Services.ReportLogic.Stores
                 else
                 {
                     getsingle.GPType = gpSendingDetails.GPType;
+                    getsingle.GPDescription = gpSendingDetails.GPDescription;
                     getsingle.GPNumber = gpSendingDetails.GPNumber;
                     getsingle.GPDate = gpSendingDetails.GPDate;
                     getsingle.VendorCode = gpSendingDetails.VendorCode;
+                    getsingle.VendorName = gpSendingDetails.VendorName;
                     getsingle.RequestedBy = gpSendingDetails.RequestedBy;
+                    getsingle.RequestedName = gpSendingDetails.RequestedName;
                     getsingle.Remarks = gpSendingDetails.Remarks;
 
                     getsingle.GetGPSendingDetailsist.Add

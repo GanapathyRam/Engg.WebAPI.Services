@@ -15,13 +15,19 @@ namespace ES.Services.DataTransferObjects.Response.Stores
     {
         public string GPType { get; set; }
 
+        public string GPDescription { get; set; }
+
         public string GPNumber { get; set; }
 
         public Int64 VendorCode { get; set; }
 
+        public string VendorName { get; set; }
+
         public DateTime GPDate { get; set; }
 
         public string RequestedBy { get; set; }
+
+        public string RequestedName { get; set; }
 
         public string Remarks { get; set; }
 
@@ -30,23 +36,16 @@ namespace ES.Services.DataTransferObjects.Response.Stores
 
     public class GetGPSendingDetails
     {
-        public Int64 VendorCode { get; set; }
-
-        public DateTime GPDate { get; set; }
-
-        public string RequestedBy { get; set; }
-
-        public string Remarks { get; set; }
 
         public string GPNumber { get; set; }
-
-        public string GPType { get; set; }
 
         public int GPSerialNo { get; set; }
 
         public string Description { get; set; }
 
         public string Units { get; set; }
+
+        public string UnitsDescription { get; set; }
 
         public decimal SentQuantity { get; set; }
 

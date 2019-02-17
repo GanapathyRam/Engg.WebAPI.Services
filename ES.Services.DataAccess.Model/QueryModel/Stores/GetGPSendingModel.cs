@@ -10,13 +10,19 @@ namespace ES.Services.DataAccess.Model.QueryModel.Stores
     {
         public string GPType { get; set; }
 
+        public string GPDescription { get; set; }
+
         public string GPNumber { get; set; }
 
         public Int64 VendorCode { get; set; }
 
+        public string VendorName { get; set; }
+
         public DateTime GPDate { get; set; }
 
         public string RequestedBy { get; set; }
+
+        public string RequestedName { get; set; }
 
         public string Remarks { get; set; }
 
@@ -26,10 +32,11 @@ namespace ES.Services.DataAccess.Model.QueryModel.Stores
 
         public string Units { get; set; }
 
+        public string UnitsDescription { get; set; }
+
         public decimal SentQuantity { get; set; }
 
         public decimal ReceivedQuantity { get; set; }
 
-        public string VendorName { get; set; }
     }
 }
