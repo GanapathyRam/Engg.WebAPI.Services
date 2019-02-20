@@ -63,7 +63,6 @@ namespace ES.Shared.Services.Controllers.Stores
 
             return response;
         }
-
         [HttpPost]
         public GPTypeMasterResponseDto getGPTypeMaster()
         {
@@ -250,7 +249,6 @@ namespace ES.Shared.Services.Controllers.Stores
 
             return response;
         }
-
         [HttpPost]
         public DeleteGPSendingResponseDto DeleteGPSendingMasterAndDetails(DeleteGPSendingRequestDto deleteGPSendingRequestDto)
         {
@@ -273,6 +271,37 @@ namespace ES.Shared.Services.Controllers.Stores
             catch (Exception exception)
             {
                 response = new DeleteGPSendingResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        public GetGPReceivingResponseDto GetGPReceivingMasterAndDetails(Int64 VendorCode)
+        {
+            GetGPReceivingResponseDto response = new GetGPReceivingResponseDto();
+            try
+            {
+                response = reportGatePass.GetGPReceivingMasterAndDetails(VendorCode);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetGPReceivingResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetGPReceivingResponseDto
                 {
                     ServiceResponseStatus = 0,
                     ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,

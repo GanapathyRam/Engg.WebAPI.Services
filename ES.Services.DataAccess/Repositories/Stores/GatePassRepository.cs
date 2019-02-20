@@ -125,5 +125,19 @@ namespace ES.Services.DataAccess.Repositories.Stores
             }
         }
 
+        public GetGPReceivingResponseQM GetGPReceivingMasterAndDetails(Int64 VendorCode)
+        {
+            var model = new GetGPReceivingResponseQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetReceivingMasterAndDetailsSelectCommand { Connection = connection };
+                model = command.Execute(VendorCode);
+            }
+
+            return model;
+        }
+
     }
 }

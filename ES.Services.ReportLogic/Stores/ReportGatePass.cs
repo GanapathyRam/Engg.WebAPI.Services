@@ -2,6 +2,7 @@
 using ES.ExceptionAttributes;
 using ES.Services.DataAccess.Interface.Stores;
 using ES.Services.DataAccess.Model.QueryModel.Stores;
+using ES.Services.DataTransferObjects.Request.Stores;
 using ES.Services.DataTransferObjects.Response.Stores;
 using ES.Services.ReportLogic.Interface.Stores;
 using System;
@@ -219,6 +220,72 @@ namespace ES.Services.ReportLogic.Stores
             if (model != null)
             {
                 response = GPReceiptVendorMapper((List<GPReceiptVendorModel>)model.gpReceiptVendorList, response);
+            }
+
+            return response;
+        }
+
+        public GetGPReceivingResponseDto GetGPReceivingMasterAndDetails(Int64 VendorCode)
+        {
+            var response = new GetGPReceivingResponseDto()
+            {
+                getGPReceivingMaster = new List<GetGPReceivingMaster>()
+            };
+
+            var model = gatePassRepository.GetGPReceivingMasterAndDetails(VendorCode);
+
+
+            foreach (var responseModel in model.getGPReceivingResponseModel)
+            {
+                var getsingle = new GetGPReceivingMaster
+                {
+                    getGPReceivingDetails  = new List<GetGPReceivingDetails>()
+                };
+                var getGPReceivingDetailsItems = new GetGPReceivingDetails();
+                getGPReceivingDetailsItems.GPNumber = responseModel.GPNumber;
+                getGPReceivingDetailsItems.GPSerialNo = responseModel.GPSerialNo;
+                getGPReceivingDetailsItems.Units = responseModel.Units;
+                getGPReceivingDetailsItems.SentQuantity = responseModel.SentQuantity;
+                getGPReceivingDetailsItems.ReceivedQuantity = responseModel.ReceivedQuantity;
+                getGPReceivingDetailsItems.BalanceQty = responseModel.BalanceQty;
+                getGPReceivingDetailsItems.Description = responseModel.Description;
+
+                if (response.getGPReceivingMaster.Count > 0)
+                {
+                    var isExist = response.getGPReceivingMaster.Any(dcMaster => dcMaster.GPNumber == responseModel.GPNumber);
+                    if (isExist)
+                    {
+                        var index = response.getGPReceivingMaster.FindIndex(a => a.GPNumber == responseModel.GPNumber);
+
+                        response.getGPReceivingMaster[index].getGPReceivingDetails.Add(getGPReceivingDetailsItems);
+                    }
+                    else
+                    {
+                        getsingle.GPNumber = responseModel.GPNumber;
+                        getsingle.GPType = responseModel.GPType;
+                        getsingle.VendorName = responseModel.VendorName;
+                        getsingle.RequestedBy = responseModel.RequestedBy;
+                        getsingle.GPDate = responseModel.GPDate;
+
+                        getsingle.getGPReceivingDetails.Add
+                        (getGPReceivingDetailsItems);
+
+                        response.getGPReceivingMaster.Add(getsingle);
+                    }
+                }
+                else
+                {
+                    getsingle.GPNumber = responseModel.GPNumber;
+                    getsingle.GPType = responseModel.GPType;
+                    getsingle.VendorName = responseModel.VendorName;
+                    getsingle.RequestedBy = responseModel.RequestedBy;
+                    getsingle.GPDate = responseModel.GPDate;
+
+                    getsingle.getGPReceivingDetails.Add
+                    (getGPReceivingDetailsItems);
+
+                    response.getGPReceivingMaster.Add(getsingle);
+                }
             }
 
             return response;

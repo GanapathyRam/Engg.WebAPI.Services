@@ -157,6 +157,7 @@
     <Compile Include="Commands\Sales\WorkOrderSelectCommand.cs" />
     <Compile Include="Commands\Sales\WorkOrderTypeSelectCommand.cs" />
     <Compile Include="Commands\Stores\GetGPReceiptVendorSelectCommand.cs" />
+    <Compile Include="Commands\Stores\GetReceivingMasterAndDetailsSelectCommand.cs" />
     <Compile Include="Commands\Stores\GetUnitMasterSelectCommand.cs" />
     <Compile Include="Commands\Stores\GPReceiptNumberSelectCommand.cs" />
     <Compile Include="Commands\Stores\GPSendingDeleteCommand.cs" />

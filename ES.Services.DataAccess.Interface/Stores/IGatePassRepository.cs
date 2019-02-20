@@ -29,5 +29,7 @@ namespace ES.Services.DataAccess.Interface.Stores
         GetGPSendingQM GetGPSendingMasterAndDetails();
 
         void DeleteGPSendingMasterAndDetails(DeleteGPSendingCM DeleteGPSendingCM);
+
+        GetGPReceivingResponseQM GetGPReceivingMasterAndDetails(Int64 VendorCode);
     }
 }

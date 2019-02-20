@@ -1,4 +1,5 @@
-﻿using ES.Services.DataTransferObjects.Response.Stores;
+﻿using ES.Services.DataTransferObjects.Request.Stores;
+using ES.Services.DataTransferObjects.Response.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,7 @@ namespace ES.Services.ReportLogic.Interface.Stores
         GetGPSendingResponseDto GetGPSendingMasterAndDetails();
 
         GetUnitMasterResponseDto GetUnitMaster();
+
+        GetGPReceivingResponseDto GetGPReceivingMasterAndDetails(Int64 VendorCode);
     }
 }
