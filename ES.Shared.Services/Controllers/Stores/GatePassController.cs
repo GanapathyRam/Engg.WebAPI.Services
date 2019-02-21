@@ -311,5 +311,38 @@ namespace ES.Shared.Services.Controllers.Stores
 
             return response;
         }
+
+        [HttpPost]
+        public GPReceivingResponseDto SaveGPReceivingtDetails(GPReceivingRequestDto GPReceivingRequestDto)
+        {
+            GPReceivingResponseDto getGPReceivingResponseDto;
+            try
+            {
+                getGPReceivingResponseDto = businessGatePass.SaveGPReceivingtDetails(GPReceivingRequestDto);
+                getGPReceivingResponseDto.ServiceResponseStatus = 1;
+
+            }
+            catch (SSException exception)
+            {
+                getGPReceivingResponseDto = new GPReceivingResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = exception.Message,
+                    ErrorCode = exception.ExceptionCode
+                };
+            }
+            catch (Exception exception)
+            {
+                getGPReceivingResponseDto = new GPReceivingResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return getGPReceivingResponseDto;
+        }
+
     }
 }

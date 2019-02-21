@@ -13,5 +13,7 @@ namespace ES.Services.BusinessLogic.Interface.Stores
         GPSendingResponseDto SaveGPSendingDetails(GPSendingRequestDto GPSendingRequestDto);
 
         DeleteGPSendingResponseDto DeleteGPSendingMasterAndDetails(DeleteGPSendingRequestDto deleteGPSendingRequestDto);
+
+        GPReceivingResponseDto SaveGPReceivingtDetails(GPReceivingRequestDto GPReceivingRequestDto);
     }
 }

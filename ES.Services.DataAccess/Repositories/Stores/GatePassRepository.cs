@@ -139,5 +139,27 @@ namespace ES.Services.DataAccess.Repositories.Stores
             return model;
         }
 
+        public void SaveGPReceivingMaster(string GPReceiptNumber, DateTime ReceiptDate, Int64 VendorCode, int DocumentId, DateTime DocumentDate, string Remarks)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GPReceivingMasterInsertCommand { Connection = connection };
+                command.Execute(GPReceiptNumber, ReceiptDate, VendorCode, DocumentId, DocumentDate, Remarks, new Guid(), DateTime.UtcNow);
+            }
+        }
+
+        public void SaveGPReceivingDetails(GPReceivingDetailsCM GPReceivingDetailsCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GPReceivingDetailsInsertCommand { Connection = connection };
+                command.Execute(GPReceivingDetailsCM.GPReceivingDetailsListItemsCM.ToDataTableWithNull(), GPReceivingDetailsCM);
+            }
+        }
+
     }
 }

@@ -125,6 +125,7 @@
     <Compile Include="Request\Stores\DeleteGPSendingRequestDto.cs" />
     <Compile Include="Request\Stores\GetGPReceivingRequestDto.cs" />
     <Compile Include="Request\Stores\GetGPSendingRequestDto.cs" />
+    <Compile Include="Request\Stores\GPReceivingRequestDto.cs" />
     <Compile Include="Request\Stores\GPSendingRequestDto.cs" />
     <Compile Include="Request\Stores\GPTypeMasterRequestDto.cs" />
     <Compile Include="Request\SubContract\DeleteScSendingRequestDto.cs" />
@@ -246,6 +247,7 @@
     <Compile Include="Response\Stores\GetGPSendingResponseDto.cs" />
     <Compile Include="Response\Stores\GetUnitMasterResponseDto.cs" />
     <Compile Include="Response\Stores\GPReceiptNumberResponseDto.cs" />
+    <Compile Include="Response\Stores\GPReceivingResponseDto.cs" />
     <Compile Include="Response\Stores\GPSendingNumberResponseDto.cs" />
     <Compile Include="Response\Stores\GPSendingResponseDto.cs" />
     <Compile Include="Response\Stores\GPTypeMasterResponseDto.cs" />

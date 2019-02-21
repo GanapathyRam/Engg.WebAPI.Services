@@ -93,5 +93,47 @@ namespace ES.Services.BusinessLogic.Stores
 
             return response;
         }
+
+        public GPReceivingResponseDto SaveGPReceivingtDetails(GPReceivingRequestDto GPReceivingRequestDto)
+        {
+            var createdBy = Helper.userIdToekn();
+            GPReceivingResponseDto GPReceivingResponseDto = new GPReceivingResponseDto();
+
+            #region Section To Save GP Receiving Master
+
+            gatePassRepository.SaveGPReceivingMaster(GPReceivingRequestDto.GPReceiptNumber, GPReceivingRequestDto.GPReceiptDate, GPReceivingRequestDto.VendorCode,
+                GPReceivingRequestDto.DocumentID, GPReceivingRequestDto.DocumentDate, GPReceivingRequestDto.Remarks);
+
+            #endregion
+
+            #region Section To Save GP Receiving Details
+
+            foreach (var gpReceivingDetails in GPReceivingRequestDto.GPReceivingDetails)
+            {
+                var GPReceivingDetailsListCM = new List<GPReceivingDetailsListCM>();
+
+                var cModel = new GPReceivingDetailsCM();
+                var GPReceivingDetail = new GPReceivingDetailsListCM
+                {
+                    GPReceiptNumber = gpReceivingDetails.GPReceiptNumber,
+                    GPNumber = gpReceivingDetails.GPNumber,
+                    GPSerialNo = gpReceivingDetails.GPSerialNo,
+                    ReceivedQuantity = gpReceivingDetails.ReceiptQuantity,
+                    CreatedBy = createdBy,
+                    CreatedDateTime = DateTime.Now
+                };
+
+                GPReceivingDetailsListCM.Add(GPReceivingDetail);
+
+                cModel.GPReceivingDetailsListItemsCM = GPReceivingDetailsListCM;
+
+                // Section to add the gp sending master details information
+                gatePassRepository.SaveGPReceivingDetails(cModel);
+            }
+
+            #endregion
+
+            return GPReceivingResponseDto;
+        }
     }
 }

@@ -6,22 +6,18 @@ using System.Threading.Tasks;
 
 namespace ES.Services.DataAccess.Model.CommandModel.Stores
 {
-    public class GPSendingDetailsCM
+    public class GPReceivingDetailsCM
     {
-        public IEnumerable<GPSendingDetailsListCM> GPSendingDetailsListItemsCM { get; set; }
+        public IEnumerable<GPReceivingDetailsListCM> GPReceivingDetailsListItemsCM { get; set; }
     }
 
-    public class GPSendingDetailsListCM
+    public class GPReceivingDetailsListCM
     {
+        public string GPReceiptNumber { get; set; }
+
         public string GPNumber { get; set; }
 
         public int GPSerialNo { get; set; }
-
-        public string Description { get; set; }
-
-        public string Units { get; set; }
-
-        public decimal SentQuantity { get; set; }
 
         public decimal ReceivedQuantity { get; set; }
 

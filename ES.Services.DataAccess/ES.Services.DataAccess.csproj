@@ -160,6 +160,7 @@
     <Compile Include="Commands\Stores\GetReceivingMasterAndDetailsSelectCommand.cs" />
     <Compile Include="Commands\Stores\GetUnitMasterSelectCommand.cs" />
     <Compile Include="Commands\Stores\GPReceiptNumberSelectCommand.cs" />
+    <Compile Include="Commands\Stores\GPReceivingDetailsInsertCommand.cs" />
     <Compile Include="Commands\Stores\GPSendingDeleteCommand.cs" />
     <Compile Include="Commands\Stores\GPSendingDetailsInsertCommand.cs" />
     <Compile Include="Commands\Stores\GPSendingMasterAndDetailsSelectCommand.cs" />

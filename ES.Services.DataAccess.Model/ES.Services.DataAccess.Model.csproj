@@ -35,6 +35,9 @@
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SS.Framework.DataAccess">
+      <HintPath>..\References\SS.Framework.DataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -108,6 +111,8 @@
     <Compile Include="CommandModel\Sales\WorkOrderDetailsCM.cs" />
     <Compile Include="CommandModel\Masters\UpdateSymbolMasterCM.cs" />
     <Compile Include="CommandModel\Stores\DeleteGPSendingCM.cs" />
+    <Compile Include="CommandModel\Stores\GPReceivingDetailsCM.cs" />
+    <Compile Include="CommandModel\Stores\GPReceivingMasterInsertCommand.cs" />
     <Compile Include="CommandModel\Stores\GPSendingCM.cs" />
     <Compile Include="CommandModel\Stores\GPSendingDetailsCM.cs" />
     <Compile Include="CommandModel\SubContract\DeleteScDetailsCM.cs" />
