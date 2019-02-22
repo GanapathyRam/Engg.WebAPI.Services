@@ -103,6 +103,7 @@ namespace ES.Services.ReportLogic.Stores
                 getGPSendingDetailsResponse.UnitsDescription = gpSendingDetails.UnitsDescription;
                 getGPSendingDetailsResponse.SentQuantity = gpSendingDetails.SentQuantity;
                 getGPSendingDetailsResponse.ReceivedQuantity = gpSendingDetails.ReceivedQuantity;
+                getGPSendingDetailsResponse.IsDeletable = gpSendingDetails.IsDeletable;
 
                 //getWorkOrderMasterDetailsResponse.IsDeletable = workOrderMasterDetails.IsDeletable;
                 //getWorkOrderMasterDetailsResponse.IsNew = false;

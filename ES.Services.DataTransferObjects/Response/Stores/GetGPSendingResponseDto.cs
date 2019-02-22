@@ -50,5 +50,7 @@ namespace ES.Services.DataTransferObjects.Response.Stores
         public decimal SentQuantity { get; set; }
 
         public decimal ReceivedQuantity { get; set; }
+
+        public bool IsDeletable { get; set; }
     }
 }

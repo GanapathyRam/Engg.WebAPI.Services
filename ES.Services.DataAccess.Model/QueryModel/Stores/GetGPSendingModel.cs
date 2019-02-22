@@ -38,5 +38,7 @@ namespace ES.Services.DataAccess.Model.QueryModel.Stores
 
         public decimal ReceivedQuantity { get; set; }
 
+        public bool IsDeletable { get; set; }
+
     }
 }
