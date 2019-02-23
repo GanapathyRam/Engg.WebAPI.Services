@@ -40,6 +40,6 @@ namespace ES.Services.DataTransferObjects.Response.Stores
 
         public decimal ReceivedQuantity { get; set; }
 
-        public int BalanceQty { get; set; }
+        public decimal BalanceQty { get; set; }
     }
 }
