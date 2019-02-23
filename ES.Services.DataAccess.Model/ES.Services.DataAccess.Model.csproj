@@ -228,8 +228,6 @@
     <Compile Include="QueryModel\Sales\WorkOrderQM.cs" />
     <Compile Include="QueryModel\Sales\WorkOrderTypeModel.cs" />
     <Compile Include="QueryModel\Stores\GetGPReceiptVendorQM.cs" />
-    <Compile Include="QueryModel\Stores\GetGPReceivedDetailsModel.cs" />
-    <Compile Include="QueryModel\Stores\GetGPReceivedDetailsQM.cs" />
     <Compile Include="QueryModel\Stores\GetGPReceivingResponseModel.cs" />
     <Compile Include="QueryModel\Stores\GetGPReceivingResponseQM.cs" />
     <Compile Include="QueryModel\Stores\GetGPSendingModel.cs" />

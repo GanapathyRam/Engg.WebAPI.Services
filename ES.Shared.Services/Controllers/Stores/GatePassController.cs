@@ -311,6 +311,7 @@ namespace ES.Shared.Services.Controllers.Stores
 
             return response;
         }
+
         [HttpPost]
         public GPReceivingResponseDto SaveGPReceivingtDetails(GPReceivingRequestDto GPReceivingRequestDto)
         {
@@ -341,37 +342,6 @@ namespace ES.Shared.Services.Controllers.Stores
             }
 
             return getGPReceivingResponseDto;
-        }
-
-        public GetGPReceivedDetailsResponseDto GetGPReceivedDetails()
-        {
-            GetGPReceivedDetailsResponseDto response = new GetGPReceivedDetailsResponseDto();
-            try
-            {
-                response = reportGatePass.GetGPReceivedDetails();
-                response.ServiceResponseStatus = 1;
-            }
-            catch (SSException applicationException)
-            {
-                response = new GetGPReceivedDetailsResponseDto
-                {
-                    ServiceResponseStatus = 0,
-                    ErrorMessage = applicationException.Message,
-                    ErrorCode = applicationException.ExceptionCode
-                };
-
-            }
-            catch (Exception exception)
-            {
-                response = new GetGPReceivedDetailsResponseDto
-                {
-                    ServiceResponseStatus = 0,
-                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
-                    ErrorMessage = exception.Message
-                };
-            }
-
-            return response;
         }
 
     }
