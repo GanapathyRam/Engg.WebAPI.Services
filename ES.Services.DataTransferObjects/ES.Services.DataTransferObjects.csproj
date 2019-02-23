@@ -243,6 +243,7 @@
     <Compile Include="Response\Sales\WorkOrderTypeList.cs" />
     <Compile Include="Response\Stores\DeleteGPSendingResponseDto.cs" />
     <Compile Include="Response\Stores\GetGPReceiptVendorResponseDto.cs" />
+    <Compile Include="Response\Stores\GetGPReceivedDetailsResponseDto.cs" />
     <Compile Include="Response\Stores\GetGPReceivingResponseDto.cs" />
     <Compile Include="Response\Stores\GetGPSendingResponseDto.cs" />
     <Compile Include="Response\Stores\GetUnitMasterResponseDto.cs" />

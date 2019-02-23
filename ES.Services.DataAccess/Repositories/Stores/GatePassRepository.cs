@@ -161,5 +161,20 @@ namespace ES.Services.DataAccess.Repositories.Stores
             }
         }
 
+
+        public GetGPReceivedDetailsQM GetGPReceivedDetails()
+        {
+            var model = new GetGPReceivedDetailsQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetReceivedDetailsSelectCommand { Connection = connection };
+                model = command.Execute();
+            }
+
+            return model;
+        }
+
     }
 }
