@@ -22,7 +22,7 @@ namespace ES.Services.DataAccess.Model.CommandModel.Stores
                 sqlCommand.Parameters.Add(AddParameter("@VendorCode", SsDbType.BigInt, ParameterDirection.Input, VendorCode));
                 sqlCommand.Parameters.Add(AddParameter("@GPReceiptDate", SsDbType.DateTime, ParameterDirection.Input, GPReceiptDate));
                 sqlCommand.Parameters.Add(AddParameter("@DocumentID", SsDbType.VarChar, ParameterDirection.Input, DocumentID));
-                sqlCommand.Parameters.Add(AddParameter("@DocumentDate", SsDbType.VarChar, ParameterDirection.Input, DocumentDate));
+                sqlCommand.Parameters.Add(AddParameter("@DocumentDate", SsDbType.DateTime, ParameterDirection.Input, DocumentDate));
                 sqlCommand.Parameters.Add(AddParameter("@Remarks", SsDbType.VarChar, ParameterDirection.Input, Remarks));
                 sqlCommand.Parameters.Add(AddParameter("@CreatedBy", SsDbType.UniqueIdentifier, ParameterDirection.Input, CreateBy));
                 sqlCommand.Parameters.Add(AddParameter("@CreatedDateTime", SsDbType.DateTime, ParameterDirection.Input, CreatedDateTime));

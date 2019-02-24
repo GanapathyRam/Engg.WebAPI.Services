@@ -31,6 +31,8 @@ namespace ES.Services.DataTransferObjects.Response.Stores
 
         public string Remarks { get; set; }
 
+        public bool IsDeletable { get; set; }
+
         public List<GetGPSendingDetails> GetGPSendingDetailsist { get; set; }
     }
 
