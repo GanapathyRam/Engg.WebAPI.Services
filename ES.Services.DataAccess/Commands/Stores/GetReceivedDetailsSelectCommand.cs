@@ -20,7 +20,7 @@ namespace ES.Services.DataAccess.Commands.Stores
             using (var sqlCommand = CreateCommand())
             {
                 sqlCommand.Connection = Connection;
-                sqlCommand.CommandText = "[dbo].[uspGetGPReceivingMasterAndDetails]";
+                sqlCommand.CommandText = "[dbo].[uspGetGPReceivingDetails]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
 
                 using (var reader = SsDbCommandHelper.ExecuteReader(sqlCommand))
