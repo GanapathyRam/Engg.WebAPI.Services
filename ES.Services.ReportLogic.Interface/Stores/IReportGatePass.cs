@@ -20,5 +20,7 @@ namespace ES.Services.ReportLogic.Interface.Stores
         GetUnitMasterResponseDto GetUnitMaster();
 
         GetGPReceivingResponseDto GetGPReceivingMasterAndDetails(Int64 VendorCode);
+
+        GetGPReceivedDetailsResponseDto GetGPReceivedDetails();
     }
 }
