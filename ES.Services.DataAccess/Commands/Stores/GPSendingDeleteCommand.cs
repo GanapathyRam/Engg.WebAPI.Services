@@ -19,7 +19,7 @@ namespace ES.Services.DataAccess.Commands.Stores
                 sqlCommand.CommandText = "[dbo].[uspDeleteGPSendingMasterAndDetails]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.Add(AddParameter("@DeleteGPSendingDetails", SsDbType.Structured, ParameterDirection.Input, dataTableForScDetails));
-                sqlCommand.Parameters.Add(AddParameter("@SCDcNumber", SsDbType.VarChar, ParameterDirection.Input, GPNumber));
+                sqlCommand.Parameters.Add(AddParameter("@GPNumber", SsDbType.VarChar, ParameterDirection.Input, GPNumber));
                 sqlCommand.Parameters.Add(AddParameter("@IsDeleteFrom", SsDbType.Int, ParameterDirection.Input, IsDeleteFrom));
                 sqlCommand.ExecuteNonQuery();
             }
