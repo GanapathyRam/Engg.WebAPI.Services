@@ -281,7 +281,7 @@ namespace ES.Shared.Services.Controllers.Stores
             return response;
         }
 
-        [HttpPost]
+        //[HttpPost]
         public GetGPReceivingResponseDto GetGPReceivingMasterAndDetails(Int64 VendorCode)
         {
             GetGPReceivingResponseDto response = new GetGPReceivingResponseDto();
@@ -344,7 +344,7 @@ namespace ES.Shared.Services.Controllers.Stores
             return getGPReceivingResponseDto;
         }
 
-        [HttpPost]
+        //[HttpPost]
         public GetGPReceivedDetailsResponseDto GetGPReceivedDetails()
         {
             GetGPReceivedDetailsResponseDto response = new GetGPReceivedDetailsResponseDto();
