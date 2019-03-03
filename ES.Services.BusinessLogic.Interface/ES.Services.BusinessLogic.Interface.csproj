@@ -55,6 +55,7 @@
     <Compile Include="Masters\IBusinessSubcontractProcessMaster.cs" />
     <Compile Include="Masters\IBusinessSymbolMaster.cs" />
     <Compile Include="Masters\IBusinessToolsMaster.cs" />
+    <Compile Include="Masters\IBusinessUnitMaster.cs" />
     <Compile Include="Masters\IBusinessVendorMaster.cs" />
     <Compile Include="Masters\IBusinessParameterMaster.cs" />
     <Compile Include="Production\IBusinessJobCardGeneration.cs" />

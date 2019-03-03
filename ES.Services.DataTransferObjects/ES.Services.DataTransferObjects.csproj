@@ -76,6 +76,7 @@
     <Compile Include="Request\Masters\AddSubcontractProcessMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddSymbolMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddToolsMasterRequestDto.cs" />
+    <Compile Include="Request\Masters\AddUnitMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddVendorMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddGroupMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetCategoryMasterRequestDto.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Request\Masters\UpdatePartMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateSubcontractProcessMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateToolsMasterRequestDto.cs" />
+    <Compile Include="Request\Masters\UpdateUnitMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateVendorMasterRequestDto.cs" />
     <Compile Include="Request\Production\AddJobCardGenerationRequestDto.cs" />
     <Compile Include="Request\Production\AddProcessCardRequestDto.cs" />
@@ -170,6 +172,7 @@
     <Compile Include="Response\Masters\AddGroupMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddSubcontractProcessMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddSymbolMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\AddUnitMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetEmployeeMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetGroupMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetSubcontractProcessMasterResponseDto.cs" />
@@ -194,6 +197,7 @@
     <Compile Include="Response\Masters\GetParameterMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetPartMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetToolsMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\GetUnitMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetVendorMasterListResponseDto.cs" />
     <Compile Include="Response\Masters\GetVendorMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddInstrumentMasterResponseDto.cs" />
@@ -220,6 +224,7 @@
     <Compile Include="Response\Masters\UpdateSubcontractProcessMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateSymbolMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateToolsMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\UpdateUnitMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateVendorMasterResponseDto.cs" />
     <Compile Include="Response\Masters\VendorMaster.cs" />
     <Compile Include="Response\Masters\VendorMasterListForDropDown.cs" />

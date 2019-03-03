@@ -10,45 +10,45 @@ using System.Threading.Tasks;
 
 namespace ES.Services.DataAccess.Repositories.Masters
 {
-    public class GroupMasterRepository : IGroupMasterRepository
+    public class UnitMasterRepository : IUnitMasterRepository
     {
-        public AddGroupMasterQM AddGroupMaster(AddGroupMasterCM addGroupMasterCM)
+        public AddUnitMasterQM AddUnitMaster(AddUnitMasterCM addUnitMasterCM)
         {
-            var model = new AddGroupMasterQM();
+            var model = new AddUnitMasterQM();
             using (var connection = new DbConnectionProvider().CreateConnection())
             {
                 connection.Open();
 
-                var command = new GroupMasterInsertCommand { Connection = connection };
-                model = command.Execute(addGroupMasterCM);
+                var command = new UnitMasterInsertCommand { Connection = connection };
+                model = command.Execute(addUnitMasterCM);
             }
 
             return model;
         }
 
-        public GetGroupMasterQM GetGroupMaster()
+        public GetUnitMasterQM GetUnitMaster()
         {
-            var model = new GetGroupMasterQM();
+            var model = new GetUnitMasterQM();
             using (var connection = new DbConnectionProvider().CreateConnection())
             {
                 connection.Open();
 
-                var command = new GroupMasterSelectCommand { Connection = connection };
+                var command = new UnitMasterSelectCommand { Connection = connection };
                 model = command.Execute();
             }
 
             return model;
         }
 
-        public UpdateGroupMasterQM UpdateGroupMaster(UpdateGroupMasterCM updateGroupMasterCM)
+        public UpdateUnitMasterQM UpdateUnitMaster(UpdateUnitMasterCM updateUnitMasterCM)
         {
-            var model = new UpdateGroupMasterQM();
+            var model = new UpdateUnitMasterQM();
             using (var connection = new DbConnectionProvider().CreateConnection())
             {
                 connection.Open();
 
-                var command = new GroupMasterUpdateCommand { Connection = connection };
-                model = command.Execute(updateGroupMasterCM);
+                var command = new UnitMasterUpdateCommand { Connection = connection };
+                model = command.Execute(updateUnitMasterCM);
             }
 
             return model;

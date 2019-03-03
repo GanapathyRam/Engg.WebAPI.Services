@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace ES.Services.DataAccess.Interface.Masters
 {
-    public interface IGroupMasterRepository
+    public interface IUnitMasterRepository
     {
-        AddGroupMasterQM AddGroupMaster(AddGroupMasterCM addGroupMasterCM);
+        AddUnitMasterQM AddUnitMaster(AddUnitMasterCM addUnitMasterCM);
 
-        UpdateGroupMasterQM UpdateGroupMaster(UpdateGroupMasterCM updateGroupMasterCM);
+        UpdateUnitMasterQM UpdateUnitMaster(UpdateUnitMasterCM updateUnitMasterCM);
 
-        GetGroupMasterQM GetGroupMaster();
+        GetUnitMasterQM GetUnitMaster();
     }
 }

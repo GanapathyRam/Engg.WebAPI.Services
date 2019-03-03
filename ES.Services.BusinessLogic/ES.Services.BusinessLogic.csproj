@@ -65,6 +65,7 @@
     <Compile Include="Masters\BusinessOperationMaster.cs" />
     <Compile Include="Masters\BusinessMaterialMaster.cs" />
     <Compile Include="Masters\BusinessCompanyMaster.cs" />
+    <Compile Include="Masters\BusinessUnitMaster.cs" />
     <Compile Include="Masters\BusinessVendorMaster.cs" />
     <Compile Include="Production\BusinessJobCardGeneration.cs" />
     <Compile Include="Production\BusinessProcessCard.cs" />

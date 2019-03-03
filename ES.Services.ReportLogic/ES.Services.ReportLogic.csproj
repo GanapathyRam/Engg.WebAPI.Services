@@ -78,6 +78,7 @@
     <Compile Include="Masters\ReportToolsMaster.cs" />
     <Compile Include="Masters\ReportOperationMaster.cs" />
     <Compile Include="Masters\ReportMaterialMaster.cs" />
+    <Compile Include="Masters\ReportUnitMaster.cs" />
     <Compile Include="Masters\ReportVendorMaster.cs" />
     <Compile Include="Production\ReportJobCardGeneration.cs" />
     <Compile Include="Production\ReportProcessCard.cs" />

@@ -205,6 +205,7 @@
     <Compile Include="Controllers\Masters\SubcontractProcessMasterController.cs" />
     <Compile Include="Controllers\Masters\SymbolMasterController.cs" />
     <Compile Include="Controllers\Masters\ToolsMasterController.cs" />
+    <Compile Include="Controllers\Masters\UnitMasterController.cs" />
     <Compile Include="Controllers\Masters\VendorMasterController.cs" />
     <Compile Include="Controllers\Production\JobCardGenerationController.cs" />
     <Compile Include="Controllers\Production\ProcessCardController.cs" />

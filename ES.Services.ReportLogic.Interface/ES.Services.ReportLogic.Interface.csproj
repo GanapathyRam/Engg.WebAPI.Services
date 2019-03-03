@@ -59,6 +59,7 @@
     <Compile Include="Masters\IReportSubcontractProcessMaster.cs" />
     <Compile Include="Masters\IReportSymbolMaster.cs" />
     <Compile Include="Masters\IReportToolsMaster.cs" />
+    <Compile Include="Masters\IReportUnitMaster.cs" />
     <Compile Include="Masters\IReportVendorMaster.cs" />
     <Compile Include="Production\IReportJobCardGeneration.cs" />
     <Compile Include="Production\IReportProcessCard.cs" />
