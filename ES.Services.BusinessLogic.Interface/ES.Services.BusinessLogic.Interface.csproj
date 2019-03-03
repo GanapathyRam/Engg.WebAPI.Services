@@ -45,6 +45,7 @@
     <Compile Include="Despatch\IBusinessDeliveryChallan.cs" />
     <Compile Include="Despatch\IBusinessInvoice.cs" />
     <Compile Include="Masters\IBusinessCompanyMaster.cs" />
+    <Compile Include="Masters\IBusinessGroupMaster.cs" />
     <Compile Include="Masters\IBusinessInstrumentMaster.cs" />
     <Compile Include="Masters\IBusinessJigsMaster.cs.cs" />
     <Compile Include="Masters\IBusinessMachineMaster.cs" />

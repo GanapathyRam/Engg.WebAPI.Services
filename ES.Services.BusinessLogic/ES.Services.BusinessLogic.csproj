@@ -53,6 +53,7 @@
     <Compile Include="Constant.cs" />
     <Compile Include="Despatch\BusinessDeliveryChallan.cs" />
     <Compile Include="Despatch\BusinessInvoice.cs" />
+    <Compile Include="Masters\BusinessGroupMaster.cs" />
     <Compile Include="Masters\BusinessInstrumentMaster.cs" />
     <Compile Include="Masters\BusinessMachineMaster.cs" />
     <Compile Include="Masters\BusinessParameterMaster.cs" />

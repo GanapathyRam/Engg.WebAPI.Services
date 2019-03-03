@@ -61,6 +61,7 @@
     <Compile Include="CommandModel\Despatch\InvoiceDetailCM.cs" />
     <Compile Include="CommandModel\Despatch\InvoiceDetailSerialCM.cs" />
     <Compile Include="CommandModel\Masters\AddCompanyMasterCommandModel.cs" />
+    <Compile Include="CommandModel\Masters\AddGroupMasterCM.cs" />
     <Compile Include="CommandModel\Masters\AddInstrumentMasterCM.cs" />
     <Compile Include="CommandModel\Masters\AddJigsMasterCM.cs" />
     <Compile Include="CommandModel\Masters\AddMachineMasterCM.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="CommandModel\Masters\GetToolsMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetVendorMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetVendorMasterListCM.cs" />
+    <Compile Include="CommandModel\Masters\UpdateGroupMasterCM.cs" />
     <Compile Include="CommandModel\Masters\UpdateInstrumentMasterCM.cs" />
     <Compile Include="CommandModel\Masters\UpdateJigsMasterCM.cs" />
     <Compile Include="CommandModel\Masters\UpdateMachineMasterCM.cs" />
@@ -155,11 +157,15 @@
     <Compile Include="QueryModel\Enquiry\SerialNoEnquiryOptionModel.cs" />
     <Compile Include="QueryModel\Enquiry\SerialNoEnquiryOptionQM.cs" />
     <Compile Include="QueryModel\Enquiry\StockEnquiryOptionQM.cs" />
+    <Compile Include="QueryModel\Masters\AddGroupMasterQM.cs" />
     <Compile Include="QueryModel\Masters\AddSubcontractProcessMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetCompanyMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetEmployeeMasterQM.cs" />
+    <Compile Include="QueryModel\Masters\GetGroupMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetSubcontractProcessMasterQM.cs" />
+    <Compile Include="QueryModel\Masters\GroupMasterModel.cs" />
     <Compile Include="QueryModel\Masters\SubcontractProcessMasterModel.cs" />
+    <Compile Include="QueryModel\Masters\UpdateGroupMasterQM.cs" />
     <Compile Include="QueryModel\Masters\UpdateSubcontractProcessMasterQM.cs" />
     <Compile Include="QueryModel\Production\GetJobCardGenerationQM.cs" />
     <Compile Include="QueryModel\Production\GetJobCardMaintanceQM.cs" />

@@ -77,6 +77,7 @@
     <Compile Include="Request\Masters\AddSymbolMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddToolsMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddVendorMasterRequestDto.cs" />
+    <Compile Include="Request\Masters\AddGroupMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetCategoryMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetCompanyMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetInstrumentMasterRequestDto.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Request\Masters\GetVendorMasterRequestDto.cs" />
     <Compile Include="Request\Masters\InsertPartMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetPartMasterRequestDto.cs" />
+    <Compile Include="Request\Masters\UpdateGroupMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateInstrumentMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateJigsMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateMachineMasterRequestDto.cs" />
@@ -165,9 +167,11 @@
     <Compile Include="Response\Enquiry\SalesEnquiryOptionResponseDto.cs" />
     <Compile Include="Response\Enquiry\SerialNoEnquiryOptionResponseDto.cs" />
     <Compile Include="Response\Enquiry\StockEnquiryOptionResponseDto.cs" />
+    <Compile Include="Response\Masters\AddGroupMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddSubcontractProcessMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddSymbolMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetEmployeeMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\GetGroupMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetSubcontractProcessMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetSymbolMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddCompanyMasterResponseDto.cs" />
@@ -205,6 +209,7 @@
     <Compile Include="Response\Masters\SubcontractProcessMaster.cs" />
     <Compile Include="Response\Masters\SymbolMaster.cs" />
     <Compile Include="Response\Masters\ToolsMaster.cs" />
+    <Compile Include="Response\Masters\UpdateGroupMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateInstrumentMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateJigsMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateMachineMasterResponseDto.cs" />
