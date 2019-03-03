@@ -66,6 +66,7 @@
     <Compile Include="Enquiry\EnquiryReport.cs" />
     <Compile Include="Masters\ReportCategoryMaster.cs" />
     <Compile Include="Masters\ReportCompanyMaster.cs" />
+    <Compile Include="Masters\ReportDepartmentMaster.cs" />
     <Compile Include="Masters\ReportEmployeeMaster.cs" />
     <Compile Include="Masters\ReportGroupMaster.cs" />
     <Compile Include="Masters\ReportInstrumentMaster.cs" />

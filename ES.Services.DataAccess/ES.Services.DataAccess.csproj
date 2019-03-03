@@ -90,6 +90,9 @@
     <Compile Include="Commands\Masters\CompanyMasterInsertCommand.cs" />
     <Compile Include="Commands\Masters\CompanyMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\CompanyMasterUpdateCommand.cs" />
+    <Compile Include="Commands\Masters\DepartmentMasterInsertCommand.cs" />
+    <Compile Include="Commands\Masters\DepartmentMasterSelectCommand.cs" />
+    <Compile Include="Commands\Masters\DepartmentMasterUpdateCommand.cs" />
     <Compile Include="Commands\Masters\EmployeeMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\GroupMasterInsertCommand.cs" />
     <Compile Include="Commands\Masters\GroupMasterSelectCommand.cs" />
@@ -194,6 +197,7 @@
     <Compile Include="Repositories\Authentication\AuthenticateRepository.cs" />
     <Compile Include="Repositories\Despatch\InvoiceRepository.cs" />
     <Compile Include="Repositories\Enquiry\EnquiryRepository.cs" />
+    <Compile Include="Repositories\Masters\DepartmentMasterRepository.cs" />
     <Compile Include="Repositories\Masters\EmployeeMasterRepository.cs" />
     <Compile Include="Repositories\Masters\GroupMasterRepository.cs" />
     <Compile Include="Repositories\Masters\InstrumentMasterRepository.cs" />

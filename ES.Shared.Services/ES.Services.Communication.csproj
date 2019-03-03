@@ -193,6 +193,7 @@
     <Compile Include="Controllers\Enquiry\EnquiryController.cs" />
     <Compile Include="Controllers\Masters\CategoryMasterController.cs" />
     <Compile Include="Controllers\Masters\CompanyMasterController.cs" />
+    <Compile Include="Controllers\Masters\DepartmentMasterController.cs" />
     <Compile Include="Controllers\Masters\EmployeeMasterController.cs" />
     <Compile Include="Controllers\Masters\GroupMasterController.cs" />
     <Compile Include="Controllers\Masters\InstrumentMasterController.cs" />
