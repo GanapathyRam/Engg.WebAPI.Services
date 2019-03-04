@@ -62,6 +62,7 @@
     <Compile Include="Masters\IReportToolsMaster.cs" />
     <Compile Include="Masters\IReportUnitMaster.cs" />
     <Compile Include="Masters\IReportVendorMaster.cs" />
+    <Compile Include="Masters\IReportVendorTermsMaster.cs" />
     <Compile Include="Production\IReportJobCardGeneration.cs" />
     <Compile Include="Production\IReportProcessCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

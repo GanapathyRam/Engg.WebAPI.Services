@@ -112,6 +112,16 @@ namespace ES.Shared.Services
 
             ObjectFactory.Configure(x =>
             {
+                x.For<IBusinessVendorTermsMaster>().Use<BusinessVendorTermsMaster>();
+                x.For<IReportVendorTermsMaster>().Use<ReportVendorTermsMaster>();
+                x.For<IVendorTermsMasterRepository>().Use<VendorTermsMasterRepository>();
+                var proxyGenerator = new ProxyGenerator();
+                var transactionInterceptor = new TransactionInterceptor();
+                x.For<IBusinessVendorTermsMaster>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
+            });
+
+            ObjectFactory.Configure(x =>
+            {
                 x.For<IBusinessGroupMaster>().Use<BusinessGroupMaster>();
                 x.For<IReportGroupMaster>().Use<ReportGroupMaster>();
                 x.For<IGroupMasterRepository>().Use<GroupMasterRepository>();

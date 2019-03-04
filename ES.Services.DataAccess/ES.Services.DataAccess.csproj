@@ -135,6 +135,10 @@
     <Compile Include="Commands\Masters\VendorMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\MaterialMasterUpdateCommand.cs" />
     <Compile Include="Commands\Masters\VendorMasterUpdateCommand.cs" />
+    <Compile Include="Commands\Masters\VendorTermsMasterDeleteCommand.cs" />
+    <Compile Include="Commands\Masters\VendorTermsMasterInsertCommand.cs" />
+    <Compile Include="Commands\Masters\VendorTermsMasterSelectCommand.cs" />
+    <Compile Include="Commands\Masters\VendorTermsMasterUpdateCommand.cs" />
     <Compile Include="Commands\Production\AddProcessCardCopyCommand.cs" />
     <Compile Include="Commands\Production\GetJobCardGenerationSelectCommand.cs" />
     <Compile Include="Commands\Production\GetJobCardMaintanceSelectCommand.cs" />
@@ -214,6 +218,7 @@
     <Compile Include="Repositories\Masters\MaterialMasterRepository.cs" />
     <Compile Include="Repositories\Masters\UnitMasterRepository.cs" />
     <Compile Include="Repositories\Masters\VendorMasterRepository.cs" />
+    <Compile Include="Repositories\Masters\VendorTermsMasterRepository.cs" />
     <Compile Include="Repositories\Production\JobCardGenerationRepository.cs" />
     <Compile Include="Repositories\Production\ProcessCardRepository.cs" />
     <Compile Include="Repositories\Registration\RegistrationRepository.cs" />

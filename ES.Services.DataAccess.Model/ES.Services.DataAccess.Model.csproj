@@ -75,6 +75,8 @@
     <Compile Include="CommandModel\Masters\AddToolsMasterCM.cs" />
     <Compile Include="CommandModel\Masters\AddUnitMasterCM.cs" />
     <Compile Include="CommandModel\Masters\AddVendorMasterCM.cs" />
+    <Compile Include="CommandModel\Masters\AddVendorTermsMasterCM.cs" />
+    <Compile Include="CommandModel\Masters\DeleteVendorTermsMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetCategoryMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetInstrumentMasterCM.cs" />
     <Compile Include="CommandModel\Masters\GetJigsMasterCM.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="CommandModel\Masters\UpdateToolsMasterCM.cs" />
     <Compile Include="CommandModel\Masters\UpdateUnitMasterCM.cs" />
     <Compile Include="CommandModel\Masters\UpdateVendorMasterCM.cs" />
+    <Compile Include="CommandModel\Masters\UpdateVendorTermsMasterCM.cs" />
     <Compile Include="CommandModel\Production\AddJobCardMasterAndDetailsCM.cs" />
     <Compile Include="CommandModel\Production\DeleteProcessCardCM.cs" />
     <Compile Include="CommandModel\Production\UpdateJobCardMaintanceCM.cs" />
@@ -165,12 +168,15 @@
     <Compile Include="QueryModel\Masters\AddGroupMasterQM.cs" />
     <Compile Include="QueryModel\Masters\AddSubcontractProcessMasterQM.cs" />
     <Compile Include="QueryModel\Masters\AddUnitMasterQM.cs" />
+    <Compile Include="QueryModel\Masters\AddVendorTermsMasterQM.cs" />
+    <Compile Include="QueryModel\Masters\DeleteVendorTermsMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetCompanyMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetDepartmentMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetEmployeeMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetGroupMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetSubcontractProcessMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GetUnitMasterQM.cs" />
+    <Compile Include="QueryModel\Masters\GetVendorTermsMasterQM.cs" />
     <Compile Include="QueryModel\Masters\GroupMasterModel.cs" />
     <Compile Include="QueryModel\Masters\SubcontractProcessMasterModel.cs" />
     <Compile Include="QueryModel\Masters\UnitMasterModel.cs" />
@@ -178,6 +184,7 @@
     <Compile Include="QueryModel\Masters\UpdateGroupMasterQM.cs" />
     <Compile Include="QueryModel\Masters\UpdateSubcontractProcessMasterQM.cs" />
     <Compile Include="QueryModel\Masters\UpdateUnitMasterQM.cs" />
+    <Compile Include="QueryModel\Masters\UpdateVendorTermsMasterQM.cs" />
     <Compile Include="QueryModel\Production\GetJobCardGenerationQM.cs" />
     <Compile Include="QueryModel\Production\GetJobCardMaintanceQM.cs" />
     <Compile Include="QueryModel\Production\GetProcessCardDetailsQM.cs" />

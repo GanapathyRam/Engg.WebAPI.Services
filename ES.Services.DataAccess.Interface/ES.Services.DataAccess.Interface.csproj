@@ -62,6 +62,7 @@
     <Compile Include="Masters\IToolsMasterRepository.cs" />
     <Compile Include="Masters\IUnitMasterRepository.cs" />
     <Compile Include="Masters\IVendorMasterRepository.cs" />
+    <Compile Include="Masters\IVendorTermsMasterRepository.cs" />
     <Compile Include="Production\IJobCardGenerationRepository.cs" />
     <Compile Include="Production\IProcessCardRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

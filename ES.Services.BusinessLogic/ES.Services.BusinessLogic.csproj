@@ -68,6 +68,7 @@
     <Compile Include="Masters\BusinessCompanyMaster.cs" />
     <Compile Include="Masters\BusinessUnitMaster.cs" />
     <Compile Include="Masters\BusinessVendorMaster.cs" />
+    <Compile Include="Masters\BusinessVendorTermsMaster.cs" />
     <Compile Include="Production\BusinessJobCardGeneration.cs" />
     <Compile Include="Production\BusinessProcessCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
