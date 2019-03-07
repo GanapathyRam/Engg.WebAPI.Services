@@ -48,6 +48,7 @@
     <Compile Include="Masters\IBusinessDepartmentMaster.cs" />
     <Compile Include="Masters\IBusinessGroupMaster.cs" />
     <Compile Include="Masters\IBusinessInstrumentMaster.cs" />
+    <Compile Include="Masters\IBusinessInventoryMaster.cs" />
     <Compile Include="Masters\IBusinessJigsMaster.cs.cs" />
     <Compile Include="Masters\IBusinessMachineMaster.cs" />
     <Compile Include="Masters\IBusinessMaterialMaster.cs" />

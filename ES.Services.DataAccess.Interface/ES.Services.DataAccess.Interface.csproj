@@ -51,6 +51,7 @@
     <Compile Include="Masters\IEmployeeMasterRepository.cs" />
     <Compile Include="Masters\IGroupMasterRepository.cs" />
     <Compile Include="Masters\IInstrumentMasterRepository.cs" />
+    <Compile Include="Masters\IInventoryMasterRepository.cs" />
     <Compile Include="Masters\IJigsMasterRepository.cs" />
     <Compile Include="Masters\IMachineMasterRepository.cs" />
     <Compile Include="Masters\IMaterialMasterRepository.cs" />

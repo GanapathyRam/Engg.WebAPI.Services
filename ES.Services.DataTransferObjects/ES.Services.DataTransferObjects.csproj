@@ -68,6 +68,7 @@
     <Compile Include="Request\Masters\AddCompanyMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddDepartmentMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddInstrumentMasterRequestDto.cs" />
+    <Compile Include="Request\Masters\AddInventoryMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddJigsMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddMachineMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddMaterialMasterRequestDto.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Request\Masters\UpdateDepartmentMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateGroupMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateInstrumentMasterRequestDto.cs" />
+    <Compile Include="Request\Masters\UpdateInventoryMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateJigsMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateMachineMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateMaterialMasterRequestDto.cs" />
@@ -176,6 +178,7 @@
     <Compile Include="Response\Enquiry\StockEnquiryOptionResponseDto.cs" />
     <Compile Include="Response\Masters\AddDepartmentMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddGroupMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\AddInventoryMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddSubcontractProcessMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddSymbolMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddUnitMasterResponseDto.cs" />
@@ -184,6 +187,7 @@
     <Compile Include="Response\Masters\GetDepartmentMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetEmployeeMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetGroupMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\GetInventoryMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetSubcontractProcessMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetSymbolMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddCompanyMasterResponseDto.cs" />
@@ -226,6 +230,7 @@
     <Compile Include="Response\Masters\UpdateDepartmentMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateGroupMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateInstrumentMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\UpdateInventoryMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateJigsMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateMachineMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateMaterialMasterResponseDto.cs" />

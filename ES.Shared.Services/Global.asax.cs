@@ -120,6 +120,17 @@ namespace ES.Shared.Services
                 x.For<IBusinessVendorTermsMaster>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
             });
 
+
+            ObjectFactory.Configure(x =>
+            {
+                x.For<IBusinessInventoryMaster>().Use<BusinessInventoryMaster>();
+                x.For<IReportInventoryMaster>().Use<ReportInventoryMaster>();
+                x.For<IInventoryMasterRepository>().Use<InventoryMasterRepository>();
+                var proxyGenerator = new ProxyGenerator();
+                var transactionInterceptor = new TransactionInterceptor();
+                x.For<IBusinessInventoryMaster>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
+            });
+
             ObjectFactory.Configure(x =>
             {
                 x.For<IBusinessGroupMaster>().Use<BusinessGroupMaster>();

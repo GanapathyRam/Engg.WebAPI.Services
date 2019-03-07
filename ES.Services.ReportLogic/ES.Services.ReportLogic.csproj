@@ -70,6 +70,7 @@
     <Compile Include="Masters\ReportEmployeeMaster.cs" />
     <Compile Include="Masters\ReportGroupMaster.cs" />
     <Compile Include="Masters\ReportInstrumentMaster.cs" />
+    <Compile Include="Masters\ReportInventoryMaster.cs" />
     <Compile Include="Masters\ReportMachineMaster.cs" />
     <Compile Include="Masters\ReportParameterMaster.cs" />
     <Compile Include="Masters\ReportJigsMaster.cs" />

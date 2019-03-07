@@ -51,6 +51,7 @@
     <Compile Include="Masters\IReportEmployeeMaster.cs" />
     <Compile Include="Masters\IReportGroupMaster.cs" />
     <Compile Include="Masters\IReportInstrumentMaster.cs" />
+    <Compile Include="Masters\IReportInventoryMaster.cs" />
     <Compile Include="Masters\IReportJigsMaster.cs" />
     <Compile Include="Masters\IReportMachineMaster.cs.cs" />
     <Compile Include="Masters\IReportMaterialMaster.cs" />

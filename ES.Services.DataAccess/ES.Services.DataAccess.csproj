@@ -100,6 +100,9 @@
     <Compile Include="Commands\Masters\InstrumentMasterInsertCommand.cs" />
     <Compile Include="Commands\Masters\InstrumentMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\InstrumentMasterUpdateCommand.cs" />
+    <Compile Include="Commands\Masters\InventoryMasterInsertCommand.cs" />
+    <Compile Include="Commands\Masters\InventoryMasterSelectCommand.cs" />
+    <Compile Include="Commands\Masters\InventoryMasterUpdateCommand.cs" />
     <Compile Include="Commands\Masters\JigsMasterInsertCommand.cs" />
     <Compile Include="Commands\Masters\JigsMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\JigsMasterUpdateCommand.cs" />
@@ -205,6 +208,7 @@
     <Compile Include="Repositories\Masters\EmployeeMasterRepository.cs" />
     <Compile Include="Repositories\Masters\GroupMasterRepository.cs" />
     <Compile Include="Repositories\Masters\InstrumentMasterRepository.cs" />
+    <Compile Include="Repositories\Masters\InventoryMasterRepository.cs" />
     <Compile Include="Repositories\Masters\MachineMasterRepository.cs" />
     <Compile Include="Repositories\Masters\ParameterMasterRepository.cs" />
     <Compile Include="Repositories\Masters\JigsMasterRepository.cs" />

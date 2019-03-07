@@ -197,6 +197,7 @@
     <Compile Include="Controllers\Masters\EmployeeMasterController.cs" />
     <Compile Include="Controllers\Masters\GroupMasterController.cs" />
     <Compile Include="Controllers\Masters\InstrumentMasterController.cs" />
+    <Compile Include="Controllers\Masters\InventoryMasterController.cs" />
     <Compile Include="Controllers\Masters\JigsMasterController.cs" />
     <Compile Include="Controllers\Masters\MachineMasterController.cs" />
     <Compile Include="Controllers\Masters\MaterialMasterController.cs" />
