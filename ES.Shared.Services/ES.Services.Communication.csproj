@@ -204,6 +204,7 @@
     <Compile Include="Controllers\Masters\OperationMasterController.cs" />
     <Compile Include="Controllers\Masters\ParameterMasterController.cs" />
     <Compile Include="Controllers\Masters\PartMasterController.cs" />
+    <Compile Include="Controllers\Masters\RateMasterController.cs" />
     <Compile Include="Controllers\Masters\SubcontractProcessMasterController.cs" />
     <Compile Include="Controllers\Masters\SymbolMasterController.cs" />
     <Compile Include="Controllers\Masters\ToolsMasterController.cs" />

@@ -58,6 +58,7 @@
     <Compile Include="Masters\IReportOperationMaster.cs" />
     <Compile Include="Masters\IReportParameterMaster.cs" />
     <Compile Include="Masters\IReportPartMaster.cs" />
+    <Compile Include="Masters\IReportRateMaster.cs" />
     <Compile Include="Masters\IReportSubcontractProcessMaster.cs" />
     <Compile Include="Masters\IReportSymbolMaster.cs" />
     <Compile Include="Masters\IReportToolsMaster.cs" />

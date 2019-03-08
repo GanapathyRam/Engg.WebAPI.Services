@@ -75,6 +75,7 @@
     <Compile Include="Request\Masters\AddOperationMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddParameterMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddPartMasterRequestDto.cs" />
+    <Compile Include="Request\Masters\AddRateMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddSubcontractProcessMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddSymbolMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddToolsMasterRequestDto.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Request\Masters\AddVendorMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddGroupMasterRequestDto.cs" />
     <Compile Include="Request\Masters\AddVendorTermsMasterRequestDto.cs" />
+    <Compile Include="Request\Masters\DeleteRateMasterRequestDto.cs" />
     <Compile Include="Request\Masters\DeleteVendorTermsMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetCategoryMasterRequestDto.cs" />
     <Compile Include="Request\Masters\GetCompanyMasterRequestDto.cs" />
@@ -109,6 +111,7 @@
     <Compile Include="Request\Masters\UpdateOperationMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateParameterMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdatePartMasterRequestDto.cs" />
+    <Compile Include="Request\Masters\UpdateRateMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateSubcontractProcessMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateToolsMasterRequestDto.cs" />
     <Compile Include="Request\Masters\UpdateUnitMasterRequestDto.cs" />
@@ -179,15 +182,18 @@
     <Compile Include="Response\Masters\AddDepartmentMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddGroupMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddInventoryMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\AddRateMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddSubcontractProcessMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddSymbolMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddUnitMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddVendorTermsMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\DeleteRateMasterResponseDto.cs" />
     <Compile Include="Response\Masters\DeleteVendorTermsMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetDepartmentMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetEmployeeMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetGroupMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetInventoryMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\GetRateMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetSubcontractProcessMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetSymbolMasterResponseDto.cs" />
     <Compile Include="Response\Masters\AddCompanyMasterResponseDto.cs" />
@@ -237,6 +243,7 @@
     <Compile Include="Response\Masters\UpdateOperationMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateParameterMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdatePartMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\UpdateRateMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateSubcontractProcessMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateSymbolMasterResponseDto.cs" />
     <Compile Include="Response\Masters\UpdateToolsMasterResponseDto.cs" />

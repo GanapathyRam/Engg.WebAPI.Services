@@ -120,6 +120,10 @@
     <Compile Include="Commands\Masters\PartMasterInsertCommand.cs" />
     <Compile Include="Commands\Masters\PartMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\PartMasterUpdateCommand.cs" />
+    <Compile Include="Commands\Masters\RateMasterDeleteCommand.cs" />
+    <Compile Include="Commands\Masters\RateMasterInsertCommand.cs" />
+    <Compile Include="Commands\Masters\RateMasterSelectCommand.cs" />
+    <Compile Include="Commands\Masters\RateMasterUpdateCommand.cs" />
     <Compile Include="Commands\Masters\SubcontractProcessMasterInsertCommand.cs" />
     <Compile Include="Commands\Masters\SubcontractProcessMasterSelectCommand.cs" />
     <Compile Include="Commands\Masters\SubcontractProcessMasterUpdateCommand.cs" />
@@ -213,6 +217,7 @@
     <Compile Include="Repositories\Masters\ParameterMasterRepository.cs" />
     <Compile Include="Repositories\Masters\JigsMasterRepository.cs" />
     <Compile Include="Repositories\Masters\PartMasterRepository.cs" />
+    <Compile Include="Repositories\Masters\RateMasterRepository.cs" />
     <Compile Include="Repositories\Masters\SubcontractProcessMasterRepository.cs" />
     <Compile Include="Repositories\Masters\SymbolMasterRepository.cs" />
     <Compile Include="Repositories\Masters\ToolsMasterRepository.cs" />
