@@ -30,7 +30,7 @@ namespace ES.Services.DataAccess.Model.QueryModel.Stores
 
         public string Description { get; set; }
 
-        public string Units { get; set; }
+        public decimal Units { get; set; }
 
         public string UnitsDescription { get; set; }
 

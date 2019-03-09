@@ -34,7 +34,7 @@ namespace ES.Services.DataTransferObjects.Response.Stores
 
         public string Description { get; set; }
 
-        public string Units { get; set; }
+        public decimal Units { get; set; }
 
         public decimal SentQuantity { get; set; }
 

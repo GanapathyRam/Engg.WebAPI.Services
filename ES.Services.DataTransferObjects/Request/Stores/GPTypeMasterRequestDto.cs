@@ -19,7 +19,7 @@ namespace ES.Services.DataTransferObjects.Request.Stores
     {
      public Int64 GPSerialNo { get; set; }
     public string Description { get; set; }
-    public string Units { get; set; }
+    public decimal Units { get; set; }
     public decimal SentQuantity { get; set; }
     public decimal ReceivedQuantity { get; set; }
 }
