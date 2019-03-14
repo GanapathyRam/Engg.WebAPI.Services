@@ -33,6 +33,15 @@ namespace ES.Services.DataTransferObjects.Response.Stores
 
         public bool IsDeletable { get; set; }
 
+        public string FullAddress { get; set; }
+
+        public string City { get; set; }
+
+        public string PinCode { get; set; }
+
+        public string CompanyGST { get; set; }
+
+
         public List<GetGPSendingDetails> GetGPSendingDetailsist { get; set; }
     }
 

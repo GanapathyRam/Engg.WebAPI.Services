@@ -128,6 +128,10 @@ namespace ES.Services.ReportLogic.Stores
                         getsingle.RequestedBy = gpSendingDetails.RequestedBy;
                         getsingle.RequestedName = gpSendingDetails.RequestedName;
                         getsingle.Remarks = gpSendingDetails.Remarks;
+                        getsingle.FullAddress = gpSendingDetails.FullAddress;
+	                    getsingle.City = gpSendingDetails.City;
+                        getsingle.PinCode = gpSendingDetails.PinCode;
+                        getsingle.CompanyGST = gpSendingDetails.CompanyGST;
                         getsingle.IsDeletable = gpSendingDetails.IsDeletable;
                         getsingle.GetGPSendingDetailsist.Add
                         (getGPSendingDetailsResponse);
@@ -146,6 +150,10 @@ namespace ES.Services.ReportLogic.Stores
                     getsingle.RequestedBy = gpSendingDetails.RequestedBy;
                     getsingle.RequestedName = gpSendingDetails.RequestedName;
                     getsingle.Remarks = gpSendingDetails.Remarks;
+                    getsingle.FullAddress = gpSendingDetails.FullAddress;
+                    getsingle.City = gpSendingDetails.City;
+                    getsingle.PinCode = gpSendingDetails.PinCode;
+                    getsingle.CompanyGST = gpSendingDetails.CompanyGST;
                     getsingle.IsDeletable = gpSendingDetails.IsDeletable;
                     getsingle.GetGPSendingDetailsist.Add
                     (getGPSendingDetailsResponse);
