@@ -377,7 +377,15 @@ namespace ES.Shared.Services
                 var transactionInterceptor = new TransactionInterceptor();
                 x.For<IBusinessGatePass>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
             });
-          
+            ObjectFactory.Configure(x =>
+            {
+                x.For<IReportGPOutside>().Use<ReportGatePassOutside>();
+                x.For<IBusinessGatePassOutside>().Use<BusinessGatePassOutside>();
+                x.For<IGatePassOutsideRepository>().Use<GatePassOutsideRepository>();
+                var proxyGenerator = new ProxyGenerator();
+                var transactionInterceptor = new TransactionInterceptor();
+                x.For<IBusinessGatePassOutside>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
+            });
             #endregion
         }
     }

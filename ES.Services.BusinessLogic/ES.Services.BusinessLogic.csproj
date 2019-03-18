@@ -77,6 +77,7 @@
     <Compile Include="Registration\BusinessRegistration.cs" />
     <Compile Include="Sales\BusinessWorkOrder.cs" />
     <Compile Include="Stores\BusinessGatePass.cs" />
+    <Compile Include="Stores\BusinessGatePassOutside.cs" />
     <Compile Include="SubContract\BusinessSubContract.cs" />
   </ItemGroup>
   <ItemGroup>

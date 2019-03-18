@@ -124,7 +124,10 @@
     <Compile Include="CommandModel\Sales\WorkOrderCM.cs" />
     <Compile Include="CommandModel\Sales\WorkOrderDetailsCM.cs" />
     <Compile Include="CommandModel\Masters\UpdateSymbolMasterCM.cs" />
+    <Compile Include="CommandModel\Stores\DeleteGPOutsideReceiptCM.cs" />
     <Compile Include="CommandModel\Stores\DeleteGPSendingCM.cs" />
+    <Compile Include="CommandModel\Stores\GPOutsideMasterCM.cs" />
+    <Compile Include="CommandModel\Stores\GPOutsideReceiptDetailsCM.cs" />
     <Compile Include="CommandModel\Stores\GPReceivingDetailsCM.cs" />
     <Compile Include="CommandModel\Stores\GPReceivingMasterInsertCommand.cs" />
     <Compile Include="CommandModel\Stores\GPSendingCM.cs" />
@@ -263,6 +266,7 @@
     <Compile Include="QueryModel\Sales\GetWorkOrderTypeQM.cs" />
     <Compile Include="QueryModel\Sales\WorkOrderQM.cs" />
     <Compile Include="QueryModel\Sales\WorkOrderTypeModel.cs" />
+    <Compile Include="QueryModel\Stores\GetGPOutsideReceiptQM.cs" />
     <Compile Include="QueryModel\Stores\GetGPReceiptVendorQM.cs" />
     <Compile Include="QueryModel\Stores\GetGPReceivedDetailsModel.cs" />
     <Compile Include="QueryModel\Stores\GetGPReceivedDetailsQM.cs" />
