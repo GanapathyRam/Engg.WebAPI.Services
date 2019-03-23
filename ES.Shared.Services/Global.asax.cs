@@ -9,12 +9,14 @@ using ES.Services.BusinessLogic.Interface.Registration;
 using ES.Services.BusinessLogic.Interface.Sales;
 using ES.Services.BusinessLogic.Interface.Stores;
 using ES.Services.BusinessLogic.Interface.SubContract;
+using ES.Services.BusinessLogic.Interface.Transaction;
 using ES.Services.BusinessLogic.Masters;
 using ES.Services.BusinessLogic.Production;
 using ES.Services.BusinessLogic.Registration;
 using ES.Services.BusinessLogic.Sales;
 using ES.Services.BusinessLogic.Stores;
 using ES.Services.BusinessLogic.SubContract;
+using ES.Services.BusinessLogic.Transaction;
 using ES.Services.DataAccess.Interface.Authentication;
 using ES.Services.DataAccess.Interface.Despatch;
 using ES.Services.DataAccess.Interface.Enquiry;
@@ -24,6 +26,7 @@ using ES.Services.DataAccess.Interface.Registration;
 using ES.Services.DataAccess.Interface.Sales;
 using ES.Services.DataAccess.Interface.Stores;
 using ES.Services.DataAccess.Interface.SubContract;
+using ES.Services.DataAccess.Interface.Transaction;
 using ES.Services.DataAccess.Repositories.Authentication;
 using ES.Services.DataAccess.Repositories.Despatch;
 using ES.Services.DataAccess.Repositories.Enquiry;
@@ -33,6 +36,7 @@ using ES.Services.DataAccess.Repositories.Registration;
 using ES.Services.DataAccess.Repositories.Sales;
 using ES.Services.DataAccess.Repositories.Stores;
 using ES.Services.DataAccess.Repositories.SubContract;
+using ES.Services.DataAccess.Repositories.Transaction;
 using ES.Services.ReportLogic.Authentication;
 using ES.Services.ReportLogic.Despatch;
 using ES.Services.ReportLogic.Enquiry;
@@ -44,11 +48,13 @@ using ES.Services.ReportLogic.Interface.Production;
 using ES.Services.ReportLogic.Interface.Sales;
 using ES.Services.ReportLogic.Interface.Stores;
 using ES.Services.ReportLogic.Interface.SubContract;
+using ES.Services.ReportLogic.Interface.Transaction;
 using ES.Services.ReportLogic.Masters;
 using ES.Services.ReportLogic.Production;
 using ES.Services.ReportLogic.Sales;
 using ES.Services.ReportLogic.Stores;
 using ES.Services.ReportLogic.SubContract;
+using ES.Services.ReportLogic.Transaction;
 using SS.Framework.AopInterceptor;
 using StructureMap;
 using System.Web.Http;
@@ -385,6 +391,18 @@ namespace ES.Shared.Services
                 var proxyGenerator = new ProxyGenerator();
                 var transactionInterceptor = new TransactionInterceptor();
                 x.For<IBusinessGatePassOutside>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
+            });
+            #endregion
+
+            #region Transaction
+            ObjectFactory.Configure(x =>
+            {
+                x.For<IReportTransaction>().Use<ReportTransaction>();
+                x.For<IBusinessTransaction>().Use<BusinessTransaction>();
+                x.For<ITransactionRepository>().Use<TransactionRepository>();
+                var proxyGenerator = new ProxyGenerator();
+                var transactionInterceptor = new TransactionInterceptor();
+                x.For<IBusinessTransaction>().EnrichAllWith(instance => proxyGenerator.CreateInterfaceProxyWithTarget(instance, transactionInterceptor));
             });
             #endregion
         }

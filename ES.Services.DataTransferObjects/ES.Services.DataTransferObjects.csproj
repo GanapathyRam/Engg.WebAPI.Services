@@ -149,6 +149,8 @@
     <Compile Include="Request\SubContract\GetScReceivingDetailsRequestDto.cs" />
     <Compile Include="Request\SubContract\SubContractReceivingRequestDto.cs" />
     <Compile Include="Request\SubContract\SubContractRequestDto.cs" />
+    <Compile Include="Request\Transaction\PORequestDto.cs" />
+    <Compile Include="Request\Transaction\UpdatePORequestDto.cs" />
     <Compile Include="Response\Authentication\AuthenticationResponseDto.cs" />
     <Compile Include="Response\Authentication\RegistrationResponseDto.cs" />
     <Compile Include="Response\Authentication\RoleResponseDto.cs" />
@@ -305,6 +307,8 @@
     <Compile Include="Response\SubContract\GetSubContractSendingResponseDto.cs" />
     <Compile Include="Response\SubContract\SubContractReceivingResponseDto.cs" />
     <Compile Include="Response\SubContract\SubContractResponseDto.cs" />
+    <Compile Include="Response\Transaction\GetPoNumberResponseDto.cs" />
+    <Compile Include="Response\Transaction\POResponseDto.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

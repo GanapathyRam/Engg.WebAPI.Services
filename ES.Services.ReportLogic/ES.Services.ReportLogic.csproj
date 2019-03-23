@@ -91,6 +91,7 @@
     <Compile Include="Stores\ReportGatePass.cs" />
     <Compile Include="Stores\ReportGatePassOutside.cs" />
     <Compile Include="SubContract\ReportSubContract.cs" />
+    <Compile Include="Transaction\ReportTransaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ES.ExceptionAttributes\ES.ExceptionAttributes.csproj">

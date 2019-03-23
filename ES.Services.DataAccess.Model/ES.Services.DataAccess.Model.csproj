@@ -135,6 +135,9 @@
     <Compile Include="CommandModel\SubContract\DeleteScDetailsCM.cs" />
     <Compile Include="CommandModel\SubContract\ScDetailSerialCM.cs" />
     <Compile Include="CommandModel\SubContract\ScReceivingDetailSerialCM.cs" />
+    <Compile Include="CommandModel\Transaction\AddPoDetailsCM.cs" />
+    <Compile Include="CommandModel\Transaction\AddPoMasterCM.cs" />
+    <Compile Include="CommandModel\Transaction\UpdatePoDetailsCM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryModel\Authentication\CustomUserInformationQueryModel.cs" />
     <Compile Include="QueryModel\Authentication\RegistrationQM.cs" />
@@ -289,6 +292,7 @@
     <Compile Include="QueryModel\SubContract\GetSubContractReceivingResponseQM.cs" />
     <Compile Include="QueryModel\SubContract\GetSubContractSendingResponseModel.cs" />
     <Compile Include="QueryModel\SubContract\GetSubContractSendingResponseQM.cs" />
+    <Compile Include="QueryModel\Transaction\GetPoDetailsSerialNoQM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CommandModel\Enquiry\" />

@@ -36,7 +36,7 @@ namespace ES.Services.BusinessLogic.Sales
             if (!string.IsNullOrEmpty(getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo))
             {
                 clientSerialNumber = getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo.ToString();
-                existingclientSerialDigit =getWorkOrderClientSerialNoQM.WorkOrderClientChar;
+                existingclientSerialDigit = getWorkOrderClientSerialNoQM.WorkOrderClientChar;
 
             }
 
@@ -117,12 +117,12 @@ namespace ES.Services.BusinessLogic.Sales
 
                 for (int i = 0; i < quantity; i++)
                 {
-           
-                        var splitSerialChar = clientSerialNo.ToString().Substring(0, 3);
-                        var splitSerialNo = clientSerialNo.ToString().Substring(3);
-                        clientSerialNo = splitSerialChar + ((Convert.ToInt64(splitSerialNo) + 1));
-                        clientSerialNumber= ((Convert.ToInt64(splitSerialNo) + 1)).ToString();
-                        existingclientSerialDigit = splitSerialChar;
+
+                    var splitSerialChar = clientSerialNo.ToString().Substring(0, 3);
+                    var splitSerialNo = clientSerialNo.ToString().Substring(3);
+                    clientSerialNo = splitSerialChar + ((Convert.ToInt64(splitSerialNo) + 1));
+                    clientSerialNumber = ((Convert.ToInt64(splitSerialNo) + 1)).ToString();
+                    existingclientSerialDigit = splitSerialChar;
                     WorkOrderDetailsCM workOrderDetailsCM = new WorkOrderDetailsCM()
                     {
                         WorkOrderNumber = workOrderNumber,
@@ -133,7 +133,7 @@ namespace ES.Services.BusinessLogic.Sales
                         JTC = false,
                         SubContract = false,
                         DC = false,
-                        CreatedDateTime=System.DateTime.UtcNow
+                        CreatedDateTime = System.DateTime.UtcNow
                     };
                     workOrderRepository.AddWorkOrderDetails(workOrderDetailsCM);
                 }
@@ -191,7 +191,7 @@ namespace ES.Services.BusinessLogic.Sales
                         PartCode = updateWorKOrder.PartCode,
                         WOQuantity = updateWorKOrder.WOQuantity,
                         Rate = updateWorKOrder.Rate,
-                        DeliveryDate = updateWorKOrder.DeliveryDate == null  ? System.DateTime.UtcNow : Convert.ToDateTime(updateWorKOrder.DeliveryDate),
+                        DeliveryDate = updateWorKOrder.DeliveryDate == null ? System.DateTime.UtcNow : Convert.ToDateTime(updateWorKOrder.DeliveryDate),
                         DCQuantity = 0,
                         RejectedQuantity = 0,
                         InvoicedQuantity = 0,
@@ -212,7 +212,7 @@ namespace ES.Services.BusinessLogic.Sales
                     // Section to add the work order master information
                     var response = workOrderRepository.AddWorkOrder(cModel);
 
-                   
+
 
                     // Section to add the work order details information
                     var quantity = cModel.WorkOrderMasterListItems.FirstOrDefault().WOQuantity;
@@ -330,7 +330,7 @@ namespace ES.Services.BusinessLogic.Sales
                 cModel.HeatNo = updateWorKOrderHeat.HeatNo;
                 workOrderRepository.UpdateWorkOrderHeat(cModel);
             }
-                return new UpdateWorkOrderHeatResponseDto();
+            return new UpdateWorkOrderHeatResponseDto();
 
         }
 

@@ -218,6 +218,7 @@
     <Compile Include="Controllers\Stores\GatePassOutsideController.cs" />
     <Compile Include="Controllers\SubContract\SubContractController.cs" />
     <Compile Include="Controllers\Sales\WorkOrderController.cs" />
+    <Compile Include="Controllers\Transaction\TransactionController.cs" />
     <Compile Include="Filters\AddChallengeOnUnauthorizedResult.cs" />
     <Compile Include="Filters\AuthenticationFailureResult.cs" />
     <Compile Include="Filters\HttpAuthenticationChallengeContextExtensions.cs" />
@@ -249,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\EnquiryReports\" />
     <Folder Include="Models\" />
     <Folder Include="Views\SubcontractProcessMaster\" />
     <Folder Include="Views\VendorMaster\" />
