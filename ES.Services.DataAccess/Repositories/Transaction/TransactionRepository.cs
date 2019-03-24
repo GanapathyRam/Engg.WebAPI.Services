@@ -8,6 +8,7 @@ using ES.Services.DataAccess.Model.CommandModel.Transaction;
 using ES.Services.DataAccess.Commands.Transaction;
 using SS.Framework.DataAccess.Extentions;
 using ES.Services.DataAccess.Model.QueryModel.Masters;
+using ES.Services.DataAccess.Model.QueryModel.Transaction;
 
 namespace ES.Services.DataAccess.Repositories.Transaction
 {
@@ -97,6 +98,21 @@ namespace ES.Services.DataAccess.Repositories.Transaction
                 var command = new PoMasterAndDetailsDeleteCommand { Connection = connection };
                 command.Execute(PoNumber, PoSerialNo, IsDeleteFrom);
             }
+        }
+
+        public GetPoResponseQM GetPoMasterAndDetails()
+        {
+            var model = new GetPoResponseQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetPoMasterAndDetailsSelectCommand { Connection = connection };
+                model = command.Execute();
+            }
+
+            return model;
+
         }
     }
 }

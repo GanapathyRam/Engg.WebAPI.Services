@@ -8,5 +8,7 @@ namespace ES.Services.BusinessLogic.Interface.Transaction
         POResponseDto AddPurchaseOrder(PORequestDto PoRequestDto);
 
         POResponseDto UpdatePurchaseOrder(UpdatePORequestDto UpdatePORequestDto);
+
+        DeletePOResponseDto DeletePurchaseOrder(DeletePORequestDto DeletePORequestDto);
     }
 }

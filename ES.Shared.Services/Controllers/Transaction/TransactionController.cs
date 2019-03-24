@@ -160,8 +160,38 @@ namespace ES.Shared.Services.Controllers.SubContract
             return response;
         }
 
+        [HttpPost]
+        public DeletePOResponseDto DeletePurchaseOrder(DeletePORequestDto DeletePORequestDto)
+        {
+            DeletePOResponseDto response;
 
+            try
+            {
+                response = bTransactionProvider.DeletePurchaseOrder(DeletePORequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new DeletePOResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
 
+            }
+            catch (Exception exception)
+            {
+                response = new DeletePOResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
 
         #endregion
 

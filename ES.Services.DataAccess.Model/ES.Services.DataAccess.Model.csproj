@@ -293,6 +293,8 @@
     <Compile Include="QueryModel\SubContract\GetSubContractSendingResponseModel.cs" />
     <Compile Include="QueryModel\SubContract\GetSubContractSendingResponseQM.cs" />
     <Compile Include="QueryModel\Transaction\GetPoDetailsSerialNoQM.cs" />
+    <Compile Include="QueryModel\Transaction\GetPoResponseModel.cs" />
+    <Compile Include="QueryModel\Transaction\GetPoResponseQM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CommandModel\Enquiry\" />

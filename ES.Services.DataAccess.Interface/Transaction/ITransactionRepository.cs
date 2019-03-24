@@ -1,5 +1,6 @@
 ﻿using ES.Services.DataAccess.Model.CommandModel.Transaction;
 using ES.Services.DataAccess.Model.QueryModel.Masters;
+using ES.Services.DataAccess.Model.QueryModel.Transaction;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,5 +22,9 @@ namespace ES.Services.DataAccess.Interface.Transaction
         void UpdatePoMaster(AddPoMasterCM addPoMasterCM);
 
         void UpdatePoDetails(UpdatePoDetailsCM updatePoDetailsCM);
+
+        void DeletePoMasterAndDetails(string PoNumber, decimal PoSerialNo, int IsDeleteFrom);
+
+        GetPoResponseQM GetPoMasterAndDetails();
     }
 }

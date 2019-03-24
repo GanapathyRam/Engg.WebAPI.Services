@@ -208,6 +208,7 @@
     <Compile Include="Commands\SubContract\ScReceivingMasterCommonInsertCommand.cs" />
     <Compile Include="Commands\SubContract\ScReceivingSerialInsertCommand.cs" />
     <Compile Include="Commands\SubContract\ScSerialInsertCommand.cs" />
+    <Compile Include="Commands\Transaction\GetPoMasterAndDetailsSelectCommand.cs" />
     <Compile Include="Commands\Transaction\PoDetailsInsertCommand.cs" />
     <Compile Include="Commands\Transaction\PoDetailsUpdateCommand.cs" />
     <Compile Include="Commands\Transaction\PoMasterAndDetailsDeleteCommand.cs" />

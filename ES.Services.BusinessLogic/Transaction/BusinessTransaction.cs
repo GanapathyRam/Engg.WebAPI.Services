@@ -195,5 +195,12 @@ namespace ES.Services.BusinessLogic.Transaction
 
             return new POResponseDto();
         }
+
+        public DeletePOResponseDto DeletePurchaseOrder(DeletePORequestDto DeletePORequestDto)
+        {
+            transactionRepository.DeletePoMasterAndDetails(DeletePORequestDto.PONumber, DeletePORequestDto.POSerialNo, DeletePORequestDto.IsDeleteFrom);
+
+            return new DeletePOResponseDto();
+        }
     }
 }
