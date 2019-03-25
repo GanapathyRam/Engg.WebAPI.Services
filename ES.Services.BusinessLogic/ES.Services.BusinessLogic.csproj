@@ -79,6 +79,7 @@
     <Compile Include="Stores\BusinessGatePass.cs" />
     <Compile Include="Stores\BusinessGatePassOutside.cs" />
     <Compile Include="SubContract\BusinessSubContract.cs" />
+    <Compile Include="Transaction\BusinessTransaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ES.ExceptionAttributes\ES.ExceptionAttributes.csproj">
@@ -96,6 +97,10 @@
     <ProjectReference Include="..\ES.Services.DataAccess.Model\ES.Services.DataAccess.Model.csproj">
       <Project>{6d40e88b-2c44-4353-b58e-d6106d70dbee}</Project>
       <Name>ES.Services.DataAccess.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ES.Services.DataAccess\ES.Services.DataAccess.csproj">
+      <Project>{BE16377E-ED28-4D47-A388-983C2470F78C}</Project>
+      <Name>ES.Services.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\ES.Services.DataTransferObjects\ES.Services.DataTransferObjects.csproj">
       <Project>{da74d5cb-9e4d-4af0-8871-b8dca7409db7}</Project>

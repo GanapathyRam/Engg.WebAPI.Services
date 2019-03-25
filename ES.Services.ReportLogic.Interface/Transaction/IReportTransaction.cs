@@ -1,0 +1,18 @@
+﻿using ES.Services.DataTransferObjects.Response.Masters;
+using ES.Services.DataTransferObjects.Response.Sales;
+using ES.Services.DataTransferObjects.Response.Transaction;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ES.Services.ReportLogic.Interface.Transaction
+{
+    public interface IReportTransaction
+    {
+        GetPoNumberResponseDto GetPoNumber();
+
+        GetVendorTermsMasterResponseDto GetVendorTermsMaster(Int64 vendorCode);
+    }
+}

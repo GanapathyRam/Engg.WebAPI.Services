@@ -18,6 +18,7 @@ namespace ES.Services.ReportLogic.Masters
         {
             this.vendorTermsMasterRepository = vendorTermsMasterRepository;
         }
+
         public GetVendorTermsMasterResponseDto GetVendorTermsMaster()
         {
             var response = new GetVendorTermsMasterResponseDto();

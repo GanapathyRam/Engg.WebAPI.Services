@@ -73,6 +73,7 @@
     <Compile Include="Stores\IGatePassOutsideRepository.cs" />
     <Compile Include="Stores\IGatePassRepository.cs" />
     <Compile Include="SubContract\ISubContractRepository.cs" />
+    <Compile Include="Transaction\ITransactionRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ES.Services.DataAccess.Model\ES.Services.DataAccess.Model.csproj">

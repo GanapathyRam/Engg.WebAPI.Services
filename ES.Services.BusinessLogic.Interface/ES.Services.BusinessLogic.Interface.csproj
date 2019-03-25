@@ -70,6 +70,7 @@
     <Compile Include="Stores\IBusinessGatePass.cs" />
     <Compile Include="Stores\IBusinessGatePassOutside.cs" />
     <Compile Include="SubContract\IBusinessSubContract.cs" />
+    <Compile Include="Transaction\IBusinessTransaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ES.Services.DataTransferObjects\ES.Services.DataTransferObjects.csproj">
