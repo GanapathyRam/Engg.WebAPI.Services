@@ -141,6 +141,8 @@
     <Compile Include="Request\Stores\GetGPReceivingRequestDto.cs" />
     <Compile Include="Request\Stores\GetGPSendingRequestDto.cs" />
     <Compile Include="Request\Stores\GPOutsideReceiptRequestDto.cs" />
+    <Compile Include="Request\Stores\GPOutsideReturnDetailsGridRequestDto.cs" />
+    <Compile Include="Request\Stores\GPOutsideReturnRequestDto.cs" />
     <Compile Include="Request\Stores\GPReceivingRequestDto.cs" />
     <Compile Include="Request\Stores\GPSendingRequestDto.cs" />
     <Compile Include="Request\Stores\GPTypeMasterRequestDto.cs" />
@@ -281,12 +283,17 @@
     <Compile Include="Response\Stores\DeleteGPSendingResponseDto.cs" />
     <Compile Include="Response\Stores\GetGPOutsideReceiptNumberResponseDto.cs" />
     <Compile Include="Response\Stores\GetGPOutsideReceiptResponseDto.cs" />
+    <Compile Include="Response\Stores\GetGPOutsideReturnNumberResponseDto.cs" />
+    <Compile Include="Response\Stores\GetGPOutsideReturnResponseDto.cs" />
+    <Compile Include="Response\Stores\GetGPOutsideReturnVendorResponseDto.cs" />
     <Compile Include="Response\Stores\GetGPReceiptVendorResponseDto.cs" />
     <Compile Include="Response\Stores\GetGPReceivedDetailsResponseDto.cs" />
     <Compile Include="Response\Stores\GetGPReceivingResponseDto.cs" />
     <Compile Include="Response\Stores\GetGPSendingResponseDto.cs" />
     <Compile Include="Response\Stores\GetUnitMasterResponseDto.cs" />
     <Compile Include="Response\Stores\GPOutsideReceiptResponseDto.cs" />
+    <Compile Include="Response\Stores\GPOutsideReturnDetailsGridResponseDto.cs" />
+    <Compile Include="Response\Stores\GPOutsideReturnResponseDto.cs" />
     <Compile Include="Response\Stores\GPReceiptNumberResponseDto.cs" />
     <Compile Include="Response\Stores\GPReceivingResponseDto.cs" />
     <Compile Include="Response\Stores\GPSendingNumberResponseDto.cs" />

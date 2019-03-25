@@ -120,6 +120,99 @@ namespace ES.Shared.Services.Controllers.Stores
             return getGPOutsideReceiptNumberResponseDto;
         }
 
+        public GPOutsideReturnResponseDto GetGPOutsideReturn()
+        {
+            GPOutsideReturnResponseDto gpOutsideReturnResponseDto;
+            try
+            {
+                gpOutsideReturnResponseDto = reportGatePassOutside.GetGPOutsideReturn();
+                gpOutsideReturnResponseDto.ServiceResponseStatus = 1;
+
+            }
+            catch (SSException exception)
+            {
+                gpOutsideReturnResponseDto = new GPOutsideReturnResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = exception.Message,
+                    ErrorCode = exception.ExceptionCode
+                };
+            }
+            catch (Exception exception)
+            {
+                gpOutsideReturnResponseDto = new GPOutsideReturnResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return gpOutsideReturnResponseDto;
+        }
+
+        public GetGPOutsideReturnNumberResponseDto GetGPOutsideReturnNumber()
+        {
+            GetGPOutsideReturnNumberResponseDto getGPOutsideReturnNumberResponseDto;
+            try
+            {
+                getGPOutsideReturnNumberResponseDto = reportGatePassOutside.GetGPOutsideReturnNumber();
+                getGPOutsideReturnNumberResponseDto.ServiceResponseStatus = 1;
+
+            }
+            catch (SSException exception)
+            {
+                getGPOutsideReturnNumberResponseDto = new GetGPOutsideReturnNumberResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = exception.Message,
+                    ErrorCode = exception.ExceptionCode
+                };
+            }
+            catch (Exception exception)
+            {
+                getGPOutsideReturnNumberResponseDto = new GetGPOutsideReturnNumberResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return getGPOutsideReturnNumberResponseDto;
+        }
+
+        public GPOutsideReturnDetailsGridResponseDto GetGPReceivedDetailsGrid(GPOutsideReturnDetailsGridRequestDto gpOutsideReturnDetailsGridRequestDto)
+        {
+            GPOutsideReturnDetailsGridResponseDto gpOutsideReturnDetailsGridResponseDto;
+            try
+            {
+                gpOutsideReturnDetailsGridResponseDto = reportGatePassOutside.GetGPReceivedDetailsGrid(gpOutsideReturnDetailsGridRequestDto);
+                gpOutsideReturnDetailsGridResponseDto.ServiceResponseStatus = 1;
+
+            }
+            catch (SSException exception)
+            {
+                gpOutsideReturnDetailsGridResponseDto = new GPOutsideReturnDetailsGridResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = exception.Message,
+                    ErrorCode = exception.ExceptionCode
+                };
+            }
+            catch (Exception exception)
+            {
+                gpOutsideReturnDetailsGridResponseDto = new GPOutsideReturnDetailsGridResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return gpOutsideReturnDetailsGridResponseDto;
+        }
+
         public GPOutsideReceiptResponseDto SaveGPOutsideReceipt(GPOutsideReceiptRequestDto gPOutsideReceiptRequestDto)
         {
             GPOutsideReceiptResponseDto gpOutsideReceiptResponseDto;
@@ -149,6 +242,37 @@ namespace ES.Shared.Services.Controllers.Stores
             }
 
             return gpOutsideReceiptResponseDto;
+        }
+
+        public GetGPOutsideReturnResponseDto SaveGPOutsideReturn(GPOutsideReturnRequestDto gpOutsideReturnRequestDto)
+        {
+            GetGPOutsideReturnResponseDto gpOutsideReturnResponseDto;
+            try
+            {
+                gpOutsideReturnResponseDto = businessGatePassOutside.SaveGPOutsideReturn(gpOutsideReturnRequestDto);
+                gpOutsideReturnResponseDto.ServiceResponseStatus = 1;
+
+            }
+            catch (SSException exception)
+            {
+                gpOutsideReturnResponseDto = new GetGPOutsideReturnResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = exception.Message,
+                    ErrorCode = exception.ExceptionCode
+                };
+            }
+            catch (Exception exception)
+            {
+                gpOutsideReturnResponseDto = new GetGPOutsideReturnResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return gpOutsideReturnResponseDto;
         }
     }
 }

@@ -128,6 +128,9 @@
     <Compile Include="CommandModel\Stores\DeleteGPSendingCM.cs" />
     <Compile Include="CommandModel\Stores\GPOutsideMasterCM.cs" />
     <Compile Include="CommandModel\Stores\GPOutsideReceiptDetailsCM.cs" />
+    <Compile Include="CommandModel\Stores\GPOutsideReturnDetailsCM.cs" />
+    <Compile Include="CommandModel\Stores\GPOutsideReturnDetailsGridCM.cs" />
+    <Compile Include="CommandModel\Stores\GPOutsideReturnMasterCM.cs" />
     <Compile Include="CommandModel\Stores\GPReceivingDetailsCM.cs" />
     <Compile Include="CommandModel\Stores\GPReceivingMasterInsertCommand.cs" />
     <Compile Include="CommandModel\Stores\GPSendingCM.cs" />
@@ -267,6 +270,7 @@
     <Compile Include="QueryModel\Sales\WorkOrderQM.cs" />
     <Compile Include="QueryModel\Sales\WorkOrderTypeModel.cs" />
     <Compile Include="QueryModel\Stores\GetGPOutsideReceiptQM.cs" />
+    <Compile Include="QueryModel\Stores\GetGPOutsideReturnQM.cs" />
     <Compile Include="QueryModel\Stores\GetGPReceiptVendorQM.cs" />
     <Compile Include="QueryModel\Stores\GetGPReceivedDetailsModel.cs" />
     <Compile Include="QueryModel\Stores\GetGPReceivedDetailsQM.cs" />
@@ -276,6 +280,8 @@
     <Compile Include="QueryModel\Stores\GetGPSendingQM.cs" />
     <Compile Include="QueryModel\Stores\GetUnitMasterQM.cs" />
     <Compile Include="QueryModel\Stores\GetUnitMasterQMList.cs" />
+    <Compile Include="QueryModel\Stores\GPOutsideReturnDetailsGridQM.cs" />
+    <Compile Include="QueryModel\Stores\GPOutsideReturnVendorQM.cs" />
     <Compile Include="QueryModel\Stores\GPTypeMasterQM.cs" />
     <Compile Include="QueryModel\SubContract\GetScDetailsAndSerialsModel.cs" />
     <Compile Include="QueryModel\SubContract\GetScDetailsAndSerialsQM.cs" />

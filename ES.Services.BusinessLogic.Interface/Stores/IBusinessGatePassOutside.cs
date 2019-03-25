@@ -13,5 +13,7 @@ namespace ES.Services.BusinessLogic.Interface.Stores
         GPOutsideReceiptResponseDto SaveGPOutsideReceipt(GPOutsideReceiptRequestDto gPOutsideReceiptRequestDto);
 
         DeleteGPOutsideReceiptResponseDto DeletPOutsideReceiptMasterAndDetails(DeleteGPOutsideReceiptRequestDto deleteGPOutsideReceiptRequestDto);
+
+        GetGPOutsideReturnResponseDto SaveGPOutsideReturn(GPOutsideReturnRequestDto gpOutsideReturnRequestDto);
     }
 }

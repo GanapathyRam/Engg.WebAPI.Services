@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ES.Services.DataAccess.Model.QueryModel.Stores
+namespace ES.Services.DataTransferObjects.Response.Stores
 {
-    public class GetGPReceiptVendorQM
+    public class GetGPOutsideReturnVendorResponseDto : BaseResponse
     {
-
-        public IEnumerable<GPReceiptVendorModel> gpReceiptVendorList { get; set; }
-
+        public IEnumerable<GPReturnVendorResponse> gpReturnVendorList { get; set; }
     }
-    public class GPReceiptVendorModel
+    public class GPReturnVendorResponse
     {
         public Int64 VendorCode { get; set; }
 

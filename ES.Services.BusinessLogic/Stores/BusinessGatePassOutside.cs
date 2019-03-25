@@ -105,5 +105,56 @@ namespace ES.Services.BusinessLogic.Stores
 
             return GPSendingResponseDto;
         }
+
+        public GetGPOutsideReturnResponseDto SaveGPOutsideReturn(GPOutsideReturnRequestDto gpOutsideReturnRequestDto)
+        {
+            var createdBy = Helper.userIdToekn();
+            GetGPOutsideReturnResponseDto GPOutsideReturnResponseDto = new GetGPOutsideReturnResponseDto();
+            #region Section To Save GP Outside Return Master
+            GPOutsideReturnMasterCM masterSave = new GPOutsideReturnMasterCM()
+            {
+                VendorCode = gpOutsideReturnRequestDto.VendorCode,
+                GPOutsideReturnNumber = gpOutsideReturnRequestDto.GPOutsideReturnNumber,
+                GPOutsideReturnDate = gpOutsideReturnRequestDto.GPOutsideReturnDate,
+                Remarks = gpOutsideReturnRequestDto.Remarks,
+                CreatedBy = createdBy,
+                CreatedDateTime = DateTime.Now
+
+            };
+            gatePassOutsideRepository.SaveGPOutsideReturnMaster(masterSave);
+
+            #endregion
+
+
+            #region Section To Save GP Return Details
+
+            foreach (var gpReceivingDetails in gpOutsideReturnRequestDto.GPOutsideReturnDetailsList)
+            {
+                var GPReceivingDetailsListCM = new List<GPOutsideReturnDetailsModel>();
+
+                var cModel = new GPOutsideReturnDetailsCM();
+                var GPReceivingDetail = new GPOutsideReturnDetailsModel
+                {
+                    GPOutsideReturnNumber= gpReceivingDetails.GPOutsideReturnNumber,
+                    GPOutsideReceiptNumber = gpReceivingDetails.GPOutsideReceiptNumber,
+                    GPOutsideSerialNo = gpReceivingDetails.GPOutsideSerialNo,
+                    SentQuantity = gpReceivingDetails.SentQuantity,
+                    CreatedBy = createdBy,
+                    CreatedDateTime = DateTime.Now
+                };
+
+                GPReceivingDetailsListCM.Add(GPReceivingDetail);
+
+                cModel.GPOutsideReturnDetailsList = GPReceivingDetailsListCM;
+
+                // Section to add the gp sending master details information
+                gatePassOutsideRepository.SaveGPOutsideReturnDetails(cModel);
+            }
+
+            #endregion
+
+
+            return GPOutsideReturnResponseDto;
+        }
     }
 }

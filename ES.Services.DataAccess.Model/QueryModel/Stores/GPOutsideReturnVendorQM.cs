@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace ES.Services.DataAccess.Model.QueryModel.Stores
 {
-    public class GetGPReceiptVendorQM
+    public class GPOutsideReturnVendorQM
     {
-
-        public IEnumerable<GPReceiptVendorModel> gpReceiptVendorList { get; set; }
-
+        public IEnumerable<GPpReturnVendorModel> gpReturnVendorList { get; set; }
     }
-    public class GPReceiptVendorModel
+    public class GPpReturnVendorModel
     {
         public Int64 VendorCode { get; set; }
 

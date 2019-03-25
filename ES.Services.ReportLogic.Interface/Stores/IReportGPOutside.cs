@@ -1,4 +1,5 @@
-﻿using ES.Services.DataTransferObjects.Response.Stores;
+﻿using ES.Services.DataTransferObjects.Request.Stores;
+using ES.Services.DataTransferObjects.Response.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,8 @@ namespace ES.Services.ReportLogic.Interface.Stores
     {
         GetGPOutsideReceiptNumberResponseDto getGPOutsideReceiptNumber(string gpOutsideType);
         GetGPOutsideReceiptResponseDto getGPOutsideReceipt();
+        GetGPOutsideReturnNumberResponseDto GetGPOutsideReturnNumber();
+        GPOutsideReturnResponseDto GetGPOutsideReturn();
+        GPOutsideReturnDetailsGridResponseDto GetGPReceivedDetailsGrid(GPOutsideReturnDetailsGridRequestDto gpOutsideReturnDetailsGridRequestDto);
     }
 }

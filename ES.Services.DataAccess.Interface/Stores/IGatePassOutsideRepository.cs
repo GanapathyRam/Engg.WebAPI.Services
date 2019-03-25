@@ -15,5 +15,12 @@ namespace ES.Services.DataAccess.Interface.Stores
         void SaveGPOutsideReceiptMaster(GPOutsideMasterCM gpOutsideMasterCM);
         void SaveGPOutsideReceiptDetails(GPOutsideReceiptDetailsCM gpOutsideReceiptDetailsCM);
         void DeleteGPOutsideReceiptMasterAndDetails(DeleteGPOutsideReceiptCM deleteGPOutsideReceiptCM);
+
+        string GetGPOutsideReturnNumber();
+        GetGPOutsideReturnQM GetGPOutsideReturn();
+        GPOutsideReturnVendorQM GetGPOutsideReturnVendorList();
+        GPOutsideReturnDetailsGridQM GetGPReceivedDetailsGrid(GPOutsideReturnDetailsGridCM gpOutsideReturnDetailsGridCM);
+        void SaveGPOutsideReturnMaster(GPOutsideReturnMasterCM gpOutsideReturnMasterCM);
+        void SaveGPOutsideReturnDetails(GPOutsideReturnDetailsCM gpOutsideReturnDetailsCM);
     }
 }

@@ -15,7 +15,13 @@ namespace ES.Services.DataAccess.Repositories.Stores
     {
         public void DeleteGPOutsideReceiptMasterAndDetails(DeleteGPOutsideReceiptCM deleteGPOutsideReceiptCM)
         {
-            throw new NotImplementedException();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+                var rolesInsertCommand = new GPOutsideReceiptDeleteCommand { Connection = connection };
+                rolesInsertCommand.Execute(deleteGPOutsideReceiptCM.DeleteGPOutsideReceiptDetailList.ToDataTableWithNull(), deleteGPOutsideReceiptCM.GPOutsideReceiptNumber, deleteGPOutsideReceiptCM.IsDeleteFrom);
+            }
+
         }
 
         public GetGPOutsideReceiptQM getGPOutsideReceipt()
@@ -44,6 +50,56 @@ namespace ES.Services.DataAccess.Repositories.Stores
             return GPOutsideReceiptNumber;
         }
 
+        public GetGPOutsideReturnQM GetGPOutsideReturn()
+        {
+            GetGPOutsideReturnQM getGPOutsideReturnQM;
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+                var rolesInsertCommand = new GPOutsideReturnMasterAndDetailsSelectCommand { Connection = connection };
+                getGPOutsideReturnQM = rolesInsertCommand.Execute();
+            }
+            return getGPOutsideReturnQM;
+        }
+
+        public string GetGPOutsideReturnNumber()
+        {
+            string GPOutsideReturnNumber = string.Empty;
+
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var gPNumberCommand = new GPOutsideReturnNumberSelectCommand { Connection = connection };
+                GPOutsideReturnNumber = gPNumberCommand.Execute();
+            }
+            return GPOutsideReturnNumber;
+        }
+
+        public GPOutsideReturnVendorQM GetGPOutsideReturnVendorList()
+        {
+            GPOutsideReturnVendorQM gPOutsideReturnVendorQM;
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+                var rolesInsertCommand = new GetGPOutsideReturnVendorSelectCommand { Connection = connection };
+                gPOutsideReturnVendorQM = rolesInsertCommand.Execute();
+            }
+            return gPOutsideReturnVendorQM;
+        }
+
+        public GPOutsideReturnDetailsGridQM GetGPReceivedDetailsGrid(GPOutsideReturnDetailsGridCM gpOutsideReturnDetailsGridCM)
+        {
+            GPOutsideReturnDetailsGridQM gpOutsideReturnDetailsGridQM;
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+                var rolesInsertCommand = new GPOutsideReturnDetailsGridSelectCommand { Connection = connection };
+                gpOutsideReturnDetailsGridQM = rolesInsertCommand.Execute(gpOutsideReturnDetailsGridCM);
+            }
+            return gpOutsideReturnDetailsGridQM;
+        }
+
         public void SaveGPOutsideReceiptDetails(GPOutsideReceiptDetailsCM gpOutsideReceiptDetailsCM)
         {
             using (var connection = new DbConnectionProvider().CreateConnection())
@@ -63,6 +119,28 @@ namespace ES.Services.DataAccess.Repositories.Stores
 
                 var command = new GPOutsideReceiptMasterInsertCommand { Connection = connection };
                 command.Execute(gpOutsideMasterCM);
+            }
+        }
+
+        public void SaveGPOutsideReturnDetails(GPOutsideReturnDetailsCM gpOutsideReturnDetailsCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GPOutsideReturnDetailsInsertCommand { Connection = connection };
+                command.Execute(gpOutsideReturnDetailsCM.GPOutsideReturnDetailsList.ToDataTableWithNull(), gpOutsideReturnDetailsCM);
+            }
+        }
+
+        public void SaveGPOutsideReturnMaster(GPOutsideReturnMasterCM gpOutsideReturnMasterCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GPOutsideReturnMasterInsertCommand { Connection = connection };
+                command.Execute(gpOutsideReturnMasterCM);
             }
         }
     }
