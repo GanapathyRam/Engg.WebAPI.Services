@@ -23,6 +23,7 @@ namespace ES.Services.DataTransferObjects.Response.Stores
         public string RecievedBy { get; set; }
         public string RecievedName { get; set; }
         public string Remarks { get; set; }
+        public bool IsDeletable { get; set; }
         public List<GPOutsideReceiptDetailsRModel> GPOutsideReceiptDetailsList { get; set; }
     }
 

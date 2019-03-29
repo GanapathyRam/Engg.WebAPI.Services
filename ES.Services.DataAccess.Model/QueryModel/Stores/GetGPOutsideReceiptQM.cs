@@ -27,5 +27,6 @@ namespace ES.Services.DataAccess.Model.QueryModel.Stores
         public string UnitsDescription { get; set; }
         public decimal ReceivedQuantity { get; set; }
         public decimal SentQuantity { get; set; }
+        public bool IsDeletable { get; set; }
     }
 }

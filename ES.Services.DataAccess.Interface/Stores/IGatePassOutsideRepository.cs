@@ -19,7 +19,7 @@ namespace ES.Services.DataAccess.Interface.Stores
         string GetGPOutsideReturnNumber();
         GetGPOutsideReturnQM GetGPOutsideReturn();
         GPOutsideReturnVendorQM GetGPOutsideReturnVendorList();
-        GPOutsideReturnDetailsGridQM GetGPReceivedDetailsGrid(GPOutsideReturnDetailsGridCM gpOutsideReturnDetailsGridCM);
+        GPOutsideReturnDetailsGridQM GetGPReceivedDetailsGrid(Int64 VendorCode);
         void SaveGPOutsideReturnMaster(GPOutsideReturnMasterCM gpOutsideReturnMasterCM);
         void SaveGPOutsideReturnDetails(GPOutsideReturnDetailsCM gpOutsideReturnDetailsCM);
     }

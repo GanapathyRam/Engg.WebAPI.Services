@@ -182,12 +182,43 @@ namespace ES.Shared.Services.Controllers.Stores
             return getGPOutsideReturnNumberResponseDto;
         }
 
-        public GPOutsideReturnDetailsGridResponseDto GetGPReceivedDetailsGrid(GPOutsideReturnDetailsGridRequestDto gpOutsideReturnDetailsGridRequestDto)
+        public GetGPOutsideReturnVendorResponseDto GetGPOutsideReturnVendorList()
+        {
+            GetGPOutsideReturnVendorResponseDto gpOutsideReturnVendorResponseDto;
+            try
+            {
+                gpOutsideReturnVendorResponseDto = reportGatePassOutside.GetGPOutsideReturnVendorList();
+                gpOutsideReturnVendorResponseDto.ServiceResponseStatus = 1;
+
+            }
+            catch (SSException exception)
+            {
+                gpOutsideReturnVendorResponseDto = new GetGPOutsideReturnVendorResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = exception.Message,
+                    ErrorCode = exception.ExceptionCode
+                };
+            }
+            catch (Exception exception)
+            {
+                gpOutsideReturnVendorResponseDto = new GetGPOutsideReturnVendorResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return gpOutsideReturnVendorResponseDto;
+        }
+
+        public GPOutsideReturnDetailsGridResponseDto GetGPReceivedDetailsGrid(Int64 VendorCode)
         {
             GPOutsideReturnDetailsGridResponseDto gpOutsideReturnDetailsGridResponseDto;
             try
             {
-                gpOutsideReturnDetailsGridResponseDto = reportGatePassOutside.GetGPReceivedDetailsGrid(gpOutsideReturnDetailsGridRequestDto);
+                gpOutsideReturnDetailsGridResponseDto = reportGatePassOutside.GetGPReceivedDetailsGrid(VendorCode);
                 gpOutsideReturnDetailsGridResponseDto.ServiceResponseStatus = 1;
 
             }

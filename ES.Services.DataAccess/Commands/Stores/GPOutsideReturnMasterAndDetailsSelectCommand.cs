@@ -23,10 +23,7 @@ namespace ES.Services.DataAccess.Commands.Stores
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 using (var reader = SsDbCommandHelper.ExecuteReader(sqlCommand))
                 {
-                    if (reader.Read())
-                    {
-                        response.getGPOutsideReturnList = reader.ToList<GetGPOutsideReturnModel>();
-                    }
+                    response.getGPOutsideReturnList = reader.ToList<GetGPOutsideReturnModel>();
                 }
             }
             return response;

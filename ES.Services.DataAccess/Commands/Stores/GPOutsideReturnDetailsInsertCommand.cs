@@ -17,7 +17,7 @@ namespace ES.Services.DataAccess.Commands.Stores
             using (var sqlCommand = CreateCommand())
             {
                 sqlCommand.Connection = Connection;
-                sqlCommand.CommandText = "[dbo].[uspAddGPOutsideReceiptDetails]";
+                sqlCommand.CommandText = "[dbo].[uspAddGPOutsideReturnDetails]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.Add(AddParameter("@GPOutsideReturnDetails", SsDbType.Structured, ParameterDirection.Input, dataTableForGPOutsideReturnDetails));
                 sqlCommand.ExecuteNonQuery();

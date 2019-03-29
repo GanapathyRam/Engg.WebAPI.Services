@@ -68,6 +68,7 @@ namespace ES.Services.ReportLogic.Stores
                         getsingle.RecievedBy = responseModel.RecievedBy;
                         getsingle.RecievedName = responseModel.RecievedName;
                         getsingle.Remarks = responseModel.Remarks;
+                        getsingle.IsDeletable = responseModel.IsDeletable;
 
                         getsingle.GPOutsideReceiptDetailsList.Add
                         (getGPReceivingDetailsItems);
@@ -86,7 +87,7 @@ namespace ES.Services.ReportLogic.Stores
                     getsingle.RecievedBy = responseModel.RecievedBy;
                     getsingle.RecievedName = responseModel.RecievedName;
                     getsingle.Remarks = responseModel.Remarks;
-
+                    getsingle.IsDeletable = responseModel.IsDeletable;
                     getsingle.GPOutsideReceiptDetailsList.Add
                     (getGPReceivingDetailsItems);
 
@@ -131,7 +132,6 @@ namespace ES.Services.ReportLogic.Stores
 
             var model = gatePassOutsideRepository.GetGPOutsideReturn();
 
-
             foreach (var responseModel in model.getGPOutsideReturnList)
             {
                 var getsingle = new GPOutsideReturnMaster
@@ -162,9 +162,12 @@ namespace ES.Services.ReportLogic.Stores
                         getsingle.Remarks = responseModel.Remarks;
                         getsingle.VendorCode = responseModel.VendorCode;
                         getsingle.VendorName = responseModel.VendorName;
-
+                        getsingle.FullAddress = responseModel.FullAddress;
+                        getsingle.City = responseModel.City;
+                        getsingle.PinCode = responseModel.PinCode;
+                        getsingle.CompanyGST = responseModel.CompanyGST;
                         getsingle.GPOutsideReturnDetailsList.Add
-                        (getGPReceivingDetailsItems);
+                            (getGPReceivingDetailsItems);
 
                         response.GetGPOutsideReturnResponse.Add(getsingle);
                     }
@@ -176,9 +179,12 @@ namespace ES.Services.ReportLogic.Stores
                     getsingle.Remarks = responseModel.Remarks;
                     getsingle.VendorCode = responseModel.VendorCode;
                     getsingle.VendorName = responseModel.VendorName;
-
+                    getsingle.FullAddress = responseModel.FullAddress;
+                    getsingle.City = responseModel.City;
+                    getsingle.PinCode = responseModel.PinCode;
+                    getsingle.CompanyGST = responseModel.CompanyGST;
                     getsingle.GPOutsideReturnDetailsList.Add
-                    (getGPReceivingDetailsItems);
+                        (getGPReceivingDetailsItems);
 
                     response.GetGPOutsideReturnResponse.Add(getsingle);
                 }
@@ -213,15 +219,33 @@ namespace ES.Services.ReportLogic.Stores
             return response;
         }
 
-        public GPOutsideReturnDetailsGridResponseDto GetGPReceivedDetailsGrid(GPOutsideReturnDetailsGridRequestDto gpGridRequestDto)
+        public GetGPOutsideReturnVendorResponseDto GetGPOutsideReturnVendorList()
+        {
+            var response = new GetGPOutsideReturnVendorResponseDto();
+            var model = gatePassOutsideRepository.GetGPOutsideReturnVendorList();
+            if (model != null)
+            {
+                response = GPOReturnVendorMapper((List<GPpReturnVendorModel>)model.gpReturnVendorList, response);
+            }
+
+            return response;
+        }
+
+        private GetGPOutsideReturnVendorResponseDto GPOReturnVendorMapper(List<GPpReturnVendorModel> gpReturnVendorList, GetGPOutsideReturnVendorResponseDto response)
+        {
+            Mapper.CreateMap<GPpReturnVendorModel, GPReturnVendorResponse>();
+            response.gpReturnVendorList =
+                Mapper.Map<List<GPpReturnVendorModel>, List<GPReturnVendorResponse>>(gpReturnVendorList);
+
+            return response;
+        }
+
+        public GPOutsideReturnDetailsGridResponseDto GetGPReceivedDetailsGrid(Int64 VendorCode)
         {
 
             var response = new GPOutsideReturnDetailsGridResponseDto();
-            var dataSend = new GPOutsideReturnDetailsGridCM()
-            {
-                VendorCode = gpGridRequestDto.VendorCode
-            };
-            var model = gatePassOutsideRepository.GetGPReceivedDetailsGrid(dataSend);
+
+            var model = gatePassOutsideRepository.GetGPReceivedDetailsGrid(VendorCode);
             if (model != null)
             {
                 response = GPReceivedDetailsGridMapper((List<GPOutsideReturnDetailsGridModel>)model.GetGPReceivedDetailsList, response);

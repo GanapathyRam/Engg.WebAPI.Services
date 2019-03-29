@@ -14,6 +14,7 @@ namespace ES.Services.ReportLogic.Interface.Stores
         GetGPOutsideReceiptResponseDto getGPOutsideReceipt();
         GetGPOutsideReturnNumberResponseDto GetGPOutsideReturnNumber();
         GPOutsideReturnResponseDto GetGPOutsideReturn();
-        GPOutsideReturnDetailsGridResponseDto GetGPReceivedDetailsGrid(GPOutsideReturnDetailsGridRequestDto gpOutsideReturnDetailsGridRequestDto);
+        GetGPOutsideReturnVendorResponseDto GetGPOutsideReturnVendorList();
+        GPOutsideReturnDetailsGridResponseDto GetGPReceivedDetailsGrid(Int64 VendorCode);
     }
 }

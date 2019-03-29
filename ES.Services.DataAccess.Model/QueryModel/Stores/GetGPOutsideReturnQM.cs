@@ -23,6 +23,10 @@ namespace ES.Services.DataAccess.Model.QueryModel.Stores
         public decimal Units { get; set; }
         public string UnitsDescription { get; set; }
         public decimal SentQuantity { get; set; }
+        public string FullAddress { get; set; }
+        public string City { get; set; }
+        public string PinCode { get; set; }
+        public string CompanyGST { get; set; }
 
     }
 }

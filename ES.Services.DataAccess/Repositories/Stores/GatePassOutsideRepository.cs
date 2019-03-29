@@ -88,14 +88,14 @@ namespace ES.Services.DataAccess.Repositories.Stores
             return gPOutsideReturnVendorQM;
         }
 
-        public GPOutsideReturnDetailsGridQM GetGPReceivedDetailsGrid(GPOutsideReturnDetailsGridCM gpOutsideReturnDetailsGridCM)
+        public GPOutsideReturnDetailsGridQM GetGPReceivedDetailsGrid(Int64 VendorCode)
         {
             GPOutsideReturnDetailsGridQM gpOutsideReturnDetailsGridQM;
             using (var connection = new DbConnectionProvider().CreateConnection())
             {
                 connection.Open();
                 var rolesInsertCommand = new GPOutsideReturnDetailsGridSelectCommand { Connection = connection };
-                gpOutsideReturnDetailsGridQM = rolesInsertCommand.Execute(gpOutsideReturnDetailsGridCM);
+                gpOutsideReturnDetailsGridQM = rolesInsertCommand.Execute(VendorCode);
             }
             return gpOutsideReturnDetailsGridQM;
         }

@@ -8,6 +8,6 @@ namespace ES.Services.DataTransferObjects.Request.Stores
 {
     public class GPOutsideReturnDetailsGridRequestDto
     {
-        public long VendorCode { get; set; }
+        public Int64 VendorCode { get; set; }
     }
 }

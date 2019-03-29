@@ -16,7 +16,7 @@ namespace ES.Services.DataAccess.Commands.Stores
             using (var sqlCommand = CreateCommand())
             {
                 sqlCommand.Connection = Connection;
-                sqlCommand.CommandText = "[dbo].[uspDeleteGPSendingMasterAndDetails]";
+                sqlCommand.CommandText = "[dbo].[uspDeleteGPOutsideReceiptMasterAndDetails]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.Add(AddParameter("@DeleteGPOutsideReceiptDetails", SsDbType.Structured, ParameterDirection.Input, dataTableForScDetails));
                 sqlCommand.Parameters.Add(AddParameter("@GPOutsideReceiptNumber", SsDbType.VarChar, ParameterDirection.Input, GPOutsideReceiptNumber));

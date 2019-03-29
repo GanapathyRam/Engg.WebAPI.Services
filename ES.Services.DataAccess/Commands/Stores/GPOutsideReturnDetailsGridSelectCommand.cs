@@ -15,7 +15,7 @@ namespace ES.Services.DataAccess.Commands.Stores
 {
     public class GPOutsideReturnDetailsGridSelectCommand : SsDbCommand
     {
-        public GPOutsideReturnDetailsGridQM Execute(GPOutsideReturnDetailsGridCM gpOutsideReturnDetailsGridCM)
+        public GPOutsideReturnDetailsGridQM Execute(Int64 VendorCode)
         {
             var response = new GPOutsideReturnDetailsGridQM();
             using (var sqlCommand = CreateCommand())
@@ -23,7 +23,7 @@ namespace ES.Services.DataAccess.Commands.Stores
                 sqlCommand.Connection = Connection;
                 sqlCommand.CommandText = "[dbo].[uspGetGPOutsideReturnDetailsGrid]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.Add(AddParameter("@VendorCode", SsDbType.BigInt, ParameterDirection.Input, gpOutsideReturnDetailsGridCM.VendorCode));
+                sqlCommand.Parameters.Add(AddParameter("@VendorCode", SsDbType.BigInt, ParameterDirection.Input, VendorCode));
 
                 using (var reader = SsDbCommandHelper.ExecuteReader(sqlCommand))
                 {
