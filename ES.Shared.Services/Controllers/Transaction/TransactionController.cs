@@ -226,6 +226,38 @@ namespace ES.Shared.Services.Controllers.SubContract
             return getVendorTermsMasterResponseDto;
         }
 
+        public GetPoResponseDto GetPoMasterAndDetails()
+        {
+            GetPoResponseDto getPoResponseDto;
+
+            try
+            {
+                getPoResponseDto = rTransactionProvider.GetPoMasterAndDetails();
+                getPoResponseDto.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                getPoResponseDto = new GetPoResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                getPoResponseDto = new GetPoResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return getPoResponseDto;
+        }
+
         #endregion
 
         #region GRN

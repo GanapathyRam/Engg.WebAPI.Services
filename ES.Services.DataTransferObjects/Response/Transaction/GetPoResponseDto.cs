@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ES.Services.DataTransferObjects.Response.Transaction
 {
-    public class GetPoResponseDto
+    public class GetPoResponseDto : BaseResponse
     {
         public List<GetPoResponseMaster> GetPoResponseMasterList { get; set; }
     }
