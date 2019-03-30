@@ -65,6 +65,19 @@ namespace ES.Services.ReportLogic.Transaction
             return response;
         }
 
+        public GetRateMasterDetailsFromVendorCodeResponseDto GetRateMasterDetailsFromVendorCode(Int64 vendorCode, decimal ItemCode)
+        {
+            var response = new GetRateMasterDetailsFromVendorCodeResponseDto();
+            var model = transactionRepository.GetRateMasterDetailsFromVendorCode(vendorCode, ItemCode);
+            if (model != null)
+            {
+                response.Rate = model.Rate;
+                response.Discount = model.Discount;
+            }
+
+            return response;
+        }
+
         public GetPoResponseDto GetPoMasterAndDetails()
         {
             var response = new GetPoResponseDto()
@@ -163,6 +176,11 @@ namespace ES.Services.ReportLogic.Transaction
                 Mapper.Map<List<GetPoResponseModel>, List<GetPoResponseDetails>>(list);
 
             return getPoResponseMaster;
+        }
+
+        public GetGRNFromVendorCodeResponseDto GetGRNDetailsFromVendorCode(long vendorCode)
+        {
+            throw new NotImplementedException();
         }
     }
 }

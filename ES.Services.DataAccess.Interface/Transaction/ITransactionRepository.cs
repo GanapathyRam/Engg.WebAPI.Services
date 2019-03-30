@@ -26,5 +26,7 @@ namespace ES.Services.DataAccess.Interface.Transaction
         void DeletePoMasterAndDetails(string PoNumber, decimal PoSerialNo, int IsDeleteFrom);
 
         GetPoResponseQM GetPoMasterAndDetails();
+
+        GetRateMasterDetailsFromVendorCodeQM GetRateMasterDetailsFromVendorCode(Int64 VendorCode, decimal ItemCode);
     }
 }

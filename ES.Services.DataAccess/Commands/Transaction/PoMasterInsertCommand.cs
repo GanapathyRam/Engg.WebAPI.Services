@@ -17,7 +17,7 @@ namespace ES.Services.DataAccess.Commands.Transaction
             using (var sqlCommand = CreateCommand())
             {
                 sqlCommand.Connection = Connection;
-                sqlCommand.CommandText = "[dbo].[uspAddPurchaseOrderMaster]";
+                sqlCommand.CommandText = "[dbo].[uspAddPOMaster]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.Add(AddParameter("@PONumber", SsDbType.VarChar, ParameterDirection.Input, model.PONumber));
                 sqlCommand.Parameters.Add(AddParameter("@POTypeCode", SsDbType.VarChar, ParameterDirection.Input, model.POTypeCode));

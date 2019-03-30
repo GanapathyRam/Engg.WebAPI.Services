@@ -193,6 +193,75 @@ namespace ES.Shared.Services.Controllers.SubContract
             return response;
         }
 
+        [HttpPost]
+        public GetRateMasterDetailsFromVendorCodeResponseDto GetRateMasterDetailsFromVendorCode(Int64 VendorCode, decimal ItemCode)
+        {
+            GetRateMasterDetailsFromVendorCodeResponseDto getVendorTermsMasterResponseDto;
+
+            try
+            {
+                getVendorTermsMasterResponseDto = rTransactionProvider.GetRateMasterDetailsFromVendorCode(VendorCode, ItemCode);
+                getVendorTermsMasterResponseDto.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                getVendorTermsMasterResponseDto = new GetRateMasterDetailsFromVendorCodeResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                getVendorTermsMasterResponseDto = new GetRateMasterDetailsFromVendorCodeResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return getVendorTermsMasterResponseDto;
+        }
+
+        #endregion
+
+        #region GRN
+
+        [HttpPost]
+        public GetGRNFromVendorCodeResponseDto GetGRNDetailsFromVendorCode(Int64 VendorCode)
+        {
+            GetGRNFromVendorCodeResponseDto response = new GetGRNFromVendorCodeResponseDto();
+            try
+            {
+                response = rTransactionProvider.GetGRNDetailsFromVendorCode(VendorCode);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetGRNFromVendorCodeResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetGRNFromVendorCodeResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
         #endregion
 
     }

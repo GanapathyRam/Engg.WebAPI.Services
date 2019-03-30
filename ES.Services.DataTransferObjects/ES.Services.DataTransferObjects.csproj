@@ -151,7 +151,9 @@
     <Compile Include="Request\SubContract\GetScReceivingDetailsRequestDto.cs" />
     <Compile Include="Request\SubContract\SubContractReceivingRequestDto.cs" />
     <Compile Include="Request\SubContract\SubContractRequestDto.cs" />
+    <Compile Include="Request\Transaction\AddGRNRequestDto.cs" />
     <Compile Include="Request\Transaction\DeletePORequestDto.cs" />
+    <Compile Include="Request\Transaction\GetGRNFromVendorCodeRequestDto.cs" />
     <Compile Include="Request\Transaction\PORequestDto.cs" />
     <Compile Include="Request\Transaction\UpdatePORequestDto.cs" />
     <Compile Include="Response\Authentication\AuthenticationResponseDto.cs" />
@@ -200,6 +202,7 @@
     <Compile Include="Response\Masters\GetEmployeeMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetGroupMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetInventoryMasterResponseDto.cs" />
+    <Compile Include="Response\Masters\GetRateMasterDetailsFromVendorCodeResponseDto.cs" />
     <Compile Include="Response\Masters\GetRateMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetSubcontractProcessMasterResponseDto.cs" />
     <Compile Include="Response\Masters\GetSymbolMasterResponseDto.cs" />
@@ -316,6 +319,7 @@
     <Compile Include="Response\SubContract\SubContractReceivingResponseDto.cs" />
     <Compile Include="Response\SubContract\SubContractResponseDto.cs" />
     <Compile Include="Response\Transaction\DeletePOResponseDto.cs" />
+    <Compile Include="Response\Transaction\GetGRNFromVendorCodeResponseDto.cs" />
     <Compile Include="Response\Transaction\GetPoNumberResponseDto.cs" />
     <Compile Include="Response\Transaction\GetPoResponseDto.cs" />
     <Compile Include="Response\Transaction\POResponseDto.cs" />

@@ -14,5 +14,9 @@ namespace ES.Services.ReportLogic.Interface.Transaction
         GetPoNumberResponseDto GetPoNumber();
 
         GetVendorTermsMasterResponseDto GetVendorTermsMaster(Int64 vendorCode);
+
+        GetRateMasterDetailsFromVendorCodeResponseDto GetRateMasterDetailsFromVendorCode(Int64 vendorCode, decimal ItemCode);
+
+        GetGRNFromVendorCodeResponseDto GetGRNDetailsFromVendorCode(Int64 vendorCode);
     }
 }

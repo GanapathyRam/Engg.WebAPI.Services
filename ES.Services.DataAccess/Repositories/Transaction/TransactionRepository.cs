@@ -66,6 +66,21 @@ namespace ES.Services.DataAccess.Repositories.Transaction
 
         }
 
+        public GetRateMasterDetailsFromVendorCodeQM GetRateMasterDetailsFromVendorCode(Int64 VendorCode, decimal ItemCode)
+        {
+            var model = new GetRateMasterDetailsFromVendorCodeQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetRateMasterDetailsFromVendorCode { Connection = connection };
+                model = command.Execute(VendorCode, ItemCode);
+            }
+
+            return model;
+
+        }
+
         public void UpdatePoMaster(AddPoMasterCM addPoMasterCM)
         {
             using (var connection = new DbConnectionProvider().CreateConnection())
