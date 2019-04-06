@@ -36,8 +36,7 @@ namespace ES.Services.BusinessLogic.Sales
             if (!string.IsNullOrEmpty(getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo))
             {
                 clientSerialNumber = getWorkOrderClientSerialNoQM.WorkOrderClientSerialNo.ToString();
-                existingclientSerialDigit = getWorkOrderClientSerialNoQM.WorkOrderClientChar;
-
+                existingclientSerialDigit = getWorkOrderClientSerialNoQM.WorkOrderClientChar; 
             }
 
             #region Section For to save the work order master common details

@@ -160,6 +160,29 @@ namespace ES.Services.ReportLogic.Transaction
             return response;
         }
 
+        public GetPOTypeResponseDto GetPOTypeMaster()
+        {
+            var response = new GetPOTypeResponseDto();
+
+            var model = transactionRepository.GetPOTypeMaster();
+
+            if (model != null)
+            {
+                response = POTypeMapper((List<GetPOTypeModel>)model.GetPOTypeModelList, response);
+            }
+
+            return response;
+        }
+
+        private static GetPOTypeResponseDto POTypeMapper(List<GetPOTypeModel> list, GetPOTypeResponseDto getPOTypeResponseDto)
+        {
+            Mapper.CreateMap<GetPOTypeModel, POTypeList>();
+            getPOTypeResponseDto.GetPOTypeList =
+                Mapper.Map<List<GetPOTypeModel>, List<POTypeList>>(list);
+
+            return getPOTypeResponseDto;
+        }
+
         private GetVendorTermsMasterResponseDto VendorTermsMasterMapper(List<VendorTermsMasterModel> vendorTermsMasterList, GetVendorTermsMasterResponseDto response)
         {
             Mapper.CreateMap<VendorTermsMasterModel, VendorTermsMaster>();

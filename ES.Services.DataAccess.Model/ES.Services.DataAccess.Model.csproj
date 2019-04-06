@@ -301,6 +301,8 @@
     <Compile Include="QueryModel\Transaction\GetPoDetailsSerialNoQM.cs" />
     <Compile Include="QueryModel\Transaction\GetPoResponseModel.cs" />
     <Compile Include="QueryModel\Transaction\GetPoResponseQM.cs" />
+    <Compile Include="QueryModel\Transaction\GetPOTypeModel.cs" />
+    <Compile Include="QueryModel\Transaction\GetPOTypeQM.cs" />
     <Compile Include="QueryModel\Transaction\GetRateMasterDetailsFromVendorCodeQM.cs" />
   </ItemGroup>
   <ItemGroup>

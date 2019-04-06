@@ -20,5 +20,7 @@ namespace ES.Services.ReportLogic.Interface.Transaction
         GetPoResponseDto GetPoMasterAndDetails();
 
         GetGRNFromVendorCodeResponseDto GetGRNDetailsFromVendorCode(Int64 vendorCode);
+
+        GetPOTypeResponseDto GetPOTypeMaster();
     }
 }

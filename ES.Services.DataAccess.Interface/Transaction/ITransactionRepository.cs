@@ -19,6 +19,8 @@ namespace ES.Services.DataAccess.Interface.Transaction
 
         GetVendorTermsMasterQM GetVendorTermsMaster(Int64 VendorCode);
 
+        GetPOTypeQM GetPOTypeMaster();
+
         void UpdatePoMaster(AddPoMasterCM addPoMasterCM);
 
         void UpdatePoDetails(UpdatePoDetailsCM updatePoDetailsCM);

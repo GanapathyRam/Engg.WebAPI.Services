@@ -45,7 +45,6 @@ namespace ES.Services.ReportLogic.Sales
             {
                 var savedYear = Convert.ToString(model.ToString().Substring(0, 2));
 
-
                 if (!savedYear.Equals(currentYear))
                 {
                     response.WorkOrderNumber = Convert.ToString(currentYear + "0001");

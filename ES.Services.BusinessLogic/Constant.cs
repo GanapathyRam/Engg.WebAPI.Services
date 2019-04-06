@@ -36,7 +36,7 @@ namespace ES.Services.BusinessLogic
 
             int IndexByYear = Array.FindIndex(Columns, m => m == YearByAlphabet);
 
-            return Columns[IndexByYear+1];
+            return Columns[IndexByYear + CurrentYear];
 
         }
     }

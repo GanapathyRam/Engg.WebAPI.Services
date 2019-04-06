@@ -81,6 +81,21 @@ namespace ES.Services.DataAccess.Repositories.Transaction
 
         }
 
+        public GetPOTypeQM GetPOTypeMaster()
+        {
+            var model = new GetPOTypeQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetPOTypeMasterSelectCommand { Connection = connection };
+                model = command.Execute();
+            }
+
+            return model;
+
+        }
+
         public void UpdatePoMaster(AddPoMasterCM addPoMasterCM)
         {
             using (var connection = new DbConnectionProvider().CreateConnection())

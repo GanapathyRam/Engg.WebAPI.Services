@@ -322,7 +322,9 @@
     <Compile Include="Response\Transaction\GetGRNFromVendorCodeResponseDto.cs" />
     <Compile Include="Response\Transaction\GetPoNumberResponseDto.cs" />
     <Compile Include="Response\Transaction\GetPoResponseDto.cs" />
+    <Compile Include="Response\Transaction\GetPOTypeResponseDto.cs" />
     <Compile Include="Response\Transaction\POResponseDto.cs" />
+    <Compile Include="Response\Transaction\POTypeList.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
