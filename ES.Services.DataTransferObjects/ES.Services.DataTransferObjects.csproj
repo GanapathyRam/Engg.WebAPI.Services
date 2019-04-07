@@ -273,6 +273,7 @@
     <Compile Include="Response\Production\GetProcesssCardCopyResponseDto.cs" />
     <Compile Include="Response\Production\GetSequenceNumberResponseDto.cs" />
     <Compile Include="Response\Production\UpdateJobCardMaintanceResponseDto.cs" />
+    <Compile Include="Response\Quality\GetDimensionEntryResponseDto.cs" />
     <Compile Include="Response\Registration\RegisterUserResponseDto.cs" />
     <Compile Include="Response\Sales\DeleteWorkOrderResponseDto.cs" />
     <Compile Include="Response\Sales\GetJobCardEntryReportResponseDto.cs" />

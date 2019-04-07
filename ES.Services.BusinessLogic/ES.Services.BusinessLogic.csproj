@@ -74,6 +74,7 @@
     <Compile Include="Production\BusinessJobCardGeneration.cs" />
     <Compile Include="Production\BusinessProcessCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quality\BusinessDimension.cs" />
     <Compile Include="Registration\BusinessRegistration.cs" />
     <Compile Include="Sales\BusinessWorkOrder.cs" />
     <Compile Include="Stores\BusinessGatePass.cs" />

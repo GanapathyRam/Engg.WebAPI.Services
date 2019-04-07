@@ -68,6 +68,7 @@
     <Compile Include="Production\IReportJobCardGeneration.cs" />
     <Compile Include="Production\IReportProcessCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quality\IReportDimension.cs" />
     <Compile Include="Sales\IReportWorkOrder.cs" />
     <Compile Include="Stores\IReportGPOutside.cs" />
     <Compile Include="Stores\IReportGatePass.cs" />

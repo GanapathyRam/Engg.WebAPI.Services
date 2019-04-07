@@ -211,6 +211,7 @@
     <Compile Include="QueryModel\Production\GetProcessCardDetailsQM.cs" />
     <Compile Include="QueryModel\Production\GetProcessCardMasterQM.cs" />
     <Compile Include="QueryModel\Production\GetProcesssCardCopyQM.cs" />
+    <Compile Include="QueryModel\Quality\GetDimensionEntryQM.cs" />
     <Compile Include="QueryModel\Sales\GetJobCardEntryReportQM.cs" />
     <Compile Include="QueryModel\Sales\GetWorkOrderClientSerialNoQM.cs" />
     <Compile Include="QueryModel\Masters\AddCompanyMasterQueryModel.cs" />

@@ -213,6 +213,7 @@
     <Compile Include="Controllers\Masters\VendorTermsMasterController.cs" />
     <Compile Include="Controllers\Production\JobCardGenerationController.cs" />
     <Compile Include="Controllers\Production\ProcessCardController.cs" />
+    <Compile Include="Controllers\Quality\DimensionEntryController.cs" />
     <Compile Include="Controllers\Registration\RegistrationController.cs" />
     <Compile Include="Controllers\Stores\GatePassController.cs" />
     <Compile Include="Controllers\Stores\GatePassOutsideController.cs" />

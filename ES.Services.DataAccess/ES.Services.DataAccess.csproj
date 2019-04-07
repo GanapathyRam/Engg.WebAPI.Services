@@ -160,6 +160,7 @@
     <Compile Include="Commands\Production\GetProcessCardSelectCommand.cs" />
     <Compile Include="Commands\Production\ProcessCardUpdateCommand.cs" />
     <Compile Include="Commands\Production\UpdateJobCardMaintanceUpdateCommand.cs" />
+    <Compile Include="Commands\Quality\DimensionEntrySelectCommand.cs" />
     <Compile Include="Commands\Registration\UserRegistrationInsertCommand.cs" />
     <Compile Include="Commands\Despatch\GetDcTypeSelectCommand.cs" />
     <Compile Include="Commands\Sales\JobCardEntryReportSelectCommand.cs" />
@@ -251,6 +252,7 @@
     <Compile Include="Repositories\Masters\VendorTermsMasterRepository.cs" />
     <Compile Include="Repositories\Production\JobCardGenerationRepository.cs" />
     <Compile Include="Repositories\Production\ProcessCardRepository.cs" />
+    <Compile Include="Repositories\Quality\DimensionRepository.cs" />
     <Compile Include="Repositories\Registration\RegistrationRepository.cs" />
     <Compile Include="Repositories\Despatch\DeliveryChallanRepository.cs" />
     <Compile Include="Repositories\Sales\WorkOrderRepository.cs" />

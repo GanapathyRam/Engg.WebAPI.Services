@@ -68,6 +68,7 @@
     <Compile Include="Production\IJobCardGenerationRepository.cs" />
     <Compile Include="Production\IProcessCardRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quality\IDimensionRepository.cs" />
     <Compile Include="Registration\IRegistrationRepository.cs" />
     <Compile Include="Sales\IWorkOrderRepository.cs" />
     <Compile Include="Stores\IGatePassOutsideRepository.cs" />
