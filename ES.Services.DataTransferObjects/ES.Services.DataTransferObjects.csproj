@@ -124,6 +124,7 @@
     <Compile Include="Request\Production\DeleteProcessCardRequestDto.cs" />
     <Compile Include="Request\Production\GetSequenceNumberRequestDto.cs" />
     <Compile Include="Request\Production\UpdateJobCardMaintanceRequestDto.cs" />
+    <Compile Include="Request\Quality\UpdateDimensionEntryRequestDto.cs" />
     <Compile Include="Request\Registration\RegisterUserRequestDto.cs" />
     <Compile Include="Request\Sales\DeleteWorkOrderRequestDto.cs" />
     <Compile Include="Request\Sales\GetJobCardEntryReportRequestDto.cs" />
@@ -274,6 +275,7 @@
     <Compile Include="Response\Production\GetSequenceNumberResponseDto.cs" />
     <Compile Include="Response\Production\UpdateJobCardMaintanceResponseDto.cs" />
     <Compile Include="Response\Quality\GetDimensionEntryResponseDto.cs" />
+    <Compile Include="Response\Quality\UpdateDimensionEntryResponseDto.cs" />
     <Compile Include="Response\Registration\RegisterUserResponseDto.cs" />
     <Compile Include="Response\Sales\DeleteWorkOrderResponseDto.cs" />
     <Compile Include="Response\Sales\GetJobCardEntryReportResponseDto.cs" />

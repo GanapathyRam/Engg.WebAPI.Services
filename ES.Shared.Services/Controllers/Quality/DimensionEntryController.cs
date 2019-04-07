@@ -1,4 +1,5 @@
 ﻿using ES.Services.BusinessLogic.Interface.Quality;
+using ES.Services.DataTransferObjects.Request.Quality;
 using ES.Services.DataTransferObjects.Response.Quality;
 using ES.Services.ReportLogic.Interface.Quality;
 using SS.Framework.Exceptions;
@@ -46,6 +47,38 @@ namespace ES.Shared.Services.Controllers.Quality
             catch (Exception exception)
             {
                 response = new GetDimensionEntryResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        public UpdateDimensionEntryResponseDto UpdateDimensionEntry(UpdateDimensionEntryRequestDto updateDimensionEntryRequestDto)
+        {
+            UpdateDimensionEntryResponseDto response;
+
+            try
+            {
+                response = bDimensionProvider.UpdateDimensionEntry(updateDimensionEntryRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new UpdateDimensionEntryResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new UpdateDimensionEntryResponseDto
                 {
                     ServiceResponseStatus = 0,
                     ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,

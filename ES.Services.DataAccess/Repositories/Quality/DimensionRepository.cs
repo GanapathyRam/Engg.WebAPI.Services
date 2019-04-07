@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ES.Services.DataAccess.Model.CommandModel.Quality;
 
 namespace ES.Services.DataAccess.Repositories.Quality
 {
@@ -24,6 +25,18 @@ namespace ES.Services.DataAccess.Repositories.Quality
             }
 
             return model;
+        }
+
+        public void UpdateDimensionEntry(UpdateDimensioEntryCM updateDimensioEntryCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new DimensionEntryUpdateCommand { Connection = connection };
+
+                command.Execute(updateDimensioEntryCM);
+            }
         }
     }
 }

@@ -161,6 +161,7 @@
     <Compile Include="Commands\Production\ProcessCardUpdateCommand.cs" />
     <Compile Include="Commands\Production\UpdateJobCardMaintanceUpdateCommand.cs" />
     <Compile Include="Commands\Quality\DimensionEntrySelectCommand.cs" />
+    <Compile Include="Commands\Quality\DimensionEntryUpdateCommand.cs" />
     <Compile Include="Commands\Registration\UserRegistrationInsertCommand.cs" />
     <Compile Include="Commands\Despatch\GetDcTypeSelectCommand.cs" />
     <Compile Include="Commands\Sales\JobCardEntryReportSelectCommand.cs" />

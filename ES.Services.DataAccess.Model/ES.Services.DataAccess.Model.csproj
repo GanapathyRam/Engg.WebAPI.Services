@@ -115,6 +115,7 @@
     <Compile Include="CommandModel\Production\UpdateJobCardMaintanceCM.cs" />
     <Compile Include="CommandModel\Production\UpdateProcessCardCM.cs" />
     <Compile Include="CommandModel\Production\AddProcessCardCM.cs" />
+    <Compile Include="CommandModel\Quality\UpdateDimensioEntryCM.cs" />
     <Compile Include="CommandModel\Registration\UserInfoCommandModel.cs" />
     <Compile Include="CommandModel\Sales\DeleteWorkOrderCM.cs" />
     <Compile Include="CommandModel\Sales\GetWorkOrderDetailsStatusCM.cs" />

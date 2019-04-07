@@ -327,6 +327,7 @@ namespace ES.Services.BusinessLogic.Sales
                 cModel.WOSerial = updateWorKOrderHeat.WOSerial;
                 cModel.SerialNo = updateWorKOrderHeat.SerialNo;
                 cModel.HeatNo = updateWorKOrderHeat.HeatNo;
+
                 workOrderRepository.UpdateWorkOrderHeat(cModel);
             }
             return new UpdateWorkOrderHeatResponseDto();
