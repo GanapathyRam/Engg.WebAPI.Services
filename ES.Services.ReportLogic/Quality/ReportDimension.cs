@@ -30,6 +30,9 @@ namespace ES.Services.ReportLogic.Quality
             var model = dimensionRepository.GetDimensionEntryReport(SerialNo);
             if (model != null)
             {
+                
+
+                responseDto = DimensionEntryMapper((List<GetDimensionEntryEditModel>)model.GetDimensionEntryEditModelList, response);
                 responseDto.WONumber = model.WONumber;
                 responseDto.WOSerial = model.WOSerial;
                 responseDto.VendorName = model.VendorName;
@@ -37,8 +40,6 @@ namespace ES.Services.ReportLogic.Quality
                 responseDto.DrawingNumber = model.DrawingNumber;
                 responseDto.ItemCode = model.ItemCode;
                 responseDto.MaterialDescription = model.MaterialDescription;
-
-                responseDto = DimensionEntryMapper((List<GetDimensionEntryEditModel>)model.GetDimensionEntryEditModelList, response);
             }
 
             return responseDto;
