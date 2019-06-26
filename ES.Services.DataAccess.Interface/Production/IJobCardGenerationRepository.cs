@@ -19,7 +19,7 @@ namespace ES.Services.DataAccess.Interface.Production
 
         void AddJobCardMasterAndDetails(AddJobCardMasterAndDetailsCM addJobCardMasterAndDetailsCM);
 
-        GetJobCardMaintanceQM GetJobCardMaintane();
+        GetJobCardMaintanceQM GetJobCardMaintane(string SerialNo);
 
         void UpdateJobCardMaintance(UpdateJobCardMaintanceCM updateJobCardMaintanceCM);
 

@@ -78,7 +78,7 @@ namespace ES.Services.DataAccess.Repositories.Production
             }
         }
 
-        public GetJobCardMaintanceQM GetJobCardMaintane()
+        public GetJobCardMaintanceQM GetJobCardMaintane(string SerialNo)
         {
             GetJobCardMaintanceQM model = new GetJobCardMaintanceQM();
             using (var connection = new DbConnectionProvider().CreateConnection())
@@ -86,7 +86,7 @@ namespace ES.Services.DataAccess.Repositories.Production
                 connection.Open();
 
                 var command = new GetJobCardMaintanceSelectCommand { Connection = connection };
-                model = command.Execute();
+                model = command.Execute(SerialNo);
             }
 
             return model;

@@ -11,6 +11,6 @@ namespace ES.Services.ReportLogic.Interface.Production
     {
         GetJobCardGenerationResponseDto GetJobCardGeneration();
 
-        GetJobCardMaintanceResponseDto GetJobCardMaintane();
+        GetJobCardMaintanceResponseDto GetJobCardMaintane(string SerialNo);
     }
 }

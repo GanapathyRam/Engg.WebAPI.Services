@@ -34,14 +34,14 @@ namespace ES.Services.ReportLogic.Production
             return response;
         }
 
-        public GetJobCardMaintanceResponseDto GetJobCardMaintane()
+        public GetJobCardMaintanceResponseDto GetJobCardMaintane(string SerialNo)
         {
             var response = new GetJobCardMaintanceResponseDto()
             {
                 GetJobCardMaintanceResponseList = new List<GetJobCardMaintanceMaster>()
             };
 
-            var model = jobCardGenerationRepository.GetJobCardMaintane();
+            var model = jobCardGenerationRepository.GetJobCardMaintane(SerialNo);
 
             foreach (var dcMasterDetails in model.getJobCardMaintanceQMModelList)
             {

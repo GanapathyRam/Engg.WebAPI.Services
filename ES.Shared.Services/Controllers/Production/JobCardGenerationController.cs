@@ -90,12 +90,12 @@ namespace ES.Shared.Services.Controllers.Production
         }
 
         [HttpPost]
-        public GetJobCardMaintanceResponseDto GetJobCardMaintane()
+        public GetJobCardMaintanceResponseDto GetJobCardMaintane(string SerialNo)
         {
             GetJobCardMaintanceResponseDto response = new GetJobCardMaintanceResponseDto();
             try
             {
-                response = rJobCardProvider.GetJobCardMaintane();
+                response = rJobCardProvider.GetJobCardMaintane(SerialNo);
                 response.ServiceResponseStatus = 1;
             }
             catch (SSException applicationException)
