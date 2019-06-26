@@ -16,7 +16,7 @@ namespace ES.Services.DataAccess.Commands.Quality
                 sqlCommand.CommandText = "[dbo].[uspUpdateDimensionEntry]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.Add(AddParameter("@SerialNo", SsDbType.NVarChar, ParameterDirection.Input, model.SerialNo));
-                sqlCommand.Parameters.Add(AddParameter("@DimensionActual", SsDbType.Decimal, ParameterDirection.Input, model.DimensionActual));
+                sqlCommand.Parameters.Add(AddParameter("@DimensionActual", SsDbType.NVarChar, ParameterDirection.Input, model.DimensionActual));
                 sqlCommand.Parameters.Add(AddParameter("@DatumDimesionActual", SsDbType.NVarChar, ParameterDirection.Input, model.DatumDimesionActual));
                 sqlCommand.Parameters.Add(AddParameter("@Serial", SsDbType.NVarChar, ParameterDirection.Input, model.Serial));
                 sqlCommand.Parameters.Add(AddParameter("@SequenceNumber", SsDbType.Decimal, ParameterDirection.Input, model.SequenceNumber));
