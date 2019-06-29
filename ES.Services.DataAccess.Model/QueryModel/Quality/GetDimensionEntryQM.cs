@@ -8,6 +8,11 @@ namespace ES.Services.DataAccess.Model.QueryModel.Quality
 {
     public class GetDimensionEntryQM
     {
+        public IEnumerable<GetDimensionEntryEditModel> GetDimensionEntryEditModelList { get; set; }
+    }
+
+    public class GetDimensionEntryEditModel
+    {
         public string WONumber { get; set; }
 
         public decimal WOSerial { get; set; }
@@ -22,11 +27,7 @@ namespace ES.Services.DataAccess.Model.QueryModel.Quality
 
         public string MaterialDescription { get; set; }
 
-        public IEnumerable<GetDimensionEntryEditModel> GetDimensionEntryEditModelList { get; set; }
-    }
 
-    public class GetDimensionEntryEditModel
-    {
         public string SerialNo { get; set; }
 
         public decimal SequenceNumber { get; set; }

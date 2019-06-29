@@ -28,18 +28,17 @@ namespace ES.Services.ReportLogic.Quality
             };
             var responseDto = new GetDimensionEntryResponseDto();
             var model = dimensionRepository.GetDimensionEntryReport(SerialNo);
+
             if (model != null)
             {
-                
-
                 responseDto = DimensionEntryMapper((List<GetDimensionEntryEditModel>)model.GetDimensionEntryEditModelList, response);
-                responseDto.WONumber = model.WONumber;
-                responseDto.WOSerial = model.WOSerial;
-                responseDto.VendorName = model.VendorName;
-                responseDto.PartDescription = model.PartDescription;
-                responseDto.DrawingNumber = model.DrawingNumber;
-                responseDto.ItemCode = model.ItemCode;
-                responseDto.MaterialDescription = model.MaterialDescription;
+                responseDto.WONumber = model.GetDimensionEntryEditModelList.FirstOrDefault().WONumber;
+                responseDto.WOSerial = model.GetDimensionEntryEditModelList.FirstOrDefault().WOSerial;
+                responseDto.VendorName = model.GetDimensionEntryEditModelList.FirstOrDefault().VendorName;
+                responseDto.PartDescription = model.GetDimensionEntryEditModelList.FirstOrDefault().PartDescription;
+                responseDto.DrawingNumber = model.GetDimensionEntryEditModelList.FirstOrDefault().DrawingNumber;
+                responseDto.ItemCode = model.GetDimensionEntryEditModelList.FirstOrDefault().ItemCode;
+                responseDto.MaterialDescription = model.GetDimensionEntryEditModelList.FirstOrDefault().MaterialDescription;
             }
 
             return responseDto;

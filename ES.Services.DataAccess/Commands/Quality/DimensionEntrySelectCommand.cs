@@ -26,17 +26,6 @@ namespace ES.Services.DataAccess.Commands.Quality
 
                 using (var reader = SsDbCommandHelper.ExecuteReader(sqlCommand))
                 {
-                    if (reader.Read())
-                    {
-                        response.WONumber = Convert.ToString(reader["WONumber"]);
-                        response.WOSerial = Convert.ToDecimal(reader["WOSerial"]);
-                        response.VendorName = Convert.ToString(reader["VendorName"]);
-                        response.PartDescription = Convert.ToString(reader["PartDescription"]);
-                        response.DrawingNumber = Convert.ToString(reader["DrawingNumber"]);
-                        response.ItemCode = Convert.ToString(reader["ItemCode"]);
-                        response.MaterialDescription = Convert.ToString(reader["MaterialDescription"]);
-                    }
-
                     response.GetDimensionEntryEditModelList = reader.ToList<GetDimensionEntryEditModel>();
                 }
             }
