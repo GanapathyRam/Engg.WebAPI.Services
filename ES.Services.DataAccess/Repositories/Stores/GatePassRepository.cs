@@ -139,7 +139,7 @@ namespace ES.Services.DataAccess.Repositories.Stores
             return model;
         }
 
-        public void SaveGPReceivingMaster(string GPReceiptNumber, DateTime ReceiptDate, Int64 VendorCode, int DocumentId, DateTime DocumentDate, string Remarks)
+        public void SaveGPReceivingMaster(string GPReceiptNumber, DateTime ReceiptDate, Int64 VendorCode, string DocumentId, DateTime DocumentDate, string Remarks)
         {
             using (var connection = new DbConnectionProvider().CreateConnection())
             {

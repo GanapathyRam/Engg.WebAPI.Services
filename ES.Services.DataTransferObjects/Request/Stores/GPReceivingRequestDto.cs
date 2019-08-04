@@ -14,7 +14,7 @@ namespace ES.Services.DataTransferObjects.Request.Stores
 
         public Int64 VendorCode { get; set; }
 
-        public int DocumentID { get; set; }
+        public string DocumentID { get; set; }
 
         public DateTime DocumentDate { get; set; }
 

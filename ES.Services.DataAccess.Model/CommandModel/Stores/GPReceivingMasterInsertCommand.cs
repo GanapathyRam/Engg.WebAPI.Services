@@ -11,7 +11,7 @@ namespace ES.Services.DataAccess.Model.CommandModel.Stores
 {
     public class GPReceivingMasterInsertCommand : SsDbCommand
     {
-        public void Execute(string GPReceiptNumber, DateTime GPReceiptDate, Int64 VendorCode, int DocumentID, DateTime DocumentDate, string Remarks, Guid CreateBy, DateTime CreatedDateTime)
+        public void Execute(string GPReceiptNumber, DateTime GPReceiptDate, Int64 VendorCode, string DocumentID, DateTime DocumentDate, string Remarks, Guid CreateBy, DateTime CreatedDateTime)
         {
             using (var sqlCommand = CreateCommand())
             {

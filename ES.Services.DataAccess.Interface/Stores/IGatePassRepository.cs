@@ -34,7 +34,7 @@ namespace ES.Services.DataAccess.Interface.Stores
 
         GetGPReceivedDetailsQM GetGPReceivedDetails();
 
-        void SaveGPReceivingMaster(string GPReceiptNumber, DateTime GPReceiptDate, Int64 VendorCode, int DocumentId, DateTime DocumentDate, string Remarks);
+        void SaveGPReceivingMaster(string GPReceiptNumber, DateTime GPReceiptDate, Int64 VendorCode, string DocumentId, DateTime DocumentDate, string Remarks);
 
         void SaveGPReceivingDetails(GPReceivingDetailsCM GPReceivingDetailsCM);
     }
