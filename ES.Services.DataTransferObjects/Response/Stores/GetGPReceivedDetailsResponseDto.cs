@@ -39,5 +39,7 @@ namespace ES.Services.DataTransferObjects.Response.Stores
         public int GPSerialNo { get; set; }
 
         public decimal ReceiptQuantity { get; set; }
+
+        public string Description { get; set; }
     }
 }

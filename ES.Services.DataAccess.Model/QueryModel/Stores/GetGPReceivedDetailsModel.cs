@@ -27,5 +27,7 @@ namespace ES.Services.DataAccess.Model.QueryModel.Stores
         public int GPSerialNo { get; set; }
 
         public decimal ReceiptQuantity { get; set; }
+
+        public string Description { get; set; }
     }
 }

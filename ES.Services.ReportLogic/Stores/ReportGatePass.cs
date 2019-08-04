@@ -322,6 +322,7 @@ namespace ES.Services.ReportLogic.Stores
                 getGPReceivingDetailsItems.GPNumber = responseModel.GPNumber;
                 getGPReceivingDetailsItems.GPSerialNo = responseModel.GPSerialNo;
                 getGPReceivingDetailsItems.ReceiptQuantity = responseModel.ReceiptQuantity;
+                getGPReceivingDetailsItems.Description = responseModel.Description;
 
                 if (response.GPReceivedMasterDetails.Count > 0)
                 {
