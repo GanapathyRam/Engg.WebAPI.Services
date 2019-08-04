@@ -254,6 +254,7 @@ namespace ES.Services.ReportLogic.Stores
                 getGPReceivingDetailsItems.GPNumber = responseModel.GPNumber;
                 getGPReceivingDetailsItems.GPSerialNo = responseModel.GPSerialNo;
                 getGPReceivingDetailsItems.Units = responseModel.Units;
+                getGPReceivingDetailsItems.UnitsDescription = responseModel.UnitsDescription;
                 getGPReceivingDetailsItems.SentQuantity = responseModel.SentQuantity;
                 getGPReceivingDetailsItems.ReceivedQuantity = responseModel.ReceivedQuantity;
                 getGPReceivingDetailsItems.BalanceQty = responseModel.BalanceQty;
