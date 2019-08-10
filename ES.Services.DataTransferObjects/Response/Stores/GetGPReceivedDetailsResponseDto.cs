@@ -32,7 +32,7 @@ namespace ES.Services.DataTransferObjects.Response.Stores
 
     public class GPReceivedDetails
     {
-        public string GPReceiptNumber { get; set; }
+        public string GPReceiptNumber { get; set; } 
 
         public string GPNumber { get; set; }
 

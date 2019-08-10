@@ -428,5 +428,76 @@ namespace ES.Shared.Services.Controllers.Enquiry
 
             return response;
         }
+
+
+        [HttpPost]
+        public HttpResponseMessage GetSubContractStockEnquiry()
+        {
+            HttpResponseMessage httpResponseMessage = new HttpResponseMessage();
+
+            var filePath = System.Configuration.ConfigurationManager.AppSettings["SubContractStockEnquiry"].ToString();
+
+            try
+            {
+                rEnquiryProvider.GetSubContractStockEnquiry(filePath);
+
+                var dataBytes = File.ReadAllBytes(filePath);
+                //adding bytes to memory stream   
+                var dataStream = new MemoryStream(dataBytes);
+
+                httpResponseMessage = Request.CreateResponse(HttpStatusCode.OK);
+                httpResponseMessage.Content = new StreamContent(dataStream);
+                httpResponseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
+                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "SubContractStockEnquiry";
+                httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
+
+                return httpResponseMessage;
+            }
+            catch (SSException applicationException)
+            {
+
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            return httpResponseMessage;
+        }
+
+        [HttpPost]
+        public HttpResponseMessage GetDespatchDetailsEnquiry(DateTime FromDate, DateTime ToDate)
+        {
+            HttpResponseMessage httpResponseMessage = new HttpResponseMessage();
+
+            var filePath = System.Configuration.ConfigurationManager.AppSettings["DespatchDetailsEnquiry"].ToString();
+
+            try
+            {
+                rEnquiryProvider.GetDespatchDetailsEnquiry(filePath, FromDate, ToDate);
+
+                var dataBytes = File.ReadAllBytes(filePath);
+                //adding bytes to memory stream   
+                var dataStream = new MemoryStream(dataBytes);
+
+                httpResponseMessage = Request.CreateResponse(HttpStatusCode.OK);
+                httpResponseMessage.Content = new StreamContent(dataStream);
+                httpResponseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
+                httpResponseMessage.Content.Headers.ContentDisposition.FileName = "DespatchDetailsEnquiry";
+                httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
+
+                return httpResponseMessage;
+            }
+            catch (SSException applicationException)
+            {
+
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            return httpResponseMessage;
+        }
     }
 }

@@ -180,5 +180,33 @@ namespace ES.Services.DataAccess.Repositories.Enquiry
 
             return salesEnquiryOptionQM;
         }
+
+        public DataSet GetSubContractStockEnquiry()
+        {
+            DataSet ds = new DataSet();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetSubContractStockEnquirySelectCommand { Connection = connection };
+                ds = command.Execute();
+            }
+
+            return ds;
+        }
+
+        public DataSet GetDespatchDetailsEnquiry(DateTime FromDate, DateTime ToDate)
+        {
+            DataSet ds = new DataSet();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetDespatchDetailsEnquirySelectCommand { Connection = connection };
+                ds = command.Execute(FromDate, ToDate);
+            }
+
+            return ds;
+        }
     }
 }

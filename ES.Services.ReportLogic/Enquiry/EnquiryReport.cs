@@ -179,6 +179,26 @@ namespace ES.Services.ReportLogic.Enquiry
             return response;
         }
 
+        public void GetSubContractStockEnquiry(string filePath)
+        {
+            var dataSet = enquiryRepository.GetSubContractStockEnquiry();
+
+            //ConvertToExcel(dataSet, filePath);
+
+            ExportDataSet(dataSet, filePath, "SubContractStock");
+
+        }
+
+        public void GetDespatchDetailsEnquiry(string filePath, DateTime FromDate, DateTime ToDate)
+        {
+            var dataSet = enquiryRepository.GetDespatchDetailsEnquiry(FromDate, ToDate);
+
+            //ConvertToExcel(dataSet, filePath);
+
+            ExportDataSet(dataSet, filePath, "DespatchDetails");
+
+        }
+
         public void ConvertToExcel(DataSet ds, string filePath)
         {
             ////Instance reference for Excel Application

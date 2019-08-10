@@ -34,6 +34,9 @@ namespace ES.Services.ReportLogic.Interface.Enquiry
 
         SalesEnquiryOptionResponseDto GetSalesEnquiryForGrid(DateTime FromDate, DateTime ToDate, Int16 WorkOrdeType, Int16 Option, string Type);
 
+        void GetSubContractStockEnquiry(string filePath);
+
+        void GetDespatchDetailsEnquiry(string filePath, DateTime FromDate, DateTime ToDate);
 
     }
 }

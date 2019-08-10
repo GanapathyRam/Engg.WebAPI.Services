@@ -34,5 +34,9 @@ namespace ES.Services.DataAccess.Interface.Enquiry
 
         SalesEnquiryOptionQM GetSalesEnquiryForGrid(DateTime FromDate, DateTime ToDate, Int16 WorkOrdeType, Int16 Option, string Type);
 
+        DataSet GetSubContractStockEnquiry();
+
+        DataSet GetDespatchDetailsEnquiry(DateTime FromDate, DateTime ToDate);
+
     }
 }
