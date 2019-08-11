@@ -36,17 +36,18 @@ namespace ES.Services.ReportLogic.Transaction
 
                 if (!savedYear.Equals(currentYear))
                 {
-                    response.PoNumber = Convert.ToString(currentYear + "0001");
+                    response.PoNumber = "PO" + Convert.ToString(currentYear + "0001");
                 }
                 else
                 {
+                    var poType = "SS";
                     var workOrderInc = Int32.Parse(model) + 1;
-                    response.PoNumber = Convert.ToString(workOrderInc);
+                    response.PoNumber = Convert.ToString(poType + workOrderInc);
                 }
             }
             else
             {
-                response.PoNumber = Convert.ToString(currentYear + "0001");
+                response.PoNumber = "PO" + Convert.ToString(currentYear + "0001");
             }
 
             return response;
@@ -93,46 +94,49 @@ namespace ES.Services.ReportLogic.Transaction
                 responseDto = TransactionMapper((List<GetPoResponseModel>)model.GetPoResponseModelList, responseDto);
             }
 
-            foreach (var workOrderMasterDetails in responseDto.GetPoResponseDetailsList)
+            foreach (var poMasterDetails in responseDto.GetPoResponseDetailsList)
             {
                 var getsingle = new GetPoResponseMaster
                 {
                     GetPoResponseDetailsList = new List<GetPoResponseDetails>()
                 };
                 var getWorkOrderMasterDetailsResponse = new GetPoResponseDetails();
-                getWorkOrderMasterDetailsResponse.PONumber = workOrderMasterDetails.PONumber;
-                getWorkOrderMasterDetailsResponse.POSerial = workOrderMasterDetails.POSerial;
-                getWorkOrderMasterDetailsResponse.POAmendNumber = workOrderMasterDetails.POAmendNumber;
-                getWorkOrderMasterDetailsResponse.ItemCode = workOrderMasterDetails.ItemCode;
-                getWorkOrderMasterDetailsResponse.UOMCode = workOrderMasterDetails.UOMCode;
-                getWorkOrderMasterDetailsResponse.POQuantity = workOrderMasterDetails.POQuantity;
-                getWorkOrderMasterDetailsResponse.PORate = workOrderMasterDetails.PORate;
-                getWorkOrderMasterDetailsResponse.DiscountPercent = workOrderMasterDetails.DiscountPercent;
-                getWorkOrderMasterDetailsResponse.DiscountValue = workOrderMasterDetails.DiscountValue;
-                getWorkOrderMasterDetailsResponse.ItemRate = workOrderMasterDetails.ItemRate;
-                getWorkOrderMasterDetailsResponse.Amount = workOrderMasterDetails.Amount;
-                getWorkOrderMasterDetailsResponse.DeliveryDate = workOrderMasterDetails.DeliveryDate;
-                getWorkOrderMasterDetailsResponse.ReceivedQuantity = workOrderMasterDetails.ReceivedQuantity;
-                getWorkOrderMasterDetailsResponse.ShortCloseQuantity = workOrderMasterDetails.ShortCloseQuantity;
+                getWorkOrderMasterDetailsResponse.PONumber = poMasterDetails.PONumber;
+                getWorkOrderMasterDetailsResponse.POSerial = poMasterDetails.POSerial;
+                getWorkOrderMasterDetailsResponse.POAmendNumber = poMasterDetails.POAmendNumber;
+                getWorkOrderMasterDetailsResponse.ItemCode = poMasterDetails.ItemCode;
+                getWorkOrderMasterDetailsResponse.ItemDescription = poMasterDetails.ItemDescription;
+                getWorkOrderMasterDetailsResponse.UOMCode = poMasterDetails.UOMCode;
+                getWorkOrderMasterDetailsResponse.POQuantity = poMasterDetails.POQuantity;
+                getWorkOrderMasterDetailsResponse.PORate = poMasterDetails.PORate;
+                getWorkOrderMasterDetailsResponse.DiscountPercent = poMasterDetails.DiscountPercent;
+                getWorkOrderMasterDetailsResponse.DiscountValue = poMasterDetails.DiscountValue;
+                getWorkOrderMasterDetailsResponse.ItemRate = poMasterDetails.ItemRate;
+                getWorkOrderMasterDetailsResponse.Amount = poMasterDetails.Amount;
+                getWorkOrderMasterDetailsResponse.DeliveryDate = poMasterDetails.DeliveryDate;
+                getWorkOrderMasterDetailsResponse.ReceivedQuantity = poMasterDetails.ReceivedQuantity;
+                getWorkOrderMasterDetailsResponse.ShortCloseQuantity = poMasterDetails.ShortCloseQuantity;
+                getWorkOrderMasterDetailsResponse.DeliveryDate = poMasterDetails.DeliveryDate;
+                getWorkOrderMasterDetailsResponse.UOMDescription = poMasterDetails.UOMDescription;    
 
                 if (response.GetPoResponseMasterList.Count > 0)
                 {
-                    var isExist = response.GetPoResponseMasterList.Any(PoNumber => PoNumber.PONumber == workOrderMasterDetails.PONumber);
+                    var isExist = response.GetPoResponseMasterList.Any(PoNumber => PoNumber.PONumber == poMasterDetails.PONumber);
                     if (isExist)
                     {
-                        var index = response.GetPoResponseMasterList.FindIndex(a => a.PONumber == workOrderMasterDetails.PONumber);
+                        var index = response.GetPoResponseMasterList.FindIndex(a => a.PONumber == poMasterDetails.PONumber);
 
                         response.GetPoResponseMasterList[index].GetPoResponseDetailsList.Add(getWorkOrderMasterDetailsResponse);
                     }
                     else
                     {
-                        getsingle.PONumber = workOrderMasterDetails.PONumber;
-                        getsingle.VendorCode = workOrderMasterDetails.VendorCode;
-                        getsingle.VendorName = workOrderMasterDetails.VendorName;
-                        getsingle.POTypeCode = workOrderMasterDetails.POTypeCode;
-                        getsingle.PODate = workOrderMasterDetails.PODate;
-                        getsingle.Reference = workOrderMasterDetails.Reference;
-                        getsingle.ReferenceDate = workOrderMasterDetails.ReferenceDate;
+                        getsingle.PONumber = poMasterDetails.PONumber;
+                        getsingle.VendorCode = poMasterDetails.VendorCode;
+                        getsingle.VendorName = poMasterDetails.VendorName;
+                        getsingle.POTypeCode = poMasterDetails.POTypeCode;
+                        getsingle.PODate = poMasterDetails.PODate;
+                        getsingle.Reference = poMasterDetails.Reference;
+                        getsingle.ReferenceDate = poMasterDetails.ReferenceDate;
 
                         getsingle.GetPoResponseDetailsList.Add
                         (getWorkOrderMasterDetailsResponse);
@@ -142,13 +146,13 @@ namespace ES.Services.ReportLogic.Transaction
                 }
                 else
                 {
-                    getsingle.PONumber = workOrderMasterDetails.PONumber;
-                    getsingle.VendorCode = workOrderMasterDetails.VendorCode;
-                    getsingle.VendorName = workOrderMasterDetails.VendorName;
-                    getsingle.POTypeCode = workOrderMasterDetails.POTypeCode;
-                    getsingle.PODate = workOrderMasterDetails.PODate;
-                    getsingle.Reference = workOrderMasterDetails.Reference;
-                    getsingle.ReferenceDate = workOrderMasterDetails.ReferenceDate;
+                    getsingle.PONumber = poMasterDetails.PONumber;
+                    getsingle.VendorCode = poMasterDetails.VendorCode;
+                    getsingle.VendorName = poMasterDetails.VendorName;
+                    getsingle.POTypeCode = poMasterDetails.POTypeCode;
+                    getsingle.PODate = poMasterDetails.PODate;
+                    getsingle.Reference = poMasterDetails.Reference;
+                    getsingle.ReferenceDate = poMasterDetails.ReferenceDate;
 
                     getsingle.GetPoResponseDetailsList.Add
                     (getWorkOrderMasterDetailsResponse);

@@ -19,7 +19,7 @@ namespace ES.Services.DataAccess.Commands.Transaction
                 sqlCommand.Connection = Connection;
                 sqlCommand.CommandText = "[dbo].[uspAddPODetailsSerial]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.Add(AddParameter("@PurchaseOrderDetails", SsDbType.Structured, ParameterDirection.Input, dataTableForWorkOrderDetails));
+                sqlCommand.Parameters.Add(AddParameter("@AddPurchaseOrderDetails", SsDbType.Structured, ParameterDirection.Input, dataTableForWorkOrderDetails));
                 sqlCommand.ExecuteNonQuery();
             }
 

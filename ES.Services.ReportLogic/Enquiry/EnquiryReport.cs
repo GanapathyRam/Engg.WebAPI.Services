@@ -199,6 +199,38 @@ namespace ES.Services.ReportLogic.Enquiry
 
         }
 
+
+        public GetSubContractStockEnquiryResponseDto GetSubContractStockEnquiryForGrid()
+        {
+            GetSubContractStockEnquiryResponseDto response = new GetSubContractStockEnquiryResponseDto();
+
+            var model = enquiryRepository.GetSubContractStockEnquiryForGrid();
+
+            if (model != null)
+            {
+                response = GetSubContractStockEnquiryForItemMapper((List<GetSubContractStockEnquiryModel>)model.GetSubContractStockEnquiryModelList, response);
+            }
+
+            return response;
+
+        }
+
+        public GetDespatchDetailsEnquiryResponseDto GetDespatchDetailsEnquiryForGrid(DateTime FromDate, DateTime ToDate)
+        {
+            GetDespatchDetailsEnquiryResponseDto response = new GetDespatchDetailsEnquiryResponseDto();
+
+            var model = enquiryRepository.GetDespatchDetailsEnquiryForGrid(FromDate, ToDate);
+
+            if (model != null)
+            {
+                response = GetDespatchDetailsEnquiryForItemMapper((List<GetDespatchDetailsEnquiryModel>)model.GetDespatchDetailsEnquiryModelList, response);
+            }
+
+            return response;
+
+        }
+
+
         public void ConvertToExcel(DataSet ds, string filePath)
         {
             ////Instance reference for Excel Application
@@ -461,6 +493,22 @@ namespace ES.Services.ReportLogic.Enquiry
             getSalesEnquiryOptionResponseDto.GetSalesEnquiryOptionResponse = Mapper.Map<List<SalesEnquiryOptionModel>, List<SalesEnquiryOptionResponse>>(list);
 
             return getSalesEnquiryOptionResponseDto;
+        }
+
+        private static GetSubContractStockEnquiryResponseDto GetSubContractStockEnquiryForItemMapper(List<GetSubContractStockEnquiryModel> list, GetSubContractStockEnquiryResponseDto getGetSubContractStockEnquiryResponseDto)
+        {
+            Mapper.CreateMap<GetSubContractStockEnquiryModel, GetSubContractStockEnquiryResponse>();
+            getGetSubContractStockEnquiryResponseDto.GetSubContractStockEnquiryResponseList = Mapper.Map<List<GetSubContractStockEnquiryModel>, List<GetSubContractStockEnquiryResponse>>(list);
+
+            return getGetSubContractStockEnquiryResponseDto;
+        }
+
+        private static GetDespatchDetailsEnquiryResponseDto GetDespatchDetailsEnquiryForItemMapper(List<GetDespatchDetailsEnquiryModel> list, GetDespatchDetailsEnquiryResponseDto getDespatchDetailsEnquiryResponseDto)
+        {
+            Mapper.CreateMap<GetDespatchDetailsEnquiryModel, GetDespatchDetailsEnquiryResponse>();
+            getDespatchDetailsEnquiryResponseDto.GetDespatchDetailsEnquiryResponseList = Mapper.Map<List<GetDespatchDetailsEnquiryModel>, List<GetDespatchDetailsEnquiryResponse>>(list);
+
+            return getDespatchDetailsEnquiryResponseDto;
         }
         #endregion
     }

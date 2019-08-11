@@ -226,6 +226,7 @@ namespace ES.Shared.Services.Controllers.SubContract
             return getVendorTermsMasterResponseDto;
         }
 
+        [HttpGet]
         public GetPoResponseDto GetPoMasterAndDetails()
         {
             GetPoResponseDto getPoResponseDto;
@@ -258,6 +259,7 @@ namespace ES.Shared.Services.Controllers.SubContract
             return getPoResponseDto;
         }
 
+        [HttpGet]
         public GetPOTypeResponseDto GetPOTypeMaster()
         {
             GetPOTypeResponseDto getPoResponseDto;

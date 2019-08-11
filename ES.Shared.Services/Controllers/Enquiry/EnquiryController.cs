@@ -429,7 +429,6 @@ namespace ES.Shared.Services.Controllers.Enquiry
             return response;
         }
 
-
         [HttpPost]
         public HttpResponseMessage GetSubContractStockEnquiry()
         {
@@ -498,6 +497,72 @@ namespace ES.Shared.Services.Controllers.Enquiry
             }
 
             return httpResponseMessage;
+        }
+
+        [HttpGet]
+        public GetSubContractStockEnquiryResponseDto GetSubContractStockEnquiryForGrid()
+        {
+            GetSubContractStockEnquiryResponseDto response;
+
+            try
+            {
+                response = rEnquiryProvider.GetSubContractStockEnquiryForGrid();
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetSubContractStockEnquiryResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetSubContractStockEnquiryResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        [HttpGet]
+        public GetDespatchDetailsEnquiryResponseDto GetDespatchDetailsEnquiryForGrid(DateTime FromDate, DateTime ToDate)
+        {
+            GetDespatchDetailsEnquiryResponseDto response;
+
+            try
+            {
+                response = rEnquiryProvider.GetDespatchDetailsEnquiryForGrid(FromDate, ToDate);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetDespatchDetailsEnquiryResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetDespatchDetailsEnquiryResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
         }
     }
 }

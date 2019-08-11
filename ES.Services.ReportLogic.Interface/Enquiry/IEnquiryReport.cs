@@ -38,5 +38,8 @@ namespace ES.Services.ReportLogic.Interface.Enquiry
 
         void GetDespatchDetailsEnquiry(string filePath, DateTime FromDate, DateTime ToDate);
 
+        GetSubContractStockEnquiryResponseDto GetSubContractStockEnquiryForGrid();
+
+        GetDespatchDetailsEnquiryResponseDto GetDespatchDetailsEnquiryForGrid(DateTime FromDate, DateTime ToDate);
     }
 }

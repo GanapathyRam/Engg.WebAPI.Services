@@ -208,5 +208,33 @@ namespace ES.Services.DataAccess.Repositories.Enquiry
 
             return ds;
         }
+
+        public GetSubContractStockEnquiryQM GetSubContractStockEnquiryForGrid()
+        {
+            GetSubContractStockEnquiryQM getSubContractStockEnquiryQM = new GetSubContractStockEnquiryQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetSubContractStockEnquiryForGridSelectCommand { Connection = connection };
+                getSubContractStockEnquiryQM = command.Execute();
+            }
+
+            return getSubContractStockEnquiryQM;
+        }
+
+        public GetDespatchDetailsEnquiryQM GetDespatchDetailsEnquiryForGrid(DateTime FromDate, DateTime ToDate)
+        {
+            GetDespatchDetailsEnquiryQM getDespatchDetailsEnquiryQM = new GetDespatchDetailsEnquiryQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetDespatchDetailsEnquiryForGridSelectCommand { Connection = connection };
+                getDespatchDetailsEnquiryQM = command.Execute(FromDate, ToDate);
+            }
+
+            return getDespatchDetailsEnquiryQM;
+        }
     }
 }

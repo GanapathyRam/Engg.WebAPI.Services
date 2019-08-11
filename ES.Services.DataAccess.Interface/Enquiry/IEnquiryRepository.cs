@@ -38,5 +38,9 @@ namespace ES.Services.DataAccess.Interface.Enquiry
 
         DataSet GetDespatchDetailsEnquiry(DateTime FromDate, DateTime ToDate);
 
+        GetSubContractStockEnquiryQM GetSubContractStockEnquiryForGrid();
+
+        GetDespatchDetailsEnquiryQM GetDespatchDetailsEnquiryForGrid(DateTime FromDate, DateTime ToDate);
+
     }
 }
