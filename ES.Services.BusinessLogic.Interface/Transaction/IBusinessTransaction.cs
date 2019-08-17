@@ -10,5 +10,11 @@ namespace ES.Services.BusinessLogic.Interface.Transaction
         POResponseDto UpdatePurchaseOrder(UpdatePORequestDto UpdatePORequestDto);
 
         DeletePOResponseDto DeletePurchaseOrder(DeletePORequestDto DeletePORequestDto);
+
+        AddGRNMasterResponseDto AddGRNMasterAndDetails(AddGRNMasterRequestDto addGRNMasterRequestDto);
+
+        UpdateGRNMasterResponseDto UpdateGRNMasterAndDetails(UpdateGRNMasterRequestDto updateGRNMasterRequestDto);
+
+        DeleteGRNResponseDto DeleteGRNMasterAndDetails(DeleteGRNRequestDto DeleteGRNRequestDto);
     }
 }

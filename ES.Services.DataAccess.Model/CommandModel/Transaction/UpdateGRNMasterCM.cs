@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ES.Services.DataTransferObjects.Request.Transaction
+namespace ES.Services.DataAccess.Model.CommandModel.Transaction
 {
-    public class AddGRNRequestDto
+    public class UpdateGRNMasterCM
     {
         public string GRNNumber { get; set; }
 
@@ -21,5 +21,9 @@ namespace ES.Services.DataTransferObjects.Request.Transaction
         public DateTime InvoiceDate { get; set; }
 
         public string Remarks { get; set; }
+
+        public Guid UpdatedBy { get; set; }
+
+        public DateTime UpdatedDateTime { get; set; }
     }
 }

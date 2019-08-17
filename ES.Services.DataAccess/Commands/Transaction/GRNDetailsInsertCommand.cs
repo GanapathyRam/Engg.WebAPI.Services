@@ -10,19 +10,18 @@ using System.Threading.Tasks;
 
 namespace ES.Services.DataAccess.Commands.Transaction
 {
-    public class PoDetailsInsertCommand : SsDbCommand
+    public class GRNDetailsInsertCommand : SsDbCommand
     {
-        public void Execute(DataTable dataTableForPoDetails, AddPoDetailsCM model)
+        public void Execute(DataTable dataTableForGRNDetails, AddGRNDetailsCM model)
         {
             using (var sqlCommand = CreateCommand())
             {
                 sqlCommand.Connection = Connection;
-                sqlCommand.CommandText = "[dbo].[uspAddPODetailsSerial]";
+                sqlCommand.CommandText = "[dbo].[uspAddGRNDetails]";
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.Add(AddParameter("@AddPurchaseOrderDetails", SsDbType.Structured, ParameterDirection.Input, dataTableForPoDetails));
+                sqlCommand.Parameters.Add(AddParameter("@AddGRNDetails", SsDbType.Structured, ParameterDirection.Input, dataTableForGRNDetails));
                 sqlCommand.ExecuteNonQuery();
             }
-
         }
     }
 }

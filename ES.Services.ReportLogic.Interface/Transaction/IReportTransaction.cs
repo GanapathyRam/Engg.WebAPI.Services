@@ -1,4 +1,5 @@
-﻿using ES.Services.DataTransferObjects.Response.Masters;
+﻿using ES.Services.DataTransferObjects.Request.Transaction;
+using ES.Services.DataTransferObjects.Response.Masters;
 using ES.Services.DataTransferObjects.Response.Sales;
 using ES.Services.DataTransferObjects.Response.Transaction;
 using System;
@@ -19,8 +20,14 @@ namespace ES.Services.ReportLogic.Interface.Transaction
 
         GetPoResponseDto GetPoMasterAndDetails();
 
+        GetPOTypeResponseDto GetPOTypeMaster();
+
+        GetGRNNumberResponseDto GetGRNNumber();
+
         GetGRNFromVendorCodeResponseDto GetGRNDetailsFromVendorCode(Int64 vendorCode);
 
-        GetPOTypeResponseDto GetPOTypeMaster();
+        GetGRNSupplierNameResponseDto GetGRNSupplierName();
+
+        GetGRNMasterAndDetailsResponseDto GetGRNMasterAndDetails();
     }
 }

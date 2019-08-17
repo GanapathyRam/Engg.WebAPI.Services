@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ES.Services.DataTransferObjects.Response.Transaction
+namespace ES.Services.DataAccess.Model.QueryModel.Transaction
 {
-    public class GetGRNFromVendorCodeResponseDto : BaseResponse
+    public class GetGRNDetailsQM
     {
-        public List<GetGRNFromVendorCodeResponse> GetGRNFromVendorCodeResponseList { get; set; }
+        public IEnumerable<GetGRNDetailsModel> GetGRNDetailsModelList { get; set; }
     }
 
-    public class GetGRNFromVendorCodeResponse
+    public class GetGRNDetailsModel
     {
         public string PONumber { get; set; }
 
@@ -32,5 +32,6 @@ namespace ES.Services.DataTransferObjects.Response.Transaction
         public decimal BalanceQuantity { get; set; }
 
         public decimal GRNReceivedQty { get; set; }
+
     }
 }

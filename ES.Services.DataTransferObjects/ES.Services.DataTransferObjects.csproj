@@ -152,10 +152,12 @@
     <Compile Include="Request\SubContract\GetScReceivingDetailsRequestDto.cs" />
     <Compile Include="Request\SubContract\SubContractReceivingRequestDto.cs" />
     <Compile Include="Request\SubContract\SubContractRequestDto.cs" />
-    <Compile Include="Request\Transaction\AddGRNRequestDto.cs" />
+    <Compile Include="Request\Transaction\AddGRNMasterRequestDto.cs" />
+    <Compile Include="Request\Transaction\DeleteGRNRequestDto.cs" />
     <Compile Include="Request\Transaction\DeletePORequestDto.cs" />
     <Compile Include="Request\Transaction\GetGRNFromVendorCodeRequestDto.cs" />
     <Compile Include="Request\Transaction\PORequestDto.cs" />
+    <Compile Include="Request\Transaction\UpdateGRNMasterRequestDto.cs" />
     <Compile Include="Request\Transaction\UpdatePORequestDto.cs" />
     <Compile Include="Response\Authentication\AuthenticationResponseDto.cs" />
     <Compile Include="Response\Authentication\RegistrationResponseDto.cs" />
@@ -323,13 +325,19 @@
     <Compile Include="Response\SubContract\GetSubContractSendingResponseDto.cs" />
     <Compile Include="Response\SubContract\SubContractReceivingResponseDto.cs" />
     <Compile Include="Response\SubContract\SubContractResponseDto.cs" />
+    <Compile Include="Response\Transaction\AddGRNMasterResponseDto.cs" />
+    <Compile Include="Response\Transaction\DeleteGRNResponseDto.cs" />
     <Compile Include="Response\Transaction\DeletePOResponseDto.cs" />
     <Compile Include="Response\Transaction\GetGRNFromVendorCodeResponseDto.cs" />
+    <Compile Include="Response\Transaction\GetGRNMasterAndDetailsResponseDto.cs" />
+    <Compile Include="Response\Transaction\GetGRNSupplierNameResponseDto.cs" />
+    <Compile Include="Response\Transaction\GetGRNNumberResponseDto.cs" />
     <Compile Include="Response\Transaction\GetPoNumberResponseDto.cs" />
     <Compile Include="Response\Transaction\GetPoResponseDto.cs" />
     <Compile Include="Response\Transaction\GetPOTypeResponseDto.cs" />
     <Compile Include="Response\Transaction\POResponseDto.cs" />
     <Compile Include="Response\Transaction\POTypeList.cs" />
+    <Compile Include="Response\Transaction\UpdateGRNMasterResponseDto.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

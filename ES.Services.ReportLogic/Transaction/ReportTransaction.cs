@@ -40,7 +40,7 @@ namespace ES.Services.ReportLogic.Transaction
                 }
                 else
                 {
-                    var poType = "SS";
+                    var poType = "PO";
                     var workOrderInc = Int32.Parse(model) + 1;
                     response.PoNumber = Convert.ToString(poType + workOrderInc);
                 }
@@ -91,7 +91,7 @@ namespace ES.Services.ReportLogic.Transaction
 
             if (model != null)
             {
-                responseDto = TransactionMapper((List<GetPoResponseModel>)model.GetPoResponseModelList, responseDto);
+                responseDto = POTransactionMapper((List<GetPoResponseModel>)model.GetPoResponseModelList, responseDto);
             }
 
             foreach (var poMasterDetails in responseDto.GetPoResponseDetailsList)
@@ -178,6 +178,151 @@ namespace ES.Services.ReportLogic.Transaction
             return response;
         }
 
+        public GetGRNNumberResponseDto GetGRNNumber()
+        {
+            var response = new GetGRNNumberResponseDto();
+
+            var model = transactionRepository.GetPoNumber();
+            var currentYear = Helper.CurrentFiniancialYear();
+            if (!string.IsNullOrEmpty(model))
+            {
+                var savedYear = Convert.ToString(model.ToString().Substring(0, 2));
+
+
+                if (!savedYear.Equals(currentYear))
+                {
+                    response.GRNNumber = "GR" + Convert.ToString(currentYear + "0001");
+                }
+                else
+                {
+                    var poType = "GR";
+                    var workOrderInc = Int32.Parse(model) + 1;
+                    response.GRNNumber = Convert.ToString(poType + workOrderInc);
+                }
+            }
+            else
+            {
+                response.GRNNumber = "GR" + Convert.ToString(currentYear + "0001");
+            }
+
+            return response;
+        }
+
+        public GetGRNFromVendorCodeResponseDto GetGRNDetailsFromVendorCode(long vendorCode)
+        {
+            var response = new GetGRNFromVendorCodeResponseDto();
+            var model = transactionRepository.GetGRNDetails(vendorCode);
+            if (model != null && model.GetGRNDetailsModelList.Any())
+            {
+                response = GetGRNDetailsFromVendorCodeMapper((List<GetGRNDetailsModel>)model.GetGRNDetailsModelList, response);
+            }
+
+            return response;
+        }
+
+        public GetGRNSupplierNameResponseDto GetGRNSupplierName()
+        {
+            var response = new GetGRNSupplierNameResponseDto();
+            var model = transactionRepository.GetGRNSupplierName();
+            if (model != null && model.GetGRNSupplierNameModelList.Any())
+            {
+                response = GetGRNSupplierNameMapper((List<GetGRNSupplierNameModel>)model.GetGRNSupplierNameModelList, response);
+            }
+
+            return response;
+        }
+
+        public GetGRNMasterAndDetailsResponseDto GetGRNMasterAndDetails()
+        {
+            var response = new GetGRNMasterAndDetailsResponseDto()
+            {
+                GetGRNMasterResponseList = new List<GetGRNMasterResponse>()
+            };
+            var responseDto = new GetGRNMasterResponse();
+
+            var model = transactionRepository.GetGRNMasterAndDetails();
+
+            if (model != null)
+            {
+                responseDto = GRNTransactionMapper((List<GetGRNMasterAndDetailsModel>)model.GetGRNMasterAndDetailsModelList, responseDto);
+            }
+
+            foreach (var GrnMasterDetails in responseDto.GetGRNDetailsResponseList)
+            {
+                var getsingle = new GetGRNMasterResponse
+                {
+                    GetGRNDetailsResponseList = new List<GetGRNDetailsResponse>()
+                };
+                var getGRNMasterDetailsResponse = new GetGRNDetailsResponse();
+
+                getGRNMasterDetailsResponse.GRNNumber = GrnMasterDetails.GRNNumber;
+                getGRNMasterDetailsResponse.GRNDate = GrnMasterDetails.GRNDate;                
+                getGRNMasterDetailsResponse.ReceivedDate = GrnMasterDetails.ReceivedDate;
+                getGRNMasterDetailsResponse.VendorCode = GrnMasterDetails.VendorCode;
+                getGRNMasterDetailsResponse.VendorName = GrnMasterDetails.VendorName;
+                getGRNMasterDetailsResponse.InvoiceNumber = GrnMasterDetails.InvoiceNumber;
+                getGRNMasterDetailsResponse.InvoiceDate = GrnMasterDetails.InvoiceDate;
+                getGRNMasterDetailsResponse.Remarks = GrnMasterDetails.Remarks;
+                getGRNMasterDetailsResponse.PONumber = GrnMasterDetails.PONumber;
+                getGRNMasterDetailsResponse.POSerial = GrnMasterDetails.POSerial;
+                getGRNMasterDetailsResponse.GRNSerial = GrnMasterDetails.GRNSerial;
+                getGRNMasterDetailsResponse.ItemCode = GrnMasterDetails.ItemCode;
+                getGRNMasterDetailsResponse.ItemDescription = GrnMasterDetails.ItemDescription;
+                getGRNMasterDetailsResponse.ReceivedQuantity = GrnMasterDetails.ReceivedQuantity;
+                getGRNMasterDetailsResponse.StockQuantity = GrnMasterDetails.StockQuantity;
+
+                if (response.GetGRNMasterResponseList.Count > 0)
+                {
+                    var isExist = response.GetGRNMasterResponseList.Any(GRNNumber => GRNNumber.GRNNumber == GrnMasterDetails.GRNNumber);
+                    if (isExist)
+                    {
+                        var index = response.GetGRNMasterResponseList.FindIndex(a => a.GRNNumber == GrnMasterDetails.GRNNumber);
+
+                        response.GetGRNMasterResponseList[index].GetGRNDetailsResponseList.Add(getGRNMasterDetailsResponse);
+                    }
+                    else
+                    {
+                        getsingle.GRNNumber = GrnMasterDetails.GRNNumber;
+                        getsingle.GRNDate = GrnMasterDetails.GRNDate;
+                        getsingle.VendorCode = GrnMasterDetails.VendorCode;
+                        getsingle.VendorName = GrnMasterDetails.VendorName;
+                        getsingle.InvoiceDate = GrnMasterDetails.InvoiceDate;
+                        getsingle.InvoiceNumber = GrnMasterDetails.InvoiceNumber;
+                        getsingle.ReceivedDate = GrnMasterDetails.ReceivedDate;
+                        getsingle.Remarks = GrnMasterDetails.Remarks;
+                        getsingle.StockQuantity = GrnMasterDetails.StockQuantity;
+
+                        getsingle.GetGRNDetailsResponseList.Add
+                        (getGRNMasterDetailsResponse);
+
+                        response.GetGRNMasterResponseList.Add(getsingle);
+                    }
+                }
+                else
+                {
+                    getsingle.GRNNumber = GrnMasterDetails.GRNNumber;
+                    getsingle.GRNDate = GrnMasterDetails.GRNDate;
+                    getsingle.VendorCode = GrnMasterDetails.VendorCode;
+                    getsingle.VendorName = GrnMasterDetails.VendorName;
+                    getsingle.InvoiceDate = GrnMasterDetails.InvoiceDate;
+                    getsingle.InvoiceNumber = GrnMasterDetails.InvoiceNumber;
+                    getsingle.ReceivedDate = GrnMasterDetails.ReceivedDate;
+                    getsingle.Remarks = GrnMasterDetails.Remarks;
+                    getsingle.StockQuantity = GrnMasterDetails.StockQuantity;
+
+                    getsingle.GetGRNDetailsResponseList.Add
+                    (getGRNMasterDetailsResponse);
+
+                    response.GetGRNMasterResponseList.Add(getsingle);
+                }
+            }
+
+            return response;
+        }
+
+
+        #region Private Method
+
         private static GetPOTypeResponseDto POTypeMapper(List<GetPOTypeModel> list, GetPOTypeResponseDto getPOTypeResponseDto)
         {
             Mapper.CreateMap<GetPOTypeModel, POTypeList>();
@@ -196,7 +341,25 @@ namespace ES.Services.ReportLogic.Transaction
             return response;
         }
 
-        private static GetPoResponseMaster TransactionMapper(List<GetPoResponseModel> list, GetPoResponseMaster getPoResponseMaster)
+        private static GetGRNFromVendorCodeResponseDto GetGRNDetailsFromVendorCodeMapper(List<GetGRNDetailsModel> list, GetGRNFromVendorCodeResponseDto getGRNFromVendorCodeResponseDto)
+        {
+            Mapper.CreateMap<GetGRNDetailsModel, GetGRNFromVendorCodeResponse>();
+            getGRNFromVendorCodeResponseDto.GetGRNFromVendorCodeResponseList =
+                Mapper.Map<List<GetGRNDetailsModel>, List<GetGRNFromVendorCodeResponse>>(list);
+
+            return getGRNFromVendorCodeResponseDto;
+        }
+
+        private static GetGRNSupplierNameResponseDto GetGRNSupplierNameMapper(List<GetGRNSupplierNameModel> list, GetGRNSupplierNameResponseDto getGRNSupplierNameResponseDto)
+        {
+            Mapper.CreateMap<GetGRNSupplierNameModel, GetGRNSupplierNameResponse>();
+            getGRNSupplierNameResponseDto.GetGRNSupplierNameResponseList =
+                Mapper.Map<List<GetGRNSupplierNameModel>, List<GetGRNSupplierNameResponse>>(list);
+
+            return getGRNSupplierNameResponseDto;
+        }
+
+        private static GetPoResponseMaster POTransactionMapper(List<GetPoResponseModel> list, GetPoResponseMaster getPoResponseMaster)
         {
             Mapper.CreateMap<GetPoResponseModel, GetPoResponseDetails>();
             getPoResponseMaster.GetPoResponseDetailsList =
@@ -205,9 +368,16 @@ namespace ES.Services.ReportLogic.Transaction
             return getPoResponseMaster;
         }
 
-        public GetGRNFromVendorCodeResponseDto GetGRNDetailsFromVendorCode(long vendorCode)
+        private static GetGRNMasterResponse GRNTransactionMapper(List<GetGRNMasterAndDetailsModel> list, GetGRNMasterResponse getGRNMasterResponse)
         {
-            throw new NotImplementedException();
+            Mapper.CreateMap<GetGRNMasterAndDetailsModel, GetGRNDetailsResponse>();
+            getGRNMasterResponse.GetGRNDetailsResponseList =
+                Mapper.Map<List<GetGRNMasterAndDetailsModel>, List<GetGRNDetailsResponse>>(list);
+
+            return getGRNMasterResponse;
         }
+
+
+        #endregion
     }
 }

@@ -29,6 +29,24 @@ namespace ES.Services.DataAccess.Interface.Transaction
 
         GetPoResponseQM GetPoMasterAndDetails();
 
+        string GetGRNNumber();
+
         GetRateMasterDetailsFromVendorCodeQM GetRateMasterDetailsFromVendorCode(Int64 VendorCode, decimal ItemCode);
+
+        GetGRNDetailsQM GetGRNDetails(Int64 VendorCode);
+
+        GetGRNSupplierNameQM GetGRNSupplierName();
+
+        void AddGRNMaster(AddGRNMasterCM addGRNMasterCM);
+
+        void AddGRNDetails(AddGRNDetailsCM addGRNDetailsCM);
+
+        void UpdateGRNMaster(AddGRNMasterCM addGRNMasterCM);
+
+        void UpdateGRNDetails(UpdateGRNDetailsCM updateGRNDetailsCM);
+
+        GetGRNMasterAndDetailsQM GetGRNMasterAndDetails();
+
+        void DeleteGRNMasterAndDetails(string GRNNumber, decimal GRNSerialNo, int IsDeleteFrom);
     }
 }

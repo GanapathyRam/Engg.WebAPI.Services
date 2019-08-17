@@ -170,7 +170,7 @@ namespace ES.Services.BusinessLogic.Transaction
                         POQuantity = poDetails.POQuantity,
                         PORate = poDetails.PORate,
                         DiscountPercent = poDetails.DiscountPercent,
-                        DiscountValue = (poDetails.POQuantity * poDetails.PORate * poDetails.DiscountPercent)/100,
+                        DiscountValue = (poDetails.POQuantity * poDetails.PORate * poDetails.DiscountPercent) / 100,
                         ItemRate = poDetails.Amount / poDetails.POQuantity,
                         Amount = (poDetails.POQuantity * poDetails.PORate) - (poDetails.POQuantity * poDetails.PORate * poDetails.DiscountPercent) / 100,
                         DeliveryDate = poDetails.DeliveryDate,
@@ -202,5 +202,149 @@ namespace ES.Services.BusinessLogic.Transaction
 
             return new DeletePOResponseDto();
         }
+
+        #region GRN
+        public AddGRNMasterResponseDto AddGRNMasterAndDetails(AddGRNMasterRequestDto addGRNMasterRequestDto)
+        {
+
+            #region Section For to save the GRN Master
+
+            var addGRNMasterCM = new AddGRNMasterCM()
+            {
+                GRNNumber = addGRNMasterRequestDto.GRNNumber,
+                GRNDate = addGRNMasterRequestDto.GRNDate,
+                ReceivedDate = addGRNMasterRequestDto.ReceivedDate,
+                VendorCode = addGRNMasterRequestDto.VendorCode,
+                InvoiceNumber = addGRNMasterRequestDto.InvoiceNumber,
+                InvoiceDate = addGRNMasterRequestDto.InvoiceDate,
+                Remarks = addGRNMasterRequestDto.Remarks,
+                CreatedBy = new Guid(),
+                CreatedDateTime = System.DateTime.UtcNow
+            };
+
+            transactionRepository.AddGRNMaster(addGRNMasterCM);
+            #endregion
+
+            #region Section For to save the GRN Details
+
+            foreach (var grnDetails in addGRNMasterRequestDto.GetAddGRNDetailsList)
+            {
+                var addGRNDetailsCMItemsList = new List<AddGRNDetailsCMItems>();
+
+                var cModel = new AddGRNDetailsCM();
+                var AddPoDetailsCMItems = new AddGRNDetailsCMItems
+                {
+                    GRNNumber = grnDetails.GRNNumber,
+                    GRNSerial = grnDetails.GRNSerial,
+                    PONumber = grnDetails.PONumber,
+                    POSerial = grnDetails.POSerial,
+                    ItemCode = grnDetails.ItemCode,
+                    ReceivedQuantity = grnDetails.ReceivedQuantity,
+                    CreatedBy = new Guid(),
+                    CreatedDateTime = System.DateTime.UtcNow
+                };
+
+                addGRNDetailsCMItemsList.Add(AddPoDetailsCMItems);
+
+                cModel.AddGRNDetailsCMItems = addGRNDetailsCMItemsList;
+
+                // Section to add the work order master information
+                transactionRepository.AddGRNDetails(cModel);
+            }
+
+            #endregion
+
+
+            return new AddGRNMasterResponseDto();
+        }
+
+        public UpdateGRNMasterResponseDto UpdateGRNMasterAndDetails(UpdateGRNMasterRequestDto updateGRNMasterRequestDto)
+        {
+            #region Section For to save the GRN Master
+
+            var addGRNMasterCM = new AddGRNMasterCM()
+            {
+                GRNNumber = updateGRNMasterRequestDto.GRNNumber,
+                GRNDate = updateGRNMasterRequestDto.GRNDate,
+                ReceivedDate = updateGRNMasterRequestDto.ReceivedDate,
+                VendorCode = updateGRNMasterRequestDto.VendorCode,
+                InvoiceNumber = updateGRNMasterRequestDto.InvoiceNumber,
+                InvoiceDate = updateGRNMasterRequestDto.InvoiceDate,
+                Remarks = updateGRNMasterRequestDto.Remarks
+            };
+
+            transactionRepository.UpdateGRNMaster(addGRNMasterCM);
+            #endregion
+
+            #region Section For to save the GRN Details
+
+            foreach (var grnDetails in updateGRNMasterRequestDto.GetUpdateGRNDetails)
+            {
+                var updateGRNDetailsCMItemsList = new List<UpdateGRNDetailsCMItems>();
+                var cModel = new UpdateGRNDetailsCM();
+
+                if (!grnDetails.IsNew)
+                {
+
+                    var UpdatePoDetailsCMItems = new UpdateGRNDetailsCMItems
+                    {
+                        GRNNumber = grnDetails.GRNNumber,
+                        GRNSerial = grnDetails.GRNSerial,
+                        PONumber = grnDetails.PONumber,
+                        POSerial = grnDetails.POSerial,
+                        ItemCode = grnDetails.ItemCode,
+                        ReceivedQuantity = grnDetails.ReceivedQuantity,
+                        UpdatedBy = new Guid(),
+                        UpdatedDateTime = System.DateTime.UtcNow
+                    };
+
+                    updateGRNDetailsCMItemsList.Add(UpdatePoDetailsCMItems);
+
+                    cModel.UpdateGRNDetailsCMItems = updateGRNDetailsCMItemsList;
+
+                    // Section to add the work order master information
+                    transactionRepository.UpdateGRNDetails(cModel);
+                }
+                else
+                {
+                    var addGRNDetailsCMItemsList = new List<AddGRNDetailsCMItems>();
+
+                    var cModelAddGrn = new AddGRNDetailsCM();
+                    var AddPoDetailsCMItems = new AddGRNDetailsCMItems
+                    {
+                        GRNNumber = grnDetails.GRNNumber,
+                        GRNSerial = grnDetails.GRNSerial,
+                        PONumber = grnDetails.PONumber,
+                        POSerial = grnDetails.POSerial,
+                        ItemCode = grnDetails.ItemCode,
+                        ReceivedQuantity = grnDetails.ReceivedQuantity,
+                        CreatedBy = new Guid(),
+                        CreatedDateTime = System.DateTime.UtcNow
+                    };
+
+                    addGRNDetailsCMItemsList.Add(AddPoDetailsCMItems);
+
+                    cModelAddGrn.AddGRNDetailsCMItems = addGRNDetailsCMItemsList;
+
+                    // Section to add the work order master information
+                    transactionRepository.AddGRNDetails(cModelAddGrn);
+                }
+
+            }
+
+            #endregion
+
+
+            return new UpdateGRNMasterResponseDto();
+        }
+
+        public DeleteGRNResponseDto DeleteGRNMasterAndDetails(DeleteGRNRequestDto DeleteGRNRequestDto)
+        {
+            transactionRepository.DeleteGRNMasterAndDetails(DeleteGRNRequestDto.GRNNumber, DeleteGRNRequestDto.GRNSerial, DeleteGRNRequestDto.IsDeleteFrom);
+
+            return new DeleteGRNResponseDto();
+        }
+
+        #endregion
     }
 }

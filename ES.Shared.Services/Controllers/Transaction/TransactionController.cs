@@ -295,6 +295,37 @@ namespace ES.Shared.Services.Controllers.SubContract
         #endregion
 
         #region GRN
+        [HttpGet]
+        public GetGRNNumberResponseDto GetGRNNumber()
+        {
+            GetGRNNumberResponseDto response = new GetGRNNumberResponseDto();
+            try
+            {
+                response = rTransactionProvider.GetGRNNumber();
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetGRNNumberResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetGRNNumberResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
 
         [HttpPost]
         public GetGRNFromVendorCodeResponseDto GetGRNDetailsFromVendorCode(Int64 VendorCode)
@@ -318,6 +349,168 @@ namespace ES.Shared.Services.Controllers.SubContract
             catch (Exception exception)
             {
                 response = new GetGRNFromVendorCodeResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        [HttpGet]
+        public GetGRNSupplierNameResponseDto GetGRNSupplierName()
+        {
+            GetGRNSupplierNameResponseDto response = new GetGRNSupplierNameResponseDto();
+            try
+            {
+                response = rTransactionProvider.GetGRNSupplierName();
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetGRNSupplierNameResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetGRNSupplierNameResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        [HttpPost]
+        public AddGRNMasterResponseDto AddGRNMasterAndDetails(AddGRNMasterRequestDto addGRNMasterRequestDto)
+        {
+            AddGRNMasterResponseDto response = new AddGRNMasterResponseDto();
+            try
+            {
+                response = bTransactionProvider.AddGRNMasterAndDetails(addGRNMasterRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new AddGRNMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new AddGRNMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        [HttpPost]
+        public UpdateGRNMasterResponseDto UpdateGRNMasterAndDetails(UpdateGRNMasterRequestDto updateGRNMasterRequestDto)
+        {
+            UpdateGRNMasterResponseDto response = new UpdateGRNMasterResponseDto();
+            try
+            {
+                response = bTransactionProvider.UpdateGRNMasterAndDetails(updateGRNMasterRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new UpdateGRNMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new UpdateGRNMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        [HttpGet]
+        public GetGRNMasterAndDetailsResponseDto GetGRNMasterAndDetails()
+        {
+            GetGRNMasterAndDetailsResponseDto getGrnResponseDto;
+
+            try
+            {
+                getGrnResponseDto = rTransactionProvider.GetGRNMasterAndDetails();
+                getGrnResponseDto.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                getGrnResponseDto = new GetGRNMasterAndDetailsResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                getGrnResponseDto = new GetGRNMasterAndDetailsResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return getGrnResponseDto;
+        }
+
+        [HttpPost]
+        public DeleteGRNResponseDto DeleteGRNMasterAndDetails(DeleteGRNRequestDto DeleteGRNRequestDto)
+        {
+            DeleteGRNResponseDto response;
+
+            try
+            {
+                response = bTransactionProvider.DeleteGRNMasterAndDetails(DeleteGRNRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new DeleteGRNResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new DeleteGRNResponseDto
                 {
                     ServiceResponseStatus = 0,
                     ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
