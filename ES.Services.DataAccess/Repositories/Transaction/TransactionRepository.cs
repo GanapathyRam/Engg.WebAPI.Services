@@ -252,14 +252,14 @@ namespace ES.Services.DataAccess.Repositories.Transaction
             return model;
         }
 
-        public void DeleteGRNMasterAndDetails(string GRNNumber, decimal GRNSerialNo, int IsDeleteFrom)
+        public void DeleteGRNMasterAndDetails(string GRNNumber, decimal GRNSerialNo, DeleteGRNDetailsCM deleteGRNDetailsCM, int IsDeleteFrom)
         {
             using (var connection = new DbConnectionProvider().CreateConnection())
             {
                 connection.Open();
 
                 var command = new GRNMasterAndDetailsDeleteCommand { Connection = connection };
-                command.Execute(GRNNumber, GRNSerialNo, IsDeleteFrom);
+                command.Execute(GRNNumber, GRNSerialNo, deleteGRNDetailsCM.DeleteGRNDetailsCMList.ToDataTableWithNull(), IsDeleteFrom);
             }
         }
 

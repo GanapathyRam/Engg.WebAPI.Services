@@ -67,5 +67,7 @@ namespace ES.Services.DataTransferObjects.Response.Transaction
         public decimal ReceivedQuantity { get; set; }
 
         public decimal StockQuantity { get; set; }
+
+        public bool IsDeletable { get; set; }
     }
 }

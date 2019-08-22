@@ -4,20 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ES.Services.DataTransferObjects.Request.Transaction
+namespace ES.Services.DataAccess.Model.CommandModel.Transaction
 {
-    public class DeleteGRNRequestDto
+    public class DeleteGRNDetailsCM
     {
-        public string GRNNumber { get; set; }
-
-        public decimal GRNSerial { get; set; }
-
-        public int IsDeleteFrom { get; set; }
-
-        public List<DeleteGRNDetails> GetDeleteGRNDetails { get; set; }
+        public IList<DeleteGRNDetailsCMItem> DeleteGRNDetailsCMList { get; set; }
     }
 
-    public class DeleteGRNDetails
+    public class DeleteGRNDetailsCMItem
     {
         public string GRNNumber { get; set; }
 

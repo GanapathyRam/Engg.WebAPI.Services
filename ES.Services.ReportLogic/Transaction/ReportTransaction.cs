@@ -270,6 +270,7 @@ namespace ES.Services.ReportLogic.Transaction
                 getGRNMasterDetailsResponse.ItemDescription = GrnMasterDetails.ItemDescription;
                 getGRNMasterDetailsResponse.ReceivedQuantity = GrnMasterDetails.ReceivedQuantity;
                 getGRNMasterDetailsResponse.StockQuantity = GrnMasterDetails.StockQuantity;
+                getGRNMasterDetailsResponse.IsDeletable = GrnMasterDetails.IsDeletable;
 
                 if (response.GetGRNMasterResponseList.Count > 0)
                 {

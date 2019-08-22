@@ -285,7 +285,6 @@ namespace ES.Services.BusinessLogic.Transaction
 
                 if (!grnDetails.IsNew)
                 {
-
                     var UpdatePoDetailsCMItems = new UpdateGRNDetailsCMItems
                     {
                         GRNNumber = grnDetails.GRNNumber,
@@ -340,7 +339,30 @@ namespace ES.Services.BusinessLogic.Transaction
 
         public DeleteGRNResponseDto DeleteGRNMasterAndDetails(DeleteGRNRequestDto DeleteGRNRequestDto)
         {
-            transactionRepository.DeleteGRNMasterAndDetails(DeleteGRNRequestDto.GRNNumber, DeleteGRNRequestDto.GRNSerial, DeleteGRNRequestDto.IsDeleteFrom);
+            var updateGRNDetailsCMItemsList = new List<DeleteGRNDetailsCMItem>();
+
+            var cModel = new DeleteGRNDetailsCM();
+
+            foreach (var grnDetails in DeleteGRNRequestDto.GetDeleteGRNDetails)
+            {
+                var deleteGRNDetailsCMItems = new DeleteGRNDetailsCMItem
+                {
+                    GRNNumber = grnDetails.GRNNumber,
+                    GRNSerial = grnDetails.GRNSerial,
+                    PONumber = grnDetails.PONumber,
+                    POSerial = grnDetails.POSerial,
+                    ItemCode = grnDetails.ItemCode,
+                    ReceivedQuantity = grnDetails.ReceivedQuantity,
+                    UpdatedBy = new Guid(),
+                    UpdatedDateTime = System.DateTime.UtcNow
+                };
+
+                updateGRNDetailsCMItemsList.Add(deleteGRNDetailsCMItems);
+            }
+
+            cModel.DeleteGRNDetailsCMList = updateGRNDetailsCMItemsList;
+
+            transactionRepository.DeleteGRNMasterAndDetails(DeleteGRNRequestDto.GRNNumber, DeleteGRNRequestDto.GRNSerial, cModel, DeleteGRNRequestDto.IsDeleteFrom);
 
             return new DeleteGRNResponseDto();
         }

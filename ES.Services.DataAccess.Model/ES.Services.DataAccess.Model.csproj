@@ -143,6 +143,7 @@
     <Compile Include="CommandModel\Transaction\AddGRNMasterCM.cs" />
     <Compile Include="CommandModel\Transaction\AddPoDetailsCM.cs" />
     <Compile Include="CommandModel\Transaction\AddPoMasterCM.cs" />
+    <Compile Include="CommandModel\Transaction\DeleteGRNDetailsCM.cs" />
     <Compile Include="CommandModel\Transaction\UpdateGRNDetailsCM.cs" />
     <Compile Include="CommandModel\Transaction\UpdateGRNMasterCM.cs" />
     <Compile Include="CommandModel\Transaction\UpdatePoDetailsCM.cs" />
