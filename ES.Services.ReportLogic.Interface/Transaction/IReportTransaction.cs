@@ -29,5 +29,11 @@ namespace ES.Services.ReportLogic.Interface.Transaction
         GetGRNSupplierNameResponseDto GetGRNSupplierName();
 
         GetGRNMasterAndDetailsResponseDto GetGRNMasterAndDetails();
+
+        GetIssuesNumberResponseDto GetIssuesNumber();
+
+        GetIssueDetailsResponseDto GetIssueDetails();
+
+        GetSavedIssueMasterAndDetailsResponseDto GetSavedIssueMasterAndDetails();
     }
 }

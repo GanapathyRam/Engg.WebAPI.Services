@@ -48,5 +48,19 @@ namespace ES.Services.DataAccess.Interface.Transaction
         GetGRNMasterAndDetailsQM GetGRNMasterAndDetails();
 
         void DeleteGRNMasterAndDetails(string GRNNumber, decimal GRNSerialNo, DeleteGRNDetailsCM deleteGRNDetailsCM, int IsDeleteFrom);
+
+        string GetIssuesNumber();
+
+        void AddIssueMaster(AddIssueMasterCM addIssueMasterCM);
+
+        void AddIssueDetails(AddIssueDetailsCM addIssueDetailsCM);
+
+        void UpdateIssueMaster(UpdateIssueMasterCM updateIssueMasterCM);
+
+        void UpdateIssueDetails(UpdateIssueDetailsCM updateIssueDetailsCM);
+
+        GetIssueMasterAndDetailsQM GetIssueMasterAndDetails();
+
+        GetIssueDetailsQM GetIssueDetails();
     }
 }

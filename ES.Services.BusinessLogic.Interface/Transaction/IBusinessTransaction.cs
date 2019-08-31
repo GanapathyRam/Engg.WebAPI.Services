@@ -16,5 +16,9 @@ namespace ES.Services.BusinessLogic.Interface.Transaction
         UpdateGRNMasterResponseDto UpdateGRNMasterAndDetails(UpdateGRNMasterRequestDto updateGRNMasterRequestDto);
 
         DeleteGRNResponseDto DeleteGRNMasterAndDetails(DeleteGRNRequestDto DeleteGRNRequestDto);
+
+        AddIssueMasterResponseDto AddIssueMasterAndDetails(AddIssueMasterRequestDto addIssueMasterRequestDto);
+
+        UpdateIssueMasterResponseDto UpdateIssueMasterAndDetails(UpdateIssueMasterRequestDto updateIssueMasterRequestDto);
     }
 }

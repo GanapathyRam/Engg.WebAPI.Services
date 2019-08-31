@@ -264,5 +264,95 @@ namespace ES.Services.DataAccess.Repositories.Transaction
         }
 
         #endregion
+
+        #region Issues
+
+        public string GetIssuesNumber()
+        {
+            string IssuesNumber = string.Empty;
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GRNNumberSelectCommand { Connection = connection };
+                IssuesNumber = command.Execute();
+            }
+
+            return IssuesNumber;
+        }
+
+        public void AddIssueMaster(AddIssueMasterCM addIssueMasterCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new IssueMasterInsertCommand { Connection = connection };
+                command.Execute(addIssueMasterCM);
+            }
+        }
+
+        public void AddIssueDetails(AddIssueDetailsCM addIssueDetailsCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new IssueDetailsInsertCommand { Connection = connection };
+                command.Execute(addIssueDetailsCM.AddIssueDetailsCMItems.ToDataTableWithNull(), addIssueDetailsCM);
+            }
+        }
+
+        public void UpdateIssueMaster(UpdateIssueMasterCM updateIssueMasterCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new IssueMasterUpdateCommand { Connection = connection };
+                command.Execute(updateIssueMasterCM);
+            }
+        }
+
+        public void UpdateIssueDetails(UpdateIssueDetailsCM updateIssueDetailsCM)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new IssueDetailsUpdateCommand { Connection = connection };
+                command.Execute(updateIssueDetailsCM.UpdateIssueDetailsCMItems.ToDataTableWithNull(), updateIssueDetailsCM);
+            }
+        }
+
+        public GetIssueMasterAndDetailsQM GetIssueMasterAndDetails()
+        {
+            var model = new GetIssueMasterAndDetailsQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetSavedIssueMasterAndDetailsSelectCommand { Connection = connection };
+                model = command.Execute();
+            }
+
+            return model;
+        }
+
+        public GetIssueDetailsQM GetIssueDetails()
+        {
+            var model = new GetIssueDetailsQM();
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new GetIssueDetailsSelectCommand { Connection = connection };
+                model = command.Execute();
+            }
+
+            return model;
+        }
+
+        #endregion
     }
 }

@@ -523,5 +523,171 @@ namespace ES.Shared.Services.Controllers.SubContract
 
         #endregion
 
+        #region Issues
+
+        [HttpGet]
+        public GetIssuesNumberResponseDto GetIssueNumber()
+        {
+            GetIssuesNumberResponseDto response = new GetIssuesNumberResponseDto();
+            try
+            {
+                response = rTransactionProvider.GetIssuesNumber();
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetIssuesNumberResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetIssuesNumberResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        [HttpGet]
+        public GetIssueDetailsResponseDto GetIssueDetails()
+        {
+            GetIssueDetailsResponseDto response = new GetIssueDetailsResponseDto();
+            try
+            {
+                response = rTransactionProvider.GetIssueDetails();
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new GetIssueDetailsResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new GetIssueDetailsResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        [HttpPost]
+        public AddIssueMasterResponseDto AddIssueMasterAndDetails(AddIssueMasterRequestDto addIssueMasterRequestDto)
+        {
+            AddIssueMasterResponseDto response = new AddIssueMasterResponseDto();
+
+            try
+            {
+                response = bTransactionProvider.AddIssueMasterAndDetails(addIssueMasterRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new AddIssueMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new AddIssueMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        [HttpPost]
+        public UpdateIssueMasterResponseDto UpdateIssueMasterAndDetails(UpdateIssueMasterRequestDto updateIssueMasterRequestDto)
+        {
+            UpdateIssueMasterResponseDto response = new UpdateIssueMasterResponseDto();
+            try
+            {
+                response = bTransactionProvider.UpdateIssueMasterAndDetails(updateIssueMasterRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new UpdateIssueMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new UpdateIssueMasterResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
+        [HttpGet]
+        public GetSavedIssueMasterAndDetailsResponseDto GetSavedIssueMasterAndDetails()
+        {
+            GetSavedIssueMasterAndDetailsResponseDto getGrnResponseDto;
+
+            try
+            {
+                getGrnResponseDto = rTransactionProvider.GetSavedIssueMasterAndDetails();
+                getGrnResponseDto.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                getGrnResponseDto = new GetSavedIssueMasterAndDetailsResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                getGrnResponseDto = new GetSavedIssueMasterAndDetailsResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return getGrnResponseDto;
+        }
+
+        #endregion 
+
     }
 }

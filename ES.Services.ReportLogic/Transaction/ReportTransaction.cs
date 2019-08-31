@@ -182,7 +182,7 @@ namespace ES.Services.ReportLogic.Transaction
         {
             var response = new GetGRNNumberResponseDto();
 
-            var model = transactionRepository.GetPoNumber();
+            var model = transactionRepository.GetGRNNumber();
             var currentYear = Helper.CurrentFiniancialYear();
             if (!string.IsNullOrEmpty(model))
             {
@@ -321,6 +321,121 @@ namespace ES.Services.ReportLogic.Transaction
             return response;
         }
 
+        public GetIssuesNumberResponseDto GetIssuesNumber()
+        {
+            var response = new GetIssuesNumberResponseDto();
+
+            var model = transactionRepository.GetIssuesNumber();
+            var currentYear = Helper.CurrentFiniancialYear();
+            if (!string.IsNullOrEmpty(model))
+            {
+                var savedYear = Convert.ToString(model.ToString().Substring(0, 2));
+
+
+                if (!savedYear.Equals(currentYear))
+                {
+                    response.IssuesNumber = "IS" + Convert.ToString(currentYear + "0001");
+                }
+                else
+                {
+                    var poType = "IS";
+                    var workOrderInc = Int32.Parse(model) + 1;
+                    response.IssuesNumber = Convert.ToString(poType + workOrderInc);
+                }
+            }
+            else
+            {
+                response.IssuesNumber = "IS" + Convert.ToString(currentYear + "0001");
+            }
+
+            return response;
+        }
+
+        public GetIssueDetailsResponseDto GetIssueDetails()
+        {
+            var response = new GetIssueDetailsResponseDto();
+            var model = transactionRepository.GetIssueDetails();
+            if (model != null && model.GetIssueDetailsModelList.Any())
+            {
+                response = GetIssueDetailsMapper((List<GetIssueDetailsModel>)model.GetIssueDetailsModelList, response);
+            }
+
+            return response;
+        }
+
+        public GetSavedIssueMasterAndDetailsResponseDto GetSavedIssueMasterAndDetails()
+        {
+            var response = new GetSavedIssueMasterAndDetailsResponseDto()
+            {
+                GetSavedIssueMasterResponseList = new List<GetSavedIssueMasterResponse>()
+            };
+
+            var responseDto = new GetSavedIssueMasterResponse();
+
+            var model = transactionRepository.GetIssueMasterAndDetails();
+
+            if (model != null)
+            {
+                responseDto = IssueTransactionMapper((List<GetIssueMasterAndDetailsModel>)model.GetIssueMasterAndDetailsModelList, responseDto);
+            }
+
+            foreach (var GrnMasterDetails in responseDto.GetSavedIssueDetailsResponseList)
+            {
+                var getsingle = new GetSavedIssueMasterResponse
+                {
+                    GetSavedIssueDetailsResponseList = new List<GetSavedIssueDetailsResponse>()
+                };
+                var getSavedIssueDetailsResponse = new GetSavedIssueDetailsResponse();
+
+                getSavedIssueDetailsResponse.IssueNumber = GrnMasterDetails.IssueNumber;
+                getSavedIssueDetailsResponse.IssueDate = GrnMasterDetails.IssueDate;
+                getSavedIssueDetailsResponse.DepartmentCode = GrnMasterDetails.DepartmentCode;
+                getSavedIssueDetailsResponse.Remarks = GrnMasterDetails.Remarks;
+                getSavedIssueDetailsResponse.IssueSerial = GrnMasterDetails.IssueSerial;
+                getSavedIssueDetailsResponse.ItemCode = GrnMasterDetails.ItemCode;
+                getSavedIssueDetailsResponse.ItemDescription = GrnMasterDetails.ItemDescription;
+                getSavedIssueDetailsResponse.IssueQuantity = GrnMasterDetails.IssueQuantity;
+                getSavedIssueDetailsResponse.StockQuantity = GrnMasterDetails.StockQuantity;
+
+                if (response.GetSavedIssueMasterResponseList.Count > 0)
+                {
+                    var isExist = response.GetSavedIssueMasterResponseList.Any(IssueNumber => IssueNumber.IssueNumber == GrnMasterDetails.IssueNumber);
+                    if (isExist)
+                    {
+                        var index = response.GetSavedIssueMasterResponseList.FindIndex(a => a.IssueNumber == GrnMasterDetails.IssueNumber);
+
+                        response.GetSavedIssueMasterResponseList[index].GetSavedIssueDetailsResponseList.Add(getSavedIssueDetailsResponse);
+                    }
+                    else
+                    {
+                        getsingle.IssueNumber = GrnMasterDetails.IssueNumber;
+                        getsingle.IssueDate = GrnMasterDetails.IssueDate;
+                        getsingle.DepartmentCode = GrnMasterDetails.DepartmentCode;
+                        getsingle.Remarks = GrnMasterDetails.Remarks;
+
+                        getsingle.GetSavedIssueDetailsResponseList.Add
+                        (getSavedIssueDetailsResponse);
+
+                        response.GetSavedIssueMasterResponseList.Add(getsingle);
+                    }
+                }
+                else
+                {
+                    getsingle.IssueNumber = GrnMasterDetails.IssueNumber;
+                    getsingle.IssueDate = GrnMasterDetails.IssueDate;
+                    getsingle.DepartmentCode = GrnMasterDetails.DepartmentCode;
+                    getsingle.Remarks = GrnMasterDetails.Remarks;
+
+                    getsingle.GetSavedIssueDetailsResponseList.Add
+                    (getSavedIssueDetailsResponse);
+
+                    response.GetSavedIssueMasterResponseList.Add(getsingle);
+                }
+            }
+
+            return response;
+        }
+
 
         #region Private Method
 
@@ -376,6 +491,24 @@ namespace ES.Services.ReportLogic.Transaction
                 Mapper.Map<List<GetGRNMasterAndDetailsModel>, List<GetGRNDetailsResponse>>(list);
 
             return getGRNMasterResponse;
+        }
+
+        private static GetSavedIssueMasterResponse IssueTransactionMapper(List<GetIssueMasterAndDetailsModel> list, GetSavedIssueMasterResponse getSavedIssueMasterResponse)
+        {
+            Mapper.CreateMap<GetIssueMasterAndDetailsModel, GetSavedIssueDetailsResponse>();
+            getSavedIssueMasterResponse.GetSavedIssueDetailsResponseList =
+                Mapper.Map<List<GetIssueMasterAndDetailsModel>, List<GetSavedIssueDetailsResponse>>(list);
+
+            return getSavedIssueMasterResponse;
+        }
+
+        private static GetIssueDetailsResponseDto GetIssueDetailsMapper(List<GetIssueDetailsModel> list, GetIssueDetailsResponseDto getIssueDetailsResponseDto)
+        {
+            Mapper.CreateMap<GetIssueDetailsModel, GetIssueDetailsResponseModel>();
+            getIssueDetailsResponseDto.getIssueDetailsResponseModelList =
+                Mapper.Map<List<GetIssueDetailsModel>, List<GetIssueDetailsResponseModel>>(list);
+
+            return getIssueDetailsResponseDto;
         }
 
 

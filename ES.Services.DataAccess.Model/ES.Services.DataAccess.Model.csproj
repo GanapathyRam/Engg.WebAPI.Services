@@ -141,11 +141,15 @@
     <Compile Include="CommandModel\SubContract\ScReceivingDetailSerialCM.cs" />
     <Compile Include="CommandModel\Transaction\AddGRNDetailsCM.cs" />
     <Compile Include="CommandModel\Transaction\AddGRNMasterCM.cs" />
+    <Compile Include="CommandModel\Transaction\AddIssueDetailsCM.cs" />
+    <Compile Include="CommandModel\Transaction\AddIssueMasterCM.cs" />
     <Compile Include="CommandModel\Transaction\AddPoDetailsCM.cs" />
     <Compile Include="CommandModel\Transaction\AddPoMasterCM.cs" />
     <Compile Include="CommandModel\Transaction\DeleteGRNDetailsCM.cs" />
     <Compile Include="CommandModel\Transaction\UpdateGRNDetailsCM.cs" />
     <Compile Include="CommandModel\Transaction\UpdateGRNMasterCM.cs" />
+    <Compile Include="CommandModel\Transaction\UpdateIssueDetailsCM.cs" />
+    <Compile Include="CommandModel\Transaction\UpdateIssueMasterCM.cs" />
     <Compile Include="CommandModel\Transaction\UpdatePoDetailsCM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryModel\Authentication\CustomUserInformationQueryModel.cs" />
@@ -313,6 +317,9 @@
     <Compile Include="QueryModel\Transaction\GetGRNMasterAndDetailsModel.cs" />
     <Compile Include="QueryModel\Transaction\GetGRNMasterAndDetailsQM.cs" />
     <Compile Include="QueryModel\Transaction\GetGRNSupplierNameQM.cs" />
+    <Compile Include="QueryModel\Transaction\GetIssueDetailsQM.cs" />
+    <Compile Include="QueryModel\Transaction\GetIssueMasterAndDetailsModel.cs" />
+    <Compile Include="QueryModel\Transaction\GetIssueMasterAndDetailsQM.cs" />
     <Compile Include="QueryModel\Transaction\GetPoDetailsSerialNoQM.cs" />
     <Compile Include="QueryModel\Transaction\GetPoResponseModel.cs" />
     <Compile Include="QueryModel\Transaction\GetPoResponseQM.cs" />

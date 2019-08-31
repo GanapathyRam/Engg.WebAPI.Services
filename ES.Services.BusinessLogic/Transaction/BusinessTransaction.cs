@@ -368,5 +368,128 @@ namespace ES.Services.BusinessLogic.Transaction
         }
 
         #endregion
+
+        #region Issues
+
+        public AddIssueMasterResponseDto AddIssueMasterAndDetails(AddIssueMasterRequestDto addIssueMasterRequestDto)
+        {
+
+            #region Section For to save the Issue Master
+
+            var addIssueMasterCM = new AddIssueMasterCM()
+            {
+                IssueNumber = addIssueMasterRequestDto.IssueNumber,
+                IssueDate = addIssueMasterRequestDto.IssueDate,
+                DepartmentCode = addIssueMasterRequestDto.DepartmentCode,
+                Remarks = addIssueMasterRequestDto.Remarks,
+                CreatedBy = new Guid(),
+                CreatedDateTime = System.DateTime.UtcNow
+            };
+
+            transactionRepository.AddIssueMaster(addIssueMasterCM);
+            #endregion
+
+            #region Section For to save the GRN Details
+
+            foreach (var issueDetails in addIssueMasterRequestDto.getAddIssueDetailsRequestList)
+            {
+                var AddIssueDetailsCMListItems = new List<AddIssueDetailsCMItems>();
+
+                var cModel = new AddIssueDetailsCM();
+                var addIssueDetailsCMItems = new AddIssueDetailsCMItems
+                {
+                    IssueNumber = issueDetails.IssueNumber,
+                    IssueSerial = issueDetails.IssueSerial,
+                    IssueQuantity = issueDetails.IssueQuantity,
+                    ItemCode = issueDetails.ItemCode,
+                    CreatedBy = new Guid(),
+                    CreatedDateTime = System.DateTime.UtcNow
+                };
+
+                AddIssueDetailsCMListItems.Add(addIssueDetailsCMItems);
+
+                cModel.AddIssueDetailsCMItems = AddIssueDetailsCMListItems;
+
+                transactionRepository.AddIssueDetails(cModel);
+            }
+
+            #endregion
+
+
+            return new AddIssueMasterResponseDto();
+        }
+
+        public UpdateIssueMasterResponseDto UpdateIssueMasterAndDetails(UpdateIssueMasterRequestDto updateIssueMasterRequestDto)
+        {
+            #region Section For to save the Issue Master
+
+            var updateIssueMasterCM = new UpdateIssueMasterCM()
+            {
+                IssueNumber = updateIssueMasterRequestDto.IssueNumber,
+                IssueDate = updateIssueMasterRequestDto.IssueDate,
+                DepartmentCode = updateIssueMasterRequestDto.DepartmentCode,
+                Remarks = updateIssueMasterRequestDto.Remarks,
+            };
+
+            transactionRepository.UpdateIssueMaster(updateIssueMasterCM);
+            #endregion
+
+            #region Section For to save the GRN Details
+
+            foreach (var updateIssueDetails in updateIssueMasterRequestDto.getUpdateIssueDetailsRequestDto)
+            {
+                var updateIssueDetailsCMItemsList = new List<UpdateIssueDetailsCMItems>();
+                var cModel = new UpdateIssueDetailsCM();
+
+                if (!updateIssueDetails.IsNew)
+                {
+                    var UpdateIssueDetailsCMItems = new UpdateIssueDetailsCMItems
+                    {
+                        IssueNumber = updateIssueDetails.IssueNumber,
+                        IssueSerial = updateIssueDetails.IssueSerial,
+                        IssueQuantity = updateIssueDetails.IssueQuantity,
+                        ItemCode = updateIssueDetails.ItemCode,
+                        UpdatedBy = new Guid(),
+                        UpdatedDateTime = System.DateTime.UtcNow
+                    };
+
+                    updateIssueDetailsCMItemsList.Add(UpdateIssueDetailsCMItems);
+
+                    cModel.UpdateIssueDetailsCMItems = updateIssueDetailsCMItemsList;
+
+                    // Section to add the issues master information
+                    transactionRepository.UpdateIssueDetails(cModel);
+                }
+                else
+                {
+                    var AddIssueDetailsCMListItems = new List<AddIssueDetailsCMItems>();
+
+                    var cAddModel = new AddIssueDetailsCM();
+                    var addIssueDetailsCMItems = new AddIssueDetailsCMItems
+                    {
+                        IssueNumber = updateIssueDetails.IssueNumber,
+                        IssueSerial = updateIssueDetails.IssueSerial,
+                        IssueQuantity = updateIssueDetails.IssueQuantity,
+                        ItemCode = updateIssueDetails.ItemCode,
+                        CreatedBy = new Guid(),
+                        CreatedDateTime = System.DateTime.UtcNow
+                    };
+
+                    AddIssueDetailsCMListItems.Add(addIssueDetailsCMItems);
+
+                    cAddModel.AddIssueDetailsCMItems = AddIssueDetailsCMListItems;
+
+                    transactionRepository.AddIssueDetails(cAddModel);
+                }
+
+            }
+
+            #endregion
+
+
+            return new UpdateIssueMasterResponseDto();
+        }
+
+        #endregion
     }
 }
