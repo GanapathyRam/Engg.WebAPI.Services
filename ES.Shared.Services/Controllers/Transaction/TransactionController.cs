@@ -687,6 +687,39 @@ namespace ES.Shared.Services.Controllers.SubContract
             return getGrnResponseDto;
         }
 
+        [HttpPost]
+        public DeleteIssueResponseDto DeleteIssueMasterAndDetails(DeleteIssueRequestDto DeleteIssueRequestDto)
+        {
+            DeleteIssueResponseDto response;
+
+            try
+            {
+                response = bTransactionProvider.DeleteIssueMasterAndDetails(DeleteIssueRequestDto);
+                response.ServiceResponseStatus = 1;
+            }
+            catch (SSException applicationException)
+            {
+                response = new DeleteIssueResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorMessage = applicationException.Message,
+                    ErrorCode = applicationException.ExceptionCode
+                };
+
+            }
+            catch (Exception exception)
+            {
+                response = new DeleteIssueResponseDto
+                {
+                    ServiceResponseStatus = 0,
+                    ErrorCode = ExceptionAttributes.ExceptionCodes.InternalServerError,
+                    ErrorMessage = exception.Message
+                };
+            }
+
+            return response;
+        }
+
         #endregion 
 
     }

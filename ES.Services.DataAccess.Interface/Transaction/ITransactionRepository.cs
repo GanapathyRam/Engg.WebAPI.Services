@@ -62,5 +62,7 @@ namespace ES.Services.DataAccess.Interface.Transaction
         GetIssueMasterAndDetailsQM GetIssueMasterAndDetails();
 
         GetIssueDetailsQM GetIssueDetails();
+
+        void DeleteIssueMasterAndDetails(string IssueNumber, decimal IssueSerialNo, DeleteIssueDetailsCM deleteIssueDetailsCM, int IsDeleteFrom);
     }
 }

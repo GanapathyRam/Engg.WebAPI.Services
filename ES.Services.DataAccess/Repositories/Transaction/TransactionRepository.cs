@@ -353,6 +353,18 @@ namespace ES.Services.DataAccess.Repositories.Transaction
             return model;
         }
 
+        public void DeleteIssueMasterAndDetails(string IssueNumber, decimal IssueSerialNo, DeleteIssueDetailsCM deleteIssueDetailsCM, int IsDeleteFrom)
+        {
+            using (var connection = new DbConnectionProvider().CreateConnection())
+            {
+                connection.Open();
+
+                var command = new IssueMasterAndDetailsDeleteCommand { Connection = connection };
+                command.Execute(IssueNumber, IssueSerialNo, deleteIssueDetailsCM.DeleteIssueDetailsCMItemList.ToDataTableWithNull(), IsDeleteFrom);
+            }
+        }
+
+
         #endregion
     }
 }

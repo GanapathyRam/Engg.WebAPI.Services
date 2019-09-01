@@ -20,5 +20,7 @@ namespace ES.Services.BusinessLogic.Interface.Transaction
         AddIssueMasterResponseDto AddIssueMasterAndDetails(AddIssueMasterRequestDto addIssueMasterRequestDto);
 
         UpdateIssueMasterResponseDto UpdateIssueMasterAndDetails(UpdateIssueMasterRequestDto updateIssueMasterRequestDto);
+
+        DeleteIssueResponseDto DeleteIssueMasterAndDetails(DeleteIssueRequestDto DeleteIssueRequestDto);
     }
 }

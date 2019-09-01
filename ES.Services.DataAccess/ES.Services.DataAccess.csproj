@@ -236,6 +236,7 @@
     <Compile Include="Commands\Transaction\GRNNumberSelectCommand.cs" />
     <Compile Include="Commands\Transaction\IssueDetailsInsertCommand.cs" />
     <Compile Include="Commands\Transaction\IssueDetailsUpdateCommand.cs" />
+    <Compile Include="Commands\Transaction\IssueMasterAndDetailsDeleteCommand.cs" />
     <Compile Include="Commands\Transaction\IssueMasterInsertCommand.cs" />
     <Compile Include="Commands\Transaction\IssueMasterUpdateCommand.cs" />
     <Compile Include="Commands\Transaction\IssuesNumberSelectCommand.cs" />

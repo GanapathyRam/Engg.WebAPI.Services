@@ -490,6 +490,33 @@ namespace ES.Services.BusinessLogic.Transaction
             return new UpdateIssueMasterResponseDto();
         }
 
+        public DeleteIssueResponseDto DeleteIssueMasterAndDetails(DeleteIssueRequestDto DeleteIssueRequestDto)
+        {
+            var deleteIssueDetailsCMItemsList = new List<DeleteIssueDetailsCMItem>();
+
+            var cModel = new DeleteIssueDetailsCM();
+
+            foreach (var grnDetails in DeleteIssueRequestDto.GetDeleteIssuesDetails)
+            {
+                var deleteIssueDetailsCMItem = new DeleteIssueDetailsCMItem
+                {
+                    IssueNumber = grnDetails.IssueNumber,
+                    IssueSerial = grnDetails.IssueSerial,
+                    ItemCode = grnDetails.ItemCode,
+                    IssueQuantity = grnDetails.IssueQuantity,
+                    UpdatedBy = new Guid(),
+                    UpdatedDateTime = System.DateTime.UtcNow
+                };
+
+                deleteIssueDetailsCMItemsList.Add(deleteIssueDetailsCMItem);
+            }
+
+            cModel.DeleteIssueDetailsCMItemList = deleteIssueDetailsCMItemsList;
+
+            transactionRepository.DeleteIssueMasterAndDetails(DeleteIssueRequestDto.IssueNumber, DeleteIssueRequestDto.IssueSerial, cModel, DeleteIssueRequestDto.IsDeleteFrom);
+
+            return new DeleteIssueResponseDto();
+        }
         #endregion
     }
 }

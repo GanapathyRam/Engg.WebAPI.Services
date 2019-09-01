@@ -155,6 +155,7 @@
     <Compile Include="Request\Transaction\AddGRNMasterRequestDto.cs" />
     <Compile Include="Request\Transaction\AddIssueMasterRequestDto.cs" />
     <Compile Include="Request\Transaction\DeleteGRNRequestDto.cs" />
+    <Compile Include="Request\Transaction\DeleteIssueRequestDto.cs" />
     <Compile Include="Request\Transaction\DeletePORequestDto.cs" />
     <Compile Include="Request\Transaction\GetGRNFromVendorCodeRequestDto.cs" />
     <Compile Include="Request\Transaction\PORequestDto.cs" />
@@ -330,6 +331,7 @@
     <Compile Include="Response\Transaction\AddGRNMasterResponseDto.cs" />
     <Compile Include="Response\Transaction\AddIssueMasterResponseDto.cs" />
     <Compile Include="Response\Transaction\DeleteGRNResponseDto.cs" />
+    <Compile Include="Response\Transaction\DeleteIssueResponseDto.cs" />
     <Compile Include="Response\Transaction\DeletePOResponseDto.cs" />
     <Compile Include="Response\Transaction\GetGRNFromVendorCodeResponseDto.cs" />
     <Compile Include="Response\Transaction\GetGRNMasterAndDetailsResponseDto.cs" />
