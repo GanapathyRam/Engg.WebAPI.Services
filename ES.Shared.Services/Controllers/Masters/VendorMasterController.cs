@@ -126,7 +126,7 @@ namespace ES.Shared.Services.Controllers.Masters
         }
 
         [HttpPost]
-        public GetVendorMasterListResponseDto GetVendorMasterList(Char CategoryCode = 'C')
+        public GetVendorMasterListResponseDto GetVendorMasterList(Char CategoryCode = '*')
         {
             GetVendorMasterListResponseDto response;
 
